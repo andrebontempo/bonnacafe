@@ -1,4 +1,3 @@
 #README.TXT
 
-Este arquivo explica o conteúdo do Site Bonna Café...
-Nova mudança
+A última atualização do site bonnacafe foi em 27/12/2021.
