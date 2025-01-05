@@ -1,0 +1,126 @@
+#_001::after	{content:	"R$	9,50	";}	 /*	Combo 1 - Suco de caixinha + misto quente	*/
+#_002::after	{content:	"R$	12,50	";}	 /*	Combo 2 - Café Longo + pão de queijo recheado	*/
+#_003::after	{content:	"R$	9,50	";}	 /*	Combo 3 - Cappuccino + biscoito de queijo	*/
+#_004::after	{content:	"R$	9,00	";}	 /*	Combo 4 - Café c/leite + pão de queijo	*/
+#_005::after	{content:	"R$	10,50	";}	 /*	Combo 5 - Toddynho + misto quente	*/
+#_006::after	{content:	"R$	10,00	";}	 /*	Combo 6 - Coca-cola ns + misto quente	*/
+#_007::after	{content:	"R$	14,00	";}	 /*	Segunda-feira - Sanduiche Natural de peito de peru + Suco Natural de limão 300ml	*/
+#_008::after	{content:	"R$	10,50	";}	 /*	Terça-feira - Salgado Costela de Adão + Guaraná antartica lata 310ml	*/
+#_009::after	{content:	"R$	12,00	";}	 /*	Quarta-feira - Torta de frango + suco de caixinha	*/
+#_010::after	{content:	"R$	12,50	";}	 /*	Quinta-feira - Bureak de frango + Suco de polpa de cajá	*/
+#_011::after	{content:	"R$	10,00	";}	 /*	Sexta-feira - Mini pizza + coca-cola 200ml	*/
+#_012::after	{content:	"R$	6,50	";}	 /*	Enroladinho de Presunto e Queijo	*/
+#_013::after	{content:	"R$	6,50	";}	 /*	Enroladinho de queijo	*/
+#_014::after	{content:	"R$	6,50	";}	 /*	Enroladinho de salsicha	*/
+#_015::after	{content:	"R$	6,50	";}	 /*	Pastel de carne com bacon	*/
+#_016::after	{content:	"R$	6,50	";}	 /*	Esfirra de carne	*/
+#_017::after	{content:	"R$	6,50	";}	 /*	Pão hambúrguer	*/
+#_018::after	{content:	"R$	6,50	";}	 /*	Pão Napolitano	*/
+#_019::after	{content:	"R$	6,50	";}	 /*	Pão pizza	*/
+#_020::after	{content:	"R$	6,50	";}	 /*	Pão da vovó	*/
+#_021::after	{content:	"R$	6,50	";}	 /*	Pão hambúrguer integral	*/
+#_022::after	{content:	"R$	6,50	";}	 /*	Pão da vovó integral	*/
+#_023::after	{content:	"R$	6,50	";}	 /*	Pão pizza integral	*/
+#_024::after	{content:	"R$	6,50	";}	 /*	Religiosa	*/
+#_025::after	{content:	"R$	6,50	";}	 /*	Costela de Adão	*/
+#_026::after	{content:	"R$	6,50	";}	 /*	Croissant de frango	*/
+#_027::after	{content:	"R$	6,50	";}	 /*	Croissant de chocolate	*/
+#_028::after	{content:	"R$	10,00	";}	 /*	Empadão goiano	*/
+#_029::after	{content:	"R$	7,50	";}	 /*	Mini Pizza (calabresa e portuguesa)	*/
+#_030::after	{content:	"R$	7,00	";}	 /*	Folheado Bureak de frango	*/
+#_031::after	{content:	"R$	7,50	";}	 /*	Folheado de queijo minas com peito de peru	*/
+#_032::after	{content:	"R$	6,50	";}	 /*	Coxinha Assada	*/
+#_033::after	{content:	"R$	10,00	";}	 /*	Torta de frango com requeijão	*/
+#_034::after	{content:	"R$	4,00	";}	 /*	Pão de Queijo	*/
+#_035::after	{content:	"R$	4,50	";}	 /*	Biscoito de queijo ferradura	*/
+#_036::after	{content:	"R$	5,00	";}	 /*	Chipa de queijo (4 unidades)	*/
+#_037::after	{content:	"R$	6,50	";}	 /*	Pão de queijo recheado com peito de peru e requeijão	*/
+#_038::after	{content:	"R$	7,50	";}	 /*	Pão de queijo recheado com nutella	*/
+#_039::after	{content:	"R$	9,00	";}	 /*	Ovo	*/
+#_040::after	{content:	"R$	9,00	";}	 /*	Peito de Peru	*/
+#_041::after	{content:	"R$	10,50	";}	 /*	Frango	*/
+#_042::after	{content:	"R$	7,50	";}	 /*	Pão c/ ovo	*/
+#_043::after	{content:	"R$	7,50	";}	 /*	Pão c/ queijo mussarela .	*/
+#_044::after	{content:	"R$	7,50	";}	 /*	Pão c/ queijo mussarela e presunto	*/
+#_045::after	{content:	"R$	8,50	";}	 /*	Pão c/ ovo e queijo mussarela	*/
+#_046::after	{content:	"R$	8,50	";}	 /*	Pão c/ ovo, queijo mussarela e presunto	*/
+#_047::after	{content:	"R$	8,50	";}	 /*	Pão c/ ovo e peito de peru	*/
+#_048::after	{content:	"R$	8,50	";}	 /*	Pão c/ queijo mussarela e peito de peru	*/
+#_049::after	{content:	"R$	9,50	";}	 /*	Pão c/ ovo, queijo mussarela e peito de peru	*/
+#_050::after	{content:	"R$	10,00	";}	 /*	Pão c/ ovo, queijo mussarela presunto e peito de peru	*/
+#_051::after	{content:	"R$	7,50	";}	 /*	Com manteiga	*/
+#_052::after	{content:	"R$	9,00	";}	 /*	Com ovo	*/
+#_053::after	{content:	"R$	10,00	";}	 /*	Com ovo e queijo	*/
+#_054::after	{content:	"R$	9,00	";}	 /*	Com mussarela	*/
+#_055::after	{content:	"R$	9,50	";}	 /*	Com mussarela e presunto	*/
+#_056::after	{content:	"R$	11,00	";}	 /*	Com frango	*/
+#_057::after	{content:	"R$	12,50	";}	 /*	Com frango e queijo	*/
+#_058::after	{content:	"R$	12,50	";}	 /*	Com frango e ovo	*/
+#_059::after	{content:	"R$	13,00	";}	 /*	Com carne seca	*/
+#_060::after	{content:	"R$	15,50	";}	 /*	Com carne seca e queijo	*/
+#_061::after	{content:	"R$	16,50	";}	 /*	Com carne seca, ovo e queijo .	*/
+#_062::after	{content:	"R$	7,00	";}	 /*	Com manteiga	*/
+#_063::after	{content:	"R$	8,00	";}	 /*	Com ovo	*/
+#_064::after	{content:	"R$	10,50	";}	 /*	Com ovo e queijo	*/
+#_065::after	{content:	"R$	9,00	";}	 /*	Com queijo mussarela	*/
+#_066::after	{content:	"R$	9,50	";}	 /*	Com queijo mussarela e presunto	*/
+#_067::after	{content:	"R$	9,50	";}	 /*	Peito de peru, tomate e orégano	*/
+#_068::after	{content:	"R$	10,00	";}	 /*	Com frango	*/
+#_069::after	{content:	"R$	12,50	";}	 /*	Com frango e quejo	*/
+#_070::after	{content:	"R$	12,50	";}	 /*	Com carne seca	*/
+#_071::after	{content:	"R$	15,50	";}	 /*	Com carne seca e quejo	*/
+#_072::after	{content:	"R$	10,00	";}	 /*	Com Nutella	*/
+#_073::after	{content:	"R$	9,00	";}	 /*	Com leite condensado	*/
+#_074::after	{content:	"R$	9,50	";}	 /*	Queijo mussarela	*/
+#_075::after	{content:	"R$	10,00	";}	 /*	Queijo mussarela e presunto	*/
+#_076::after	{content:	"R$	10,00	";}	 /*	Peito de peru, tomate e orégano	*/
+#_077::after	{content:	"R$	11,50	";}	 /*	Frango	*/
+#_078::after	{content:	"R$	12,50	";}	 /*	Frango com queijo mussarela	*/
+#_079::after	{content:	"R$	12,50	";}	 /*	Carne seca	*/
+#_080::after	{content:	"R$	16,00	";}	 /*	Carne seca com queijo mussarela	*/
+#_081::after	{content:	"R$	18,00	";}	 /*	Omelete para Almoço	*/
+#_082::after	{content:	"R$	2,50	";}	 /*	Ovos mexidos com orégano	*/
+#_083::after	{content:	"R$	10,50	";}	 /*	Omelete (com 02 ovos) - Queijo mussarela	*/
+#_084::after	{content:	"R$	11,00	";}	 /*	Omelete (com 02 ovos) - Queijo mussarela e presunto	*/
+#_085::after	{content:	"R$	11,50	";}	 /*	Omelete (com 02 ovos) - Peito de peru, tomate e orégano	*/
+#_086::after	{content:	"R$	12,00	";}	 /*	Omelete (com 02 ovos) - Frango	*/
+#_087::after	{content:	"R$	13,50	";}	 /*	Omelete (com 02 ovos) - Frango com queijo	*/
+#_088::after	{content:	"R$	13,00	";}	 /*	Carne seca	*/
+#_089::after	{content:	"R$	16,50	";}	 /*	Carne seca com queijo	*/
+#_090::after	{content:	"R$	4,50	";}	 /*	Toddynho	*/
+#_091::after	{content:	"R$	3,50	";}	 /*	Suco de caixinha	*/
+#_092::after	{content:	"R$	5,50	";}	 /*	Refrigerante 310ml	*/
+#_093::after	{content:	"R$	4,00	";}	 /*	Refrigerante 200/220ml	*/
+#_094::after	{content:	"R$	6,50	";}	 /*	Refrigerante 600ml	*/
+#_095::after	{content:	"R$	6,90	";}	 /*	Chá gelado (pêssego, pêssego zero, limão e Matte Leão)	*/
+#_096::after	{content:	"R$	7,50	";}	 /*	Matte Leão batido com limão 500ml	*/
+#_097::after	{content:	"R$	4,50	";}	 /*	Água com gás	*/
+#_098::after	{content:	"R$	4,00	";}	 /*	Água normal	*/
+#_099::after	{content:	"R$	6,80	";}	 /*	H2O limonedo	*/
+#_100::after	{content:	"R$	13,00	";}	 /*	Energético	*/
+#_101::after	{content:	"R$	7,00	";}	 /*	Guaraviton	*/
+#_102::after	{content:	"R$	10,00	";}	 /*	Cerveja long neck	*/
+#_103::after	{content:	"R$	5,50	";}	 /*	Expresso curto	*/
+#_104::after	{content:	"R$	6,50	";}	 /*	Expresso longo	*/
+#_105::after	{content:	"R$	6,50	";}	 /*	Café Suave	*/
+#_106::after	{content:	"R$	6,50	";}	 /*	Café com leite	*/
+#_107::after	{content:	"R$	6,50	";}	 /*	Capuccino	*/
+#_108::after	{content:	"R$	6,50	";}	 /*	Chocolate quente	*/
+#_109::after	{content:	"R$	5,50	";}	 /*	Leite quente	*/
+#_110::after	{content:	"R$	6,00	";}	 /*	Chá quente de limão	*/
+#_111::after	{content:	"R$	7,50	";}	 /*	Toddy - Gelado - 300ml	*/
+#_112::after	{content:	"R$	10,00	";}	 /*	Toddy - Gelado - 500ml	*/
+#_113::after	{content:	"R$	6,50	";}	 /*	300ml - Abacaxi, Laranja, Limão, Maçã e Mamão	*/
+#_114::after	{content:	"R$	9,00	";}	 /*	500ml - Abacaxi, Laranja, Limão, Maçã e Mamão	*/
+#_115::after	{content:	"R$	7,00	";}	 /*	Com Água 500ml	*/
+#_116::after	{content:	"R$	10,00	";}	 /*	Mistos (2 sabores )500ml	*/
+#_117::after	{content:	"R$	9,00	";}	 /*	Com Leite 500ml	*/
+#_118::after	{content:	"R$	11,00	";}	 /*	Leite, aveia + 2 frutas 500ml 	*/
+#_119::after	{content:	"R$	10,00	";}	 /*	Com Água 500ml + banana	*/
+#_120::after	{content:	"R$	12,00	";}	 /*	Com Leite 500ml + banana	*/
+#_121::after	{content:	"R$	6,50	";}	 /*	Gelatina mosaico	*/
+#_122::after	{content:	"R$	7,50	";}	 /*	Gelatina cremosa 	*/
+#_123::after	{content:	"R$	6,00	";}	 /*	Pudim de leite condensado	*/
+#_124::after	{content:	"R$	6,00	";}	 /*	Pudim de chocolate 	*/
+#_125::after	{content:	"R$	7,50	";}	 /*	Salada de frutas 	*/
+#_126::after	{content:	"R$	6,50	";}	 /*	Mousse de maracujá	*/
