@@ -1,1105 +1,1281 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bonna Café</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bonna Café</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <!-- Favicons testando o novo git
+    <!-- Favicons testando o novo git
     ================================================== -->
-  <link rel="shortcut icon" href="img/favicon.ico?v=2" type="image/x-icon">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="img/favicon.ico?v=2" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="img/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="img/apple-touch-icon-114x114.png"
+    />
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/font-awesome/css/font-awesome.css"
+    />
 
-  <!-- Stylesheet d
+    <!-- Stylesheet d
     ================================================== -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/nivo-lightbox.css">
-  <link rel="stylesheet" type="text/css" href="css/nivo-lightbox/default.css">
-  <link rel="stylesheet" type="text/css" href="css/precos.css">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/nivo-lightbox/nivo-lightbox.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/nivo-lightbox/default.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/precos.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700"
+      rel="stylesheet"
+    />
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-</head>
+  </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-  <!-- Navigation
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation
     ==========================================-->
-  <nav id="menu" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span
-            class="icon-bar"></span> </button>
-        <a class="navbar-brand page-scroll" href="#page-top">Bonna Café</a>
-      </div>
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span> <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="#page-top">Bonna Café</a>
+        </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#features" class="page-scroll">Combos Especiais</a></li>
-          <li><a href="#bonnadodia" class="page-scroll">Bonna do Dia</a></li>
-          <li><a href="#about" class="page-scroll">Sobre Nós</a></li>
-          <li><a href="#restaurant-menu" class="page-scroll">Cardápio</a></li>
-          <li><a href="#portfolio" class="page-scroll">Poesia com Café</a></li>
-          <li><a href="#team" class="page-scroll">Equipe</a></li>
-          <li><a href="#call-reservation" class="page-scroll">Contato</a></li>
-        </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#features" class="page-scroll">Combos Especiais</a>
+            </li>
+            <li><a href="#bonnadodia" class="page-scroll">Bonna do Dia</a></li>
+            <li><a href="#about" class="page-scroll">Sobre Nós</a></li>
+            <li><a href="#restaurant-menu" class="page-scroll">Cardápio</a></li>
+            <li>
+              <a href="#portfolio" class="page-scroll">Poesia com Café</a>
+            </li>
+            <li><a href="#team" class="page-scroll">Equipe</a></li>
+            <li><a href="#call-reservation" class="page-scroll">Contato</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
       </div>
-      <!-- /.navbar-collapse -->
-    </div>
-  </nav>
-  <!-- Header -->
-  <header id="header">
-    <div class="intro">
-      <div class="overlay">
-        <div class="container">
-          <div class="row">
-            <div class="intro-text">
-              <img style="margin-bottom:-60px;" src="img/logo_bonna.png" width="175dp">
-              <br>
-              <br>
-              <h1>Bonna Café</h1>
-              <br>
-              <img src="img/qr_bonna.png" width="140dp">
-              <p style="margin-top:20px">Pedidos pelo zap: (61) 99411-2677<br>Entregas somente no Hangar 5 e no Gilberto Salomão<br>Aberto de Segunda a Sexta de 8:30h às 19:00h</p>
-              <a href="#about" class="btn btn-custom btn-lg page-scroll">Sobre Nós</a>
+    </nav>
+    <!-- Header -->
+    <header id="header">
+      <div class="intro">
+        <div class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="intro-text">
+                <img
+                  style="margin-bottom: -60px"
+                  src="img/logo_bonna.png"
+                  width="175dp"
+                />
+                <br />
+                <br />
+                <h1>Bonna Café</h1>
+                <br />
+                <img src="img/qr_bonna.png" width="140dp" />
+                <p style="margin-top: 20px">
+                  Pedidos pelo zap: (61) 99411-2677<br />Entregas somente no
+                  Hangar 5 e no Gilberto Salomão<br />Aberto de Segunda a Sexta
+                  de 8:30h às 19:00h
+                </p>
+                <a href="#about" class="btn btn-custom btn-lg page-scroll"
+                  >Sobre Nós</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- Features Section COMBO ESPECIAIS-->
-  <div id="features" class="text-center">
-    <div class="container">
-      <div class="section-title">
-        <h2>Combos Especiais</h2>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(001) Combo 1 - <span id="_001"></span></h3>
-            <img src="img/specials/1.jpg" class="img-responsive" alt="">
-            <p>Suco de Caixinha + Misto quente</p>
-          </div>
+    <!-- Features Section COMBO ESPECIAIS-->
+    <div id="features" class="text-center">
+      <div class="container">
+        <div class="section-title">
+          <h2>Combos Especiais</h2>
+          <hr />
         </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(002) Combo 2 - <span id="_002"></span></h3>
-            <img src="img/specials/2.jpg" class="img-responsive" alt="">
-            <p>Café Longo + Pão de Queijo Recheado</p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(001) Combo 1 - <span id="_001"></span></h3>
+              <img src="img/specials/1.jpg" class="img-responsive" alt="" />
+              <p>Suco de Caixinha + Misto quente</p>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(003) Combo 3 - <span id="_003"></span></h3>
-            <img src="img/specials/3.jpg" class="img-responsive" alt="">
-            <p>Cappuccino + Biscoito de Queijo</p>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(002) Combo 2 - <span id="_002"></span></h3>
+              <img src="img/specials/2.jpg" class="img-responsive" alt="" />
+              <p>Café Longo + Pão de Queijo Recheado</p>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(004) Combo 4 - <span id="_004"></span></h3>
-            <img src="img/specials/4.jpg" class="img-responsive" alt="">
-            <p>Café com Leite + Pão de Queijo</p>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(003) Combo 3 - <span id="_003"></span></h3>
+              <img src="img/specials/3.jpg" class="img-responsive" alt="" />
+              <p>Cappuccino + Biscoito de Queijo</p>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(005) Combo 5 - <span id="_005"></span></h3>
-            <img src="img/specials/5.jpg" class="img-responsive" alt="">
-            <p>Toddynho + Misto Quente</p>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(004) Combo 4 - <span id="_004"></span></h3>
+              <img src="img/specials/4.jpg" class="img-responsive" alt="" />
+              <p>Café com Leite + Pão de Queijo</p>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(006) Combo 6 - <span id="_006"></span></h3>
-            <img src="img/specials/6.jpg" class="img-responsive" alt="">
-            <p>Coca-cola ns + Misto Quente</p>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(005) Combo 5 - <span id="_005"></span></h3>
+              <img src="img/specials/5.jpg" class="img-responsive" alt="" />
+              <p>Toddynho + Misto Quente</p>
+            </div>
           </div>
-        </div>
-      <h6>*Figuras meramente ilustrativas</h6>
-      </div>
-    </div>
-  </div>
-
-  <!-- Features Section BONNA DO DIA-->
-  <div id="bonnadodia" class="text-center">
-    <div class="container">
-      <div class="section-title">
-        <h2>Bonna do Dia</h2>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="features-item">
-            <h3>(007) Segunda-feira - <span id="_007"></span></h3>
-            <img src="img/bonnadodia/1.jpg" class="img-responsive" alt="">
-            <p>Sanduíche Natural de Peito de Peru + Suco Natural de Limão 300ml</p>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(006) Combo 6 - <span id="_006"></span></h3>
+              <img src="img/specials/6.jpg" class="img-responsive" alt="" />
+              <p>Coca-cola ns + Misto Quente</p>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class="features-item">
-            <h3>(008) Terça-feira - <span id="_008"></span></h3>
-            <img src="img/bonnadodia/2.jpg" class="img-responsive" alt="">
-            <p>Salgado Costela de Adão + Guaraná Antártica - Lata 310ml</p>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(009) Quarta-feira - <span id="_009"></span></h3>
-            <img src="img/bonnadodia/3.jpg" class="img-responsive" alt="">
-            <p>Torta de Frango + Suco de Caixinha</p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(010) Quinta-feira - <span id="_010"></span></h3>
-            <img src="img/bonnadodia/4.jpg" class="img-responsive" alt="">
-            <p>Bureak de Frango + Suco de Polpa de Cajá</p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="features-item">
-            <h3>(011) Sexta-feira - <span id="_011"></span></h3>
-            <img src="img/bonnadodia/5.jpg" class="img-responsive" alt="">
-            <p>Mini Pizza + Coca-cola 200ml</p>
-          </div>
-        </div>
-      <h6>*Figuras meramente ilustrativas</h6>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <!-- About Section -->
-  <div id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 ">
-          <div class="about-img"><img src="img/about.jpg" class="img-responsive" alt=""></div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="about-text">
-            <h2>Nosso Bonna Café</h2>
-            <hr>
-            <p>O Bonna Café foi idealizado para atender a todos os trabalhadores do Hangar 5. Para isso, oferece mais de 100 opções de lanches de vários sabores.</p>
-            <h3>Equipe experiente</h3>
-            <p>Com mais de 10 anos trabalhando no ramo de lanchonete, a equipe do Bonna Café desempenha com maestria a tarefa de atender a todos os pedidos dos clientes.</p>
-          </div>
+          <h6>*Figuras meramente ilustrativas</h6>
         </div>
       </div>
     </div>
-  </div>
 
-
-
-
-  <!-- Restaurant Menu Section -->
-  <div id="restaurant-menu">
-    <div class="section-title text-center center">
-      <div class="overlay">
-        <h2>Cardápio Completo</h2>
-        <hr>
-        <p>Uma variedade de lanches de todos os tipos. Escolha o seu!!!</p>
+    <!-- Features Section BONNA DO DIA-->
+    <div id="bonnadodia" class="text-center">
+      <div class="container">
+        <div class="section-title">
+          <h2>Bonna do Dia</h2>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="features-item">
+              <h3>(007) Segunda-feira - <span id="_007"></span></h3>
+              <img src="img/bonnadodia/1.jpg" class="img-responsive" alt="" />
+              <p>
+                Sanduíche Natural de Peito de Peru + Suco Natural de Limão 300ml
+              </p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="features-item">
+              <h3>(008) Terça-feira - <span id="_008"></span></h3>
+              <img src="img/bonnadodia/2.jpg" class="img-responsive" alt="" />
+              <p>Salgado Costela de Adão + Guaraná Antártica - Lata 310ml</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(009) Quarta-feira - <span id="_009"></span></h3>
+              <img src="img/bonnadodia/3.jpg" class="img-responsive" alt="" />
+              <p>Torta de Frango + Suco de Caixinha</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(010) Quinta-feira - <span id="_010"></span></h3>
+              <img src="img/bonnadodia/4.jpg" class="img-responsive" alt="" />
+              <p>Bureak de Frango + Suco de Polpa de Cajá</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <div class="features-item">
+              <h3>(011) Sexta-feira - <span id="_011"></span></h3>
+              <img src="img/bonnadodia/5.jpg" class="img-responsive" alt="" />
+              <p>Mini Pizza + Coca-cola 200ml</p>
+            </div>
+          </div>
+          <h6>*Figuras meramente ilustrativas</h6>
+        </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Salgados</h2>
-            <hr>
 
-            <div class="menu-item">
-              <div class="menu-item-name">(012) Enroladinho de Presunto e Queijo</div>
-              <div class="menu-item-price"><span id="_012"></span></div>
-              <div class="menu-item-description">Presunto, queijo mussarela, tomate e orégano.</div>
+    <!-- About Section -->
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <div class="about-img">
+              <img src="img/about.jpg" class="img-responsive" alt="" />
             </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(013) Enroladinho Queijo</div>
-              <div class="menu-item-price"><span id="_013"></span></div>
-              <div class="menu-item-description">Queijo mussarela.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(014) Enroladinho de Salsicha</div>
-              <div class="menu-item-price"><span id="_014"></span></div>
-              <div class="menu-item-description">Salsicha e queijo mussarela.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(015) Pastel de Carne com Bacon</div>
-              <div class="menu-item-price"><span id="_015"></span></div>
-              <div class="menu-item-description">Carne moída, bacon, tomate, milho, azeitona, cebola, pimenta de cheiro e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(016) Esfirra de Carne</div>
-              <div class="menu-item-price"><span id="_016"></span></div>
-              <div class="menu-item-description">Carne moída, tomate, milho, azeitona,
-                cebola, pimenta de cheiro e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(017) Pão Hambúrguer</div>
-              <div class="menu-item-price"><span id="_017"></span></div>
-              <div class="menu-item-description">Hambúrguer de carne bovina, queijo mussarela, cheddar, tomate e gergelim.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(018) Pão Napolitano</div>
-              <div class="menu-item-price"><span id="_018"></span></div>
-              <div class="menu-item-description">Presunto, queijo mussarela, calabresa, queijo parmesão e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(019) Pão Pizza</div>
-              <div class="menu-item-price"><span id="_019"></span></div>
-              <div class="menu-item-description">Presunto, queijo mussarela, catupiry, tomate, cebola e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(020) Pão da Vovó</div>
-              <div class="menu-item-price"><span id="_020"></span></div>
-              <div class="menu-item-description">Queijo mussarela, peito de frango desfiado, catupiry, cebola, cebolinha, orégano e manjericão.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(021) Pão Hambúrguer Integral</div>
-              <div class="menu-item-price"><span id="_021"></span></div>
-              <div class="menu-item-description">Hambúrguer de carne bovina, queijo mussarela, cheddar, tomate e gergelim.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(022) Pão da Vovó Integral</div>
-              <div class="menu-item-price"><span id="_022"></span></div>
-              <div class="menu-item-description">Queijo mussarela, peito de frango desfiado, catupiry, cebola, cebolinha, orégano e manjericão.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(023) Pão Pizza Integral</div>
-              <div class="menu-item-price"><span id="_023"></span></div>
-              <div class="menu-item-description">Presunto, queijo mussarela, catupiry, tomate, cebola e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(024) Religiosa</div>
-              <div class="menu-item-price"><span id="_024"></span></div>
-              <div class="menu-item-description">Peito de frango desfiado, queijo mussar catupiry, queijo minas, azeitona, milho, cebola, cebolinha, pimenta de cheiro.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(025) Costela e Adão</div>
-              <div class="menu-item-price"><span id="_025"></span></div>
-              <div class="menu-item-description">Presunto, queijo mussarela, peito de frango desfiado, catupiry, tomate, gergelim, cebola, salsinha, pimenta de cheiro e do reino,orégano e manjericão.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(026) Croissant de Frango</div>
-              <div class="menu-item-price"><span id="_026"></span></div>
-              <div class="menu-item-description">Peito de frango desfiado, milho, azeitona, cebola, pimenta de cheiro e do reino e orégano.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(027) Croissant de chocolate</div>
-              <div class="menu-item-price"><span id="_027"></span></div>
-              <div class="menu-item-description">Chocolate.</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(028) Empadão Goiano</div>
-              <div class="menu-item-price"><span id="_028"></span></div>
-              <div class="menu-item-description">Peito de frango, queijo mussarela, linguiça suína, palmito, azeitona, batata, cebola, salsa pimenta de cheiro e do reino e orégano.</div>
-            </div>
-
           </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Assados na Hora</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(029) Mini Pizza</div>
-              <div class="menu-item-price"><span id="_029"></span></div>
-              <div class="menu-item-description"></div>
+          <div class="col-xs-12 col-md-6">
+            <div class="about-text">
+              <h2>Nosso Bonna Café</h2>
+              <hr />
+              <p>
+                O Bonna Café foi idealizado para atender a todos os
+                trabalhadores do Hangar 5. Para isso, oferece mais de 100 opções
+                de lanches de vários sabores.
+              </p>
+              <h3>Equipe experiente</h3>
+              <p>
+                Com mais de 10 anos trabalhando no ramo de lanchonete, a equipe
+                do Bonna Café desempenha com maestria a tarefa de atender a
+                todos os pedidos dos clientes.
+              </p>
             </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(030) Folheado Bureak de Frango</div>
-              <div class="menu-item-price"><span id="_030"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(031) Folheado de Queijo Minas com Peito de Peru</div>
-              <div class="menu-item-price"><span id="_031"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(032) Torta de Frango com Requeijão</div>
-              <div class="menu-item-price"><span id="_032"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Pão de Queijo</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(033) Super Lanche</div>
-              <div class="menu-item-price"><span id="_033"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(034) Biscoito de Queijo Ferradura</div>
-              <div class="menu-item-price"><span id="_034"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(035) Chipa de Queijo - 4 unidades</div>
-              <div class="menu-item-price"><span id="_035"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(036) Mini Pão de Queijo Recheado - 3 Unidades</div>
-              <div class="menu-item-price"><span id="_036"></span></div>
-              <div class="menu-item-description">goiabada, catupiry e frango</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(037) Pão de Queijo Recheado com Peito de Peru e Requeijão</div>
-              <div class="menu-item-price"><span id="_037"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(038) Pão de Queijo Recheado com Nutela</div>
-              <div class="menu-item-price"><span id="_038"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-
-          </div>
-        </div>
-
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Sanduíche Natural</h2>
-            <hr>
-            <div class="menu-item-description">Adicionais R$ 2,00</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(039) Ovo</div>
-              <div class="menu-item-price"><span id="_039"></span></div>
-              <div class="menu-item-description">Pão integral, alface, tomate, queijo mussarela, maionese light, requeijão(Adicionais R$ 2,00)</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(040) Peito de Peru</div>
-              <div class="menu-item-price"><span id="_040"></span></div>
-              <div class="menu-item-description">Pão integral, alface, tomate, queijo mussarela, maionese light, requeijão(Adicionais R$ 2,00)</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(041) Frango</div>
-              <div class="menu-item-price"><span id="_041"></span></div>
-              <div class="menu-item-description">Pão integral, alface, tomate, queijo mussarela, maionese light, requeijão(Adicionais R$ 2,00)</div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Pão na Chapa</h2>
-            <hr>
-            <div class="menu-item-description">Adicionais R$ 2,00</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(042) Pão com Ovo</div>
-              <div class="menu-item-price"><span id="_042"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(043) Pão com Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_043"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(044) Pão com Queijo Mussarela e Presunto</div>
-              <div class="menu-item-price"><span id="_044"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(045) Pão com Ovo e Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_045"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(046) Pão com Ovo, Queijo Mussarela e Presunto</div>
-              <div class="menu-item-price"><span id="_046"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(047) Pão com Ovo e Peito de Peru</div>
-              <div class="menu-item-price"><span id="_047"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(048) Pão com Queijo Mussarela e Peito de Peru</div>
-              <div class="menu-item-price"><span id="_048"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(049) Pão com Ovo, Queijo Mussarela e Peito de Peru</div>
-              <div class="menu-item-price"><span id="_049"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(050) Pão com Ovo, Mussarela, Presunto e Peito de Peru</div>
-              <div class="menu-item-price"><span id="_050"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Cuscuz</h2>
-            <hr>
-            <div class="menu-item-description">Adicionais R$ 2,00</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(051) Com Manateiga</div>
-              <div class="menu-item-price"><span id="_051"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(052) Com Ovo</div>
-              <div class="menu-item-price"><span id="_052"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(053) Com Ovo e Queijo</div>
-              <div class="menu-item-price"><span id="_053"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(054) Com Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_054"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(055) Com Queijo Mussarela e Presunto</div>
-              <div class="menu-item-price"><span id="_055"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(056) Com Frango</div>
-              <div class="menu-item-price"><span id="_056"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(057) Com Frango e Queijo</div>
-              <div class="menu-item-price"><span id="_057"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(058) Com Frango e Ovo</div>
-              <div class="menu-item-price"><span id="_058"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(059)Com Carne Seca</div>
-              <div class="menu-item-price"><span id="_059"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">(060)Com Carne Seca e Queijo</div>
-              <div class="menu-item-price"><span id="_060"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-            <div class="menu-item">
-              <div class="menu-item-name">(061)Com Carne Seca, Ovo e Queijo</div>
-              <div class="menu-item-price"><span id="_061"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Tapioca</h2>
-            <hr>
-            <div class="menu-item-description">Adicionais R$ 2,00</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(062) Com Manteiga</div>
-              <div class="menu-item-price"><span id="_062"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(063) Com Ovo</div>
-              <div class="menu-item-price"><span id="_063"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(064) Com Ovo e Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_064"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(065) Com Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_065"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(066) Com Queijo Mussarela e Presunto</div>
-              <div class="menu-item-price"><span id="_066"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(067) Peito de Peru, Tomate e Orégano</div>
-              <div class="menu-item-price"><span id="_067"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(068) Frango</div>
-              <div class="menu-item-price"><span id="_068"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(069) Com Frango e Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_069"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-            
-            <div class="menu-item">
-              <div class="menu-item-name">(070) Com Carne Seca</div>
-              <div class="menu-item-price"><span id="_070"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(071) Com Carne Seca e Queijo</div>
-              <div class="menu-item-price"><span id="_071"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-                
-            <div class="menu-item">
-              <div class="menu-item-name">(072) Com Nutella</div>
-              <div class="menu-item-price"><span id="_072"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(073) Com Leite Condensado</div>
-              <div class="menu-item-price"><span id="_073"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Crepioca</h2>
-            <hr>
-            <div class="menu-item-description">Adicionais R$ 2,00</div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(074) Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_074"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(075) Queijo Mussarela e Presunto</div>
-              <div class="menu-item-price"><span id="_075"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(076) Peito de Peru, Tomate e Orégano</div>
-              <div class="menu-item-price"><span id="_076"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(077) Frango</div>
-              <div class="menu-item-price"><span id="_077"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(078) Frango e Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_078"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-            
-            <div class="menu-item">
-              <div class="menu-item-name">(079) Carne Seca</div>
-              <div class="menu-item-price"><span id="_079"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(080) Carne Seca com Queijo Mussarela</div>
-              <div class="menu-item-price"><span id="_080"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Especiais com Ovo</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(081) Omelete 3 Ovos e 2 Recheitos - Para Almoço</div>
-              <div class="menu-item-price"><span id="_081"></span></div>
-              <div class="menu-item-description">Recheios: Quejo Mussarela, Frango, Peito de Peru, Presunto Tomate e Orégano</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(082) Ovos Mexidos com Orégano</div>
-              <div class="menu-item-price"><span id="_082"></span></div>
-              <div class="menu-item-description">Unidade</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(083) Omelete 2 Ovos</div>
-              <div class="menu-item-price"><span id="_083"></span></div>
-              <div class="menu-item-description">Queijo Mussarela</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(084) Omelete 2 Ovos</div>
-              <div class="menu-item-price"><span id="_084"></span></div>
-              <div class="menu-item-description">Queijo Mussarela e Presunto</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(085) Omelete 2 Ovos</div>
-              <div class="menu-item-price"><span id="_085"></span></div>
-              <div class="menu-item-description">Peito de Peru, Tomate e Orégano</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(086) Omelete 2 Ovos</div>
-              <div class="menu-item-price"><span id="_086"></span></div>
-              <div class="menu-item-description">Frango</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(087) Omelete 2 Ovos</div>
-              <div class="menu-item-price"><span id="_087"></span></div>
-              <div class="menu-item-description">Frango com Queijo Mussarela</div>
-            </div>
-            
-            <div class="menu-item">
-              <div class="menu-item-name">(088) Carne Seca</div>
-              <div class="menu-item-price"><span id="_088"></span></div>
-              <div class="menu-item-description">Frango</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(089) Carne Seca com Queijo</div>
-              <div class="menu-item-price"><span id="_089"></span></div>
-              <div class="menu-item-description">Frango com Queijo Mussarela</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Bebidas</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(090) Toddynho</div>
-              <div class="menu-item-price"><span id="_090"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(091) Suco de Caixinha</div>
-              <div class="menu-item-price"><span id="_091"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(092) Refrigerante 310ml</div>
-              <div class="menu-item-price"><span id="_092"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(093) Refrigerante 200/220ml</div>
-              <div class="menu-item-price"><span id="_093"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(094) Refrigerante 600ml</div>
-              <div class="menu-item-price"><span id="_094"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(095) Chá gelado</div>
-              <div class="menu-item-price"><span id="_095"></span></div>
-              <div class="menu-item-description">Pêssego, Pêssego Zero, Limão e Matte Leão</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(096) Matte Leão batido com limão 500ml</div>
-              <div class="menu-item-price"><span id="_096"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(097) Água com Gás</div>
-              <div class="menu-item-price"><span id="_097"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(098) Água sem Gás</div>
-              <div class="menu-item-price"><span id="_098"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(099) H2O Limonedo</div>
-              <div class="menu-item-price"><span id="_099"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(100) Energético</div>
-              <div class="menu-item-price"><span id="_100"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(101) Guaraviton</div>
-              <div class="menu-item-price"><span id="_101"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(102) Cerveja long neck</div>
-              <div class="menu-item-price"><span id="_102"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Cafés</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(103) Expresso Curto</div>
-              <div class="menu-item-price"><span id="_103"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(104) Expresso Longo</div>
-              <div class="menu-item-price"><span id="_104"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(105) Café Suave</div>
-              <div class="menu-item-price"><span id="_105"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(106) Café com Leite</div>
-              <div class="menu-item-price"><span id="_106"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(107) Capuccino</div>
-              <div class="menu-item-price"><span id="_107"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(108) Chocolate Quente</div>
-              <div class="menu-item-price"><span id="_108"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(109) Leite Quente</div>
-              <div class="menu-item-price"><span id="_109"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(110) Chá Quente de Limão</div>
-              <div class="menu-item-price"><span id="_110"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Achocolatados</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(111) Toddy Gelado - 300ml</div>
-              <div class="menu-item-price"><span id="_111"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(112) Toddy Gelado - 500ml</div>
-              <div class="menu-item-price"><span id="_112"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Sucos Naturais</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(113) 300ml</div>
-              <div class="menu-item-price"><span id="_113"></span></div>
-              <div class="menu-item-description">Sabores: Abacaxi/Laranja/Limão/Maçã/Mamão</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(114) 500ml</div>
-              <div class="menu-item-price"><span id="_114"></span></div>
-              <div class="menu-item-description">Sabores: Abacaxi/Laranja/Limão/Maçã/Mamão</div>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Sucos de Poupa</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(115) Com Água 500ml</div>
-              <div class="menu-item-price"><span id="_115"></span></div>
-              <div class="menu-item-description">Sabores: Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(116) Mistos - 2 sabores - 500ml</div>
-              <div class="menu-item-price"><span id="_116"></span></div>
-              <div class="menu-item-description">Sabores: Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva</div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(117) Com Leite 500ml</div>
-              <div class="menu-item-price"><span id="_117"></span></div>
-              <div class="menu-item-description">Sabores: Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva</div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Vitamina</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(118) 500ml</div>
-              <div class="menu-item-price"><span id="_118"></span></div>
-              <div class="menu-item-description">Sabores: Banana/Maçã/Mamão/Abacate</div>
-            </div>
-
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Poupa de Açaí</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(119) Com Água 500ml + 1 Banana</div>
-              <div class="menu-item-price"><span id="_119"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(120) Com Leite 500ml + 1 Banana</div>
-              <div class="menu-item-price"><span id="_120"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="menu-section">
-            <h2 class="menu-section-title">Sobremesas</h2>
-            <hr>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(121) Gelatina mosaico</div>
-              <div class="menu-item-price"><span id="_121"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(122) Gelatina cremosa</div>
-              <div class="menu-item-price"><span id="_122"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(123) Pudim de leite condensado</div>
-              <div class="menu-item-price"><span id="_123"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(124) Pudim de chocolate</div>
-              <div class="menu-item-price"><span id="_124"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(125) Salada de frutas</div>
-              <div class="menu-item-price"><span id="_125"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-            <div class="menu-item">
-              <div class="menu-item-name">(126) Mousse de maracujá</div>
-              <div class="menu-item-price"><span id="_126"></span></div>
-              <div class="menu-item-description"></div>
-            </div>
-
-
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Portfolio Section -->
-  <div id="portfolio">
-    <div class="section-title text-center center">
-      <div class="overlay">
-        <h2>Poesia com Café</h2>
-        <hr>
-        <p>Conheça ou relembre poesias clássicas enquanto saboreia o seu café aqui no Bonna.</p>
+    <!-- Restaurant Menu Section -->
+    <div id="restaurant-menu">
+      <div class="section-title text-center center">
+        <div class="overlay">
+          <h2>Cardápio Completo</h2>
+          <hr />
+          <p>Uma variedade de lanches de todos os tipos. Escolha o seu!!!</p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Salgados</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (012) Enroladinho de Presunto e Queijo
+                </div>
+                <div class="menu-item-price"><span id="_012"></span></div>
+                <div class="menu-item-description">
+                  Presunto, queijo mussarela, tomate e orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(013) Enroladinho Queijo</div>
+                <div class="menu-item-price"><span id="_013"></span></div>
+                <div class="menu-item-description">Queijo mussarela.</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(014) Enroladinho de Salsicha</div>
+                <div class="menu-item-price"><span id="_014"></span></div>
+                <div class="menu-item-description">
+                  Salsicha e queijo mussarela.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (015) Pastel de Carne com Bacon
+                </div>
+                <div class="menu-item-price"><span id="_015"></span></div>
+                <div class="menu-item-description">
+                  Carne moída, bacon, tomate, milho, azeitona, cebola, pimenta
+                  de cheiro e orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(016) Esfirra de Carne</div>
+                <div class="menu-item-price"><span id="_016"></span></div>
+                <div class="menu-item-description">
+                  Carne moída, tomate, milho, azeitona, cebola, pimenta de
+                  cheiro e orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(017) Pão Hambúrguer</div>
+                <div class="menu-item-price"><span id="_017"></span></div>
+                <div class="menu-item-description">
+                  Hambúrguer de carne bovina, queijo mussarela, cheddar, tomate
+                  e gergelim.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(018) Pão Napolitano</div>
+                <div class="menu-item-price"><span id="_018"></span></div>
+                <div class="menu-item-description">
+                  Presunto, queijo mussarela, calabresa, queijo parmesão e
+                  orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(019) Pão Pizza</div>
+                <div class="menu-item-price"><span id="_019"></span></div>
+                <div class="menu-item-description">
+                  Presunto, queijo mussarela, catupiry, tomate, cebola e
+                  orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(020) Pão da Vovó</div>
+                <div class="menu-item-price"><span id="_020"></span></div>
+                <div class="menu-item-description">
+                  Queijo mussarela, peito de frango desfiado, catupiry, cebola,
+                  cebolinha, orégano e manjericão.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(021) Pão Hambúrguer Integral</div>
+                <div class="menu-item-price"><span id="_021"></span></div>
+                <div class="menu-item-description">
+                  Hambúrguer de carne bovina, queijo mussarela, cheddar, tomate
+                  e gergelim.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(022) Pão da Vovó Integral</div>
+                <div class="menu-item-price"><span id="_022"></span></div>
+                <div class="menu-item-description">
+                  Queijo mussarela, peito de frango desfiado, catupiry, cebola,
+                  cebolinha, orégano e manjericão.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(023) Pão Pizza Integral</div>
+                <div class="menu-item-price"><span id="_023"></span></div>
+                <div class="menu-item-description">
+                  Presunto, queijo mussarela, catupiry, tomate, cebola e
+                  orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(024) Religiosa</div>
+                <div class="menu-item-price"><span id="_024"></span></div>
+                <div class="menu-item-description">
+                  Peito de frango desfiado, queijo mussar catupiry, queijo
+                  minas, azeitona, milho, cebola, cebolinha, pimenta de cheiro.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(025) Costela e Adão</div>
+                <div class="menu-item-price"><span id="_025"></span></div>
+                <div class="menu-item-description">
+                  Presunto, queijo mussarela, peito de frango desfiado,
+                  catupiry, tomate, gergelim, cebola, salsinha, pimenta de
+                  cheiro e do reino,orégano e manjericão.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(026) Croissant de Frango</div>
+                <div class="menu-item-price"><span id="_026"></span></div>
+                <div class="menu-item-description">
+                  Peito de frango desfiado, milho, azeitona, cebola, pimenta de
+                  cheiro e do reino e orégano.
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(027) Croissant de chocolate</div>
+                <div class="menu-item-price"><span id="_027"></span></div>
+                <div class="menu-item-description">Chocolate.</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(028) Empadão Goiano</div>
+                <div class="menu-item-price"><span id="_028"></span></div>
+                <div class="menu-item-description">
+                  Peito de frango, queijo mussarela, linguiça suína, palmito,
+                  azeitona, batata, cebola, salsa pimenta de cheiro e do reino e
+                  orégano.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Assados na Hora</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(029) Mini Pizza</div>
+                <div class="menu-item-price"><span id="_029"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (030) Folheado Bureak de Frango
+                </div>
+                <div class="menu-item-price"><span id="_030"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (031) Folheado de Queijo Minas com Peito de Peru
+                </div>
+                <div class="menu-item-price"><span id="_031"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (032) Torta de Frango com Requeijão
+                </div>
+                <div class="menu-item-price"><span id="_032"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Pão de Queijo</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(033) Super Lanche</div>
+                <div class="menu-item-price"><span id="_033"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (034) Biscoito de Queijo Ferradura
+                </div>
+                <div class="menu-item-price"><span id="_034"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (035) Chipa de Queijo - 4 unidades
+                </div>
+                <div class="menu-item-price"><span id="_035"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (036) Mini Pão de Queijo Recheado - 3 Unidades
+                </div>
+                <div class="menu-item-price"><span id="_036"></span></div>
+                <div class="menu-item-description">
+                  goiabada, catupiry e frango
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (037) Pão de Queijo Recheado com Peito de Peru e Requeijão
+                </div>
+                <div class="menu-item-price"><span id="_037"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (038) Pão de Queijo Recheado com Nutela
+                </div>
+                <div class="menu-item-price"><span id="_038"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Sanduíche Natural</h2>
+              <hr />
+              <div class="menu-item-description">Adicionais R$ 2,00</div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(039) Ovo</div>
+                <div class="menu-item-price"><span id="_039"></span></div>
+                <div class="menu-item-description">
+                  Pão integral, alface, tomate, queijo mussarela, maionese
+                  light, requeijão(Adicionais R$ 2,00)
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(040) Peito de Peru</div>
+                <div class="menu-item-price"><span id="_040"></span></div>
+                <div class="menu-item-description">
+                  Pão integral, alface, tomate, queijo mussarela, maionese
+                  light, requeijão(Adicionais R$ 2,00)
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(041) Frango</div>
+                <div class="menu-item-price"><span id="_041"></span></div>
+                <div class="menu-item-description">
+                  Pão integral, alface, tomate, queijo mussarela, maionese
+                  light, requeijão(Adicionais R$ 2,00)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Pão na Chapa</h2>
+              <hr />
+              <div class="menu-item-description">Adicionais R$ 2,00</div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(042) Pão com Ovo</div>
+                <div class="menu-item-price"><span id="_042"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(043) Pão com Queijo Mussarela</div>
+                <div class="menu-item-price"><span id="_043"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (044) Pão com Queijo Mussarela e Presunto
+                </div>
+                <div class="menu-item-price"><span id="_044"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (045) Pão com Ovo e Queijo Mussarela
+                </div>
+                <div class="menu-item-price"><span id="_045"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (046) Pão com Ovo, Queijo Mussarela e Presunto
+                </div>
+                <div class="menu-item-price"><span id="_046"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (047) Pão com Ovo e Peito de Peru
+                </div>
+                <div class="menu-item-price"><span id="_047"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (048) Pão com Queijo Mussarela e Peito de Peru
+                </div>
+                <div class="menu-item-price"><span id="_048"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (049) Pão com Ovo, Queijo Mussarela e Peito de Peru
+                </div>
+                <div class="menu-item-price"><span id="_049"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (050) Pão com Ovo, Mussarela, Presunto e Peito de Peru
+                </div>
+                <div class="menu-item-price"><span id="_050"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Cuscuz</h2>
+              <hr />
+              <div class="menu-item-description">Adicionais R$ 2,00</div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(051) Com Manateiga</div>
+                <div class="menu-item-price"><span id="_051"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(052) Com Ovo</div>
+                <div class="menu-item-price"><span id="_052"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(053) Com Ovo e Queijo</div>
+                <div class="menu-item-price"><span id="_053"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(054) Com Queijo Mussarela</div>
+                <div class="menu-item-price"><span id="_054"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (055) Com Queijo Mussarela e Presunto
+                </div>
+                <div class="menu-item-price"><span id="_055"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(056) Com Frango</div>
+                <div class="menu-item-price"><span id="_056"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(057) Com Frango e Queijo</div>
+                <div class="menu-item-price"><span id="_057"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(058) Com Frango e Ovo</div>
+                <div class="menu-item-price"><span id="_058"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(059)Com Carne Seca</div>
+                <div class="menu-item-price"><span id="_059"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-name">(060)Com Carne Seca e Queijo</div>
+                <div class="menu-item-price"><span id="_060"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (061)Com Carne Seca, Ovo e Queijo
+                </div>
+                <div class="menu-item-price"><span id="_061"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Tapioca</h2>
+              <hr />
+              <div class="menu-item-description">Adicionais R$ 2,00</div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(062) Com Manteiga</div>
+                <div class="menu-item-price"><span id="_062"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(063) Com Ovo</div>
+                <div class="menu-item-price"><span id="_063"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (064) Com Ovo e Queijo Mussarela
+                </div>
+                <div class="menu-item-price"><span id="_064"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(065) Com Queijo Mussarela</div>
+                <div class="menu-item-price"><span id="_065"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (066) Com Queijo Mussarela e Presunto
+                </div>
+                <div class="menu-item-price"><span id="_066"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (067) Peito de Peru, Tomate e Orégano
+                </div>
+                <div class="menu-item-price"><span id="_067"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(068) Frango</div>
+                <div class="menu-item-price"><span id="_068"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (069) Com Frango e Queijo Mussarela
+                </div>
+                <div class="menu-item-price"><span id="_069"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(070) Com Carne Seca</div>
+                <div class="menu-item-price"><span id="_070"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(071) Com Carne Seca e Queijo</div>
+                <div class="menu-item-price"><span id="_071"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(072) Com Nutella</div>
+                <div class="menu-item-price"><span id="_072"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(073) Com Leite Condensado</div>
+                <div class="menu-item-price"><span id="_073"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Crepioca</h2>
+              <hr />
+              <div class="menu-item-description">Adicionais R$ 2,00</div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(074) Queijo Mussarela</div>
+                <div class="menu-item-price"><span id="_074"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (075) Queijo Mussarela e Presunto
+                </div>
+                <div class="menu-item-price"><span id="_075"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (076) Peito de Peru, Tomate e Orégano
+                </div>
+                <div class="menu-item-price"><span id="_076"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(077) Frango</div>
+                <div class="menu-item-price"><span id="_077"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (078) Frango e Queijo Mussarela
+                </div>
+                <div class="menu-item-price"><span id="_078"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(079) Carne Seca</div>
+                <div class="menu-item-price"><span id="_079"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (080) Carne Seca com Queijo Mussarela
+                </div>
+                <div class="menu-item-price"><span id="_080"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Especiais com Ovo</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (081) Omelete 3 Ovos e 2 Recheitos - Para Almoço
+                </div>
+                <div class="menu-item-price"><span id="_081"></span></div>
+                <div class="menu-item-description">
+                  Recheios: Quejo Mussarela, Frango, Peito de Peru, Presunto
+                  Tomate e Orégano
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(082) Ovos Mexidos com Orégano</div>
+                <div class="menu-item-price"><span id="_082"></span></div>
+                <div class="menu-item-description">Unidade</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(083) Omelete 2 Ovos</div>
+                <div class="menu-item-price"><span id="_083"></span></div>
+                <div class="menu-item-description">Queijo Mussarela</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(084) Omelete 2 Ovos</div>
+                <div class="menu-item-price"><span id="_084"></span></div>
+                <div class="menu-item-description">
+                  Queijo Mussarela e Presunto
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(085) Omelete 2 Ovos</div>
+                <div class="menu-item-price"><span id="_085"></span></div>
+                <div class="menu-item-description">
+                  Peito de Peru, Tomate e Orégano
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(086) Omelete 2 Ovos</div>
+                <div class="menu-item-price"><span id="_086"></span></div>
+                <div class="menu-item-description">Frango</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(087) Omelete 2 Ovos</div>
+                <div class="menu-item-price"><span id="_087"></span></div>
+                <div class="menu-item-description">
+                  Frango com Queijo Mussarela
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(088) Carne Seca</div>
+                <div class="menu-item-price"><span id="_088"></span></div>
+                <div class="menu-item-description">Frango</div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(089) Carne Seca com Queijo</div>
+                <div class="menu-item-price"><span id="_089"></span></div>
+                <div class="menu-item-description">
+                  Frango com Queijo Mussarela
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Bebidas</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(090) Toddynho</div>
+                <div class="menu-item-price"><span id="_090"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(091) Suco de Caixinha</div>
+                <div class="menu-item-price"><span id="_091"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(092) Refrigerante 310ml</div>
+                <div class="menu-item-price"><span id="_092"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(093) Refrigerante 200/220ml</div>
+                <div class="menu-item-price"><span id="_093"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(094) Refrigerante 600ml</div>
+                <div class="menu-item-price"><span id="_094"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(095) Chá gelado</div>
+                <div class="menu-item-price"><span id="_095"></span></div>
+                <div class="menu-item-description">
+                  Pêssego, Pêssego Zero, Limão e Matte Leão
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (096) Matte Leão batido com limão 500ml
+                </div>
+                <div class="menu-item-price"><span id="_096"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(097) Água com Gás</div>
+                <div class="menu-item-price"><span id="_097"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(098) Água sem Gás</div>
+                <div class="menu-item-price"><span id="_098"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(099) H2O Limonedo</div>
+                <div class="menu-item-price"><span id="_099"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(100) Energético</div>
+                <div class="menu-item-price"><span id="_100"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(101) Guaraviton</div>
+                <div class="menu-item-price"><span id="_101"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(102) Cerveja long neck</div>
+                <div class="menu-item-price"><span id="_102"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Cafés</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(103) Expresso Curto</div>
+                <div class="menu-item-price"><span id="_103"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(104) Expresso Longo</div>
+                <div class="menu-item-price"><span id="_104"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(105) Café Suave</div>
+                <div class="menu-item-price"><span id="_105"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(106) Café com Leite</div>
+                <div class="menu-item-price"><span id="_106"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(107) Capuccino</div>
+                <div class="menu-item-price"><span id="_107"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(108) Chocolate Quente</div>
+                <div class="menu-item-price"><span id="_108"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(109) Leite Quente</div>
+                <div class="menu-item-price"><span id="_109"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(110) Chá Quente de Limão</div>
+                <div class="menu-item-price"><span id="_110"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Achocolatados</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(111) Toddy Gelado - 300ml</div>
+                <div class="menu-item-price"><span id="_111"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(112) Toddy Gelado - 500ml</div>
+                <div class="menu-item-price"><span id="_112"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Sucos Naturais</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(113) 300ml</div>
+                <div class="menu-item-price"><span id="_113"></span></div>
+                <div class="menu-item-description">
+                  Sabores: Abacaxi/Laranja/Limão/Maçã/Mamão
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(114) 500ml</div>
+                <div class="menu-item-price"><span id="_114"></span></div>
+                <div class="menu-item-description">
+                  Sabores: Abacaxi/Laranja/Limão/Maçã/Mamão
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Sucos de Poupa</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(115) Com Água 500ml</div>
+                <div class="menu-item-price"><span id="_115"></span></div>
+                <div class="menu-item-description">
+                  Sabores:
+                  Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (116) Mistos - 2 sabores - 500ml
+                </div>
+                <div class="menu-item-price"><span id="_116"></span></div>
+                <div class="menu-item-description">
+                  Sabores:
+                  Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva
+                </div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(117) Com Leite 500ml</div>
+                <div class="menu-item-price"><span id="_117"></span></div>
+                <div class="menu-item-description">
+                  Sabores:
+                  Acerola/Açaí/Cacau/Cajá/Cajú/Cupuaçu/Goiaba/Graviola/Manga/Maracujá/Morango/Tamarindo/Umbu/Uva
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Vitamina</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(118) 500ml</div>
+                <div class="menu-item-price"><span id="_118"></span></div>
+                <div class="menu-item-description">
+                  Sabores: Banana/Maçã/Mamão/Abacate
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Poupa de Açaí</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (119) Com Água 500ml + 1 Banana
+                </div>
+                <div class="menu-item-price"><span id="_119"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (120) Com Leite 500ml + 1 Banana
+                </div>
+                <div class="menu-item-price"><span id="_120"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="menu-section">
+              <h2 class="menu-section-title">Sobremesas</h2>
+              <hr />
+
+              <div class="menu-item">
+                <div class="menu-item-name">(121) Gelatina mosaico</div>
+                <div class="menu-item-price"><span id="_121"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(122) Gelatina cremosa</div>
+                <div class="menu-item-price"><span id="_122"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">
+                  (123) Pudim de leite condensado
+                </div>
+                <div class="menu-item-price"><span id="_123"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(124) Pudim de chocolate</div>
+                <div class="menu-item-price"><span id="_124"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(125) Salada de frutas</div>
+                <div class="menu-item-price"><span id="_125"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+
+              <div class="menu-item">
+                <div class="menu-item-name">(126) Mousse de maracujá</div>
+                <div class="menu-item-price"><span id="_126"></span></div>
+                <div class="menu-item-description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="categories">
-          <!--
+
+    <!-- Portfolio Section -->
+    <div id="portfolio">
+      <div class="section-title text-center center">
+        <div class="overlay">
+          <h2>Poesia com Café</h2>
+          <hr />
+          <p>
+            Conheça ou relembre poesias clássicas enquanto saboreia o seu café
+            aqui no Bonna.
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="categories">
+            <!--
 <ul class="cat">
 <li>
 
@@ -1113,165 +1289,300 @@
 </li>
 </ul>
 -->
-          <div class="clearfix"></div>
+            <div class="clearfix"></div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="portfolio-items">
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/01-small.jpg" title="Fonte: Livro da Poesia - 1962" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/01-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+        <div class="row">
+          <div class="portfolio-items">
+            <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/01-small.jpg"
+                    title="Fonte: Livro da Poesia - 1962"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/01-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 dinner">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/02-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/02-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/02-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/02-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/03-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/03-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/03-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/03-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/04-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/04-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/04-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/04-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 dinner">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/05-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/05-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/05-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/05-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 lunch">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/06-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/06-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/06-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/06-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 lunch">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/07-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/07-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/07-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/07-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/08-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/08-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/08-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/08-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 dinner">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/09-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/09-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 dinner">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/09-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/09-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 lunch">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/10-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/10-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/10-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/10-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 lunch">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/11-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/11-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 lunch">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/11-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/11-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
-            <div class="portfolio-item">
-              <div class="hover-bg"> <a href="img/portfolio/12-small.jpg" title="Fonte: Livro da Poesia" data-lightbox-gallery="gallery1">
-                  <div class="hover-text">
-                    <h4>Clique para ler</h4>
-                  </div>
-                  <img src="img/portfolio/12-small.jpg" class="img-responsive" alt="Project Title">
-                </a> </div>
+            <div class="col-sm-6 col-md-4 col-lg-4 breakfast">
+              <div class="portfolio-item">
+                <div class="hover-bg">
+                  <a
+                    href="img/portfolio/12-small.jpg"
+                    title="Fonte: Livro da Poesia"
+                    data-lightbox-gallery="gallery1"
+                  >
+                    <div class="hover-text">
+                      <h4>Clique para ler</h4>
+                    </div>
+                    <img
+                      src="img/portfolio/12-small.jpg"
+                      class="img-responsive"
+                      alt="Project Title"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Team Section -->
-  <div id="team" class="text-center">
-    <div class="overlay">
-      <div class="container">
-        <div class="col-md-10 col-md-offset-1 section-title">
-          <h2>Conheça nossa equipe...</h2>
-          <hr>
-          <p>Equipe muito bem treinada para preparar os mais variados tipos de lanches. Sempre com muita alegria.</p>
-        </div>
-        <div id="row">
-          <div class="col-md-6 team">
-            <div class="thumbnail">
-              <div class="team-img"><img src="img/team/01.jpg" alt="..."></div>
-              <div class="caption">
-                <h3>Ana Karolina</h3>
-                <p>A Ana cuida da área administrativa e fica sempre atenta para que não falte nada em nenhum momento. Mas quando é necessário, ajuda também na preparação dos lanches.</p>
+    <!-- Team Section -->
+    <div id="team" class="text-center">
+      <div class="overlay">
+        <div class="container">
+          <div class="col-md-10 col-md-offset-1 section-title">
+            <h2>Conheça nossa equipe...</h2>
+            <hr />
+            <p>
+              Equipe muito bem treinada para preparar os mais variados tipos de
+              lanches. Sempre com muita alegria.
+            </p>
+          </div>
+          <div id="row">
+            <div class="col-md-6 team">
+              <div class="thumbnail">
+                <div class="team-img">
+                  <img src="img/team/01.jpg" alt="..." />
+                </div>
+                <div class="caption">
+                  <h3>Ana Karolina</h3>
+                  <p>
+                    A Ana cuida da área administrativa e fica sempre atenta para
+                    que não falte nada em nenhum momento. Mas quando é
+                    necessário, ajuda também na preparação dos lanches.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 team">
-            <div class="thumbnail">
-              <div class="team-img"><img src="img/team/02.jpg" alt="..."></div>
-              <div class="caption">
-                <h3>Hélio</h3>
-                <p>O Hélio possui uma vasta experiência na preparação de lanches especiais, sempre atensioso com as solicitações dos clientes para que saia tudo perfeito em cada pedido.</p>
+            <div class="col-md-6 team">
+              <div class="thumbnail">
+                <div class="team-img">
+                  <img src="img/team/02.jpg" alt="..." />
+                </div>
+                <div class="caption">
+                  <h3>Hélio</h3>
+                  <p>
+                    O Hélio possui uma vasta experiência na preparação de
+                    lanches especiais, sempre atensioso com as solicitações dos
+                    clientes para que saia tudo perfeito em cada pedido.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <!--
+            <!--
         <div class="col-md-4 team">
           <div class="thumbnail">
             <div class="team-img"><img src="img/team/03.jpg" alt="..."></div>
@@ -1282,95 +1593,143 @@
           </div>
         </div>
     -->
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Call Reservation Section -->
-  <div id="call-reservation" class="text-center">
-    <div class="container">
-      <h2>Se estiver no Hangar 5 ou no Gilberto Salomão, pode pedir pelo zap que entregamos.<strong>(61)99411-2677</strong></h2>
-    </div>
-  </div>
-  <!-- Contact Section -->
-  <div id="contact" class="text-center">
-    <div class="container">
-      <div class="section-title text-center">
-        <h2>Formulário Para Contato</h2>
-        <hr>
-        <p>Nos envie uma mensagem...</p>
+    <!-- Call Reservation Section -->
+    <div id="call-reservation" class="text-center">
+      <div class="container">
+        <h2>
+          Se estiver no Hangar 5 ou no Gilberto Salomão, pode pedir pelo zap que
+          entregamos.<strong>(61)99411-2677</strong>
+        </h2>
       </div>
-      <div class="col-md-10 col-md-offset-1">
-        <form name="sentMessage" id="contactForm" novalidate>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" id="name" class="form-control" placeholder="Name" required="required">
-                <p class="help-block text-danger"></p>
+    </div>
+    <!-- Contact Section -->
+    <div id="contact" class="text-center">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Formulário Para Contato</h2>
+          <hr />
+          <p>Nos envie uma mensagem...</p>
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+          <form
+            action="https://formsubmit.co/administrador@bonnacafe.com.br"
+            method="POST"
+          >
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Seu nome"
+                    required
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="Seu e-mail"
+                    required
+                  />
+                  <p class="help-block text-danger"></p>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="email" id="email" class="form-control" placeholder="Email" required="required">
-                <p class="help-block text-danger"></p>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-            <p class="help-block text-danger"></p>
-          </div>
-          <div id="success"></div>
-          <button type="submit" class="btn btn-custom btn-lg">Enviar</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div id="footer">
-    <div class="container text-center">
-      <div class="col-md-4">
-        <h3>Endereço</h3>
-        <div class="contact-item">
-          <p>Ed. Hangar 5 - Lago Sul</p>
-          <p>Ao lado do Gilberto Salomão</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <h3>Data e Hora de Funcionamento</h3>
-        <div class="contact-item">
-          <p>De Segunda a Sexta-feira</p>
-          <p>Das 8:30h às 19:00h</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <h3>Contato</h3>
-        <div class="contact-item">
-          <p>Zap: (61)99411-2677</p>
-          <p>Email: bonacafe.oficial@gmail.com</p>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid text-center copyrights">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="social">
-          <ul>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-          </ul>
-        </div>
-        <p>&copy; 2021 Bonna Café. All rights reserved. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
-  <script type="text/javascript" src="js/SmoothScroll.js"></script>
-  <script type="text/javascript" src="js/nivo-lightbox.js"></script>
-  <script type="text/javascript" src="js/jquery.isotope.js"></script>
-  <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-  <script type="text/javascript" src="js/contact_me.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-</body>
 
+            <div class="form-group">
+              <textarea
+                name="message"
+                id="message"
+                class="form-control"
+                rows="4"
+                placeholder="Mensagem"
+                required
+              ></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+
+            <!-- configurações invisíveis -->
+            <input
+              type="hidden"
+              name="_subject"
+              value="Contato via site Bonna Café"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div id="success"></div>
+            <button type="submit" class="btn btn-custom btn-lg">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container text-center">
+        <div class="col-md-4">
+          <h3>Endereço</h3>
+          <div class="contact-item">
+            <p>Ed. Hangar 5 - Lago Sul</p>
+            <p>Ao lado do Gilberto Salomão</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>Data e Hora de Funcionamento</h3>
+          <div class="contact-item">
+            <p>De Segunda a Sexta-feira</p>
+            <p>Das 8:30h às 19:00h</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h3>Contato</h3>
+          <div class="contact-item">
+            <p>Zap: (61)99411-2677</p>
+            <p>Email: bonacafe.oficial@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid text-center copyrights">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="social">
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+              </li>
+            </ul>
+          </div>
+          <p>
+            &copy; 2021 Bonna Café. All rights reserved. Designed by
+            <a href="http://www.templatewire.com" rel="nofollow"
+              >TemplateWire</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/SmoothScroll.js"></script>
+    <script type="text/javascript" src="js/nivo-lightbox.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.js"></script>
+    <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="js/contact_me.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
