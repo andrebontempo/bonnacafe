@@ -1615,11 +1615,7 @@
           <p>Nos envie uma mensagem...</p>
         </div>
         <div class="col-md-10 col-md-offset-1">
-          <form
-            id="contactForm"
-            action="https://formsubmit.co/administrador@bonnacafe.com.br"
-            method="POST"
-          >
+          <form id="contactForm" novalidate>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -1661,7 +1657,7 @@
               <p class="help-block text-danger"></p>
             </div>
 
-            <!-- campos invisíveis do FormSubmit -->
+            <!-- campos invisíveis para o FormSubmit -->
             <input
               type="hidden"
               name="_subject"
@@ -1669,12 +1665,8 @@
             />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <!-- redireciona para página Obrigado -->
-            <input
-              type="hidden"
-              name="_next"
-              value="https://bonnacafe.com.br/obrigado.html"
-            />
+
+            <div id="success"></div>
 
             <button type="submit" class="btn btn-custom btn-lg">Enviar</button>
           </form>
