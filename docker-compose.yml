@@ -1,0 +1,10 @@
+services:
+  bonnacafe:
+    image: nginx:latest
+    container_name: bonnacafe
+    restart: always
+    volumes:
+      - ./bonnacafe:/usr/share/nginx/bonnacafe:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - proxy
