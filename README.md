@@ -1,6 +1,6 @@
 # bonnacafe
 
-## Site da lanchonete
+## Site da lanchonete .
 
 ### Comandos para subir as alterações da máquina local para o GitHub
 
