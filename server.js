@@ -1262,8 +1262,8 @@ const server = http.createServer((req, res) => {
   // POST /api/admin/login
   if (pathname === '/api/admin/login' && method === 'POST') {
     return parseRequestBody(req, (err, body) => {
-      const adminPass = process.env.ADMIN_PASSWORD || 'bonna123';
-      if (body.password === adminPass || body.password === 'admin') {
+      const adminPass = process.env.ADMIN_PASSWORD || 'Bonna#27';
+      if (body.password === adminPass) {
         return sendJSON(res, { success: true, token: 'authenticated' });
       }
       return sendJSON(res, { success: false, error: 'Senha incorreta' }, 401);

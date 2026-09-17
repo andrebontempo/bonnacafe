@@ -6,7 +6,7 @@ services:
     environment:
       - PORT=80
       - NODE_ENV=production
-      - ADMIN_PASSWORD=bonna123
+      - ADMIN_PASSWORD=Bonna#27
     volumes:
       - ./data:/app/data
     networks:

@@ -116,7 +116,7 @@ function openAdminModal(e) {
   var pass = prompt('🔐 Área Restrita do Administrador Bonna Café\n\nPor favor, digite a senha de acesso:');
   if (pass === null) return;
 
-  if (pass === 'bonna123' || pass === 'admin') {
+  if (pass === 'Bonna#27') {
     sessionStorage.setItem('bonna_admin_auth', 'true');
     window.location.href = 'reajuste.html';
   } else {

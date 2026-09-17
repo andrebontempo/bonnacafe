@@ -312,7 +312,7 @@
     function checkAuth() {
       if (sessionStorage.getItem('bonna_admin_auth') !== 'true') {
         var pass = prompt('🔐 Acesso Restrito ao Administrador Bonna Café\n\nPor favor, digite a senha para acessar o painel:');
-        if (pass === 'bonna123' || pass === 'admin') {
+        if (pass === 'Bonna#27') {
           sessionStorage.setItem('bonna_admin_auth', 'true');
         } else {
           alert('❌ Senha incorreta! Redirecionando...');
