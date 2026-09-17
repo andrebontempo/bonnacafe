@@ -423,23 +423,6 @@ hr {
   margin-bottom: 0 !important;
 }
 
-/* 5 Days of the week in 1 elegant horizontal row on desktop */
-@media (min-width: 992px) {
-  #bonnadodia .row-flex > [class*="col-"] {
-    flex: 0 0 20% !important;
-    max-width: 20% !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  #bonnadodia .row-flex > [class*="col-"] {
-    flex: 0 0 33.3333% !important;
-    max-width: 33.3333% !important;
-  }
-}
-
 .item-code-badge {
   display: inline-block;
   font-family: 'Plus Jakarta Sans', sans-serif;
