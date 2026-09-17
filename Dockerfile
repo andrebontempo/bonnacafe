@@ -17,10 +17,11 @@ COPY . .
 RUN mkdir -p /app/data
 
 # Variáveis de ambiente padrão
-ENV PORT=3000
+ENV PORT=80
 ENV NODE_ENV=production
 
-# Expor a porta 3000
+# Expor a porta 80 e 3000
+EXPOSE 80
 EXPOSE 3000
 
 # Comando para iniciar o servidor
