@@ -271,760 +271,760 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "041",
-    "num": 41,
+    "id": "042",
+    "num": 42,
+    "name": "Matte Leão Batido com Limão 500ml",
+    "category": "salgados",
+    "desc": "Refrescante batido na hora.",
+    "price": 7.5
+  },
+  {
+    "id": "051",
+    "num": 51,
     "name": "Torta de Frango com Requeijão (Super Lanche)",
     "category": "pao-queijo",
     "desc": "Fatia generosa servida quentinha.",
     "price": 12
   },
   {
-    "id": "042",
-    "num": 42,
+    "id": "052",
+    "num": 52,
     "name": "Pão de Queijo Tradicional",
     "category": "pao-queijo",
     "desc": "Receita mineira clássica e quentinha.",
     "price": 4.5
   },
   {
-    "id": "043",
-    "num": 43,
+    "id": "053",
+    "num": 53,
     "name": "Biscoito de Queijo Ferradura",
     "category": "pao-queijo",
     "desc": "Crocante por fora e macio por dentro.",
     "price": 4.8
   },
   {
-    "id": "044",
-    "num": 44,
+    "id": "054",
+    "num": 54,
     "name": "Chipa de Queijo (Porção 4 un.)",
     "category": "pao-queijo",
     "desc": "Ideal para compartilhar.",
     "price": 5.5
   },
   {
-    "id": "045",
-    "num": 45,
+    "id": "055",
+    "num": 55,
     "name": "Pão de Queijo Recheado Peru e Requeijão",
     "category": "pao-queijo",
     "desc": "Caprichado no recheio.",
     "price": 7.5
   },
   {
-    "id": "046",
-    "num": 46,
+    "id": "056",
+    "num": 56,
     "name": "Pão de Queijo Recheado com Nutella",
     "category": "pao-queijo",
     "desc": "Combinação irresistível de doce e salgado.",
     "price": 8.5
   },
   {
-    "id": "061",
-    "num": 61,
+    "id": "081",
+    "num": 81,
     "name": "Sanduíche Natural de Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "price": 10
   },
   {
-    "id": "062",
-    "num": 62,
+    "id": "082",
+    "num": 82,
     "name": "Sanduíche Natural Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "price": 10
   },
   {
-    "id": "063",
-    "num": 63,
+    "id": "083",
+    "num": 83,
     "name": "Sanduíche Natural Frango",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "price": 11.5
   },
   {
-    "id": "064",
-    "num": 64,
+    "id": "084",
+    "num": 84,
     "name": "Pão com Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Servido quentinho na chapa.",
     "price": 8
   },
   {
-    "id": "065",
-    "num": 65,
+    "id": "085",
+    "num": 85,
     "name": "Pão com Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Queijo derretido no pão francês ou de forma.",
     "price": 8
   },
   {
-    "id": "066",
-    "num": 66,
+    "id": "086",
+    "num": 86,
     "name": "Pão com Queijo e Presunto (Misto)",
     "category": "sanduiches-tapiocas",
     "desc": "Clássico misto quente.",
     "price": 8
   },
   {
-    "id": "067",
-    "num": 67,
+    "id": "087",
+    "num": 87,
     "name": "Pão com Ovo e Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Reforçado na chapa.",
     "price": 9
   },
   {
-    "id": "068",
-    "num": 68,
+    "id": "088",
+    "num": 88,
     "name": "Pão com Ovo, Queijo e Presunto",
     "category": "sanduiches-tapiocas",
     "desc": "Super reforçado.",
     "price": 9
   },
   {
-    "id": "069",
-    "num": 69,
+    "id": "089",
+    "num": 89,
     "name": "Pão com Ovo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Proteico e saboroso.",
     "price": 9
   },
   {
-    "id": "070",
-    "num": 70,
+    "id": "090",
+    "num": 90,
     "name": "Pão com Queijo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Muçarela derretida com peru.",
     "price": 9.5
   },
   {
-    "id": "071",
-    "num": 71,
+    "id": "091",
+    "num": 91,
     "name": "Pão com Ovo, Queijo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Combinação leve e nutritiva.",
     "price": 10
   },
   {
-    "id": "072",
-    "num": 72,
+    "id": "092",
+    "num": 92,
     "name": "Pão Completo (Ovo, Queijo, Presunto e Peru)",
     "category": "sanduiches-tapiocas",
     "desc": "Tudo o que você tem direito!",
     "price": 11
   },
   {
-    "id": "073",
-    "num": 73,
-    "name": "Cuscuz com Manteiga",
-    "category": "sanduiches-tapiocas",
-    "desc": "Nordestino tradicional quentinho.",
-    "price": 8.5
-  },
-  {
-    "id": "074",
-    "num": 74,
-    "name": "Cuscuz com Ovo",
-    "category": "sanduiches-tapiocas",
-    "desc": "Servido com ovo frito na hora.",
-    "price": 10
-  },
-  {
-    "id": "075",
-    "num": 75,
-    "name": "Cuscuz com Ovo e Queijo",
-    "category": "sanduiches-tapiocas",
-    "desc": "Com ovo e muçarela derretida.",
-    "price": 11
-  },
-  {
-    "id": "076",
-    "num": 76,
-    "name": "Cuscuz com Queijo Muçarela",
-    "category": "sanduiches-tapiocas",
-    "desc": "Queijo derretido sobre o cuscuz.",
-    "price": 10
-  },
-  {
-    "id": "077",
-    "num": 77,
-    "name": "Cuscuz com Queijo e Presunto",
-    "category": "sanduiches-tapiocas",
-    "desc": "Misto no cuscuz.",
-    "price": 10.5
-  },
-  {
-    "id": "078",
-    "num": 78,
-    "name": "Cuscuz com Frango",
-    "category": "sanduiches-tapiocas",
-    "desc": "Recheado com frango desfiado.",
-    "price": 12
-  },
-  {
-    "id": "079",
-    "num": 79,
-    "name": "Cuscuz com Frango e Queijo",
-    "category": "sanduiches-tapiocas",
-    "desc": "Frango desfiado com muçarela.",
-    "price": 13.5
-  },
-  {
-    "id": "080",
-    "num": 80,
-    "name": "Cuscuz com Frango e Ovo",
-    "category": "sanduiches-tapiocas",
-    "desc": "Frango e ovo no cuscuz.",
-    "price": 13.5
-  },
-  {
-    "id": "081",
-    "num": 81,
-    "name": "Cuscuz com Carne Seca",
-    "category": "sanduiches-tapiocas",
-    "desc": "Carne seca dessalgada e acebolada.",
-    "price": 14
-  },
-  {
-    "id": "082",
-    "num": 82,
-    "name": "Cuscuz com Carne Seca e Queijo",
-    "category": "sanduiches-tapiocas",
-    "desc": "Carne seca com muçarela.",
-    "price": 17
-  },
-  {
-    "id": "083",
-    "num": 83,
-    "name": "Cuscuz Completo (Carne Seca, Ovo e Queijo)",
-    "category": "sanduiches-tapiocas",
-    "desc": "Super recheado.",
-    "price": 18
-  },
-  {
-    "id": "084",
-    "num": 84,
+    "id": "093",
+    "num": 93,
     "name": "Tapioca com Manteiga",
     "category": "sanduiches-tapiocas",
     "desc": "Massa leve e crocante.",
     "price": 7.5
   },
   {
-    "id": "085",
-    "num": 85,
+    "id": "094",
+    "num": 94,
     "name": "Tapioca com Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Recheada com ovo mexido ou frito.",
     "price": 9
   },
   {
-    "id": "086",
-    "num": 86,
+    "id": "095",
+    "num": 95,
     "name": "Tapioca com Ovo e Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Ovo e muçarela derretida.",
     "price": 11.5
   },
   {
-    "id": "087",
-    "num": 87,
+    "id": "096",
+    "num": 96,
     "name": "Tapioca com Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Queijo quentinho.",
     "price": 10
   },
   {
-    "id": "088",
-    "num": 88,
+    "id": "097",
+    "num": 97,
     "name": "Tapioca com Queijo e Presunto",
     "category": "sanduiches-tapiocas",
     "desc": "Tapioca tipo misto.",
     "price": 10.5
   },
   {
-    "id": "089",
-    "num": 89,
+    "id": "098",
+    "num": 98,
     "name": "Tapioca Peito de Peru, Tomate e Orégano",
     "category": "sanduiches-tapiocas",
     "desc": "Leve estilo napolitana.",
     "price": 10.5
   },
   {
-    "id": "090",
-    "num": 90,
+    "id": "099",
+    "num": 99,
     "name": "Tapioca com Frango",
     "category": "sanduiches-tapiocas",
     "desc": "Frango desfiado temperado.",
     "price": 11
   },
   {
-    "id": "091",
-    "num": 91,
+    "id": "100",
+    "num": 100,
     "name": "Tapioca com Frango e Queijo",
     "category": "sanduiches-tapiocas",
     "desc": "Frango com muçarela.",
     "price": 13.5
   },
   {
-    "id": "092",
-    "num": 92,
+    "id": "101",
+    "num": 101,
     "name": "Tapioca com Carne Seca",
     "category": "sanduiches-tapiocas",
     "desc": "Carne seca dessalgada.",
     "price": 14
   },
   {
-    "id": "093",
-    "num": 93,
+    "id": "102",
+    "num": 102,
     "name": "Tapioca com Carne Seca e Queijo",
     "category": "sanduiches-tapiocas",
     "desc": "Carne seca com muçarela.",
     "price": 17
   },
   {
-    "id": "094",
-    "num": 94,
+    "id": "103",
+    "num": 103,
     "name": "Tapioca com Nutella",
     "category": "sanduiches-tapiocas",
     "desc": "Doce e cremosa.",
     "price": 11
   },
   {
-    "id": "095",
-    "num": 95,
+    "id": "104",
+    "num": 104,
     "name": "Tapioca com Leite Condensado",
     "category": "sanduiches-tapiocas",
     "desc": "Doce tradicional.",
     "price": 10
   },
   {
-    "id": "096",
-    "num": 96,
+    "id": "111",
+    "num": 111,
+    "name": "Cuscuz com Manteiga",
+    "category": "ovos",
+    "desc": "Nordestino tradicional quentinho.",
+    "price": 8.5
+  },
+  {
+    "id": "112",
+    "num": 112,
+    "name": "Cuscuz com Ovo",
+    "category": "ovos",
+    "desc": "Servido com ovo frito na hora.",
+    "price": 10
+  },
+  {
+    "id": "113",
+    "num": 113,
+    "name": "Cuscuz com Ovo e Queijo",
+    "category": "ovos",
+    "desc": "Com ovo e muçarela derretida.",
+    "price": 11
+  },
+  {
+    "id": "114",
+    "num": 114,
+    "name": "Cuscuz com Queijo Muçarela",
+    "category": "ovos",
+    "desc": "Queijo derretido sobre o cuscuz.",
+    "price": 10
+  },
+  {
+    "id": "115",
+    "num": 115,
+    "name": "Cuscuz com Queijo e Presunto",
+    "category": "ovos",
+    "desc": "Misto no cuscuz.",
+    "price": 10.5
+  },
+  {
+    "id": "116",
+    "num": 116,
+    "name": "Cuscuz com Frango",
+    "category": "ovos",
+    "desc": "Recheado com frango desfiado.",
+    "price": 12
+  },
+  {
+    "id": "117",
+    "num": 117,
+    "name": "Cuscuz com Frango e Queijo",
+    "category": "ovos",
+    "desc": "Frango desfiado com muçarela.",
+    "price": 13.5
+  },
+  {
+    "id": "118",
+    "num": 118,
+    "name": "Cuscuz com Frango e Ovo",
+    "category": "ovos",
+    "desc": "Frango e ovo no cuscuz.",
+    "price": 13.5
+  },
+  {
+    "id": "119",
+    "num": 119,
+    "name": "Cuscuz com Carne Seca",
+    "category": "ovos",
+    "desc": "Carne seca dessalgada e acebolada.",
+    "price": 14
+  },
+  {
+    "id": "120",
+    "num": 120,
+    "name": "Cuscuz com Carne Seca e Queijo",
+    "category": "ovos",
+    "desc": "Carne seca com muçarela.",
+    "price": 17
+  },
+  {
+    "id": "121",
+    "num": 121,
+    "name": "Cuscuz Completo (Carne Seca, Ovo e Queijo)",
+    "category": "ovos",
+    "desc": "Super recheado.",
+    "price": 18
+  },
+  {
+    "id": "122",
+    "num": 122,
     "name": "Crepioca de Queijo Muçarela",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Proteica e leve.",
     "price": 10.5
   },
   {
-    "id": "097",
-    "num": 97,
+    "id": "123",
+    "num": 123,
     "name": "Crepioca Queijo e Presunto",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Misto na crepioca.",
     "price": 11
   },
   {
-    "id": "098",
-    "num": 98,
+    "id": "124",
+    "num": 124,
     "name": "Crepioca Peru, Tomate e Orégano",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Combinação leve e saborosa.",
     "price": 11
   },
   {
-    "id": "099",
-    "num": 99,
+    "id": "125",
+    "num": 125,
     "name": "Crepioca de Frango",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Frango desfiado temperado.",
     "price": 12.5
   },
   {
-    "id": "100",
-    "num": 100,
+    "id": "126",
+    "num": 126,
     "name": "Crepioca Frango com Muçarela",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Frango desfiado e muçarela.",
     "price": 13.5
   },
   {
-    "id": "101",
-    "num": 101,
+    "id": "127",
+    "num": 127,
     "name": "Crepioca de Carne Seca",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Carne seca dessalgada.",
     "price": 14
   },
   {
-    "id": "102",
-    "num": 102,
+    "id": "128",
+    "num": 128,
     "name": "Crepioca Carne Seca com Muçarela",
-    "category": "sanduiches-tapiocas",
+    "category": "ovos",
     "desc": "Carne seca e muçarela.",
     "price": 17.5
   },
   {
-    "id": "081",
-    "num": 81,
+    "id": "129",
+    "num": 129,
     "name": "Omelete 3 Ovos para Almoço",
     "category": "ovos",
     "desc": "Escolha 2 recheios: Muçarela, Frango, Peru, Presunto, Tomate ou Orégano.",
     "price": 20
   },
   {
-    "id": "082",
-    "num": 82,
+    "id": "130",
+    "num": 130,
     "name": "Ovos Mexidos com Orégano",
     "category": "ovos",
     "desc": "Porção individual simples e leve.",
     "price": 2.5
   },
   {
-    "id": "083",
-    "num": 83,
+    "id": "131",
+    "num": 131,
     "name": "Omelete (2 ovos) - Queijo Muçarela",
     "category": "ovos",
     "desc": "Feita na hora com muçarela.",
     "price": 11.5
   },
   {
-    "id": "084",
-    "num": 84,
+    "id": "132",
+    "num": 132,
     "name": "Omelete (2 ovos) - Queijo e Presunto",
     "category": "ovos",
     "desc": "Muçarela e presunto.",
     "price": 12
   },
   {
-    "id": "085",
-    "num": 85,
+    "id": "133",
+    "num": 133,
     "name": "Omelete (2 ovos) - Peru, Tomate e Orégano",
     "category": "ovos",
     "desc": "Leve e nutritiva.",
     "price": 12.5
   },
   {
-    "id": "086",
-    "num": 86,
+    "id": "134",
+    "num": 134,
     "name": "Omelete (2 ovos) - Frango",
     "category": "ovos",
     "desc": "Recheada com frango desfiado.",
     "price": 13
   },
   {
-    "id": "087",
-    "num": 87,
+    "id": "135",
+    "num": 135,
     "name": "Omelete (2 ovos) - Frango com Queijo",
     "category": "ovos",
     "desc": "Frango desfiado e muçarela.",
     "price": 14.5
   },
   {
-    "id": "088",
-    "num": 88,
+    "id": "136",
+    "num": 136,
     "name": "Omelete (2 ovos) - Carne Seca",
     "category": "ovos",
     "desc": "Carne seca desfiada acebolada.",
     "price": 14
   },
   {
-    "id": "089",
-    "num": 89,
+    "id": "137",
+    "num": 137,
     "name": "Omelete (2 ovos) - Carne Seca com Queijo",
     "category": "ovos",
     "desc": "Carne seca desfiada e muçarela.",
     "price": 17.5
   },
   {
-    "id": "101",
-    "num": 101,
+    "id": "141",
+    "num": 141,
     "name": "Toddynho",
     "category": "bebidas-cafes",
     "desc": "Achocolatado de caixinha.",
     "price": 4.8
   },
   {
-    "id": "102",
-    "num": 102,
+    "id": "142",
+    "num": 142,
     "name": "Suco de Caixinha",
     "category": "bebidas-cafes",
     "desc": "Sabores variados.",
     "price": 4
   },
   {
-    "id": "103",
-    "num": 103,
+    "id": "143",
+    "num": 143,
     "name": "Refrigerante 310ml (Lata)",
     "category": "bebidas-cafes",
     "desc": "Coca-Cola, Guaraná, Fanta, etc.",
     "price": 6
   },
   {
-    "id": "104",
-    "num": 104,
+    "id": "144",
+    "num": 144,
     "name": "Refrigerante 200/220ml",
     "category": "bebidas-cafes",
     "desc": "Garrafinha mini.",
     "price": 4.5
   },
   {
-    "id": "105",
-    "num": 105,
+    "id": "145",
+    "num": 145,
     "name": "Refrigerante 600ml",
     "category": "bebidas-cafes",
     "desc": "Garrafa individual grande.",
     "price": 7
   },
   {
-    "id": "106",
-    "num": 106,
+    "id": "146",
+    "num": 146,
     "name": "Chá Gelado",
     "category": "bebidas-cafes",
     "desc": "Pêssego, Pêssego Zero, Limão e Matte Leão.",
     "price": 6.9
   },
   {
-    "id": "107",
-    "num": 107,
-    "name": "Matte Leão Batido com Limão 500ml",
-    "category": "bebidas-cafes",
-    "desc": "Refrescante batido na hora.",
-    "price": 7.5
-  },
-  {
-    "id": "108",
-    "num": 108,
+    "id": "147",
+    "num": 147,
     "name": "Água com Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
     "price": 4.5
   },
   {
-    "id": "109",
-    "num": 109,
+    "id": "148",
+    "num": 148,
     "name": "Água sem Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
     "price": 4
   },
   {
-    "id": "110",
-    "num": 110,
+    "id": "149",
+    "num": 149,
     "name": "H2OH! Limoneto",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
     "price": 7
   },
   {
-    "id": "111",
-    "num": 111,
+    "id": "150",
+    "num": 150,
     "name": "Energético",
     "category": "bebidas-cafes",
     "desc": "Lata.",
     "price": 13
   },
   {
-    "id": "112",
-    "num": 112,
+    "id": "151",
+    "num": 151,
     "name": "Guaraviton",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
     "price": 7
   },
   {
-    "id": "113",
-    "num": 113,
+    "id": "152",
+    "num": 152,
     "name": "Cerveja Long Neck",
     "category": "bebidas-cafes",
     "desc": "Geladíssima.",
     "price": 10
   },
   {
-    "id": "114",
-    "num": 114,
+    "id": "153",
+    "num": 153,
     "name": "Expresso Curto",
     "category": "bebidas-cafes",
     "desc": "Café puro e forte.",
     "price": 6
   },
   {
-    "id": "115",
-    "num": 115,
+    "id": "154",
+    "num": 154,
     "name": "Expresso Longo",
     "category": "bebidas-cafes",
     "desc": "Café expresso mais suave.",
     "price": 7
   },
   {
-    "id": "116",
-    "num": 116,
+    "id": "155",
+    "num": 155,
     "name": "Café Suave",
     "category": "bebidas-cafes",
     "desc": "Xícara leve.",
     "price": 7
   },
   {
-    "id": "117",
-    "num": 117,
+    "id": "156",
+    "num": 156,
     "name": "Café com Leite",
     "category": "bebidas-cafes",
     "desc": "Pingado clássico.",
     "price": 7
   },
   {
-    "id": "118",
-    "num": 118,
+    "id": "157",
+    "num": 157,
     "name": "Cappuccino",
     "category": "bebidas-cafes",
     "desc": "Com toque de canela e cacau.",
     "price": 7
   },
   {
-    "id": "119",
-    "num": 119,
+    "id": "158",
+    "num": 158,
     "name": "Chocolate Quente",
     "category": "bebidas-cafes",
     "desc": "Cremoso e quentinho.",
     "price": 7
   },
   {
-    "id": "120",
-    "num": 120,
+    "id": "159",
+    "num": 159,
     "name": "Leite Quente",
     "category": "bebidas-cafes",
     "desc": "Puro ou adoçado.",
     "price": 6
   },
   {
-    "id": "121",
-    "num": 121,
+    "id": "160",
+    "num": 160,
     "name": "Chá Quente de Limão",
     "category": "bebidas-cafes",
     "desc": "Confortável para o dia a dia.",
     "price": 6
   },
   {
-    "id": "122",
-    "num": 122,
+    "id": "161",
+    "num": 161,
     "name": "Toddy Gelado 300ml",
     "category": "bebidas-cafes",
     "desc": "Cremoso e gelado.",
     "price": 8
   },
   {
-    "id": "123",
-    "num": 123,
+    "id": "162",
+    "num": 162,
     "name": "Toddy Gelado 500ml",
     "category": "bebidas-cafes",
     "desc": "Copo grande de 500ml.",
     "price": 10.5
   },
   {
-    "id": "124",
-    "num": 124,
+    "id": "163",
+    "num": 163,
     "name": "Suco Natural 300ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
     "price": 7
   },
   {
-    "id": "125",
-    "num": 125,
+    "id": "164",
+    "num": 164,
     "name": "Suco Natural 500ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
     "price": 9.5
   },
   {
-    "id": "126",
-    "num": 126,
+    "id": "165",
+    "num": 165,
     "name": "Suco de Polpa com Água 500ml",
     "category": "bebidas-cafes",
     "desc": "Acerola, Açaí, Cajá, Caju, Cupuaçu, Goiaba, Graviola, Manga, Maracujá, Morango, Umbu ou Uva.",
     "price": 7.5
   },
   {
-    "id": "127",
-    "num": 127,
+    "id": "166",
+    "num": 166,
     "name": "Suco de Polpa Misto (2 sabores) 500ml",
     "category": "bebidas-cafes",
     "desc": "Combine 2 sabores de frutas.",
     "price": 11
   },
   {
-    "id": "128",
-    "num": 128,
+    "id": "167",
+    "num": 167,
     "name": "Suco de Polpa com Leite 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite.",
     "price": 9.5
   },
   {
-    "id": "129",
-    "num": 129,
+    "id": "168",
+    "num": 168,
     "name": "Vitamina Completa 500ml",
     "category": "bebidas-cafes",
     "desc": "Leite + aveia + 2 frutas (Banana, Maçã, Mamão ou Abacate).",
     "price": 12.5
   },
   {
-    "id": "130",
-    "num": 130,
+    "id": "169",
+    "num": 169,
     "name": "Polpa de Açaí com Água + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com banana.",
     "price": 11
   },
   {
-    "id": "131",
-    "num": 131,
+    "id": "170",
+    "num": 170,
     "name": "Polpa de Açaí com Leite + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite e banana.",
     "price": 13
   },
   {
-    "id": "121",
-    "num": 121,
+    "id": "171",
+    "num": 171,
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
     "price": 7.5
   },
   {
-    "id": "122",
-    "num": 122,
+    "id": "172",
+    "num": 172,
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
     "price": 7.5
   },
   {
-    "id": "123",
-    "num": 123,
+    "id": "173",
+    "num": 173,
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
     "price": 6.5
   },
   {
-    "id": "124",
-    "num": 124,
+    "id": "174",
+    "num": 174,
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
     "price": 6.5
   },
   {
-    "id": "125",
-    "num": 125,
+    "id": "175",
+    "num": 175,
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
     "price": 8.5
   },
   {
-    "id": "126",
-    "num": 126,
+    "id": "176",
+    "num": 176,
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
     "price": 7
   },
   {
-    "id": "127",
-    "num": 127,
+    "id": "177",
+    "num": 177,
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",
@@ -1034,8 +1034,16 @@ var BONNA_ITEMS = [
 ];
 
 window.BonnaMenu = {
-  CATEGORY_RANGES: {
+    CATEGORY_RANGES: {
     'combos': { min: 1, max: 10 },
+    'bonnadodia': { min: 11, max: 20 },
+    'salgados': { min: 21, max: 50 },
+    'pao-queijo': { min: 51, max: 80 },
+    'sanduiches-tapiocas': { min: 81, max: 110 },
+    'ovos': { min: 111, max: 140 },
+    'bebidas-cafes': { min: 141, max: 170 },
+    'sobremesas': { min: 171, max: 200 }
+  },
     'bonnadodia': { min: 11, max: 20 },
     'salgados': { min: 21, max: 40 },
     'pao-queijo': { min: 41, max: 60 },

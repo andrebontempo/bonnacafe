@@ -57,12 +57,12 @@ Os itens do cardápio possuem códigos padronizados organizados por categoria. O
 | :--- | :--- | :--- |
 | **Combos Especiais** | `001` a `010` | Combinações promocionais |
 | **Bonna do Dia** | `011` a `020` | Pratos especiais por dia da semana |
-| **Salgados & Assados** | `021` a `040` | Enroladinhos, empadões, mini pizzas e assados |
-| **Linha Pão de Queijo** | `041` a `060` | Pães de queijo tradicionais, recheados e biscoitos |
-| **Sanduíches, Tapiocas & Cuscuz** | `061` a `080` | Sanduíches naturais, pão na chapa, cuscuz e tapiocas |
-| **Especiais com Ovo** | `081` a `100` | Omeletes e ovos mexidos |
-| **Cafés & Bebidas** | `101` a `120` | Expresso, cappuccino, sucos, chás e refrigerantes |
-| **Sobremesas** | `121` a `140` | Pudins, gelatinas, mousses e salada de frutas |
+| **Salgados Tradicionais & Assados** | `021` a `050` | Enroladinhos, empadões, mini pizzas e assados |
+| **Linha Pão de Queijo & Especialidades** | `051` a `080` | Pães de queijo tradicionais, recheados, biscoitos e assados |
+| **Sanduíches Naturais, Pão na Chapa & Tapiocas** | `081` a `110` | Sanduíches naturais, mistos e tapiocas tradicionais |
+| **Cuscuz, Crepiocas & Ovos Especiais** | `111` a `140` | Cuscuz nordestinos, crepiocas e omeletes caprichadas |
+| **Cafés, Sucos & Bebidas** | `141` a `170` | Expresso, cappuccino, sucos de frutas, chás, águas e refrigerantes |
+| **Sobremesas & Doces** | `171` a `200` | Pudins, gelatinas, mousses e salada de frutas |
 
 ---
 
