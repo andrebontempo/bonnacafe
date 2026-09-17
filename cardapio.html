@@ -179,11 +179,11 @@
           var row = $('<div class="row"></div>');
 
           catItems.forEach(function(item) {
-            var col = $('<div class="col-xs-12 col-sm-6"></div>');
+            var col = $('<div class="col-xs-12"></div>');
             var card = $('<div class="menu-item-card" data-name="' + item.name.toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
             
             var details = $('<div class="menu-item-details">' +
-              '<div class="menu-item-name">(' + item.id + ') ' + item.name + '</div>' +
+              '<div class="menu-item-name"><span class="item-code-badge">(' + item.id + ')</span> ' + item.name + '</div>' +
               '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
             '</div>');
 
