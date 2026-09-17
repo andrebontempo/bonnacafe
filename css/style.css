@@ -407,6 +407,11 @@ hr {
   align-items: stretch !important;
 }
 
+.row-flex::before,
+.row-flex::after {
+  display: none !important;
+}
+
 .row-flex > [class*="col-"] {
   display: flex !important;
   flex-direction: column !important;
@@ -416,6 +421,23 @@ hr {
 .row-flex .card-item {
   height: 100% !important;
   margin-bottom: 0 !important;
+}
+
+/* 5 Days of the week in 1 elegant horizontal row on desktop */
+@media (min-width: 992px) {
+  #bonnadodia .row-flex > [class*="col-"] {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #bonnadodia .row-flex > [class*="col-"] {
+    flex: 0 0 33.3333% !important;
+    max-width: 33.3333% !important;
+  }
 }
 
 .item-code-badge {
