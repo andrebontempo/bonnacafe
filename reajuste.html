@@ -419,21 +419,19 @@
       return Math.round(val * 100) / 100;
     }
 
+    function updateModalSuggestedId() {
+      var category = $('#modal-item-category').val();
+      var suggestedId = window.BonnaMenu.getNextAvailableId(category, currentWorkingItems);
+      $('#modal-item-id').val(suggestedId);
+    }
+
     // Modal Operations
     function openAddModal() {
       $('#itemModalLabel').html('<i class="fa fa-plus-circle"></i> Adicionar Novo Item ao Catálogo');
       $('#modal-item-index').val('-1');
-
-      var maxId = 0;
-      currentWorkingItems.forEach(function(it) {
-        var numId = parseInt(it.id, 10);
-        if (!isNaN(numId) && numId > maxId) maxId = numId;
-      });
-      var nextNum = maxId + 1;
-      var nextId = ('000' + nextNum).slice(-3);
-
-      $('#modal-item-id').val(nextId);
       $('#modal-item-category').val('salgados');
+      updateModalSuggestedId();
+
       $('#modal-item-name').val('');
       $('#modal-item-desc').val('');
       $('#modal-item-price').val('');
@@ -460,21 +458,24 @@
 
     function saveModalItem() {
       var index = parseInt($('#modal-item-index').val(), 10);
-      var id = $('#modal-item-id').val().trim();
+      var rawId = $('#modal-item-id').val().trim();
       var category = $('#modal-item-category').val();
       var name = $('#modal-item-name').val().trim();
       var desc = $('#modal-item-desc').val().trim();
       var price = parseFloat($('#modal-item-price').val());
       var img = $('#modal-item-img').val().trim();
 
-      if (!id || !name || isNaN(price)) {
+      if (!rawId || !name || isNaN(price)) {
         alert('Por favor, preencha o Código ID, o Nome do produto e um Preço válido.');
         return;
       }
 
+      var numId = parseInt(rawId, 10);
+      var formattedId = (!isNaN(numId) && numId > 0) ? ('000' + numId).slice(-3) : rawId;
+
       var itemObj = {
-        id: id,
-        num: parseInt(id, 10) || (currentWorkingItems.length + 1),
+        id: formattedId,
+        num: numId || (currentWorkingItems.length + 1),
         name: name,
         category: category,
         desc: desc,
@@ -487,14 +488,14 @@
           currentWorkingItems = updatedItems;
           $('#itemModal').modal('hide');
           renderTable();
-          alert('Item "' + name + '" criado com sucesso no banco de dados!');
+          alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso no banco de dados!');
         });
       } else {
-        window.BonnaMenu.updateItem(id, itemObj, function(updatedItems) {
+        window.BonnaMenu.updateItem(formattedId, itemObj, function(updatedItems) {
           currentWorkingItems = updatedItems;
           $('#itemModal').modal('hide');
           renderTable();
-          alert('Item "' + name + '" atualizado com sucesso!');
+          alert('Item "' + name + '" (ID: ' + formattedId + ') atualizado com sucesso!');
         });
       }
     }
@@ -523,6 +524,13 @@
       // Open Add Modal
       $('#btn-open-add-modal').click(function() {
         openAddModal();
+      });
+
+      // Update ID dynamically on modal category change for new items
+      $('#modal-item-category').on('change', function() {
+        if ($('#modal-item-index').val() === '-1') {
+          updateModalSuggestedId();
+        }
       });
 
       // Save Modal Item
