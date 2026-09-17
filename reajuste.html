@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gerenciador do Catálogo & Preços | Bonna Café</title>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="img/favicon.ico?v=2" type="image/x-icon" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <style>
+    body {
+      background-color: #F7F4EF;
+      padding-bottom: 60px;
+    }
+    .admin-header {
+      background: var(--dark-base);
+      color: var(--text-light);
+      padding: 30px 0;
+      border-bottom: 3px solid var(--primary);
+      margin-bottom: 40px;
+    }
+    .admin-header h1 {
+      color: var(--text-light);
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+    }
+    .panel-card {
+      background: #FFF;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+    }
+    .panel-card h3 {
+      font-size: 1.3rem;
+      color: var(--text-dark);
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .price-input-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .price-input-table th {
+      background: #F4ECE1;
+      color: var(--text-dark);
+      padding: 12px;
+      text-align: left;
+      font-weight: 700;
+      border-bottom: 2px solid var(--primary-light);
+    }
+    .price-input-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #EEE;
+      vertical-align: middle;
+    }
+    .price-input-table tr:hover {
+      background: #FAF6F0;
+    }
+    .price-field {
+      width: 100px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #CCC;
+      font-weight: 700;
+      color: var(--primary-hover);
+      text-align: right;
+    }
+    .price-field:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+    .code-export-box {
+      width: 100%;
+      height: 220px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #DDD;
+      background: #28201A;
+      color: #72E076;
+    }
+    .badge-cat {
+      background: var(--primary-light);
+      color: var(--primary-hover);
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .action-btn-group {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Admin Header -->
+  <header class="admin-header">
+    <div class="container">
+      <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
+        <div class="col-md-8">
+          <h1><i class="fa fa-sliders"></i> Gerenciador do Catálogo & Preços</h1>
+          <p style="color: var(--text-light-muted); margin: 0;">
+            Adicione novos produtos, edite informações, exclua itens e aplique reajustes em todo o cardápio!
+          </p>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="cardapio.html" class="btn btn-custom btn-outline-custom" style="margin-right: 8px;">
+            <i class="fa fa-cutlery"></i> Ir ao Cardápio
+          </a>
+          <button onclick="logoutAdmin()" class="btn btn-danger">
+            <i class="fa fa-sign-out"></i> Sair
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Reajuste Percentual em Massa -->
+    <div class="panel-card">
+      <h3><i class="fa fa-percent"></i> 1. Reajuste Percentual em Massa (Aumento / Desconto)</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <div class="form-group">
+            <label><strong>Percentual (%)</strong></label>
+            <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="form-group">
+            <label><strong>Aplicar na Categoria</strong></label>
+            <select id="bulk-category" class="form-control">
+              <option value="all">-- Todas as Categorias --</option>
+              <option value="combos">Combos Especiais</option>
+              <option value="bonnadodia">Bonna do Dia</option>
+              <option value="salgados">Salgados & Assados</option>
+              <option value="pao-queijo">Pão de Queijo</option>
+              <option value="sanduiches-tapiocas">Sanduíches, Tapiocas & Cuscuz</option>
+              <option value="ovos">Especiais com Ovo</option>
+              <option value="bebidas-cafes">Cafés & Bebidas</option>
+              <option value="sobremesas">Sobremesas</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="form-group">
+            <label><strong>Arredondamento</strong></label>
+            <select id="bulk-rounding" class="form-control">
+              <option value="0.50">Múltiplos de R$ 0,50 (ex: R$ 10,50)</option>
+              <option value="0.10">Múltiplos de R$ 0,10 (ex: R$ 10,30)</option>
+              <option value="exact">Exato (2 casas decimais)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-2 col-sm-6">
+          <label>&nbsp;</label>
+          <button id="btn-apply-bulk" class="btn btn-custom btn-block" style="background: var(--primary);">
+            <i class="fa fa-calculator"></i> Aplicar %
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gestão & Edição do Catálogo -->
+    <div class="panel-card">
+      <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
+        <div class="col-md-5">
+          <h3 style="margin-bottom: 0; border: none; padding: 0;">
+            <i class="fa fa-list"></i> 2. Gestão de Itens do Catálogo
+            <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+          </h3>
+        </div>
+        <div class="col-md-7" style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap;">
+          <input type="text" id="table-search" class="form-control" style="width: 220px;" placeholder="Filtrar por nome ou ID..." />
+          <button id="btn-open-add-modal" class="btn btn-success" style="white-space: nowrap;">
+            <i class="fa fa-plus-circle"></i> Novo Item
+          </button>
+          <button id="btn-save-local" class="btn btn-custom" style="white-space: nowrap; background: var(--primary);">
+            <i class="fa fa-save"></i> Salvar Catálogo
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive" style="max-height: 550px; overflow-y: auto;">
+        <table class="price-input-table">
+          <thead>
+            <tr>
+              <th style="width: 70px;">ID</th>
+              <th style="width: 140px;">Categoria</th>
+              <th>Nome & Descrição</th>
+              <th style="width: 100px;" class="text-right">Preço Base</th>
+              <th style="width: 120px;" class="text-right">Preço Atual (R$)</th>
+              <th style="width: 130px;" class="text-center">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="price-table-body">
+            <!-- Table rows populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 20px; display: flex; justify-content: flex-start; align-items: center;">
+        <button id="btn-reset-default" class="btn btn-danger btn-sm">
+          <i class="fa fa-undo"></i> Restaurar Catálogo Original de Fábrica
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- Modal de Adicionar / Editar Item -->
+  <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="border-radius: var(--radius-md);">
+        <div class="modal-header" style="background: var(--dark-base); color: #FFF; border-radius: var(--radius-md) var(--radius-md) 0 0;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #FFF; opacity: 0.8;"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="itemModalLabel"><i class="fa fa-plus-circle"></i> Item do Catálogo</h4>
+        </div>
+        <div class="modal-body" style="padding: 24px;">
+          <form id="itemForm">
+            <input type="hidden" id="modal-item-index" value="-1" />
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="modal-item-id"><strong>Código / ID</strong></label>
+                  <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 127" required />
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="modal-item-category"><strong>Categoria</strong></label>
+                  <select id="modal-item-category" class="form-control" required>
+                    <option value="combos">Combos Especiais</option>
+                    <option value="bonnadodia">Bonna do Dia</option>
+                    <option value="salgados">Salgados & Assados</option>
+                    <option value="pao-queijo">Pão de Queijo</option>
+                    <option value="sanduiches-tapiocas">Sanduíches, Tapiocas & Cuscuz</option>
+                    <option value="ovos">Especiais com Ovo</option>
+                    <option value="bebidas-cafes">Cafés & Bebidas</option>
+                    <option value="sobremesas">Sobremesas</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="modal-item-name"><strong>Nome do Produto</strong></label>
+              <input type="text" id="modal-item-name" class="form-control" placeholder="ex: Cappuccino de Avelã Especial" required />
+            </div>
+
+            <div class="form-group">
+              <label for="modal-item-desc"><strong>Descrição do Produto</strong></label>
+              <textarea id="modal-item-desc" class="form-control" rows="2" placeholder="ex: Expresso, leite vaporizado, creme de avelã e canela."></textarea>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="modal-item-price"><strong>Preço (R$)</strong></label>
+                  <input type="number" step="0.10" min="0" id="modal-item-price" class="form-control" placeholder="0.00" required />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="modal-item-img"><strong>Caminho da Imagem (Opcional)</strong></label>
+                  <input type="text" id="modal-item-img" class="form-control" placeholder="ex: img/specials/1.jpg" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" style="background: #F8F5F0;">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btn-save-modal-item" class="btn btn-custom" style="background: var(--primary);">
+            <i class="fa fa-check"></i> Salvar Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/precos.js"></script>
+
+  <script type="text/javascript">
+    var currentWorkingItems = [];
+
+    function checkAuth() {
+      if (sessionStorage.getItem('bonna_admin_auth') !== 'true') {
+        var pass = prompt('🔐 Acesso Restrito ao Administrador Bonna Café\n\nPor favor, digite a senha para acessar o painel:');
+        if (pass === 'bonna123' || pass === 'admin') {
+          sessionStorage.setItem('bonna_admin_auth', 'true');
+        } else {
+          alert('❌ Senha incorreta! Redirecionando...');
+          window.location.href = 'index.html';
+        }
+      }
+    }
+
+    function logoutAdmin() {
+      sessionStorage.removeItem('bonna_admin_auth');
+      alert('Sessão encerrada com sucesso.');
+      window.location.href = 'index.html';
+    }
+
+    function loadItems() {
+      checkAuth();
+      window.BonnaMenu.getItemsAsync(function(items) {
+        if (!items || !Array.isArray(items) || items.length === 0) {
+          items = window.BonnaMenu.getItems();
+        }
+        currentWorkingItems = JSON.parse(JSON.stringify(items));
+        renderTable();
+      });
+    }
+
+    function renderTable() {
+      var tbody = $('#price-table-body');
+      tbody.empty();
+
+      if (!currentWorkingItems || !Array.isArray(currentWorkingItems) || currentWorkingItems.length === 0) {
+        var fallbackItems = window.BonnaMenu.getItems();
+        currentWorkingItems = JSON.parse(JSON.stringify(fallbackItems));
+      }
+
+      var filterQuery = $('#table-search').val() ? $('#table-search').val().toLowerCase().trim() : '';
+      var count = 0;
+
+      currentWorkingItems.forEach(function(item, index) {
+        if (!item) return;
+
+        if (filterQuery) {
+          var textMatch = ((item.id || '') + ' ' + (item.name || '') + ' ' + (item.category || '') + ' ' + (item.desc || '')).toLowerCase();
+          if (textMatch.indexOf(filterQuery) === -1) return;
+        }
+
+        count++;
+        var origItem = null;
+        if (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) {
+          for (var i = 0; i < BONNA_ITEMS.length; i++) {
+            if (BONNA_ITEMS[i].id === item.id) {
+              origItem = BONNA_ITEMS[i];
+              break;
+            }
+          }
+        }
+        var origPriceFormatted = window.BonnaMenu.formatPrice(origItem ? origItem.price : item.price);
+
+        var tr = $('<tr></tr>');
+        tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
+        tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
+        tr.append('<td><strong>' + (item.name || '') + '</strong>' + (item.desc ? '<br/><small class="text-muted">' + item.desc + '</small>' : '') + '</td>');
+        tr.append('<td class="text-right text-muted">' + origPriceFormatted + '</td>');
+        
+        var inputTd = $('<td class="text-right"></td>');
+        var input = $('<input type="number" step="0.10" class="price-field" data-index="' + index + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
+        
+        input.on('change input', function() {
+          var idx = parseInt($(this).attr('data-index'), 10);
+          var newVal = parseFloat($(this).val());
+          if (!isNaN(newVal) && newVal >= 0) {
+            currentWorkingItems[idx].price = newVal;
+          }
+        });
+
+        inputTd.append(input);
+        tr.append(inputTd);
+
+        // Action Buttons
+        var actionTd = $('<td class="text-center"></td>');
+        var btnGroup = $('<div class="action-btn-group"></div>');
+
+        var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar"><i class="fa fa-pencil"></i></button>');
+        editBtn.click(function() { openEditModal(index); });
+
+        var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir"><i class="fa fa-trash"></i></button>');
+        delBtn.click(function() { deleteItem(index); });
+
+        btnGroup.append(editBtn).append(delBtn);
+        actionTd.append(btnGroup);
+        tr.append(actionTd);
+
+        tbody.append(tr);
+      });
+
+      $('#catalog-count-badge').text(count + ' itens');
+    }
+
+    function roundPrice(val, roundingType) {
+      if (roundingType === '0.50') {
+        return Math.round(val * 2) / 2;
+      } else if (roundingType === '0.10') {
+        return Math.round(val * 10) / 10;
+      }
+      return Math.round(val * 100) / 100;
+    }
+
+    // Modal Operations
+    function openAddModal() {
+      $('#itemModalLabel').html('<i class="fa fa-plus-circle"></i> Adicionar Novo Item ao Catálogo');
+      $('#modal-item-index').val('-1');
+
+      var maxId = 0;
+      currentWorkingItems.forEach(function(it) {
+        var numId = parseInt(it.id, 10);
+        if (!isNaN(numId) && numId > maxId) maxId = numId;
+      });
+      var nextNum = maxId + 1;
+      var nextId = ('000' + nextNum).slice(-3);
+
+      $('#modal-item-id').val(nextId);
+      $('#modal-item-category').val('salgados');
+      $('#modal-item-name').val('');
+      $('#modal-item-desc').val('');
+      $('#modal-item-price').val('');
+      $('#modal-item-img').val('');
+
+      $('#itemModal').modal('show');
+    }
+
+    function openEditModal(index) {
+      var item = currentWorkingItems[index];
+      if (!item) return;
+
+      $('#itemModalLabel').html('<i class="fa fa-pencil"></i> Editar Item (ID: ' + item.id + ')');
+      $('#modal-item-index').val(index);
+      $('#modal-item-id').val(item.id);
+      $('#modal-item-category').val(item.category || 'salgados');
+      $('#modal-item-name').val(item.name || '');
+      $('#modal-item-desc').val(item.desc || '');
+      $('#modal-item-price').val(parseFloat(item.price || 0).toFixed(2));
+      $('#modal-item-img').val(item.img || '');
+
+      $('#itemModal').modal('show');
+    }
+
+    function saveModalItem() {
+      var index = parseInt($('#modal-item-index').val(), 10);
+      var id = $('#modal-item-id').val().trim();
+      var category = $('#modal-item-category').val();
+      var name = $('#modal-item-name').val().trim();
+      var desc = $('#modal-item-desc').val().trim();
+      var price = parseFloat($('#modal-item-price').val());
+      var img = $('#modal-item-img').val().trim();
+
+      if (!id || !name || isNaN(price)) {
+        alert('Por favor, preencha o Código ID, o Nome do produto e um Preço válido.');
+        return;
+      }
+
+      var itemObj = {
+        id: id,
+        num: parseInt(id, 10) || (currentWorkingItems.length + 1),
+        name: name,
+        category: category,
+        desc: desc,
+        price: price,
+        img: img || null
+      };
+
+      if (index === -1) {
+        window.BonnaMenu.createItem(itemObj, function(updatedItems) {
+          currentWorkingItems = updatedItems;
+          $('#itemModal').modal('hide');
+          renderTable();
+          alert('Item "' + name + '" criado com sucesso no banco de dados!');
+        });
+      } else {
+        window.BonnaMenu.updateItem(id, itemObj, function(updatedItems) {
+          currentWorkingItems = updatedItems;
+          $('#itemModal').modal('hide');
+          renderTable();
+          alert('Item "' + name + '" atualizado com sucesso!');
+        });
+      }
+    }
+
+    function deleteItem(index) {
+      var item = currentWorkingItems[index];
+      if (!item) return;
+
+      if (confirm('Tem certeza que deseja excluir permanentemente o item "' + item.name + '" (ID: ' + item.id + ')?')) {
+        window.BonnaMenu.deleteItem(item.id, function(updatedItems) {
+          currentWorkingItems = updatedItems;
+          renderTable();
+          alert('Item excluído com sucesso do banco de dados!');
+        });
+      }
+    }
+
+    $(document).ready(function() {
+      loadItems();
+
+      // Search filter
+      $('#table-search').on('keyup input', function() {
+        renderTable();
+      });
+
+      // Open Add Modal
+      $('#btn-open-add-modal').click(function() {
+        openAddModal();
+      });
+
+      // Save Modal Item
+      $('#btn-save-modal-item').click(function() {
+        saveModalItem();
+      });
+
+      // Bulk percentage adjustment
+      $('#btn-apply-bulk').click(function() {
+        var percent = parseFloat($('#bulk-percent').val());
+        if (isNaN(percent)) {
+          alert('Por favor insira um percentual válido (ex: 10 para +10%).');
+          return;
+        }
+
+        var selectedCat = $('#bulk-category').val();
+        var roundingType = $('#bulk-rounding').val();
+
+        window.BonnaMenu.bulkAdjust({ percent: percent, category: selectedCat, rounding: roundingType }, function(updatedItems) {
+          currentWorkingItems = updatedItems;
+          renderTable();
+          alert('Reajuste de ' + percent + '% aplicado e salvo com sucesso no banco de dados!');
+        });
+      });
+
+      // Save all changed prices in table
+      $('#btn-save-local').click(function() {
+        window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+          currentWorkingItems = updatedItems;
+          renderTable();
+          alert('Catálogo salvo com sucesso! As alterações já estão atualizadas no banco de dados e no site.');
+        });
+      });
+
+
+      // Reset to defaults
+      $('#btn-reset-default').click(function() {
+        if (confirm('Tem certeza que deseja restaurar o banco de dados para o padrão de fábrica de 126 itens?')) {
+          window.BonnaMenu.resetCatalog(function(updatedItems) {
+            currentWorkingItems = updatedItems;
+            renderTable();
+            alert('Banco de dados restaurado com sucesso para os 126 itens originais!');
+          });
+        }
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

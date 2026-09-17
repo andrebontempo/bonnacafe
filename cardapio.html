@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardápio Completo | Bonna Café - Hangar 5 & Gilberto Salomão</title>
+  <meta name="description" content="Confira o cardápio completo do Bonna Café com mais de 100 opções de lanches, salgados, tapiocas, cuscuz, cafés e refeições." />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="img/favicon.ico?v=2" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/precos.css" />
+
+  <style>
+    .cardapio-hero {
+      background: linear-gradient(180deg, rgba(18, 13, 10, 0.88) 0%, rgba(18, 13, 10, 0.96) 100%), url('img/menu-bg.jpg') center/cover no-repeat;
+      padding: 120px 0 60px;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .cardapio-hero h1 {
+      color: var(--text-light);
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+    .menu-item-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Header -->
+  <nav id="menu" class="navbar navbar-default navbar-fixed-top on">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse">
+          <span class="sr-only">Alternar Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <img src="img/logo_bonna.png" alt="Bonna Café" height="36" style="vertical-align: middle; margin-right: 6px;" />
+          Bonna Café
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="index.html#features">Combos</a></li>
+          <li><a href="index.html#bonnadodia">Bonna do Dia</a></li>
+          <li><a href="cardapio.html" class="active">Cardápio</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li><a href="#" onclick="openAdminModal(event)"><i class="fa fa-lock"></i> Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="cardapio-hero">
+    <div class="container">
+      <h1>Cardápio Completo</h1>
+      <hr style="margin-left: auto; margin-right: auto;" />
+      <p style="color: var(--text-light-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto;">
+        Pesquise seus lanches favoritos por nome ou categoria. Atendimento exclusivo no Hangar 5 e Gilberto Salomão.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content: Controls & Items Grid -->
+  <main id="restaurant-menu" style="padding-top: 50px;">
+    <div class="container">
+
+      <!-- Search & Filters -->
+      <div class="menu-controls">
+        <div class="search-box">
+          <i class="fa fa-search"></i>
+          <input type="text" id="menu-search-input" placeholder="Buscar no cardápio (ex: cuscuz, tapioca, expresso, suco)..." />
+        </div>
+
+        <div class="filter-pills">
+          <button class="filter-btn active" data-filter="all">Todos os Itens</button>
+          <button class="filter-btn" data-filter="combos">Combos</button>
+          <button class="filter-btn" data-filter="bonnadodia">Bonna do Dia</button>
+          <button class="filter-btn" data-filter="salgados">Salgados & Assados</button>
+          <button class="filter-btn" data-filter="pao-queijo">Pão de Queijo</button>
+          <button class="filter-btn" data-filter="sanduiches-tapiocas">Sanduíches, Tapiocas & Cuscuz</button>
+          <button class="filter-btn" data-filter="ovos">Especiais com Ovo</button>
+          <button class="filter-btn" data-filter="bebidas-cafes">Cafés & Bebidas</button>
+          <button class="filter-btn" data-filter="sobremesas">Sobremesas</button>
+        </div>
+      </div>
+
+      <!-- Container where items will be dynamically rendered -->
+      <div id="dynamic-menu-container"></div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Localização</h3>
+          <p>Ed. Hangar 5 - Lago Sul<br />Ao lado do Gilberto Salomão - Brasília/DF</p>
+        </div>
+        <div class="col-md-4">
+          <h3>Funcionamento</h3>
+          <p>De Segunda a Sexta-feira<br />Das 08:30h às 19:00h</p>
+        </div>
+        <div class="col-md-4">
+          <h3>Atendimento</h3>
+          <p>Telefone: (61) 99411-2677<br />E-mail: bonacafe.oficial@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <div class="container">
+        <p>&copy; 2026 Bonna Café. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/precos.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+  <script type="text/javascript">
+    var CATEGORY_NAMES = {
+      'combos': 'Combos Especiais',
+      'bonnadodia': 'Bonna do Dia',
+      'salgados': 'Salgados Tradicionais & Assados',
+      'pao-queijo': 'Linha Pão de Queijo',
+      'sanduiches-tapiocas': 'Sanduíches Naturais, Pão na Chapa, Tapiocas & Cuscuz',
+      'ovos': 'Especiais com Ovo & Omeletes',
+      'bebidas-cafes': 'Cafés, Bebidas, Sucos & Vitaminas',
+      'sobremesas': 'Sobremesas & Doces'
+    };
+
+    function renderMenu() {
+      window.BonnaMenu.getItemsAsync(function(items) {
+        var container = $('#dynamic-menu-container');
+        container.empty();
+
+        // Group items by category
+        var grouped = {};
+        items.forEach(function(item) {
+          if (!grouped[item.category]) {
+            grouped[item.category] = [];
+          }
+          grouped[item.category].push(item);
+        });
+
+        var catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'bebidas-cafes', 'sobremesas'];
+
+        catOrder.forEach(function(cat) {
+          var catItems = grouped[cat];
+          if (!catItems || catItems.length === 0) return;
+
+          var block = $('<div class="menu-category-block" data-category="' + cat + '"></div>');
+          var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
+          var row = $('<div class="row"></div>');
+
+          catItems.forEach(function(item) {
+            var col = $('<div class="col-xs-12 col-sm-6"></div>');
+            var card = $('<div class="menu-item-card" data-name="' + item.name.toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
+            
+            var details = $('<div class="menu-item-details">' +
+              '<div class="menu-item-name">(' + item.id + ') ' + item.name + '</div>' +
+              '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
+            '</div>');
+
+            var rightSide = $('<div class="menu-item-right">' +
+              '<div class="menu-item-price"><span id="_' + item.id + '"></span></div>' +
+            '</div>');
+
+            card.append(details).append(rightSide);
+            col.append(card);
+            row.append(col);
+          });
+
+          block.append(catTitle).append(row);
+          container.append(block);
+        });
+
+        // Inject prices CSS
+        window.BonnaMenu.injectPricesCSS(items);
+      });
+    }
+
+    $(document).ready(function() {
+      renderMenu();
+
+
+      // Category Filter Pills
+      $('.filter-btn').click(function() {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        var category = $(this).attr('data-filter');
+        $('#menu-search-input').val('');
+
+        if (category === 'all') {
+          $('.menu-category-block').show();
+          $('.menu-item-card').show();
+        } else {
+          $('.menu-category-block').hide();
+          $('.menu-category-block[data-category="' + category + '"]').fadeIn(300);
+          $('.menu-category-block[data-category="' + category + '"] .menu-item-card').show();
+        }
+      });
+
+      // Live Search Filter
+      $('#menu-search-input').on('keyup input', function() {
+        var query = $(this).val().toLowerCase().trim();
+
+        if (query.length > 0) {
+          $('.filter-btn').removeClass('active');
+          $('.filter-btn[data-filter="all"]').addClass('active');
+          $('.menu-category-block').show();
+        }
+
+        $('.menu-item-card').each(function() {
+          var name = $(this).attr('data-name') || '';
+          var desc = $(this).attr('data-desc') || '';
+          var fullText = $(this).text().toLowerCase();
+
+          if (name.indexOf(query) > -1 || desc.indexOf(query) > -1 || fullText.indexOf(query) > -1) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+        });
+
+        $('.menu-category-block').each(function() {
+          var visibleCount = $(this).find('.menu-item-card:visible').length;
+          if (visibleCount === 0 && query.length > 0) {
+            $(this).hide();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
