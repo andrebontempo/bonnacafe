@@ -209,8 +209,7 @@
               <th style="width: 70px;">ID</th>
               <th style="width: 140px;">Categoria</th>
               <th>Nome & Descrição</th>
-              <th style="width: 100px;" class="text-right">Preço Base</th>
-              <th style="width: 120px;" class="text-right">Preço Atual (R$)</th>
+              <th style="width: 140px;" class="text-right">Preço Atual (R$)</th>
               <th style="width: 130px;" class="text-center">Ações</th>
             </tr>
           </thead>
@@ -218,12 +217,6 @@
             <!-- Table rows populated dynamically -->
           </tbody>
         </table>
-      </div>
-
-      <div style="margin-top: 20px; display: flex; justify-content: flex-start; align-items: center;">
-        <button id="btn-reset-default" class="btn btn-danger btn-sm">
-          <i class="fa fa-undo"></i> Restaurar Catálogo Original de Fábrica
-        </button>
       </div>
     </div>
 
@@ -359,22 +352,11 @@
         }
 
         count++;
-        var origItem = null;
-        if (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) {
-          for (var i = 0; i < BONNA_ITEMS.length; i++) {
-            if (BONNA_ITEMS[i].id === item.id) {
-              origItem = BONNA_ITEMS[i];
-              break;
-            }
-          }
-        }
-        var origPriceFormatted = window.BonnaMenu.formatPrice(origItem ? origItem.price : item.price);
 
         var tr = $('<tr></tr>');
         tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
         tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
         tr.append('<td><strong>' + (item.name || '') + '</strong>' + (item.desc ? '<br/><small class="text-muted">' + item.desc + '</small>' : '') + '</td>');
-        tr.append('<td class="text-right text-muted">' + origPriceFormatted + '</td>');
         
         var inputTd = $('<td class="text-right"></td>');
         var input = $('<input type="number" step="0.10" class="price-field" data-index="' + index + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
@@ -563,18 +545,6 @@
           renderTable();
           alert('Catálogo salvo com sucesso! As alterações já estão atualizadas no banco de dados e no site.');
         });
-      });
-
-
-      // Reset to defaults
-      $('#btn-reset-default').click(function() {
-        if (confirm('Tem certeza que deseja restaurar o banco de dados para o padrão de fábrica de 126 itens?')) {
-          window.BonnaMenu.resetCatalog(function(updatedItems) {
-            currentWorkingItems = updatedItems;
-            renderTable();
-            alert('Banco de dados restaurado com sucesso para os 126 itens originais!');
-          });
-        }
       });
 
     });
