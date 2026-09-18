@@ -91,8 +91,18 @@
           <input type="text" id="menu-search-input" placeholder="Buscar no cardápio (ex: cuscuz, tapioca, expresso, suco)..." />
         </div>
 
+        <div class="toggle-switch-container">
+          <label class="switch-label" for="available-toggle-switch">
+            <span class="switch-text"><i class="fa fa-check-circle" style="color: #2E7D32;"></i> Apenas "Hoje temos..."</span>
+            <div class="custom-switch">
+              <input type="checkbox" id="available-toggle-switch">
+              <span class="slider round"></span>
+            </div>
+          </label>
+        </div>
+
         <div class="filter-pills">
-          <button class="filter-btn active" data-filter="all">Todos os Itens</button>
+          <button class="filter-btn active" data-filter="all">Todas as Categorias</button>
           <button class="filter-btn" data-filter="combos">Combos</button>
           <button class="filter-btn" data-filter="bonnadodia">Bonna do Dia</button>
           <button class="filter-btn" data-filter="salgados">Salgados & Assados</button>
@@ -205,14 +215,20 @@
 
           catItems.forEach(function(item) {
             var col = $('<div class="col-xs-12"></div>');
-            var card = $('<div class="menu-item-card" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
+            var isAvailable = (item.available !== false);
+            var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
             
             var details = $('<div class="menu-item-details">' +
               '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
               '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
             '</div>');
 
-            var rightSide = $('<div class="menu-item-right">' +
+            var availabilityBadge = isAvailable
+              ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
+              : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
+
+            var rightSide = $('<div class="menu-item-right" style="display: flex; align-items: center; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">' +
+              availabilityBadge +
               '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
             '</div>');
 
@@ -227,29 +243,70 @@
 
         // Inject prices CSS
         window.BonnaMenu.injectPricesCSS(items);
+
+        // Apply filters once items are rendered
+        applyFilters();
+      });
+    }
+
+    function applyFilters() {
+      var activeCategory = $('.filter-btn[data-filter].active').attr('data-filter') || 'all';
+      var query = $('#menu-search-input').val() ? $('#menu-search-input').val().toLowerCase().trim() : '';
+      var onlyAvailable = $('#available-toggle-switch').is(':checked');
+
+      $('.menu-category-block').each(function() {
+        var block = $(this);
+        var blockCategory = block.attr('data-category');
+
+        var categoryMatch = (activeCategory === 'all' || activeCategory === blockCategory || query.length > 0);
+
+        if (!categoryMatch) {
+          block.hide();
+          return;
+        }
+
+        var visibleCount = 0;
+        block.find('.menu-item-card').each(function() {
+          var card = $(this);
+          var isItemAvailable = card.attr('data-available') === 'true';
+          var name = card.attr('data-name') || '';
+          var desc = card.attr('data-desc') || '';
+          var fullText = card.text().toLowerCase();
+
+          var searchMatch = (query.length === 0 || name.indexOf(query) > -1 || desc.indexOf(query) > -1 || fullText.indexOf(query) > -1);
+          var availabilityMatch = (!onlyAvailable || isItemAvailable);
+
+          if (searchMatch && availabilityMatch) {
+            card.show();
+            visibleCount++;
+          } else {
+            card.hide();
+          }
+        });
+
+        if (visibleCount > 0) {
+          block.show();
+        } else {
+          block.hide();
+        }
       });
     }
 
     $(document).ready(function() {
       renderMenu();
 
+      // Mobile-style Toggle Switch
+      $('#available-toggle-switch').on('change', function() {
+        applyFilters();
+      });
 
       // Category Filter Pills
-      $('.filter-btn').click(function() {
-        $('.filter-btn').removeClass('active');
+      $('.filter-btn[data-filter]').click(function() {
+        $('.filter-btn[data-filter]').removeClass('active');
         $(this).addClass('active');
 
-        var category = $(this).attr('data-filter');
         $('#menu-search-input').val('');
-
-        if (category === 'all') {
-          $('.menu-category-block').show();
-          $('.menu-item-card').show();
-        } else {
-          $('.menu-category-block').hide();
-          $('.menu-category-block[data-category="' + category + '"]').fadeIn(300);
-          $('.menu-category-block[data-category="' + category + '"] .menu-item-card').show();
-        }
+        applyFilters();
       });
 
       // Live Search Filter
@@ -257,29 +314,11 @@
         var query = $(this).val().toLowerCase().trim();
 
         if (query.length > 0) {
-          $('.filter-btn').removeClass('active');
+          $('.filter-btn[data-filter]').removeClass('active');
           $('.filter-btn[data-filter="all"]').addClass('active');
-          $('.menu-category-block').show();
         }
 
-        $('.menu-item-card').each(function() {
-          var name = $(this).attr('data-name') || '';
-          var desc = $(this).attr('data-desc') || '';
-          var fullText = $(this).text().toLowerCase();
-
-          if (name.indexOf(query) > -1 || desc.indexOf(query) > -1 || fullText.indexOf(query) > -1) {
-            $(this).show();
-          } else {
-            $(this).hide();
-          }
-        });
-
-        $('.menu-category-block').each(function() {
-          var visibleCount = $(this).find('.menu-item-card:visible').length;
-          if (visibleCount === 0 && query.length > 0) {
-            $(this).hide();
-          }
-        });
+        applyFilters();
       });
     });
   </script>

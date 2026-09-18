@@ -39,8 +39,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 1",
     "category": "combos",
     "desc": "Suco de Caixinha + Misto quente",
+    "available": true,
     "price": 10.5,
-    "img": "img/specials/1.jpg"
+    "img": "img/specials/1.jpg",
+    "available": true
   },
   {
     "id": "002",
@@ -48,8 +50,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 2",
     "category": "combos",
     "desc": "Café Longo + Pão de Queijo Recheado",
+    "available": true,
     "price": 13.5,
-    "img": "img/specials/2.jpg"
+    "img": "img/specials/2.jpg",
+    "available": true
   },
   {
     "id": "003",
@@ -57,8 +61,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 3",
     "category": "combos",
     "desc": "Cappuccino + Biscoito de Queijo",
+    "available": true,
     "price": 10.3,
-    "img": "img/specials/3.jpg"
+    "img": "img/specials/3.jpg",
+    "available": true
   },
   {
     "id": "004",
@@ -66,8 +72,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 4",
     "category": "combos",
     "desc": "Café com Leite + Pão de Queijo",
+    "available": true,
     "price": 10,
-    "img": "img/specials/4.jpg"
+    "img": "img/specials/4.jpg",
+    "available": true
   },
   {
     "id": "005",
@@ -75,8 +83,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 5",
     "category": "combos",
     "desc": "Toddynho + Misto Quente",
+    "available": true,
     "price": 11.3,
-    "img": "img/specials/5.jpg"
+    "img": "img/specials/5.jpg",
+    "available": true
   },
   {
     "id": "006",
@@ -84,8 +94,10 @@ const INITIAL_ITEMS = [
     "name": "Combo 6",
     "category": "combos",
     "desc": "Coca-Cola + Misto Quente",
+    "available": true,
     "price": 11,
-    "img": "img/specials/6.jpg"
+    "img": "img/specials/6.jpg",
+    "available": true
   },
   {
     "id": "011",
@@ -93,8 +105,10 @@ const INITIAL_ITEMS = [
     "name": "Segunda-feira",
     "category": "bonnadodia",
     "desc": "Sanduíche Natural de Peito de Peru + Suco Natural de Limão 300ml",
+    "available": true,
     "price": 15.5,
-    "img": "img/bonnadodia/1.jpg"
+    "img": "img/bonnadodia/1.jpg",
+    "available": true
   },
   {
     "id": "012",
@@ -102,8 +116,10 @@ const INITIAL_ITEMS = [
     "name": "Terça-feira",
     "category": "bonnadodia",
     "desc": "Salgado Costela de Adão + Guaraná Antarctica 310ml",
+    "available": true,
     "price": 11,
-    "img": "img/bonnadodia/2.jpg"
+    "img": "img/bonnadodia/2.jpg",
+    "available": true
   },
   {
     "id": "013",
@@ -111,8 +127,10 @@ const INITIAL_ITEMS = [
     "name": "Quarta-feira",
     "category": "bonnadodia",
     "desc": "Torta de Frango + Suco de Caixinha",
+    "available": true,
     "price": 14.5,
-    "img": "img/bonnadodia/3.jpg"
+    "img": "img/bonnadodia/3.jpg",
+    "available": true
   },
   {
     "id": "014",
@@ -120,8 +138,10 @@ const INITIAL_ITEMS = [
     "name": "Quinta-feira",
     "category": "bonnadodia",
     "desc": "Bureak de Frango + Suco de Polpa de Cajá",
+    "available": true,
     "price": 14,
-    "img": "img/bonnadodia/4.jpg"
+    "img": "img/bonnadodia/4.jpg",
+    "available": true
   },
   {
     "id": "015",
@@ -129,8 +149,10 @@ const INITIAL_ITEMS = [
     "name": "Sexta-feira",
     "category": "bonnadodia",
     "desc": "Mini Pizza + Coca-Cola 200ml",
+    "available": true,
     "price": 10.5,
-    "img": "img/bonnadodia/5.jpg"
+    "img": "img/bonnadodia/5.jpg",
+    "available": true
   },
   {
     "id": "021",
@@ -138,6 +160,7 @@ const INITIAL_ITEMS = [
     "name": "Enroladinho de Presunto e Queijo",
     "category": "salgados",
     "desc": "Presunto, queijo muçarela, tomate e orégano.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -146,6 +169,7 @@ const INITIAL_ITEMS = [
     "name": "Enroladinho de Queijo",
     "category": "salgados",
     "desc": "Queijo muçarela derretido.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -154,6 +178,7 @@ const INITIAL_ITEMS = [
     "name": "Enroladinho de Salsicha",
     "category": "salgados",
     "desc": "Salsicha especial e queijo muçarela.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -162,6 +187,7 @@ const INITIAL_ITEMS = [
     "name": "Pastel de Carne com Bacon",
     "category": "salgados",
     "desc": "Carne moída, bacon, tomate, milho, azeitona, cebola e temperos.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -170,6 +196,7 @@ const INITIAL_ITEMS = [
     "name": "Esfirra de Carne",
     "category": "salgados",
     "desc": "Carne moída temperada com milho, cebola e pimenta de cheiro.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -178,6 +205,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Hambúrguer",
     "category": "salgados",
     "desc": "Carne bovina, muçarela, cheddar, tomate e gergelim.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -186,6 +214,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Napolitano",
     "category": "salgados",
     "desc": "Presunto, muçarela, calabresa, parmesão e orégano.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -194,6 +223,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Pizza",
     "category": "salgados",
     "desc": "Presunto, muçarela, catupiry, tomate, cebola e orégano.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -202,6 +232,7 @@ const INITIAL_ITEMS = [
     "name": "Pão da Vovó",
     "category": "salgados",
     "desc": "Frango desfiado, muçarela, catupiry, temperos e orégano.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -210,6 +241,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Hambúrguer Integral",
     "category": "salgados",
     "desc": "Hambúrguer, muçarela, cheddar e tomate em pão integral.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -218,6 +250,7 @@ const INITIAL_ITEMS = [
     "name": "Pão da Vovó Integral",
     "category": "salgados",
     "desc": "Frango, muçarela, catupiry e orégano em pão integral.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -226,6 +259,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Pizza Integral",
     "category": "salgados",
     "desc": "Presunto, muçarela, catupiry e tomate em pão integral.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -234,6 +268,7 @@ const INITIAL_ITEMS = [
     "name": "Religiosa",
     "category": "salgados",
     "desc": "Frango desfiado, muçarela, catupiry, queijo minas e milho.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -242,6 +277,7 @@ const INITIAL_ITEMS = [
     "name": "Costela de Adão",
     "category": "salgados",
     "desc": "Presunto, muçarela, frango, catupiry, gergelim e ervas.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -250,6 +286,7 @@ const INITIAL_ITEMS = [
     "name": "Croissant de Frango",
     "category": "salgados",
     "desc": "Peito de frango desfiado com milho e azeitona.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -258,6 +295,7 @@ const INITIAL_ITEMS = [
     "name": "Croissant de Chocolate",
     "category": "salgados",
     "desc": "Recheio cremoso de chocolate.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -266,6 +304,7 @@ const INITIAL_ITEMS = [
     "name": "Empadão Goiano",
     "category": "salgados",
     "desc": "Frango, muçarela, linguiça suína, palmito, azeitona e batata.",
+    "available": true,
     "price": 11
   },
   {
@@ -274,6 +313,7 @@ const INITIAL_ITEMS = [
     "name": "Mini Pizza (Calabresa / Portuguesa)",
     "category": "salgados",
     "desc": "Massa crocante assada na hora.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -282,6 +322,7 @@ const INITIAL_ITEMS = [
     "name": "Folheado Bureak de Frango",
     "category": "salgados",
     "desc": "Massa folheada leve recheada com frango.",
+    "available": true,
     "price": 8
   },
   {
@@ -290,6 +331,7 @@ const INITIAL_ITEMS = [
     "name": "Folheado Queijo Minas com Peito de Peru",
     "category": "salgados",
     "desc": "Massa folheada leve com queijo minas e peru.",
+    "available": true,
     "price": 8.5
   },
   {
@@ -298,6 +340,7 @@ const INITIAL_ITEMS = [
     "name": "Coxinha Assada Especial",
     "category": "salgados",
     "desc": "Frango desfiado assado com tempero da casa.",
+    "available": true,
     "price": 7
   },
   {
@@ -306,6 +349,7 @@ const INITIAL_ITEMS = [
     "name": "Matte Leão Batido com Limão 500ml",
     "category": "salgados",
     "desc": "Refrescante batido na hora.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -314,6 +358,7 @@ const INITIAL_ITEMS = [
     "name": "Torta de Frango com Requeijão (Super Lanche)",
     "category": "pao-queijo",
     "desc": "Fatia generosa servida quentinha.",
+    "available": true,
     "price": 12
   },
   {
@@ -322,6 +367,7 @@ const INITIAL_ITEMS = [
     "name": "Pão de Queijo Tradicional",
     "category": "pao-queijo",
     "desc": "Receita mineira clássica e quentinha.",
+    "available": true,
     "price": 4.5
   },
   {
@@ -330,6 +376,7 @@ const INITIAL_ITEMS = [
     "name": "Biscoito de Queijo Ferradura",
     "category": "pao-queijo",
     "desc": "Crocante por fora e macio por dentro.",
+    "available": true,
     "price": 4.8
   },
   {
@@ -338,6 +385,7 @@ const INITIAL_ITEMS = [
     "name": "Chipa de Queijo (Porção 4 un.)",
     "category": "pao-queijo",
     "desc": "Ideal para compartilhar.",
+    "available": true,
     "price": 5.5
   },
   {
@@ -346,6 +394,7 @@ const INITIAL_ITEMS = [
     "name": "Pão de Queijo Recheado Peru e Requeijão",
     "category": "pao-queijo",
     "desc": "Caprichado no recheio.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -354,6 +403,7 @@ const INITIAL_ITEMS = [
     "name": "Pão de Queijo Recheado com Nutella",
     "category": "pao-queijo",
     "desc": "Combinação irresistível de doce e salgado.",
+    "available": true,
     "price": 8.5
   },
   {
@@ -362,6 +412,7 @@ const INITIAL_ITEMS = [
     "name": "Sanduíche Natural de Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
+    "available": true,
     "price": 10
   },
   {
@@ -370,6 +421,7 @@ const INITIAL_ITEMS = [
     "name": "Sanduíche Natural Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
+    "available": true,
     "price": 10
   },
   {
@@ -378,6 +430,7 @@ const INITIAL_ITEMS = [
     "name": "Sanduíche Natural Frango",
     "category": "sanduiches-tapiocas",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
+    "available": true,
     "price": 11.5
   },
   {
@@ -386,6 +439,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Servido quentinho na chapa.",
+    "available": true,
     "price": 8
   },
   {
@@ -394,6 +448,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Queijo derretido no pão francês ou de forma.",
+    "available": true,
     "price": 8
   },
   {
@@ -402,6 +457,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Queijo e Presunto (Misto)",
     "category": "sanduiches-tapiocas",
     "desc": "Clássico misto quente.",
+    "available": true,
     "price": 8
   },
   {
@@ -410,6 +466,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Ovo e Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Reforçado na chapa.",
+    "available": true,
     "price": 9
   },
   {
@@ -418,6 +475,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Ovo, Queijo e Presunto",
     "category": "sanduiches-tapiocas",
     "desc": "Super reforçado.",
+    "available": true,
     "price": 9
   },
   {
@@ -426,6 +484,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Ovo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Proteico e saboroso.",
+    "available": true,
     "price": 9
   },
   {
@@ -434,6 +493,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Queijo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Muçarela derretida com peru.",
+    "available": true,
     "price": 9.5
   },
   {
@@ -442,6 +502,7 @@ const INITIAL_ITEMS = [
     "name": "Pão com Ovo, Queijo e Peito de Peru",
     "category": "sanduiches-tapiocas",
     "desc": "Combinação leve e nutritiva.",
+    "available": true,
     "price": 10
   },
   {
@@ -450,6 +511,7 @@ const INITIAL_ITEMS = [
     "name": "Pão Completo (Ovo, Queijo, Presunto e Peru)",
     "category": "sanduiches-tapiocas",
     "desc": "Tudo o que você tem direito!",
+    "available": true,
     "price": 11
   },
   {
@@ -458,6 +520,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Manteiga",
     "category": "sanduiches-tapiocas",
     "desc": "Massa leve e crocante.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -466,6 +529,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Ovo",
     "category": "sanduiches-tapiocas",
     "desc": "Recheada com ovo mexido ou frito.",
+    "available": true,
     "price": 9
   },
   {
@@ -474,6 +538,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Ovo e Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Ovo e muçarela derretida.",
+    "available": true,
     "price": 11.5
   },
   {
@@ -482,6 +547,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Queijo Muçarela",
     "category": "sanduiches-tapiocas",
     "desc": "Queijo quentinho.",
+    "available": true,
     "price": 10
   },
   {
@@ -490,6 +556,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Queijo e Presunto",
     "category": "sanduiches-tapiocas",
     "desc": "Tapioca tipo misto.",
+    "available": true,
     "price": 10.5
   },
   {
@@ -498,6 +565,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca Peito de Peru, Tomate e Orégano",
     "category": "sanduiches-tapiocas",
     "desc": "Leve estilo napolitana.",
+    "available": true,
     "price": 10.5
   },
   {
@@ -506,6 +574,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Frango",
     "category": "sanduiches-tapiocas",
     "desc": "Frango desfiado temperado.",
+    "available": true,
     "price": 11
   },
   {
@@ -514,6 +583,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Frango e Queijo",
     "category": "sanduiches-tapiocas",
     "desc": "Frango com muçarela.",
+    "available": true,
     "price": 13.5
   },
   {
@@ -522,6 +592,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Carne Seca",
     "category": "sanduiches-tapiocas",
     "desc": "Carne seca dessalgada.",
+    "available": true,
     "price": 14
   },
   {
@@ -530,6 +601,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Carne Seca e Queijo",
     "category": "sanduiches-tapiocas",
     "desc": "Carne seca com muçarela.",
+    "available": true,
     "price": 17
   },
   {
@@ -538,6 +610,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Nutella",
     "category": "sanduiches-tapiocas",
     "desc": "Doce e cremosa.",
+    "available": true,
     "price": 11
   },
   {
@@ -546,6 +619,7 @@ const INITIAL_ITEMS = [
     "name": "Tapioca com Leite Condensado",
     "category": "sanduiches-tapiocas",
     "desc": "Doce tradicional.",
+    "available": true,
     "price": 10
   },
   {
@@ -554,6 +628,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Manteiga",
     "category": "ovos",
     "desc": "Nordestino tradicional quentinho.",
+    "available": true,
     "price": 8.5
   },
   {
@@ -562,6 +637,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Ovo",
     "category": "ovos",
     "desc": "Servido com ovo frito na hora.",
+    "available": true,
     "price": 10
   },
   {
@@ -570,6 +646,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Ovo e Queijo",
     "category": "ovos",
     "desc": "Com ovo e muçarela derretida.",
+    "available": true,
     "price": 11
   },
   {
@@ -578,6 +655,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Queijo Muçarela",
     "category": "ovos",
     "desc": "Queijo derretido sobre o cuscuz.",
+    "available": true,
     "price": 10
   },
   {
@@ -586,6 +664,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Queijo e Presunto",
     "category": "ovos",
     "desc": "Misto no cuscuz.",
+    "available": true,
     "price": 10.5
   },
   {
@@ -594,6 +673,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Frango",
     "category": "ovos",
     "desc": "Recheado com frango desfiado.",
+    "available": true,
     "price": 12
   },
   {
@@ -602,6 +682,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Frango e Queijo",
     "category": "ovos",
     "desc": "Frango desfiado com muçarela.",
+    "available": true,
     "price": 13.5
   },
   {
@@ -610,6 +691,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Frango e Ovo",
     "category": "ovos",
     "desc": "Frango e ovo no cuscuz.",
+    "available": true,
     "price": 13.5
   },
   {
@@ -618,6 +700,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Carne Seca",
     "category": "ovos",
     "desc": "Carne seca dessalgada e acebolada.",
+    "available": true,
     "price": 14
   },
   {
@@ -626,6 +709,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz com Carne Seca e Queijo",
     "category": "ovos",
     "desc": "Carne seca com muçarela.",
+    "available": true,
     "price": 17
   },
   {
@@ -634,6 +718,7 @@ const INITIAL_ITEMS = [
     "name": "Cuscuz Completo (Carne Seca, Ovo e Queijo)",
     "category": "ovos",
     "desc": "Super recheado.",
+    "available": true,
     "price": 18
   },
   {
@@ -642,6 +727,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca de Queijo Muçarela",
     "category": "ovos",
     "desc": "Proteica e leve.",
+    "available": true,
     "price": 10.5
   },
   {
@@ -650,6 +736,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca Queijo e Presunto",
     "category": "ovos",
     "desc": "Misto na crepioca.",
+    "available": true,
     "price": 11
   },
   {
@@ -658,6 +745,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca Peru, Tomate e Orégano",
     "category": "ovos",
     "desc": "Combinação leve e saborosa.",
+    "available": true,
     "price": 11
   },
   {
@@ -666,6 +754,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca de Frango",
     "category": "ovos",
     "desc": "Frango desfiado temperado.",
+    "available": true,
     "price": 12.5
   },
   {
@@ -674,6 +763,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca Frango com Muçarela",
     "category": "ovos",
     "desc": "Frango desfiado e muçarela.",
+    "available": true,
     "price": 13.5
   },
   {
@@ -682,6 +772,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca de Carne Seca",
     "category": "ovos",
     "desc": "Carne seca dessalgada.",
+    "available": true,
     "price": 14
   },
   {
@@ -690,6 +781,7 @@ const INITIAL_ITEMS = [
     "name": "Crepioca Carne Seca com Muçarela",
     "category": "ovos",
     "desc": "Carne seca e muçarela.",
+    "available": true,
     "price": 17.5
   },
   {
@@ -698,6 +790,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete 3 Ovos para Almoço",
     "category": "ovos",
     "desc": "Escolha 2 recheios: Muçarela, Frango, Peru, Presunto, Tomate ou Orégano.",
+    "available": true,
     "price": 20
   },
   {
@@ -706,6 +799,7 @@ const INITIAL_ITEMS = [
     "name": "Ovos Mexidos com Orégano",
     "category": "ovos",
     "desc": "Porção individual simples e leve.",
+    "available": true,
     "price": 2.5
   },
   {
@@ -714,6 +808,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Queijo Muçarela",
     "category": "ovos",
     "desc": "Feita na hora com muçarela.",
+    "available": true,
     "price": 11.5
   },
   {
@@ -722,6 +817,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Queijo e Presunto",
     "category": "ovos",
     "desc": "Muçarela e presunto.",
+    "available": true,
     "price": 12
   },
   {
@@ -730,6 +826,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Peru, Tomate e Orégano",
     "category": "ovos",
     "desc": "Leve e nutritiva.",
+    "available": true,
     "price": 12.5
   },
   {
@@ -738,6 +835,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Frango",
     "category": "ovos",
     "desc": "Recheada com frango desfiado.",
+    "available": true,
     "price": 13
   },
   {
@@ -746,6 +844,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Frango com Queijo",
     "category": "ovos",
     "desc": "Frango desfiado e muçarela.",
+    "available": true,
     "price": 14.5
   },
   {
@@ -754,6 +853,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Carne Seca",
     "category": "ovos",
     "desc": "Carne seca desfiada acebolada.",
+    "available": true,
     "price": 14
   },
   {
@@ -762,6 +862,7 @@ const INITIAL_ITEMS = [
     "name": "Omelete (2 ovos) - Carne Seca com Queijo",
     "category": "ovos",
     "desc": "Carne seca desfiada e muçarela.",
+    "available": true,
     "price": 17.5
   },
   {
@@ -770,6 +871,7 @@ const INITIAL_ITEMS = [
     "name": "Toddynho",
     "category": "bebidas-cafes",
     "desc": "Achocolatado de caixinha.",
+    "available": true,
     "price": 4.8
   },
   {
@@ -778,6 +880,7 @@ const INITIAL_ITEMS = [
     "name": "Suco de Caixinha",
     "category": "bebidas-cafes",
     "desc": "Sabores variados.",
+    "available": true,
     "price": 4
   },
   {
@@ -786,6 +889,7 @@ const INITIAL_ITEMS = [
     "name": "Refrigerante 310ml (Lata)",
     "category": "bebidas-cafes",
     "desc": "Coca-Cola, Guaraná, Fanta, etc.",
+    "available": true,
     "price": 6
   },
   {
@@ -794,6 +898,7 @@ const INITIAL_ITEMS = [
     "name": "Refrigerante 200/220ml",
     "category": "bebidas-cafes",
     "desc": "Garrafinha mini.",
+    "available": true,
     "price": 4.5
   },
   {
@@ -802,6 +907,7 @@ const INITIAL_ITEMS = [
     "name": "Refrigerante 600ml",
     "category": "bebidas-cafes",
     "desc": "Garrafa individual grande.",
+    "available": true,
     "price": 7
   },
   {
@@ -810,6 +916,7 @@ const INITIAL_ITEMS = [
     "name": "Chá Gelado",
     "category": "bebidas-cafes",
     "desc": "Pêssego, Pêssego Zero, Limão e Matte Leão.",
+    "available": true,
     "price": 6.9
   },
   {
@@ -818,6 +925,7 @@ const INITIAL_ITEMS = [
     "name": "Água com Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
+    "available": true,
     "price": 4.5
   },
   {
@@ -826,6 +934,7 @@ const INITIAL_ITEMS = [
     "name": "Água sem Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
+    "available": true,
     "price": 4
   },
   {
@@ -834,6 +943,7 @@ const INITIAL_ITEMS = [
     "name": "H2OH! Limoneto",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
+    "available": true,
     "price": 7
   },
   {
@@ -842,6 +952,7 @@ const INITIAL_ITEMS = [
     "name": "Energético",
     "category": "bebidas-cafes",
     "desc": "Lata.",
+    "available": true,
     "price": 13
   },
   {
@@ -850,6 +961,7 @@ const INITIAL_ITEMS = [
     "name": "Guaraviton",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
+    "available": true,
     "price": 7
   },
   {
@@ -858,6 +970,7 @@ const INITIAL_ITEMS = [
     "name": "Cerveja Long Neck",
     "category": "bebidas-cafes",
     "desc": "Geladíssima.",
+    "available": true,
     "price": 10
   },
   {
@@ -866,6 +979,7 @@ const INITIAL_ITEMS = [
     "name": "Expresso Curto",
     "category": "bebidas-cafes",
     "desc": "Café puro e forte.",
+    "available": true,
     "price": 6
   },
   {
@@ -874,6 +988,7 @@ const INITIAL_ITEMS = [
     "name": "Expresso Longo",
     "category": "bebidas-cafes",
     "desc": "Café expresso mais suave.",
+    "available": true,
     "price": 7
   },
   {
@@ -882,6 +997,7 @@ const INITIAL_ITEMS = [
     "name": "Café Suave",
     "category": "bebidas-cafes",
     "desc": "Xícara leve.",
+    "available": true,
     "price": 7
   },
   {
@@ -890,6 +1006,7 @@ const INITIAL_ITEMS = [
     "name": "Café com Leite",
     "category": "bebidas-cafes",
     "desc": "Pingado clássico.",
+    "available": true,
     "price": 7
   },
   {
@@ -898,6 +1015,7 @@ const INITIAL_ITEMS = [
     "name": "Cappuccino",
     "category": "bebidas-cafes",
     "desc": "Com toque de canela e cacau.",
+    "available": true,
     "price": 7
   },
   {
@@ -906,6 +1024,7 @@ const INITIAL_ITEMS = [
     "name": "Chocolate Quente",
     "category": "bebidas-cafes",
     "desc": "Cremoso e quentinho.",
+    "available": true,
     "price": 7
   },
   {
@@ -914,6 +1033,7 @@ const INITIAL_ITEMS = [
     "name": "Leite Quente",
     "category": "bebidas-cafes",
     "desc": "Puro ou adoçado.",
+    "available": true,
     "price": 6
   },
   {
@@ -922,6 +1042,7 @@ const INITIAL_ITEMS = [
     "name": "Chá Quente de Limão",
     "category": "bebidas-cafes",
     "desc": "Confortável para o dia a dia.",
+    "available": true,
     "price": 6
   },
   {
@@ -930,6 +1051,7 @@ const INITIAL_ITEMS = [
     "name": "Toddy Gelado 300ml",
     "category": "bebidas-cafes",
     "desc": "Cremoso e gelado.",
+    "available": true,
     "price": 8
   },
   {
@@ -938,6 +1060,7 @@ const INITIAL_ITEMS = [
     "name": "Toddy Gelado 500ml",
     "category": "bebidas-cafes",
     "desc": "Copo grande de 500ml.",
+    "available": true,
     "price": 10.5
   },
   {
@@ -946,6 +1069,7 @@ const INITIAL_ITEMS = [
     "name": "Suco Natural 300ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
+    "available": true,
     "price": 7
   },
   {
@@ -954,6 +1078,7 @@ const INITIAL_ITEMS = [
     "name": "Suco Natural 500ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
+    "available": true,
     "price": 9.5
   },
   {
@@ -962,6 +1087,7 @@ const INITIAL_ITEMS = [
     "name": "Suco de Polpa com Água 500ml",
     "category": "bebidas-cafes",
     "desc": "Acerola, Açaí, Cajá, Caju, Cupuaçu, Goiaba, Graviola, Manga, Maracujá, Morango, Umbu ou Uva.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -970,6 +1096,7 @@ const INITIAL_ITEMS = [
     "name": "Suco de Polpa Misto (2 sabores) 500ml",
     "category": "bebidas-cafes",
     "desc": "Combine 2 sabores de frutas.",
+    "available": true,
     "price": 11
   },
   {
@@ -978,6 +1105,7 @@ const INITIAL_ITEMS = [
     "name": "Suco de Polpa com Leite 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite.",
+    "available": true,
     "price": 9.5
   },
   {
@@ -986,6 +1114,7 @@ const INITIAL_ITEMS = [
     "name": "Vitamina Completa 500ml",
     "category": "bebidas-cafes",
     "desc": "Leite + aveia + 2 frutas (Banana, Maçã, Mamão ou Abacate).",
+    "available": true,
     "price": 12.5
   },
   {
@@ -994,6 +1123,7 @@ const INITIAL_ITEMS = [
     "name": "Polpa de Açaí com Água + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com banana.",
+    "available": true,
     "price": 11
   },
   {
@@ -1002,6 +1132,7 @@ const INITIAL_ITEMS = [
     "name": "Polpa de Açaí com Leite + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite e banana.",
+    "available": true,
     "price": 13
   },
   {
@@ -1010,6 +1141,7 @@ const INITIAL_ITEMS = [
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -1018,6 +1150,7 @@ const INITIAL_ITEMS = [
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
+    "available": true,
     "price": 7.5
   },
   {
@@ -1026,6 +1159,7 @@ const INITIAL_ITEMS = [
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -1034,6 +1168,7 @@ const INITIAL_ITEMS = [
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
+    "available": true,
     "price": 6.5
   },
   {
@@ -1042,6 +1177,7 @@ const INITIAL_ITEMS = [
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
+    "available": true,
     "price": 8.5
   },
   {
@@ -1050,6 +1186,7 @@ const INITIAL_ITEMS = [
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
+    "available": true,
     "price": 7
   },
   {
@@ -1058,8 +1195,10 @@ const INITIAL_ITEMS = [
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",
+    "available": true,
     "price": 10,
-    "img": null
+    "img": null,
+    "available": true
   }
 ];
 
@@ -1196,7 +1335,8 @@ const server = http.createServer((req, res) => {
         name: String(body.name),
         category: String(body.category || 'salgados'),
         desc: String(body.desc || ''),
-        price: parseFloat(body.price),
+        available: true,
+    price: parseFloat(body.price),
         img: body.img ? String(body.img) : null
       };
       items.push(newItem);
@@ -1220,7 +1360,8 @@ const server = http.createServer((req, res) => {
         name: body.name !== undefined ? String(body.name) : items[idx].name,
         category: body.category !== undefined ? String(body.category) : items[idx].category,
         desc: body.desc !== undefined ? String(body.desc) : items[idx].desc,
-        price: body.price !== undefined ? parseFloat(body.price) : items[idx].price,
+        available: true,
+    price: body.price !== undefined ? parseFloat(body.price) : items[idx].price,
         img: body.img !== undefined ? (body.img ? String(body.img) : null) : items[idx].img
       };
       saveDB(items);

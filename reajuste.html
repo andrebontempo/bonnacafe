@@ -206,11 +206,12 @@
         <table class="price-input-table">
           <thead>
             <tr>
-              <th style="width: 70px;">ID</th>
-              <th style="width: 140px;">Categoria</th>
+              <th style="width: 60px;">ID</th>
+              <th style="width: 130px;">Categoria</th>
               <th>Nome & Descrição</th>
-              <th style="width: 140px;" class="text-right">Preço Atual (R$)</th>
-              <th style="width: 130px;" class="text-center">Ações</th>
+              <th style="width: 130px;" class="text-center">Disponibilidade</th>
+              <th style="width: 130px;" class="text-right">Preço Atual (R$)</th>
+              <th style="width: 100px;" class="text-center">Ações</th>
             </tr>
           </thead>
           <tbody id="price-table-body">
@@ -269,15 +270,24 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
                   <label for="modal-item-price"><strong>Preço (R$)</strong></label>
                   <input type="number" step="0.10" min="0" id="modal-item-price" class="form-control" placeholder="0.00" required />
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="form-group">
-                  <label for="modal-item-img"><strong>Caminho da Imagem (Opcional)</strong></label>
+                  <label for="modal-item-available"><strong>Disponibilidade no Dia</strong></label>
+                  <select id="modal-item-available" class="form-control">
+                    <option value="true">Hoje temos...</option>
+                    <option value="false">Estamos em falta...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="modal-item-img"><strong>Imagem (Opcional)</strong></label>
                   <input type="text" id="modal-item-img" class="form-control" placeholder="ex: img/specials/1.jpg" />
                 </div>
               </div>
@@ -358,6 +368,21 @@
         tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
         tr.append('<td><strong>' + (item.name || '') + '</strong>' + (item.desc ? '<br/><small class="text-muted">' + item.desc + '</small>' : '') + '</td>');
         
+        // Availability Toggle Button in Table
+        var availTd = $('<td class="text-center"></td>');
+        var isAvail = (item.available !== false);
+        var toggleBtn = $('<button class="btn btn-xs ' + (isAvail ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 8px; border-radius: 12px;" title="Clique para alternar status de disponibilidade">' +
+          '<i class="fa ' + (isAvail ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' +
+          (isAvail ? 'Hoje temos' : 'Em falta') +
+        '</button>');
+        
+        toggleBtn.click(function() {
+          item.available = !(item.available !== false);
+          renderTable();
+        });
+        availTd.append(toggleBtn);
+        tr.append(availTd);
+
         var inputTd = $('<td class="text-right"></td>');
         var input = $('<input type="number" step="0.10" class="price-field" data-index="' + index + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
         
@@ -417,6 +442,7 @@
       $('#modal-item-name').val('');
       $('#modal-item-desc').val('');
       $('#modal-item-price').val('');
+      $('#modal-item-available').val('true');
       $('#modal-item-img').val('');
 
       $('#itemModal').modal('show');
@@ -433,6 +459,7 @@
       $('#modal-item-name').val(item.name || '');
       $('#modal-item-desc').val(item.desc || '');
       $('#modal-item-price').val(parseFloat(item.price || 0).toFixed(2));
+      $('#modal-item-available').val((item.available !== false) ? 'true' : 'false');
       $('#modal-item-img').val(item.img || '');
 
       $('#itemModal').modal('show');
@@ -445,6 +472,7 @@
       var name = $('#modal-item-name').val().trim();
       var desc = $('#modal-item-desc').val().trim();
       var price = parseFloat($('#modal-item-price').val());
+      var isAvailable = $('#modal-item-available').val() === 'true';
       var img = $('#modal-item-img').val().trim();
 
       if (!rawId || !name || isNaN(price)) {
@@ -462,6 +490,7 @@
         category: category,
         desc: desc,
         price: price,
+        available: isAvailable,
         img: img || null
       };
 

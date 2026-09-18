@@ -627,6 +627,88 @@ hr {
   box-shadow: 0 4px 12px rgba(198, 139, 69, 0.3);
 }
 
+/* Custom Mobile-style Toggle Switch */
+.toggle-switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.switch-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--cream-surface);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all var(--transition-fast);
+}
+
+.switch-label:hover {
+  background: #EFEBE4;
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.switch-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.custom-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CBD5E1;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 24px;
+}
+
+.custom-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.custom-switch input:checked + .slider {
+  background-color: #2E7D32;
+}
+
+.custom-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
 /* Menu Items Cards Grid */
 .menu-category-block {
   margin-bottom: 44px;
@@ -698,6 +780,26 @@ hr {
   padding: 6px 14px;
   border-radius: var(--radius-full);
   white-space: nowrap;
+}
+
+/* Availability Badges */
+.availability-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.availability-badge.available {
+  color: #2E7D32;
+  background: rgba(46, 125, 50, 0.1);
+}
+.availability-badge.unavailable {
+  color: #C62828;
+  background: rgba(198, 40, 40, 0.1);
 }
 
 /* Portfolio / Poesia Section */
