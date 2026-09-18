@@ -1076,7 +1076,22 @@ function loadDB() {
   try {
     const raw = fs.readFileSync(DB_FILE, 'utf8');
     const data = JSON.parse(raw);
-    if (Array.isArray(data) && data.length > 0) {
+    if (Array.isArray(data) && data.length >= 100) {
+      const validCategories = new Set(Object.keys(CATEGORY_RANGES));
+      let needsSave = false;
+      data.forEach(it => {
+        if (it && it.category) {
+          if (it.category === 'salgados-assados') { it.category = 'salgados'; needsSave = true; }
+          else if (it.category === 'tapiocas' || it.category === 'sanduiches') { it.category = 'sanduiches-tapiocas'; needsSave = true; }
+          else if (it.category === 'cuscuz') { it.category = 'ovos'; needsSave = true; }
+          else if (it.category === 'bebidas' || it.category === 'cafes') { it.category = 'bebidas-cafes'; needsSave = true; }
+          else if (it.category === 'doces') { it.category = 'sobremesas'; needsSave = true; }
+          else if (!validCategories.has(it.category)) { it.category = 'salgados'; needsSave = true; }
+        }
+      });
+      if (needsSave) {
+        saveDB(data);
+      }
       return data;
     } else {
       console.warn('DB file was empty or invalid. Auto-repairing with initial items...');

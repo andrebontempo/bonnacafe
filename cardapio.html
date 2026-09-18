@@ -163,11 +163,24 @@
         var container = $('#dynamic-menu-container');
         container.empty();
 
+        var categoryMap = {
+          'salgados-assados': 'salgados',
+          'tapiocas': 'sanduiches-tapiocas',
+          'sanduiches': 'sanduiches-tapiocas',
+          'cuscuz': 'ovos',
+          'bebidas': 'bebidas-cafes',
+          'cafes': 'bebidas-cafes',
+          'doces': 'sobremesas'
+        };
+
         // Group items by category
         var grouped = {};
         items.forEach(function(item) {
           if (!item) return;
           var cat = item.category || 'salgados';
+          if (categoryMap[cat]) {
+            cat = categoryMap[cat];
+          }
           if (!grouped[cat]) {
             grouped[cat] = [];
           }
@@ -175,6 +188,12 @@
         });
 
         var catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'bebidas-cafes', 'sobremesas'];
+
+        for (var c in grouped) {
+          if (grouped.hasOwnProperty(c) && catOrder.indexOf(c) === -1) {
+            catOrder.push(c);
+          }
+        }
 
         catOrder.forEach(function(cat) {
           var catItems = grouped[cat];
