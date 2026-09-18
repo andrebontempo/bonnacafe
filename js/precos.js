@@ -1085,22 +1085,22 @@ window.BonnaMenu = {
     if (this.cache && Array.isArray(this.cache) && this.cache.length > 0) {
       return this.cache;
     }
-    var storedCatalog = localStorage.getItem('bonna_full_catalog');
+    var storedCatalog = localStorage.getItem('bonna_full_catalog_v2');
     if (storedCatalog) {
       try {
         var parsed = JSON.parse(storedCatalog);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].price !== 54) {
           this.cache = parsed;
           return this.cache;
         }
       } catch (e) {}
     }
 
-    // Auto-repair with default 126 items if cache or storage was empty
+    // Auto-repair with default items if cache or storage was empty
     var defaultItems = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS) && BONNA_ITEMS.length > 0) ? BONNA_ITEMS : [];
     this.cache = JSON.parse(JSON.stringify(defaultItems));
     if (this.cache.length > 0) {
-      localStorage.setItem('bonna_full_catalog', JSON.stringify(this.cache));
+      localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(this.cache));
     }
     return this.cache;
   },
@@ -1121,7 +1121,7 @@ window.BonnaMenu = {
         success: function(data) {
           if (Array.isArray(data) && data.length > 0) {
             self.cache = data;
-            localStorage.setItem('bonna_full_catalog', JSON.stringify(data));
+            localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(data));
             if (callback) callback(data);
             self.injectPricesCSS(data);
           } else if (localItems && localItems.length > 0) {
@@ -1142,7 +1142,7 @@ window.BonnaMenu = {
       items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
     }
     self.cache = items;
-    localStorage.setItem('bonna_full_catalog', JSON.stringify(items));
+    localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(items));
     self.injectPricesCSS(items);
 
     if (callback) callback(items);
@@ -1216,6 +1216,7 @@ window.BonnaMenu = {
 
   resetCatalog: function(callback) {
     localStorage.removeItem('bonna_full_catalog');
+    localStorage.removeItem('bonna_full_catalog_v2');
     var defaultItems = (typeof BONNA_ITEMS !== 'undefined') ? BONNA_ITEMS : [];
     this.cache = JSON.parse(JSON.stringify(defaultItems));
     this.saveCatalog(this.cache, callback);
