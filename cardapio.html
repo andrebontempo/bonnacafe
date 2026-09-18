@@ -156,16 +156,22 @@
 
     function renderMenu() {
       window.BonnaMenu.getItemsAsync(function(items) {
+        if (!items || !Array.isArray(items) || items.length === 0) {
+          items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
+        }
+
         var container = $('#dynamic-menu-container');
         container.empty();
 
         // Group items by category
         var grouped = {};
         items.forEach(function(item) {
-          if (!grouped[item.category]) {
-            grouped[item.category] = [];
+          if (!item) return;
+          var cat = item.category || 'salgados';
+          if (!grouped[cat]) {
+            grouped[cat] = [];
           }
-          grouped[item.category].push(item);
+          grouped[cat].push(item);
         });
 
         var catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'bebidas-cafes', 'sobremesas'];
@@ -180,15 +186,15 @@
 
           catItems.forEach(function(item) {
             var col = $('<div class="col-xs-12"></div>');
-            var card = $('<div class="menu-item-card" data-name="' + item.name.toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
+            var card = $('<div class="menu-item-card" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
             
             var details = $('<div class="menu-item-details">' +
-              '<div class="menu-item-name"><span class="item-code-badge">(' + item.id + ')</span> ' + item.name + '</div>' +
+              '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
               '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
             '</div>');
 
             var rightSide = $('<div class="menu-item-right">' +
-              '<div class="menu-item-price"><span id="_' + item.id + '"></span></div>' +
+              '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
             '</div>');
 
             card.append(details).append(rightSide);

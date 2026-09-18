@@ -1074,21 +1074,21 @@ window.BonnaMenu = {
 
   // Synchronous getItems - Always returns items instantly with guaranteed fallback
   getItems: function() {
-    if (this.cache && Array.isArray(this.cache) && this.cache.length > 0) {
+    if (this.cache && Array.isArray(this.cache) && this.cache.length >= 100) {
       return this.cache;
     }
     var storedCatalog = localStorage.getItem('bonna_full_catalog_v2');
     if (storedCatalog) {
       try {
         var parsed = JSON.parse(storedCatalog);
-        if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].price !== 54) {
+        if (Array.isArray(parsed) && parsed.length >= 100) {
           this.cache = parsed;
           return this.cache;
         }
       } catch (e) {}
     }
 
-    // Auto-repair with default items if cache or storage was empty
+    // Auto-repair with default items if cache or storage was empty or incomplete
     var defaultItems = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS) && BONNA_ITEMS.length > 0) ? BONNA_ITEMS : [];
     this.cache = JSON.parse(JSON.stringify(defaultItems));
     if (this.cache.length > 0) {
@@ -1111,7 +1111,7 @@ window.BonnaMenu = {
         dataType: 'json',
         timeout: 2500,
         success: function(data) {
-          if (Array.isArray(data) && data.length > 0) {
+          if (Array.isArray(data) && data.length >= 100) {
             self.cache = data;
             localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(data));
             if (callback) callback(data);
