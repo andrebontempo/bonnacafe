@@ -1034,7 +1034,7 @@ var BONNA_ITEMS = [
 ];
 
 window.BonnaMenu = {
-    CATEGORY_RANGES: {
+  CATEGORY_RANGES: {
     'combos': { min: 1, max: 10 },
     'bonnadodia': { min: 11, max: 20 },
     'salgados': { min: 21, max: 50 },
@@ -1043,14 +1043,6 @@ window.BonnaMenu = {
     'ovos': { min: 111, max: 140 },
     'bebidas-cafes': { min: 141, max: 170 },
     'sobremesas': { min: 171, max: 200 }
-  },
-    'bonnadodia': { min: 11, max: 20 },
-    'salgados': { min: 21, max: 40 },
-    'pao-queijo': { min: 41, max: 60 },
-    'sanduiches-tapiocas': { min: 61, max: 80 },
-    'ovos': { min: 81, max: 100 },
-    'bebidas-cafes': { min: 101, max: 120 },
-    'sobremesas': { min: 121, max: 140 }
   },
 
   getNextAvailableId: function(category, items) {
