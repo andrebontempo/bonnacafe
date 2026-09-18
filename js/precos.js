@@ -9,7 +9,7 @@ var BONNA_ITEMS = [
     "name": "Combo 1",
     "category": "combos",
     "desc": "Suco de Caixinha + Misto quente",
-    "price": 54,
+    "price": 10.5,
     "img": "img/specials/1.jpg"
   },
   {
@@ -18,7 +18,7 @@ var BONNA_ITEMS = [
     "name": "Combo 2",
     "category": "combos",
     "desc": "Café Longo + Pão de Queijo Recheado",
-    "price": 54,
+    "price": 13.5,
     "img": "img/specials/2.jpg"
   },
   {
@@ -27,7 +27,7 @@ var BONNA_ITEMS = [
     "name": "Combo 3",
     "category": "combos",
     "desc": "Cappuccino + Biscoito de Queijo",
-    "price": 41,
+    "price": 10.3,
     "img": "img/specials/3.jpg"
   },
   {
@@ -36,7 +36,7 @@ var BONNA_ITEMS = [
     "name": "Combo 4",
     "category": "combos",
     "desc": "Café com Leite + Pão de Queijo",
-    "price": 40,
+    "price": 10,
     "img": "img/specials/4.jpg"
   },
   {
@@ -45,7 +45,7 @@ var BONNA_ITEMS = [
     "name": "Combo 5",
     "category": "combos",
     "desc": "Toddynho + Misto Quente",
-    "price": 45,
+    "price": 11.3,
     "img": "img/specials/5.jpg"
   },
   {
@@ -54,7 +54,7 @@ var BONNA_ITEMS = [
     "name": "Combo 6",
     "category": "combos",
     "desc": "Coca-Cola + Misto Quente",
-    "price": 44,
+    "price": 11,
     "img": "img/specials/6.jpg"
   },
   {
