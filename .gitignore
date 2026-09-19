@@ -1,3 +1,3 @@
 node_modules/
-data/messages.json
+data/*.json
 .DS_Store
