@@ -936,9 +936,11 @@
         container.html('<p class="text-muted text-center" style="padding: 40px 0; font-style: italic;">Nenhuma mensagem encontrada.</p>');
       } else {
         pageMsgs.forEach(function(m) {
+          var contactStr = m.phone || m.email || '';
+          var contactInfo = contactStr ? ' (' + contactStr + ')' : '';
           var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">' +
             '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">' +
-              '<strong style="font-size: 1.05rem; color: var(--text-dark);"><i class="fa fa-user" style="color: var(--primary);"></i> ' + (m.name || 'Anônimo') + ' &lt;' + (m.email || '') + '&gt;</strong>' +
+              '<strong style="font-size: 1.05rem; color: var(--text-dark);"><i class="fa fa-user" style="color: var(--primary);"></i> ' + (m.name || 'Anônimo') + contactInfo + '</strong>' +
               '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
             '</div>' +
             '<p style="margin: 0; color: var(--text-dark); font-size: 0.95rem; white-space: pre-wrap; line-height: 1.5;">' + (m.message || '') + '</p>' +

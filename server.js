@@ -1471,15 +1471,16 @@ const server = http.createServer((req, res) => {
 
   // POST /api/contact (Salvar mensagem do formulario de contato)
   if (pathname === '/api/contact' && method === 'POST') {
-    return parseRequestBody(req, (err, body) => {
-      if (err || !body.name || !body.email || !body.message) {
-        return sendJSON(res, { error: 'Nome, e-mail e mensagem são obrigatórios.' }, 400);
+      const contactValue = String(body.phone || body.email || '').trim();
+      if (err || !body.name || !contactValue || !body.message) {
+        return sendJSON(res, { error: 'Nome, contato e mensagem são obrigatórios.' }, 400);
       }
       let msgs = loadMessages();
       const newMsg = {
         id: Date.now().toString(),
         name: String(body.name).trim(),
-        email: String(body.email).trim(),
+        phone: contactValue,
+        email: contactValue,
         message: String(body.message).trim(),
         date: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
       };

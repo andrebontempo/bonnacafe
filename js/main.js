@@ -134,9 +134,11 @@ function main() {
       var originalBtnText = $btn.html();
       $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Enviando...');
 
+      var contactVal = $form.find('input[name="phone"]').val() || $form.find('input[name="email"]').val();
       var formData = {
         name: $form.find('input[name="name"]').val(),
-        email: $form.find('input[name="email"]').val(),
+        phone: contactVal,
+        email: contactVal,
         message: $form.find('textarea[name="message"]').val(),
         _subject: 'Contato via site Bonna Café'
       };
