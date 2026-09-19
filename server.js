@@ -1498,18 +1498,6 @@ const server = http.createServer((req, res) => {
     return sendJSON(res, { success: true, message: 'Mensagem excluída' });
   }
 
-  // GET/POST /api/deploy (Forçar atualização na VPS via git pull)
-  if (pathname === '/api/deploy' || pathname === '/api/git-pull') {
-    const { exec } = require('child_process');
-    exec('git pull origin main', (error, stdout, stderr) => {
-      if (error) {
-        return sendJSON(res, { success: false, error: error.message, stderr: stderr });
-      }
-      return sendJSON(res, { success: true, message: 'Atualização forçada com sucesso via git pull na VPS!', output: stdout });
-    });
-    return;
-  }
-
   // POST /api/admin/reset
   if (pathname === '/api/admin/reset' && method === 'POST') {
     saveDB(INITIAL_ITEMS);
