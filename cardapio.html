@@ -5,7 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>Cardápio Completo | Bonna Café - Hangar 5 & Gilberto Salomão</title>
-  <meta name="description" content="Confira o cardápio completo do Bonna Café com mais de 100 opções de lanches, salgados, tapiocas, cuscuz, cafés e refeições." />
+  <meta name="description"
+    content="Confira o cardápio completo do Bonna Café com mais de 100 opções de lanches, salgados, tapiocas, cuscuz, cafés e refeições." />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -34,6 +35,7 @@
       color: var(--text-light);
       text-align: center;
     }
+
     .cardapio-hero h1 {
       color: var(--text-light);
       font-size: 3.2rem;
@@ -55,7 +57,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-          <img src="img/logo_bonna.png" alt="Bonna Café" height="46" style="vertical-align: middle; margin-right: 6px;" />
+          <img src="img/logo_bonna.png" alt="Bonna Café" height="46"
+            style="vertical-align: middle; margin-right: 6px;" />
           Bonna Café
         </a>
       </div>
@@ -93,12 +96,14 @@
       <div class="menu-controls">
         <div class="search-box">
           <i class="fa fa-search"></i>
-          <input type="text" id="menu-search-input" placeholder="Buscar no cardápio (ex: cuscuz, tapioca, expresso, suco)..." />
+          <input type="text" id="menu-search-input"
+            placeholder="Buscar no cardápio (ex: cuscuz, tapioca, expresso, suco)..." />
         </div>
 
         <div class="toggle-switch-container">
           <label class="switch-label" for="available-toggle-switch">
-            <span class="switch-text"><i class="fa fa-check-circle" style="color: #2E7D32;"></i> Apenas "Hoje temos..."</span>
+            <span class="switch-text"><i class="fa fa-check-circle" style="color: #2E7D32;"></i> Apenas "Hoje
+              temos..."</span>
             <div class="custom-switch">
               <input type="checkbox" id="available-toggle-switch">
               <span class="slider round"></span>
@@ -135,7 +140,7 @@
         </div>
         <div class="col-md-4">
           <h3>Funcionamento</h3>
-          <p>De Segunda a Sexta-feira<br />Das 08:30h às 19:00h</p>
+          <p>De Segunda a Sexta-feira<br />Das 07:30h às 18:00h</p>
         </div>
         <div class="col-md-4">
           <h3>Atendimento</h3>
@@ -170,7 +175,7 @@
     };
 
     function renderMenu() {
-      window.BonnaMenu.getItemsAsync(function(items) {
+      window.BonnaMenu.getItemsAsync(function (items) {
         if (!items || !Array.isArray(items) || items.length === 0) {
           items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
         }
@@ -190,7 +195,7 @@
 
         // Group items by category
         var grouped = {};
-        items.forEach(function(item) {
+        items.forEach(function (item) {
           if (!item) return;
           var cat = item.category || 'salgados';
           if (categoryMap[cat]) {
@@ -210,7 +215,7 @@
           }
         }
 
-        catOrder.forEach(function(cat) {
+        catOrder.forEach(function (cat) {
           var catItems = grouped[cat];
           if (!catItems || catItems.length === 0) return;
 
@@ -218,15 +223,15 @@
           var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
           var row = $('<div class="row"></div>');
 
-          catItems.forEach(function(item) {
+          catItems.forEach(function (item) {
             var col = $('<div class="col-xs-12"></div>');
             var isAvailable = (item.available !== false);
             var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
-            
+
             var details = $('<div class="menu-item-details">' +
               '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
               '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
-            '</div>');
+              '</div>');
 
             var availabilityBadge = isAvailable
               ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
@@ -235,7 +240,7 @@
             var rightSide = $('<div class="menu-item-right">' +
               availabilityBadge +
               '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
-            '</div>');
+              '</div>');
 
             card.append(details).append(rightSide);
             col.append(card);
@@ -259,7 +264,7 @@
       var query = $('#menu-search-input').val() ? $('#menu-search-input').val().toLowerCase().trim() : '';
       var onlyAvailable = $('#available-toggle-switch').is(':checked');
 
-      $('.menu-category-block').each(function() {
+      $('.menu-category-block').each(function () {
         var block = $(this);
         var blockCategory = block.attr('data-category');
 
@@ -271,7 +276,7 @@
         }
 
         var visibleCount = 0;
-        block.find('.menu-item-card').each(function() {
+        block.find('.menu-item-card').each(function () {
           var card = $(this);
           var isItemAvailable = card.attr('data-available') === 'true';
           var name = card.attr('data-name') || '';
@@ -297,16 +302,16 @@
       });
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       renderMenu();
 
       // Mobile-style Toggle Switch
-      $('#available-toggle-switch').on('change', function() {
+      $('#available-toggle-switch').on('change', function () {
         applyFilters();
       });
 
       // Category Filter Pills
-      $('.filter-btn[data-filter]').click(function() {
+      $('.filter-btn[data-filter]').click(function () {
         $('.filter-btn[data-filter]').removeClass('active');
         $(this).addClass('active');
 
@@ -315,7 +320,7 @@
       });
 
       // Live Search Filter
-      $('#menu-search-input').on('keyup input', function() {
+      $('#menu-search-input').on('keyup input', function () {
         var query = $(this).val().toLowerCase().trim();
 
         if (query.length > 0) {
