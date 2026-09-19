@@ -181,7 +181,7 @@ function main() {
 
           setTimeout(function () {
             $alertBox.slideUp(400);
-          }, 7000);
+          }, 3000);
         },
         error: function (xhr) {
           var errMsg = 'Não foi possível enviar a mensagem agora. Tente novamente ou fale pelo WhatsApp.';
