@@ -233,6 +233,27 @@
       </div>
     </div>
 
+    <!-- Mensagens Recebidas do Site -->
+    <div class="panel-card">
+      <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
+        <div class="col-md-8 col-xs-12">
+          <h3 style="margin-bottom: 0; border: none; padding: 0;">
+            <i class="fa fa-envelope"></i> 3. Mensagens do Site
+            <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
+          </h3>
+        </div>
+        <div class="col-md-4 col-xs-12 text-right">
+          <button id="btn-refresh-messages" class="btn btn-default btn-sm">
+            <i class="fa fa-refresh"></i> Atualizar Mensagens
+          </button>
+        </div>
+      </div>
+
+      <div id="messages-container" style="max-height: 400px; overflow-y: auto;">
+        <!-- Messages list populated dynamically -->
+      </div>
+    </div>
+
   </main>
 
 
@@ -588,7 +609,54 @@
         });
       });
 
+      // Load Site Messages
+      loadSiteMessages();
+      $('#btn-refresh-messages').click(function() {
+        loadSiteMessages();
+      });
+
     });
+
+    function loadSiteMessages() {
+      $.getJSON('/api/messages', function(msgs) {
+        var container = $('#messages-container');
+        container.empty();
+
+        var count = (msgs && Array.isArray(msgs)) ? msgs.length : 0;
+        $('#messages-count-badge').text(count + ' mensagem' + (count === 1 ? '' : 's'));
+
+        if (count === 0) {
+          container.html('<p class="text-muted text-center" style="padding: 20px 0; font-style: italic;">Nenhuma mensagem recebida no momento.</p>');
+          return;
+        }
+
+        msgs.forEach(function(m) {
+          var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 8px; margin-bottom: 10px;">' +
+            '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">' +
+              '<strong><i class="fa fa-user"></i> ' + (m.name || 'Anônimo') + ' &lt;' + (m.email || '') + '&gt;</strong>' +
+              '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
+            '</div>' +
+            '<p style="margin: 0; color: var(--text-dark); font-size: 0.95rem; white-space: pre-wrap;">' + (m.message || '') + '</p>' +
+            '<div style="text-align: right; margin-top: 6px;">' +
+              '<button class="btn btn-xs btn-danger btn-del-msg" data-id="' + m.id + '"><i class="fa fa-trash"></i> Excluir</button>' +
+            '</div>' +
+          '</div>');
+
+          card.find('.btn-del-msg').click(function() {
+            var id = $(this).attr('data-id');
+            if (confirm('Excluir esta mensagem do painel?')) {
+              $.ajax({
+                url: '/api/messages/' + id,
+                type: 'DELETE',
+                success: function() { loadSiteMessages(); }
+              });
+            }
+          });
+
+          container.append(card);
+        });
+      });
+    }
   </script>
 
   <script type="text/javascript" src="js/main.js?v=5"></script>

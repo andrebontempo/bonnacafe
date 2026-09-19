@@ -111,9 +111,10 @@ function main() {
       };
 
       $.ajax({
-        url: 'https://formsubmit.co/ajax/bonacafe.oficial@gmail.com',
+        url: '/api/contact',
         type: 'POST',
-        data: formData,
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
         dataType: 'json',
         success: function (res) {
           $alertBox

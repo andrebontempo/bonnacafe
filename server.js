@@ -6,6 +6,20 @@ const url = require('url');
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'bonnacafe_db.json');
+const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
+
+function loadMessages() {
+  if (!fs.existsSync(MESSAGES_FILE)) return [];
+  try {
+    return JSON.parse(fs.readFileSync(MESSAGES_FILE, 'utf8')) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveMessages(msgs) {
+  fs.writeFileSync(MESSAGES_FILE, JSON.stringify(msgs, null, 2), 'utf8');
+}
 
 const CATEGORY_RANGES = {
   'combos': { min: 1, max: 10 },
@@ -1425,6 +1439,63 @@ const server = http.createServer((req, res) => {
       }
       return sendJSON(res, { success: false, error: 'Senha incorreta' }, 401);
     });
+  }
+
+  // POST /api/contact (Salvar mensagem do formulario de contato)
+  if (pathname === '/api/contact' && method === 'POST') {
+    return parseRequestBody(req, (err, body) => {
+      if (err || !body.name || !body.email || !body.message) {
+        return sendJSON(res, { error: 'Nome, e-mail e mensagem são obrigatórios.' }, 400);
+      }
+      let msgs = loadMessages();
+      const newMsg = {
+        id: Date.now().toString(),
+        name: String(body.name).trim(),
+        email: String(body.email).trim(),
+        message: String(body.message).trim(),
+        date: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+      };
+      msgs.unshift(newMsg);
+      saveMessages(msgs);
+
+      // Disparar copia via FormSubmit de forma assincrona em background
+      try {
+        const postData = JSON.stringify({
+          name: newMsg.name,
+          email: newMsg.email,
+          message: newMsg.message,
+          _subject: 'Contato via site Bonna Café'
+        });
+        const fsReq = http.request({
+          hostname: 'formsubmit.co',
+          path: '/ajax/bonacafe.oficial@gmail.com',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData)
+          }
+        });
+        fsReq.on('error', () => {});
+        fsReq.write(postData);
+        fsReq.end();
+      } catch (e) {}
+
+      return sendJSON(res, { success: true, message: 'Mensagem enviada com sucesso!' });
+    });
+  }
+
+  // GET /api/messages (Listar mensagens no Admin)
+  if (pathname === '/api/messages' && method === 'GET') {
+    return sendJSON(res, loadMessages());
+  }
+
+  // DELETE /api/messages/:id (Excluir mensagem)
+  if (pathname.startsWith('/api/messages/') && method === 'DELETE') {
+    const msgId = decodeURIComponent(pathname.replace('/api/messages/', ''));
+    let msgs = loadMessages();
+    const filtered = msgs.filter(m => m.id !== msgId);
+    saveMessages(filtered);
+    return sendJSON(res, { success: true, message: 'Mensagem excluída' });
   }
 
   // POST /api/admin/reset
