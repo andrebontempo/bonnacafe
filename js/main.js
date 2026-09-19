@@ -51,6 +51,15 @@ function main() {
       offset: 90
     });
 
+    // 3.5. Nivo Lightbox Initialization for Poesia com Café
+    if ($.fn.nivoLightbox) {
+      $('a[data-lightbox-gallery]').nivoLightbox({
+        effect: 'fadeScale',
+        keyboardNav: true,
+        clickOverlayToClose: true
+      });
+    }
+
     $(".navbar-nav li a").click(function () {
       var toggle = $(".navbar-toggle").is(":visible");
       if (toggle) {
