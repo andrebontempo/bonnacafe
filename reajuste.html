@@ -31,18 +31,69 @@
       background-color: #F7F4EF;
       padding-bottom: 60px;
     }
+
     .admin-header {
       background: var(--dark-base);
       color: var(--text-light);
-      padding: 30px 0;
+      padding: 26px 0;
       border-bottom: 3px solid var(--primary);
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
+
     .admin-header h1 {
       color: var(--text-light);
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       margin-bottom: 6px;
     }
+
+    .admin-nav-tabs {
+      border-bottom: 2px solid var(--primary-light);
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .admin-nav-tabs > li {
+      margin-bottom: 0;
+    }
+
+    .admin-nav-tabs > li > a {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      background: #EFE8DE;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      padding: 12px 22px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-bottom: none;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-nav-tabs > li.active > a,
+    .admin-nav-tabs > li.active > a:focus,
+    .admin-nav-tabs > li.active > a:hover {
+      background: var(--primary) !important;
+      color: #FFF !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 -4px 12px rgba(198, 139, 69, 0.2);
+    }
+
+    .admin-nav-tabs .badge {
+      background: rgba(0,0,0,0.15);
+      font-size: 0.82rem;
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .admin-nav-tabs > li.active .badge {
+      background: #FFF;
+      color: var(--primary);
+    }
+
     .panel-card {
       background: #FFF;
       border-radius: var(--radius-md);
@@ -51,17 +102,25 @@
       border: 1px solid rgba(0,0,0,0.06);
       margin-bottom: 30px;
     }
+
     .panel-card h3 {
       font-size: 1.3rem;
       color: var(--text-dark);
       border-bottom: 2px solid var(--primary-light);
-      padding-bottom: 8px;
+      padding-bottom: 10px;
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
     }
+
     .price-input-table {
       width: 100%;
       border-collapse: collapse;
     }
+
     .price-input-table th {
       background: #F4ECE1;
       color: var(--text-dark);
@@ -70,16 +129,19 @@
       font-weight: 700;
       border-bottom: 2px solid var(--primary-light);
     }
+
     .price-input-table td {
       padding: 10px 12px;
       border-bottom: 1px solid #EEE;
       vertical-align: middle;
     }
+
     .price-input-table tr:hover {
       background: #FAF6F0;
     }
+
     .price-field {
-      width: 100px;
+      width: 105px;
       padding: 6px 10px;
       border-radius: var(--radius-sm);
       border: 1px solid #CCC;
@@ -87,35 +149,96 @@
       color: var(--primary-hover);
       text-align: right;
     }
+
     .price-field:focus {
       border-color: var(--primary);
       outline: none;
       box-shadow: 0 0 0 3px var(--primary-light);
     }
-    .code-export-box {
-      width: 100%;
-      height: 220px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      padding: 12px;
-      border-radius: var(--radius-sm);
-      border: 1px solid #DDD;
-      background: #28201A;
-      color: #72E076;
-    }
+
     .badge-cat {
       background: var(--primary-light);
       color: var(--primary-hover);
       font-size: 0.8rem;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: var(--radius-full);
       font-weight: 600;
       white-space: nowrap;
     }
+
     .action-btn-group {
       display: flex;
       gap: 6px;
       justify-content: center;
+    }
+
+    /* Pagination Styling */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #EEE;
+    }
+
+    .pagination-info {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .pagination-controls .pagination {
+      margin: 0;
+    }
+
+    .pagination-controls .pagination > li > a,
+    .pagination-controls .pagination > li > span {
+      color: var(--primary-hover);
+      border-color: #DDD;
+      font-weight: 600;
+      padding: 6px 12px;
+    }
+
+    .pagination-controls .pagination > li > a:hover {
+      background-color: var(--primary-light);
+      color: var(--primary-hover);
+    }
+
+    .pagination-controls .pagination > .active > a,
+    .pagination-controls .pagination > .active > a:hover,
+    .pagination-controls .pagination > .active > span {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #FFF;
+    }
+
+    .pagination-controls .pagination > .disabled > a,
+    .pagination-controls .pagination > .disabled > span {
+      color: #AAA;
+      border-color: #EEE;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-actions .form-control {
+      height: 38px;
+    }
+
+    .btn-action-lg {
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      padding: 0 16px;
     }
   </style>
 </head>
@@ -125,18 +248,18 @@
   <!-- Admin Header -->
   <header class="admin-header">
     <div class="container">
-      <div class="row" style="display: flex; align-items: center; flex-wrap: wrap;">
-        <div class="col-md-8">
-          <h1><i class="fa fa-sliders"></i> Gerenciador do Cardápio & Preços</h1>
-          <p style="color: var(--text-light-muted); margin: 0;">
-            Adicione novos produtos, edite informações, exclua itens e aplique reajustes em todo o cardápio!
+      <div class="row" style="display: flex; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div class="col-md-8 col-xs-12">
+          <h1><i class="fa fa-sliders"></i> Painel de Gestão Bonna Café</h1>
+          <p style="color: var(--text-light-muted); margin: 0; font-size: 1.05rem;">
+            Gerencie o cardápio, ajuste preços em massa, cadastre produtos e leia as mensagens do site.
           </p>
         </div>
-        <div class="col-md-4 text-right">
-          <a href="cardapio.html" class="btn btn-custom btn-outline-custom" style="margin-right: 8px;">
+        <div class="col-md-4 col-xs-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end;">
+          <a href="cardapio.html" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-cutlery"></i> Ir ao Cardápio
           </a>
-          <button onclick="logoutAdmin()" class="btn btn-danger">
+          <button onclick="logoutAdmin()" class="btn btn-danger btn-action-lg">
             <i class="fa fa-sign-out"></i> Sair
           </button>
         </div>
@@ -146,113 +269,198 @@
 
   <main class="container">
 
-    <!-- Reajuste Percentual em Massa -->
-    <div class="panel-card">
-      <h3><i class="fa fa-percent"></i> 1. Reajuste Percentual em Massa (Aumento / Desconto)</h3>
-      <div class="row admin-bulk-row">
-        <div class="col-xs-6 col-md-3 col-sm-6 admin-bulk-col col-half">
-          <div class="form-group">
-            <label><strong>Percentual (%)</strong></label>
-            <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
-          </div>
-        </div>
+    <!-- Navegação por Abas (Tabs) -->
+    <ul class="nav nav-tabs admin-nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#tab-cardapio" aria-controls="tab-cardapio" role="tab" data-toggle="tab">
+          <i class="fa fa-cutlery"></i> Gerenciador de Cardápio & Preços
+          <span id="nav-catalog-badge" class="badge">0</span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#tab-mensagens" aria-controls="tab-mensagens" role="tab" data-toggle="tab">
+          <i class="fa fa-envelope"></i> Mensagens do Site
+          <span id="nav-messages-badge" class="badge">0</span>
+        </a>
+      </li>
+    </ul>
 
-        <div class="col-xs-6 col-md-4 col-sm-6 admin-bulk-col col-half">
-          <div class="form-group">
-            <label><strong>Aplicar na Categoria</strong></label>
-            <select id="bulk-category" class="form-control">
-              <option value="all">-- Todas as Categorias --</option>
-              <option value="combos">Combos Especiais (001 - 010)</option>
-              <option value="bonnadodia">Bonna do Dia (011 - 020)</option>
-              <option value="salgados">Salgados Tradicionais & Assados (021 - 050)</option>
-              <option value="pao-queijo">Linha Pão de Queijo & Especialidades (051 - 080)</option>
-              <option value="sanduiches-tapiocas">Sanduíches, Pão na Chapa & Tapiocas (081 - 110)</option>
-              <option value="ovos">Cuscuz, Crepiocas & Ovos Especiais (111 - 140)</option>
-              <option value="massas">Massas & Lasanhas (141 - 170)</option>
-              <option value="bebidas-cafes">Cafés, Sucos & Bebidas (171 - 200)</option>
-              <option value="sobremesas">Sobremesas & Doces (201 - 230)</option>
-            </select>
-          </div>
-        </div>
+    <!-- Conteúdo das Abas -->
+    <div class="tab-content">
 
-        <div class="col-xs-6 col-md-3 col-sm-6 admin-bulk-col col-half">
-          <div class="form-group">
-            <label><strong>Arredondamento</strong></label>
-            <select id="bulk-rounding" class="form-control">
-              <option value="0.50">Múltiplos de R$ 0,50 (ex: R$ 10,50)</option>
-              <option value="0.10">Múltiplos de R$ 0,10 (ex: R$ 10,30)</option>
-              <option value="exact">Exato (2 casas decimais)</option>
-            </select>
-          </div>
-        </div>
+      <!-- ABA 1: CARDÁPIO & PREÇOS -->
+      <div role="tabpanel" class="tab-pane fade in active" id="tab-cardapio">
 
-        <div class="col-xs-6 col-md-2 col-sm-6 admin-bulk-col col-half">
-          <label style="display: block;">&nbsp;</label>
-          <button id="btn-apply-bulk" class="btn btn-custom btn-block" style="background: var(--primary);">
-            <i class="fa fa-calculator"></i> Aplicar %
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gestão & Edição do Catálogo -->
-    <div class="panel-card">
-      <div class="row admin-catalog-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
-        <div class="col-md-5 col-xs-12">
-          <h3 style="margin-bottom: 0; border: none; padding: 0;">
-            <i class="fa fa-list"></i> 2. Gestão de Itens do Catálogo
-            <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+        <!-- 1. Reajuste Percentual em Massa -->
+        <div class="panel-card">
+          <h3 style="margin-top: 0;">
+            <span><i class="fa fa-percent" style="color: var(--primary);"></i> 1. Reajuste Percentual em Massa</span>
+            <small class="text-muted" style="font-size: 0.85rem; font-weight: normal;">Aplicação instantânea por categoria</small>
           </h3>
+          <div class="row admin-bulk-row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label><strong>Percentual (%)</strong></label>
+                <div class="input-group">
+                  <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
+                  <span class="input-group-addon">%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="form-group">
+                <label><strong>Aplicar na Categoria</strong></label>
+                <select id="bulk-category" class="form-control">
+                  <option value="all">-- Todas as Categorias --</option>
+                  <option value="combos">Combos Especiais (001 - 010)</option>
+                  <option value="bonnadodia">Bonna do Dia (011 - 020)</option>
+                  <option value="salgados">Salgados Tradicionais & Assados (021 - 050)</option>
+                  <option value="pao-queijo">Linha Pão de Queijo & Especialidades (051 - 080)</option>
+                  <option value="sanduiches-tapiocas">Sanduíches, Pão na Chapa & Tapiocas (081 - 110)</option>
+                  <option value="ovos">Cuscuz, Crepiocas & Ovos Especiais (111 - 140)</option>
+                  <option value="massas">Massas & Lasanhas (141 - 170)</option>
+                  <option value="bebidas-cafes">Cafés, Sucos & Bebidas (171 - 200)</option>
+                  <option value="sobremesas">Sobremesas & Doces (201 - 230)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="form-group">
+                <label><strong>Regra de Arredondamento</strong></label>
+                <select id="bulk-rounding" class="form-control">
+                  <option value="0.50">Múltiplos de R$ 0,50 (ex: R$ 10,50)</option>
+                  <option value="0.10">Múltiplos de R$ 0,10 (ex: R$ 10,30)</option>
+                  <option value="exact">Exato (2 casas decimais)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-2">
+              <label style="display: block;">&nbsp;</label>
+              <button id="btn-apply-bulk" class="btn btn-custom btn-block btn-action-lg" style="background: var(--primary); justify-content: center;">
+                <i class="fa fa-calculator"></i> Aplicar %
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-md-7 col-xs-12" style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap;">
-          <input type="text" id="table-search" class="form-control" style="width: 220px;" placeholder="Filtrar por nome ou ID..." />
-          <button id="btn-open-add-modal" class="btn btn-success" style="white-space: nowrap;">
-            <i class="fa fa-plus-circle"></i> Novo Item
-          </button>
-          <button id="btn-save-local" class="btn btn-custom" style="white-space: nowrap; background: var(--primary);">
-            <i class="fa fa-save"></i> Salvar Catálogo
-          </button>
+
+        <!-- 2. Gestão & Edição do Catálogo -->
+        <div class="panel-card">
+          <div class="row admin-catalog-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px; gap: 12px;">
+            <div class="col-md-4 col-xs-12">
+              <h3 style="margin: 0; border: none; padding: 0;">
+                <span><i class="fa fa-list" style="color: var(--primary);"></i> Itens do Catálogo</span>
+                <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+              </h3>
+            </div>
+            
+            <div class="col-md-8 col-xs-12 text-right">
+              <div class="toolbar-actions" style="justify-content: flex-end;">
+                <select id="table-category-filter" class="form-control" style="width: 200px;">
+                  <option value="all">Todas as Categorias</option>
+                  <option value="combos">Combos (001 - 010)</option>
+                  <option value="bonnadodia">Bonna do Dia (011 - 020)</option>
+                  <option value="salgados">Salgados & Assados (021 - 050)</option>
+                  <option value="pao-queijo">Pão de Queijo (051 - 080)</option>
+                  <option value="sanduiches-tapiocas">Sanduíches & Tapiocas (081 - 110)</option>
+                  <option value="ovos">Cuscuz & Ovos (111 - 140)</option>
+                  <option value="massas">Massas & Lasanhas (141 - 170)</option>
+                  <option value="bebidas-cafes">Bebidas & Cafés (171 - 200)</option>
+                  <option value="sobremesas">Sobremesas (201 - 230)</option>
+                </select>
+
+                <div class="input-group" style="width: 220px;">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" id="table-search" class="form-control" placeholder="Filtrar por nome ou ID..." />
+                </div>
+
+                <button id="btn-open-add-modal" class="btn btn-success btn-action-lg">
+                  <i class="fa fa-plus-circle"></i> Novo Item
+                </button>
+                <button id="btn-save-local" class="btn btn-custom btn-action-lg" style="background: var(--primary);">
+                  <i class="fa fa-save"></i> Salvar Alterações
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabela com scroll responsivo -->
+          <div class="table-responsive">
+            <table class="price-input-table">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">ID</th>
+                  <th style="width: 140px;">Categoria</th>
+                  <th>Nome & Descrição</th>
+                  <th style="width: 140px;" class="text-center">Disponibilidade</th>
+                  <th style="width: 140px;" class="text-right">Preço Atual (R$)</th>
+                  <th style="width: 110px;" class="text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="price-table-body">
+                <!-- Linhas populadas dinamicamente -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Paginação do Catálogo (10 itens por página) -->
+          <div class="pagination-bar">
+            <div class="pagination-info" id="catalog-pagination-info">
+              Exibindo 0 de 0 itens
+            </div>
+            <div class="pagination-controls">
+              <ul class="pagination" id="catalog-pagination-ul">
+                <!-- Botões de paginação populados dinamicamente -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ABA 2: MENSAGENS DO SITE -->
+      <div role="tabpanel" class="tab-pane fade" id="tab-mensagens">
+        <div class="panel-card">
+          <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px; gap: 12px;">
+            <div class="col-md-6 col-xs-12">
+              <h3 style="margin: 0; border: none; padding: 0;">
+                <span><i class="fa fa-envelope" style="color: #2E7D32;"></i> Mensagens Enviadas pelo Contato</span>
+                <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
+              </h3>
+            </div>
+            <div class="col-md-6 col-xs-12 text-right">
+              <div class="toolbar-actions" style="justify-content: flex-end;">
+                <div class="input-group" style="width: 250px;">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                  <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..." />
+                </div>
+                <button id="btn-refresh-messages" class="btn btn-default btn-action-lg">
+                  <i class="fa fa-refresh"></i> Atualizar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="messages-container" style="min-height: 250px;">
+            <!-- Mensagens populadas dinamicamente -->
+          </div>
+
+          <!-- Paginação das Mensagens (10 registros por página) -->
+          <div class="pagination-bar">
+            <div class="pagination-info" id="messages-pagination-info">
+              Exibindo 0 de 0 mensagens
+            </div>
+            <div class="pagination-controls">
+              <ul class="pagination" id="messages-pagination-ul">
+                <!-- Paginação de mensagens populada dinamicamente -->
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="table-responsive" style="max-height: 550px; overflow-y: auto;">
-        <table class="price-input-table">
-          <thead>
-            <tr>
-              <th style="width: 60px;">ID</th>
-              <th style="width: 130px;">Categoria</th>
-              <th>Nome & Descrição</th>
-              <th style="width: 130px;" class="text-center">Disponibilidade</th>
-              <th style="width: 130px;" class="text-right">Preço Atual (R$)</th>
-              <th style="width: 100px;" class="text-center">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="price-table-body">
-            <!-- Table rows populated dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Mensagens Recebidas do Site -->
-    <div class="panel-card">
-      <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
-        <div class="col-md-8 col-xs-12">
-          <h3 style="margin-bottom: 0; border: none; padding: 0;">
-            <i class="fa fa-envelope"></i> 3. Mensagens do Site
-            <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
-          </h3>
-        </div>
-        <div class="col-md-4 col-xs-12 text-right">
-          <button id="btn-refresh-messages" class="btn btn-default btn-sm">
-            <i class="fa fa-refresh"></i> Atualizar Mensagens
-          </button>
-        </div>
-      </div>
-
-      <div id="messages-container" style="max-height: 400px; overflow-y: auto;">
-        <!-- Messages list populated dynamically -->
-      </div>
     </div>
 
   </main>
@@ -273,7 +481,7 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label for="modal-item-id"><strong>Código / ID</strong></label>
-                  <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 127" required />
+                  <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 141" required />
                 </div>
               </div>
               <div class="col-md-8">
@@ -296,12 +504,12 @@
 
             <div class="form-group">
               <label for="modal-item-name"><strong>Nome do Produto</strong></label>
-              <input type="text" id="modal-item-name" class="form-control" placeholder="ex: Cappuccino de Avelã Especial" required />
+              <input type="text" id="modal-item-name" class="form-control" placeholder="ex: Lasanha de Frango com Catupiry" required />
             </div>
 
             <div class="form-group">
               <label for="modal-item-desc"><strong>Descrição do Produto</strong></label>
-              <textarea id="modal-item-desc" class="form-control" rows="2" placeholder="ex: Expresso, leite vaporizado, creme de avelã e canela."></textarea>
+              <textarea id="modal-item-desc" class="form-control" rows="2" placeholder="ex: Frango desfiado cremoso, molho branco e cobertura de queijo gratinado."></textarea>
             </div>
 
             <div class="row">
@@ -345,7 +553,15 @@
   <script type="text/javascript" src="js/precos.js?v=5"></script>
 
   <script type="text/javascript">
+    // Estados do Catálogo e Paginação
     var currentWorkingItems = [];
+    var catalogCurrentPage = 1;
+    var catalogItemsPerPage = 10;
+
+    // Estados das Mensagens e Paginação
+    var currentMessages = [];
+    var messagesCurrentPage = 1;
+    var messagesPerPage = 10;
 
     function checkAuth() {
       if (sessionStorage.getItem('bonna_admin_auth') !== 'true') {
@@ -372,10 +588,12 @@
           items = window.BonnaMenu.getItems();
         }
         currentWorkingItems = JSON.parse(JSON.stringify(items));
+        $('#nav-catalog-badge').text(currentWorkingItems.length);
         renderTable();
       });
     }
 
+    // Renderização da Tabela de Catálogo com Paginação (10 registros)
     function renderTable() {
       var tbody = $('#price-table-body');
       tbody.empty();
@@ -385,80 +603,146 @@
         currentWorkingItems = JSON.parse(JSON.stringify(fallbackItems));
       }
 
+      $('#nav-catalog-badge').text(currentWorkingItems.length);
+
       var filterQuery = $('#table-search').val() ? $('#table-search').val().toLowerCase().trim() : '';
-      var count = 0;
+      var catFilter = $('#table-category-filter').val() || 'all';
 
-      currentWorkingItems.forEach(function(item, index) {
-        if (!item) return;
-
+      // Filtragem
+      var filtered = currentWorkingItems.filter(function(item) {
+        if (!item) return false;
+        if (catFilter !== 'all' && item.category !== catFilter) return false;
         if (filterQuery) {
           var textMatch = ((item.id || '') + ' ' + (item.name || '') + ' ' + (item.category || '') + ' ' + (item.desc || '')).toLowerCase();
-          if (textMatch.indexOf(filterQuery) === -1) return;
+          if (textMatch.indexOf(filterQuery) === -1) return false;
         }
-
-        count++;
-
-        var tr = $('<tr></tr>');
-        tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
-        tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
-        tr.append('<td><strong>' + (item.name || '') + '</strong>' + (item.desc ? '<br/><small class="text-muted">' + item.desc + '</small>' : '') + '</td>');
-        
-        // Availability Toggle Button in Table
-        var availTd = $('<td class="text-center"></td>');
-        var isAvail = (item.available !== false);
-        var toggleBtn = $('<button class="btn btn-xs ' + (isAvail ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 8px; border-radius: 12px;" title="Clique para alternar status de disponibilidade">' +
-          '<i class="fa ' + (isAvail ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' +
-          (isAvail ? 'Hoje temos' : 'Em falta') +
-        '</button>');
-        
-        toggleBtn.click(function() {
-          item.available = !(item.available !== false);
-          renderTable();
-        });
-        availTd.append(toggleBtn);
-        tr.append(availTd);
-
-        var inputTd = $('<td class="text-right"></td>');
-        var input = $('<input type="number" step="0.10" class="price-field" data-index="' + index + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
-        
-        input.on('change input', function() {
-          var idx = parseInt($(this).attr('data-index'), 10);
-          var newVal = parseFloat($(this).val());
-          if (!isNaN(newVal) && newVal >= 0) {
-            currentWorkingItems[idx].price = newVal;
-          }
-        });
-
-        inputTd.append(input);
-        tr.append(inputTd);
-
-        // Action Buttons
-        var actionTd = $('<td class="text-center"></td>');
-        var btnGroup = $('<div class="action-btn-group"></div>');
-
-        var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar"><i class="fa fa-pencil"></i></button>');
-        editBtn.click(function() { openEditModal(index); });
-
-        var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir"><i class="fa fa-trash"></i></button>');
-        delBtn.click(function() { deleteItem(index); });
-
-        btnGroup.append(editBtn).append(delBtn);
-        actionTd.append(btnGroup);
-        tr.append(actionTd);
-
-        tbody.append(tr);
+        return true;
       });
 
-      $('#catalog-count-badge').text(count + ' itens');
+      var totalItems = filtered.length;
+      var totalPages = Math.ceil(totalItems / catalogItemsPerPage) || 1;
+
+      if (catalogCurrentPage > totalPages) catalogCurrentPage = totalPages;
+      if (catalogCurrentPage < 1) catalogCurrentPage = 1;
+
+      var startIndex = (catalogCurrentPage - 1) * catalogItemsPerPage;
+      var endIndex = Math.min(startIndex + catalogItemsPerPage, totalItems);
+      var pageItems = filtered.slice(startIndex, endIndex);
+
+      if (pageItems.length === 0) {
+        tbody.append('<tr><td colspan="6" class="text-center text-muted" style="padding: 24px;">Nenhum item encontrado com os filtros aplicados.</td></tr>');
+      } else {
+        pageItems.forEach(function(item) {
+          var originalIndex = currentWorkingItems.indexOf(item);
+          var tr = $('<tr></tr>');
+          tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
+          tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
+          tr.append('<td><strong>' + (item.name || '') + '</strong>' + (item.desc ? '<br/><small class="text-muted">' + item.desc + '</small>' : '') + '</td>');
+          
+          // Disponibilidade
+          var availTd = $('<td class="text-center"></td>');
+          var isAvail = (item.available !== false);
+          var toggleBtn = $('<button class="btn btn-xs ' + (isAvail ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 12px;" title="Clique para alternar disponibilidade">' +
+            '<i class="fa ' + (isAvail ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' +
+            (isAvail ? 'Hoje temos' : 'Em falta') +
+          '</button>');
+          
+          toggleBtn.click(function() {
+            item.available = !(item.available !== false);
+            renderTable();
+          });
+          availTd.append(toggleBtn);
+          tr.append(availTd);
+
+          // Preço
+          var inputTd = $('<td class="text-right"></td>');
+          var input = $('<input type="number" step="0.10" class="price-field" data-id="' + item.id + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
+          
+          input.on('change input', function() {
+            var itemId = $(this).attr('data-id');
+            var newVal = parseFloat($(this).val());
+            if (!isNaN(newVal) && newVal >= 0) {
+              var target = currentWorkingItems.find(function(it) { return it && it.id === itemId; });
+              if (target) target.price = newVal;
+            }
+          });
+
+          inputTd.append(input);
+          tr.append(inputTd);
+
+          // Ações
+          var actionTd = $('<td class="text-center"></td>');
+          var btnGroup = $('<div class="action-btn-group"></div>');
+
+          var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar"><i class="fa fa-pencil"></i></button>');
+          editBtn.click(function() { openEditModal(originalIndex); });
+
+          var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir"><i class="fa fa-trash"></i></button>');
+          delBtn.click(function() { deleteItem(originalIndex); });
+
+          btnGroup.append(editBtn).append(delBtn);
+          actionTd.append(btnGroup);
+          tr.append(actionTd);
+
+          tbody.append(tr);
+        });
+      }
+
+      $('#catalog-count-badge').text(totalItems + ' itens');
+      renderCatalogPagination(totalItems, totalPages, startIndex, endIndex);
     }
 
-    function roundPrice(val, roundingType) {
-      if (roundingType === '0.50') {
-        return Math.round(val * 2) / 2;
-      } else if (roundingType === '0.10') {
-        return Math.round(val * 10) / 10;
+    // Renderiza a barra de paginação do Catálogo
+    function renderCatalogPagination(totalItems, totalPages, startIndex, endIndex) {
+      var infoText = totalItems === 0 ? 'Exibindo 0 de 0 itens' : 'Exibindo ' + (startIndex + 1) + ' a ' + endIndex + ' de ' + totalItems + ' itens';
+      $('#catalog-pagination-info').text(infoText);
+
+      var ul = $('#catalog-pagination-ul');
+      ul.empty();
+
+      if (totalPages <= 1) return;
+
+      // Botão Anterior
+      var prevLi = $('<li class="' + (catalogCurrentPage === 1 ? 'disabled' : '') + '"><a href="#" aria-label="Anterior">&laquo; Anterior</a></li>');
+      if (catalogCurrentPage > 1) {
+        prevLi.find('a').click(function(e) {
+          e.preventDefault();
+          catalogCurrentPage--;
+          renderTable();
+        });
       }
-      return Math.round(val * 100) / 100;
+      ul.append(prevLi);
+
+      // Botões de Páginas
+      var maxVisiblePages = 5;
+      var startPage = Math.max(1, catalogCurrentPage - Math.floor(maxVisiblePages / 2));
+      var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+
+      for (var p = startPage; p <= endPage; p++) {
+        (function(page) {
+          var pageLi = $('<li class="' + (page === catalogCurrentPage ? 'active' : '') + '"><a href="#">' + page + '</a></li>');
+          pageLi.find('a').click(function(e) {
+            e.preventDefault();
+            catalogCurrentPage = page;
+            renderTable();
+          });
+          ul.append(pageLi);
+        })(p);
+      }
+
+      // Botão Próximo
+      var nextLi = $('<li class="' + (catalogCurrentPage === totalPages ? 'disabled' : '') + '"><a href="#" aria-label="Próximo">Próximo &raquo;</a></li>');
+      if (catalogCurrentPage < totalPages) {
+        nextLi.find('a').click(function(e) {
+          e.preventDefault();
+          catalogCurrentPage++;
+          renderTable();
+        });
+      }
+      ul.append(nextLi);
     }
 
     function updateModalSuggestedId() {
@@ -467,7 +751,7 @@
       $('#modal-item-id').val(suggestedId);
     }
 
-    // Modal Operations
+    // Operações do Modal
     function openAddModal() {
       $('#itemModalLabel').html('<i class="fa fa-plus-circle"></i> Adicionar Novo Item ao Catálogo');
       $('#modal-item-index').val('-1');
@@ -534,7 +818,7 @@
           currentWorkingItems = updatedItems;
           $('#itemModal').modal('hide');
           renderTable();
-          alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso no banco de dados!');
+          alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso!');
         });
       } else {
         window.BonnaMenu.updateItem(formattedId, itemObj, function(updatedItems) {
@@ -559,32 +843,170 @@
       }
     }
 
+    // Carregar e Renderizar Mensagens do Site com Paginação (10 por página)
+    function loadSiteMessages() {
+      $.getJSON('/api/messages', function(msgs) {
+        currentMessages = (msgs && Array.isArray(msgs)) ? msgs : [];
+        $('#nav-messages-badge').text(currentMessages.length);
+        renderMessages();
+      }).fail(function() {
+        currentMessages = [];
+        $('#nav-messages-badge').text('0');
+        renderMessages();
+      });
+    }
+
+    function renderMessages() {
+      var container = $('#messages-container');
+      container.empty();
+
+      var searchQuery = $('#messages-search').val() ? $('#messages-search').val().toLowerCase().trim() : '';
+
+      var filtered = currentMessages.filter(function(m) {
+        if (!m) return false;
+        if (searchQuery) {
+          var textMatch = ((m.name || '') + ' ' + (m.email || '') + ' ' + (m.message || '') + ' ' + (m.date || '')).toLowerCase();
+          if (textMatch.indexOf(searchQuery) === -1) return false;
+        }
+        return true;
+      });
+
+      var totalMsgs = filtered.length;
+      var totalPages = Math.ceil(totalMsgs / messagesPerPage) || 1;
+
+      if (messagesCurrentPage > totalPages) messagesCurrentPage = totalPages;
+      if (messagesCurrentPage < 1) messagesCurrentPage = 1;
+
+      var startIndex = (messagesCurrentPage - 1) * messagesPerPage;
+      var endIndex = Math.min(startIndex + messagesPerPage, totalMsgs);
+      var pageMsgs = filtered.slice(startIndex, endIndex);
+
+      $('#messages-count-badge').text(totalMsgs + ' mensagem' + (totalMsgs === 1 ? '' : 's'));
+
+      if (pageMsgs.length === 0) {
+        container.html('<p class="text-muted text-center" style="padding: 40px 0; font-style: italic;">Nenhuma mensagem encontrada.</p>');
+      } else {
+        pageMsgs.forEach(function(m) {
+          var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">' +
+            '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">' +
+              '<strong style="font-size: 1.05rem; color: var(--text-dark);"><i class="fa fa-user" style="color: var(--primary);"></i> ' + (m.name || 'Anônimo') + ' &lt;' + (m.email || '') + '&gt;</strong>' +
+              '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
+            '</div>' +
+            '<p style="margin: 0; color: var(--text-dark); font-size: 0.95rem; white-space: pre-wrap; line-height: 1.5;">' + (m.message || '') + '</p>' +
+            '<div style="text-align: right; margin-top: 8px;">' +
+              '<button class="btn btn-xs btn-danger btn-del-msg" data-id="' + m.id + '"><i class="fa fa-trash"></i> Excluir Mensagem</button>' +
+            '</div>' +
+          '</div>');
+
+          card.find('.btn-del-msg').click(function() {
+            var id = $(this).attr('data-id');
+            if (confirm('Excluir esta mensagem permanentemente?')) {
+              $.ajax({
+                url: '/api/messages/' + id,
+                type: 'DELETE',
+                success: function() { loadSiteMessages(); }
+              });
+            }
+          });
+
+          container.append(card);
+        });
+      }
+
+      renderMessagesPagination(totalMsgs, totalPages, startIndex, endIndex);
+    }
+
+    function renderMessagesPagination(totalMsgs, totalPages, startIndex, endIndex) {
+      var infoText = totalMsgs === 0 ? 'Exibindo 0 de 0 mensagens' : 'Exibindo ' + (startIndex + 1) + ' a ' + endIndex + ' de ' + totalMsgs + ' mensagens';
+      $('#messages-pagination-info').text(infoText);
+
+      var ul = $('#messages-pagination-ul');
+      ul.empty();
+
+      if (totalPages <= 1) return;
+
+      // Anterior
+      var prevLi = $('<li class="' + (messagesCurrentPage === 1 ? 'disabled' : '') + '"><a href="#" aria-label="Anterior">&laquo; Anterior</a></li>');
+      if (messagesCurrentPage > 1) {
+        prevLi.find('a').click(function(e) {
+          e.preventDefault();
+          messagesCurrentPage--;
+          renderMessages();
+        });
+      }
+      ul.append(prevLi);
+
+      // Páginas
+      var maxVisiblePages = 5;
+      var startPage = Math.max(1, messagesCurrentPage - Math.floor(maxVisiblePages / 2));
+      var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+
+      for (var p = startPage; p <= endPage; p++) {
+        (function(page) {
+          var pageLi = $('<li class="' + (page === messagesCurrentPage ? 'active' : '') + '"><a href="#">' + page + '</a></li>');
+          pageLi.find('a').click(function(e) {
+            e.preventDefault();
+            messagesCurrentPage = page;
+            renderMessages();
+          });
+          ul.append(pageLi);
+        })(p);
+      }
+
+      // Próximo
+      var nextLi = $('<li class="' + (messagesCurrentPage === totalPages ? 'disabled' : '') + '"><a href="#" aria-label="Próximo">Próximo &raquo;</a></li>');
+      if (messagesCurrentPage < totalPages) {
+        nextLi.find('a').click(function(e) {
+          e.preventDefault();
+          messagesCurrentPage++;
+          renderMessages();
+        });
+      }
+      ul.append(nextLi);
+    }
+
     $(document).ready(function() {
       loadItems();
 
-      // Search filter
+      // Filtro de busca na tabela do catálogo
       $('#table-search').on('keyup input', function() {
+        catalogCurrentPage = 1;
         renderTable();
       });
 
-      // Open Add Modal
+      // Filtro de categoria na tabela do catálogo
+      $('#table-category-filter').on('change', function() {
+        catalogCurrentPage = 1;
+        renderTable();
+      });
+
+      // Busca nas mensagens
+      $('#messages-search').on('keyup input', function() {
+        messagesCurrentPage = 1;
+        renderMessages();
+      });
+
+      // Abrir modal de novo item
       $('#btn-open-add-modal').click(function() {
         openAddModal();
       });
 
-      // Update ID dynamically on modal category change for new items
+      // Atualizar ID sugerido ao mudar categoria no modal
       $('#modal-item-category').on('change', function() {
         if ($('#modal-item-index').val() === '-1') {
           updateModalSuggestedId();
         }
       });
 
-      // Save Modal Item
+      // Salvar item do modal
       $('#btn-save-modal-item').click(function() {
         saveModalItem();
       });
 
-      // Bulk percentage adjustment
+      // Reajuste em massa
       $('#btn-apply-bulk').click(function() {
         var percent = parseFloat($('#bulk-percent').val());
         if (isNaN(percent)) {
@@ -597,12 +1019,13 @@
 
         window.BonnaMenu.bulkAdjust({ percent: percent, category: selectedCat, rounding: roundingType }, function(updatedItems) {
           currentWorkingItems = updatedItems;
+          catalogCurrentPage = 1;
           renderTable();
           alert('Reajuste de ' + percent + '% aplicado e salvo com sucesso no banco de dados!');
         });
       });
 
-      // Save all changed prices in table
+      // Salvar tabela inteira
       $('#btn-save-local').click(function() {
         window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
           currentWorkingItems = updatedItems;
@@ -611,54 +1034,13 @@
         });
       });
 
-      // Load Site Messages
+      // Carregar Mensagens do Site
       loadSiteMessages();
       $('#btn-refresh-messages').click(function() {
         loadSiteMessages();
       });
 
     });
-
-    function loadSiteMessages() {
-      $.getJSON('/api/messages', function(msgs) {
-        var container = $('#messages-container');
-        container.empty();
-
-        var count = (msgs && Array.isArray(msgs)) ? msgs.length : 0;
-        $('#messages-count-badge').text(count + ' mensagem' + (count === 1 ? '' : 's'));
-
-        if (count === 0) {
-          container.html('<p class="text-muted text-center" style="padding: 20px 0; font-style: italic;">Nenhuma mensagem recebida no momento.</p>');
-          return;
-        }
-
-        msgs.forEach(function(m) {
-          var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 12px 16px; border-radius: 8px; margin-bottom: 10px;">' +
-            '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">' +
-              '<strong><i class="fa fa-user"></i> ' + (m.name || 'Anônimo') + ' &lt;' + (m.email || '') + '&gt;</strong>' +
-              '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
-            '</div>' +
-            '<p style="margin: 0; color: var(--text-dark); font-size: 0.95rem; white-space: pre-wrap;">' + (m.message || '') + '</p>' +
-            '<div style="text-align: right; margin-top: 6px;">' +
-              '<button class="btn btn-xs btn-danger btn-del-msg" data-id="' + m.id + '"><i class="fa fa-trash"></i> Excluir</button>' +
-            '</div>' +
-          '</div>');
-
-          card.find('.btn-del-msg').click(function() {
-            var id = $(this).attr('data-id');
-            if (confirm('Excluir esta mensagem do painel?')) {
-              $.ajax({
-                url: '/api/messages/' + id,
-                type: 'DELETE',
-                success: function() { loadSiteMessages(); }
-              });
-            }
-          });
-
-          container.append(card);
-        });
-      });
-    }
   </script>
 
   <script type="text/javascript" src="js/main.js?v=5"></script>
