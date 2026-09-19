@@ -93,13 +93,57 @@ function main() {
       });
     });
 
-    // 6. Nivo Lightbox for Poesia com Café
-    if ($.fn.nivoLightbox) {
-      $('.portfolio-item a').nivoLightbox({
-        effect: 'slideDown',
-        keyboardNav: true
+    // 7. AJAX Contact Form Submission without Page Reload
+    $('#contact-form').on('submit', function (e) {
+      e.preventDefault();
+      var $form = $(this);
+      var $btn = $form.find('button[type="submit"]');
+      var $alertBox = $('#contact-alert');
+
+      var originalBtnText = $btn.html();
+      $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Enviando...');
+
+      var formData = {
+        name: $form.find('input[name="name"]').val(),
+        email: $form.find('input[name="email"]').val(),
+        message: $form.find('textarea[name="message"]').val(),
+        _subject: 'Contato via site Bonna Café'
+      };
+
+      $.ajax({
+        url: 'https://formsubmit.co/ajax/bonacafe.oficial@gmail.com',
+        type: 'POST',
+        data: formData,
+        dataType: 'json',
+        success: function (res) {
+          $alertBox
+            .stop(true, true)
+            .hide()
+            .removeClass('alert-danger')
+            .addClass('alert alert-success')
+            .html('<i class="fa fa-check-circle" style="font-size: 1.15rem; margin-right: 6px;"></i> <strong>Mensagem enviada com sucesso!</strong> Entraremos em contato em breve.')
+            .slideDown(300);
+
+          $form[0].reset();
+          $btn.prop('disabled', false).html(originalBtnText);
+
+          setTimeout(function () {
+            $alertBox.slideUp(400);
+          }, 7000);
+        },
+        error: function () {
+          $alertBox
+            .stop(true, true)
+            .hide()
+            .removeClass('alert-success')
+            .addClass('alert alert-danger')
+            .html('<i class="fa fa-exclamation-circle" style="font-size: 1.15rem; margin-right: 6px;"></i> <strong>Ops!</strong> Não foi possível enviar a mensagem agora. Tente novamente ou fale pelo WhatsApp.')
+            .slideDown(300);
+
+          $btn.prop('disabled', false).html(originalBtnText);
+        }
       });
-    }
+    });
 
   }());
 }
