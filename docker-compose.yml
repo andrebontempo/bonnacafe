@@ -8,7 +8,8 @@ services:
       - NODE_ENV=production
       - ADMIN_PASSWORD=Bonna#27
     volumes:
-      - ./data:/app/data
+      - ./:/app
+      - /app/node_modules
     networks:
       - proxy
 
