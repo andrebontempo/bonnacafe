@@ -23,7 +23,7 @@
   <style>
     .cardapio-hero {
       background: linear-gradient(180deg, rgba(18, 13, 10, 0.88) 0%, rgba(18, 13, 10, 0.96) 100%), url('img/menu-bg.jpg') center/cover no-repeat;
-      padding: 120px 0 60px;
+      padding: 120px 0 50px;
       color: var(--text-light);
       text-align: center;
     }
@@ -31,12 +31,6 @@
       color: var(--text-light);
       font-size: 3.2rem;
       margin-bottom: 10px;
-    }
-    .menu-item-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
     }
   </style>
 </head>
@@ -230,7 +224,7 @@
               ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
               : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
 
-            var rightSide = $('<div class="menu-item-right" style="display: flex; align-items: center; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">' +
+            var rightSide = $('<div class="menu-item-right">' +
               availabilityBadge +
               '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
             '</div>');

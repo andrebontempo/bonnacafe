@@ -141,15 +141,15 @@
     <!-- Reajuste Percentual em Massa -->
     <div class="panel-card">
       <h3><i class="fa fa-percent"></i> 1. Reajuste Percentual em Massa (Aumento / Desconto)</h3>
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
+      <div class="row admin-bulk-row">
+        <div class="col-xs-6 col-md-3 col-sm-6 admin-bulk-col col-half">
           <div class="form-group">
             <label><strong>Percentual (%)</strong></label>
             <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
           </div>
         </div>
 
-        <div class="col-md-4 col-sm-6">
+        <div class="col-xs-6 col-md-4 col-sm-6 admin-bulk-col col-half">
           <div class="form-group">
             <label><strong>Aplicar na Categoria</strong></label>
             <select id="bulk-category" class="form-control">
@@ -166,7 +166,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 col-sm-6">
+        <div class="col-xs-6 col-md-3 col-sm-6 admin-bulk-col col-half">
           <div class="form-group">
             <label><strong>Arredondamento</strong></label>
             <select id="bulk-rounding" class="form-control">
@@ -177,8 +177,8 @@
           </div>
         </div>
 
-        <div class="col-md-2 col-sm-6">
-          <label>&nbsp;</label>
+        <div class="col-xs-6 col-md-2 col-sm-6 admin-bulk-col col-half">
+          <label style="display: block;">&nbsp;</label>
           <button id="btn-apply-bulk" class="btn btn-custom btn-block" style="background: var(--primary);">
             <i class="fa fa-calculator"></i> Aplicar %
           </button>
@@ -188,14 +188,14 @@
 
     <!-- Gestão & Edição do Catálogo -->
     <div class="panel-card">
-      <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
-        <div class="col-md-5">
+      <div class="row admin-catalog-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 16px; gap: 12px;">
+        <div class="col-md-5 col-xs-12">
           <h3 style="margin-bottom: 0; border: none; padding: 0;">
             <i class="fa fa-list"></i> 2. Gestão de Itens do Catálogo
             <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
           </h3>
         </div>
-        <div class="col-md-7" style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap;">
+        <div class="col-md-7 col-xs-12" style="display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap;">
           <input type="text" id="table-search" class="form-control" style="width: 220px;" placeholder="Filtrar por nome ou ID..." />
           <button id="btn-open-add-modal" class="btn btn-success" style="white-space: nowrap;">
             <i class="fa fa-plus-circle"></i> Novo Item
