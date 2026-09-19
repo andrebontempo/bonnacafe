@@ -124,7 +124,25 @@ function main() {
       });
     });
 
-    // 7. AJAX Contact Form Submission without Page Reload
+    // 7. Máscara Dinâmica de Celular/Telefone (00) 00000-0000
+    $(document).on('input', 'input[name="phone"]', function () {
+      var val = $(this).val().replace(/\D/g, '').substring(0, 11);
+      var formatted = '';
+      if (val.length > 0) {
+        if (val.length <= 2) {
+          formatted = '(' + val;
+        } else if (val.length <= 6) {
+          formatted = '(' + val.substring(0, 2) + ') ' + val.substring(2);
+        } else if (val.length <= 10) {
+          formatted = '(' + val.substring(0, 2) + ') ' + val.substring(2, 6) + '-' + val.substring(6);
+        } else {
+          formatted = '(' + val.substring(0, 2) + ') ' + val.substring(2, 7) + '-' + val.substring(7, 11);
+        }
+      }
+      $(this).val(formatted);
+    });
+
+    // 8. AJAX Contact Form Submission without Page Reload
     $('#contact-form').on('submit', function (e) {
       e.preventDefault();
       var $form = $(this);
@@ -134,12 +152,12 @@ function main() {
       var originalBtnText = $btn.html();
       $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Enviando...');
 
-      var contactVal = $form.find('input[name="phone"]').val() || $form.find('input[name="email"]').val();
+      var contactVal = ($form.find('input[name="phone"]').val() || $form.find('input[name="email"]').val() || '').trim();
       var formData = {
-        name: $form.find('input[name="name"]').val(),
+        name: ($form.find('input[name="name"]').val() || '').trim(),
         phone: contactVal,
         email: contactVal,
-        message: $form.find('textarea[name="message"]').val(),
+        message: ($form.find('textarea[name="message"]').val() || '').trim(),
         _subject: 'Contato via site Bonna Café'
       };
 

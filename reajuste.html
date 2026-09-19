@@ -936,7 +936,8 @@
         container.html('<p class="text-muted text-center" style="padding: 40px 0; font-style: italic;">Nenhuma mensagem encontrada.</p>');
       } else {
         pageMsgs.forEach(function(m) {
-          var contactStr = m.phone || m.email || '';
+          var contactStr = String(m.phone || m.email || '').trim();
+          if (contactStr === 'undefined' || contactStr === 'null') contactStr = '';
           var contactInfo = contactStr ? ' (' + contactStr + ')' : '';
           var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">' +
             '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">' +
