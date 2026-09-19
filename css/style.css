@@ -137,7 +137,7 @@ hr {
   padding: 6px 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #menu .container {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -230,7 +230,7 @@ hr {
   white-space: nowrap !important;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) {
   #menu.navbar-default .navbar-nav > li > a {
     font-size: 0.8rem;
     padding: 6px 8px;
@@ -1058,10 +1058,10 @@ hr {
 
 /* Responsive adjustments */
 /* ==========================================================================
-   Responsive Mobile Optimizations (< 768px & < 480px)
+   Responsive Mobile Optimizations (< 991px & < 480px)
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   /* General Spacing & Typography */
   html {
     font-size: 15px;
