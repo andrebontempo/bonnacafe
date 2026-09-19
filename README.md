@@ -49,7 +49,7 @@ bonnacafe/
 
 ---
 
-## 🏷️ Faixas de Códigos por Categoria (IDs)
+## 🏷️ Faixas de Códigos por Categoria  (IDs)
 
 Os itens do cardápio possuem códigos padronizados organizados por categoria. O sistema possui algoritmo de geração **não-incremental**, preenchendo automaticamente posições intermediárias vagas:
 
