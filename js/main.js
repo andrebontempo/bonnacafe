@@ -183,13 +183,17 @@ function main() {
             $alertBox.slideUp(400);
           }, 7000);
         },
-        error: function () {
+        error: function (xhr) {
+          var errMsg = 'Não foi possível enviar a mensagem agora. Tente novamente ou fale pelo WhatsApp.';
+          if (xhr && xhr.responseJSON && xhr.responseJSON.error) {
+            errMsg = xhr.responseJSON.error;
+          }
           $alertBox
             .stop(true, true)
             .hide()
             .removeClass('alert-success')
             .addClass('alert alert-danger')
-            .html('<i class="fa fa-exclamation-circle" style="font-size: 1.15rem; margin-right: 6px;"></i> <strong>Ops!</strong> Não foi possível enviar a mensagem agora. Tente novamente ou fale pelo WhatsApp.')
+            .html('<i class="fa fa-exclamation-circle" style="font-size: 1.15rem; margin-right: 6px;"></i> <strong>Ops!</strong> ' + errMsg)
             .slideDown(300);
 
           $btn.prop('disabled', false).html(originalBtnText);

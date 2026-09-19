@@ -1313,10 +1313,17 @@ function parseRequestBody(req, callback) {
   let body = '';
   req.on('data', chunk => { body += chunk.toString(); });
   req.on('end', () => {
+    if (!body) return callback(null, {});
     try {
-      callback(null, body ? JSON.parse(body) : {});
+      callback(null, JSON.parse(body));
     } catch (e) {
-      callback(e, {});
+      try {
+        const querystring = require('querystring');
+        const parsed = querystring.parse(body);
+        callback(null, parsed);
+      } catch (err2) {
+        callback(null, {});
+      }
     }
   });
 }
@@ -1472,20 +1479,26 @@ const server = http.createServer((req, res) => {
   // POST /api/contact (Salvar mensagem do formulario de contato)
   if (pathname === '/api/contact' && method === 'POST') {
     return parseRequestBody(req, (err, body) => {
-      let rawContact = (body && (body.phone || body.email)) ? String(body.phone || body.email).trim() : '';
+      body = body || {};
+      const name = String(body.name || '').trim();
+      let rawContact = String(body.phone || body.email || body.celular || body.contato || body.telefone || '').trim();
       if (rawContact === 'undefined' || rawContact === 'null') rawContact = '';
-      const contactValue = rawContact;
+      const message = String(body.message || '').trim();
 
-      if (err || !body || !body.name || !contactValue || !body.message) {
-        return sendJSON(res, { error: 'Nome, contato e mensagem são obrigatórios.' }, 400);
+      if (!name || !message) {
+        return sendJSON(res, { error: 'Nome e mensagem são obrigatórios.' }, 400);
       }
+      if (!rawContact) {
+        return sendJSON(res, { error: 'Por favor, informe seu celular para contato.' }, 400);
+      }
+
       let msgs = loadMessages();
       const newMsg = {
         id: Date.now().toString(),
-        name: String(body.name).trim(),
-        phone: contactValue,
-        email: contactValue,
-        message: String(body.message).trim(),
+        name: name,
+        phone: rawContact,
+        email: rawContact,
+        message: message,
         date: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })
       };
       msgs.unshift(newMsg);
