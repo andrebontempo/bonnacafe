@@ -128,3 +128,16 @@ window.openAdminModal = openAdminModal;
 $(document).ready(function () {
   main();
 });
+
+// 7. PWA Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function (reg) {
+        console.log('[PWA] Service Worker registrado com sucesso no escopo:', reg.scope);
+      })
+      .catch(function (err) {
+        console.warn('[PWA] Falha ao registrar Service Worker:', err);
+      });
+  });
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Bonna Café - Lanchonete & Cafeteria",
+  "short_name": "Bonna Café",
+  "description": "Cardápio completo, combos e refeições no Hangar 5 e Gilberto Salomão (Lago Sul - Brasília).",
+  "start_url": "/index.html",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#120D0A",
+  "theme_color": "#C68B45",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/apple-touch-icon.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Cardápio Completo",
+      "short_name": "Cardápio",
+      "description": "Ver todos os lanches e preços",
+      "url": "/cardapio.html",
+      "icons": [{ "src": "img/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
