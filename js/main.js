@@ -6,19 +6,35 @@ function main() {
   (function () {
     'use strict';
 
-    // 1. Smooth Scroll Navigation
-    $('a.page-scroll').click(function () {
+    // 1. Smooth Scroll Navigation sem atraso ou freio inicial
+    $('a.page-scroll').click(function (e) {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
         if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top - 70
-          }, 800);
+          e.preventDefault();
+          var targetTop = Math.max(0, target.offset().top - 70);
+          window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+          });
           return false;
         }
       }
     });
+
+    // Ajusta rolagem inicial se a página for aberta com um #hash no link
+    if (window.location.hash) {
+      var initialTarget = $(window.location.hash);
+      if (initialTarget.length) {
+        setTimeout(function () {
+          window.scrollTo({
+            top: Math.max(0, initialTarget.offset().top - 70),
+            behavior: 'smooth'
+          });
+        }, 150);
+      }
+    }
 
     // 2. Navbar Sticky Glassmorphic Effect on Scroll
     $(window).bind('scroll', function () {
