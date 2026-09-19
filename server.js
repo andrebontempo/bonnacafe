@@ -1471,8 +1471,9 @@ const server = http.createServer((req, res) => {
 
   // POST /api/contact (Salvar mensagem do formulario de contato)
   if (pathname === '/api/contact' && method === 'POST') {
-      const contactValue = String(body.phone || body.email || '').trim();
-      if (err || !body.name || !contactValue || !body.message) {
+    return parseRequestBody(req, (err, body) => {
+      const contactValue = String(body ? (body.phone || body.email) : '').trim();
+      if (err || !body || !body.name || !contactValue || !body.message) {
         return sendJSON(res, { error: 'Nome, contato e mensagem são obrigatórios.' }, 400);
       }
       let msgs = loadMessages();
