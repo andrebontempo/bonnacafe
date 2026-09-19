@@ -221,18 +221,6 @@
       border-color: #EEE;
     }
 
-    .toolbar-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .toolbar-actions .form-control {
-      height: 38px;
-    }
-
     .btn-action-lg {
       height: 38px;
       display: inline-flex;
@@ -396,41 +384,40 @@
 
         <!-- 2. Edição de Itens do Cardápio -->
         <div class="panel-card">
-          <div class="row admin-catalog-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px; gap: 12px;">
-            <div class="col-md-5 col-xs-12">
-              <h3 style="margin: 0; border: none; padding: 0;">
-                <span><i class="fa fa-pencil-square-o" style="color: var(--primary);"></i> 2. Edição de Itens do Cardápio</span>
-                <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
-              </h3>
-            </div>
-            
-            <div class="col-md-7 col-xs-12 text-right">
-              <div class="toolbar-actions" style="justify-content: flex-end;">
-                <select id="table-category-filter" class="form-control" style="width: 175px;">
-                  <option value="all">Todas as Categorias</option>
-                  <option value="combos">Combos (001 - 010)</option>
-                  <option value="bonnadodia">Bonna do Dia (011 - 020)</option>
-                  <option value="salgados">Salgados & Assados (021 - 050)</option>
-                  <option value="pao-queijo">Pão de Queijo (051 - 080)</option>
-                  <option value="sanduiches-tapiocas">Sanduíches & Tapiocas (081 - 110)</option>
-                  <option value="ovos">Cuscuz & Ovos (111 - 140)</option>
-                  <option value="massas">Massas & Lasanhas (141 - 170)</option>
-                  <option value="bebidas-cafes">Bebidas & Cafés (171 - 200)</option>
-                  <option value="sobremesas">Sobremesas (201 - 230)</option>
-                </select>
+          <h3 style="margin-top: 0;">
+            <span><i class="fa fa-pencil-square-o" style="color: var(--primary);"></i> 2. Edição de Itens do Cardápio</span>
+            <span id="catalog-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+          </h3>
 
-                <div class="input-group" style="width: 190px;">
-                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                  <input type="text" id="table-search" class="form-control" placeholder="Filtrar por nome ou ID..." />
-                </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <select id="table-category-filter" class="form-control" style="width: 210px; height: 38px;">
+                <option value="all">Todas as Categorias</option>
+                <option value="combos">Combos (001 - 010)</option>
+                <option value="bonnadodia">Bonna do Dia (011 - 020)</option>
+                <option value="salgados">Salgados & Assados (021 - 050)</option>
+                <option value="pao-queijo">Pão de Queijo (051 - 080)</option>
+                <option value="sanduiches-tapiocas">Sanduíches & Tapiocas (081 - 110)</option>
+                <option value="ovos">Cuscuz & Ovos (111 - 140)</option>
+                <option value="massas">Massas & Lasanhas (141 - 170)</option>
+                <option value="bebidas-cafes">Bebidas & Cafés (171 - 200)</option>
+                <option value="sobremesas">Sobremesas (201 - 230)</option>
+              </select>
 
-                <button id="btn-open-add-modal" class="btn btn-success btn-action-lg">
-                  <i class="fa fa-plus-circle"></i> Novo Item
-                </button>
-                <button id="btn-save-local" class="btn btn-custom btn-action-lg" style="background: var(--primary);">
-                  <i class="fa fa-save"></i> Salvar Alterações
-                </button>
+              <div class="input-group" style="width: 220px;">
+                <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+                <input type="text" id="table-search" class="form-control" placeholder="Filtrar por nome ou ID..." style="height: 38px;" />
               </div>
+
+              <button id="btn-open-add-modal" class="btn btn-success btn-action-lg">
+                <i class="fa fa-plus-circle"></i> Novo Item
+              </button>
+            </div>
+
+            <div>
+              <button id="btn-save-local" class="btn btn-custom btn-action-lg" style="background: var(--primary);">
+                <i class="fa fa-save"></i> Salvar Alterações
+              </button>
             </div>
           </div>
 
@@ -471,23 +458,21 @@
       <!-- ABA 2: MENSAGENS DO SITE -->
       <div role="tabpanel" class="tab-pane fade" id="tab-mensagens">
         <div class="panel-card">
-          <div class="row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px; gap: 12px;">
-            <div class="col-md-6 col-xs-12">
-              <h3 style="margin: 0; border: none; padding: 0;">
-                <span><i class="fa fa-envelope" style="color: #2E7D32;"></i> Mensagens Enviadas pelo Contato</span>
-                <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
-              </h3>
+          <h3 style="margin-top: 0;">
+            <span><i class="fa fa-envelope" style="color: #2E7D32;"></i> Mensagens Enviadas pelo Contato</span>
+            <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
+          </h3>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div class="input-group" style="width: 280px;">
+              <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+              <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..." style="height: 38px;" />
             </div>
-            <div class="col-md-6 col-xs-12 text-right">
-              <div class="toolbar-actions" style="justify-content: flex-end;">
-                <div class="input-group" style="width: 250px;">
-                  <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                  <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..." />
-                </div>
-                <button id="btn-refresh-messages" class="btn btn-default btn-action-lg">
-                  <i class="fa fa-refresh"></i> Atualizar
-                </button>
-              </div>
+
+            <div>
+              <button id="btn-refresh-messages" class="btn btn-default btn-action-lg">
+                <i class="fa fa-refresh"></i> Atualizar Mensagens
+              </button>
             </div>
           </div>
 
