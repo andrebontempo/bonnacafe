@@ -56,7 +56,13 @@ function main() {
       $('a[data-lightbox-gallery]').nivoLightbox({
         effect: 'fadeScale',
         keyboardNav: true,
-        clickOverlayToClose: true
+        clickOverlayToClose: true,
+        beforeShowLightbox: function () {
+          $('#menu').css('z-index', '10');
+        },
+        afterHideLightbox: function () {
+          $('#menu').css('z-index', '');
+        }
       });
     }
 
