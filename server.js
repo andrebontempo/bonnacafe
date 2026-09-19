@@ -28,8 +28,9 @@ const CATEGORY_RANGES = {
   'pao-queijo': { min: 51, max: 80 },
   'sanduiches-tapiocas': { min: 81, max: 110 },
   'ovos': { min: 111, max: 140 },
-  'bebidas-cafes': { min: 141, max: 170 },
-  'sobremesas': { min: 171, max: 200 }
+  'massas': { min: 141, max: 170 },
+  'bebidas-cafes': { min: 171, max: 200 },
+  'sobremesas': { min: 201, max: 230 }
 };
 
 function getNextAvailableId(category, items) {
@@ -1239,9 +1240,36 @@ function loadDB() {
           else if (it.category === 'cuscuz') { it.category = 'ovos'; needsSave = true; }
           else if (it.category === 'bebidas' || it.category === 'cafes') { it.category = 'bebidas-cafes'; needsSave = true; }
           else if (it.category === 'doces') { it.category = 'sobremesas'; needsSave = true; }
+          else if (it.category === 'massa' || it.category === 'lasanha' || it.category === 'macarrao') { it.category = 'massas'; needsSave = true; }
           else if (!validCategories.has(it.category)) { it.category = 'salgados'; needsSave = true; }
         }
+
+        if (it && it.id) {
+          const numId = parseInt(it.id, 10);
+          if (it.category === 'bebidas-cafes' && numId >= 141 && numId <= 170) {
+            const newNum = numId + 30;
+            it.num = newNum;
+            it.id = String(newNum).padStart(3, '0');
+            needsSave = true;
+          } else if (it.category === 'sobremesas' && numId >= 171 && numId <= 200) {
+            const newNum = numId + 30;
+            it.num = newNum;
+            it.id = String(newNum).padStart(3, '0');
+            needsSave = true;
+          }
+        }
       });
+
+      const hasMassas = data.some(it => it && it.category === 'massas');
+      if (!hasMassas) {
+        data.push(
+          { id: "141", num: 141, name: "Spaghetti à Bolonhesa", category: "massas", desc: "Massa al dente com molho de carne moída artesanal e parmesão.", price: 24.5, available: true },
+          { id: "142", num: 142, name: "Lasanha de Presunto e Queijo", category: "massas", desc: "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.", price: 26, available: true },
+          { id: "143", num: 143, name: "Lasanha de Frango com Catupiry", category: "massas", desc: "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.", price: 26, available: true }
+        );
+        needsSave = true;
+      }
+
       if (needsSave) {
         saveDB(data);
       }

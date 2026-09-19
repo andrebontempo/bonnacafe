@@ -827,6 +827,33 @@ var BONNA_ITEMS = [
   {
     "id": "141",
     "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "massas",
+    "desc": "Massa tradicional com molho caseiro à bolonhesa.",
+    "available": true,
+    "price": 24.5
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "massas",
+    "desc": "Lasanha de presunto, queijo muçarela e molho artesanal.",
+    "available": true,
+    "price": 26
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "massas",
+    "desc": "Lasanha cremosíssima de frango com catupiry.",
+    "available": true,
+    "price": 26
+  },
+  {
+    "id": "171",
+    "num": 171,
     "name": "Toddynho",
     "category": "bebidas-cafes",
     "desc": "Achocolatado de caixinha.",
@@ -834,8 +861,8 @@ var BONNA_ITEMS = [
     "price": 4.8
   },
   {
-    "id": "142",
-    "num": 142,
+    "id": "172",
+    "num": 172,
     "name": "Suco de Caixinha",
     "category": "bebidas-cafes",
     "desc": "Sabores variados.",
@@ -843,8 +870,8 @@ var BONNA_ITEMS = [
     "price": 4
   },
   {
-    "id": "143",
-    "num": 143,
+    "id": "173",
+    "num": 173,
     "name": "Refrigerante 310ml (Lata)",
     "category": "bebidas-cafes",
     "desc": "Coca-Cola, Guaraná, Fanta, etc.",
@@ -852,8 +879,8 @@ var BONNA_ITEMS = [
     "price": 6
   },
   {
-    "id": "144",
-    "num": 144,
+    "id": "174",
+    "num": 174,
     "name": "Refrigerante 200/220ml",
     "category": "bebidas-cafes",
     "desc": "Garrafinha mini.",
@@ -861,8 +888,8 @@ var BONNA_ITEMS = [
     "price": 4.5
   },
   {
-    "id": "145",
-    "num": 145,
+    "id": "175",
+    "num": 175,
     "name": "Refrigerante 600ml",
     "category": "bebidas-cafes",
     "desc": "Garrafa individual grande.",
@@ -870,8 +897,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "146",
-    "num": 146,
+    "id": "176",
+    "num": 176,
     "name": "Chá Gelado",
     "category": "bebidas-cafes",
     "desc": "Pêssego, Pêssego Zero, Limão e Matte Leão.",
@@ -879,8 +906,8 @@ var BONNA_ITEMS = [
     "price": 6.9
   },
   {
-    "id": "147",
-    "num": 147,
+    "id": "177",
+    "num": 177,
     "name": "Água com Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -888,8 +915,8 @@ var BONNA_ITEMS = [
     "price": 4.5
   },
   {
-    "id": "148",
-    "num": 148,
+    "id": "178",
+    "num": 178,
     "name": "Água sem Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -897,8 +924,8 @@ var BONNA_ITEMS = [
     "price": 4
   },
   {
-    "id": "149",
-    "num": 149,
+    "id": "179",
+    "num": 179,
     "name": "H2OH! Limoneto",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -906,8 +933,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "150",
-    "num": 150,
+    "id": "180",
+    "num": 180,
     "name": "Energético",
     "category": "bebidas-cafes",
     "desc": "Lata.",
@@ -915,8 +942,8 @@ var BONNA_ITEMS = [
     "price": 13
   },
   {
-    "id": "151",
-    "num": 151,
+    "id": "181",
+    "num": 181,
     "name": "Guaraviton",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -924,8 +951,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "152",
-    "num": 152,
+    "id": "182",
+    "num": 182,
     "name": "Cerveja Long Neck",
     "category": "bebidas-cafes",
     "desc": "Geladíssima.",
@@ -933,8 +960,8 @@ var BONNA_ITEMS = [
     "price": 10
   },
   {
-    "id": "153",
-    "num": 153,
+    "id": "183",
+    "num": 183,
     "name": "Expresso Curto",
     "category": "bebidas-cafes",
     "desc": "Café puro e forte.",
@@ -942,8 +969,8 @@ var BONNA_ITEMS = [
     "price": 6
   },
   {
-    "id": "154",
-    "num": 154,
+    "id": "184",
+    "num": 184,
     "name": "Expresso Longo",
     "category": "bebidas-cafes",
     "desc": "Café expresso mais suave.",
@@ -951,8 +978,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "155",
-    "num": 155,
+    "id": "185",
+    "num": 185,
     "name": "Café Suave",
     "category": "bebidas-cafes",
     "desc": "Xícara leve.",
@@ -960,8 +987,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "156",
-    "num": 156,
+    "id": "186",
+    "num": 186,
     "name": "Café com Leite",
     "category": "bebidas-cafes",
     "desc": "Pingado clássico.",
@@ -969,8 +996,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "157",
-    "num": 157,
+    "id": "187",
+    "num": 187,
     "name": "Cappuccino",
     "category": "bebidas-cafes",
     "desc": "Com toque de canela e cacau.",
@@ -978,8 +1005,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "158",
-    "num": 158,
+    "id": "188",
+    "num": 188,
     "name": "Chocolate Quente",
     "category": "bebidas-cafes",
     "desc": "Cremoso e quentinho.",
@@ -987,8 +1014,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "159",
-    "num": 159,
+    "id": "189",
+    "num": 189,
     "name": "Leite Quente",
     "category": "bebidas-cafes",
     "desc": "Puro ou adoçado.",
@@ -996,8 +1023,8 @@ var BONNA_ITEMS = [
     "price": 6
   },
   {
-    "id": "160",
-    "num": 160,
+    "id": "190",
+    "num": 190,
     "name": "Chá Quente de Limão",
     "category": "bebidas-cafes",
     "desc": "Confortável para o dia a dia.",
@@ -1005,8 +1032,8 @@ var BONNA_ITEMS = [
     "price": 6
   },
   {
-    "id": "161",
-    "num": 161,
+    "id": "191",
+    "num": 191,
     "name": "Toddy Gelado 300ml",
     "category": "bebidas-cafes",
     "desc": "Cremoso e gelado.",
@@ -1014,8 +1041,8 @@ var BONNA_ITEMS = [
     "price": 8
   },
   {
-    "id": "162",
-    "num": 162,
+    "id": "192",
+    "num": 192,
     "name": "Toddy Gelado 500ml",
     "category": "bebidas-cafes",
     "desc": "Copo grande de 500ml.",
@@ -1023,8 +1050,8 @@ var BONNA_ITEMS = [
     "price": 10.5
   },
   {
-    "id": "163",
-    "num": 163,
+    "id": "193",
+    "num": 193,
     "name": "Suco Natural 300ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
@@ -1032,8 +1059,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "164",
-    "num": 164,
+    "id": "194",
+    "num": 194,
     "name": "Suco Natural 500ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
@@ -1041,8 +1068,8 @@ var BONNA_ITEMS = [
     "price": 9.5
   },
   {
-    "id": "165",
-    "num": 165,
+    "id": "195",
+    "num": 195,
     "name": "Suco de Polpa com Água 500ml",
     "category": "bebidas-cafes",
     "desc": "Acerola, Açaí, Cajá, Caju, Cupuaçu, Goiaba, Graviola, Manga, Maracujá, Morango, Umbu ou Uva.",
@@ -1050,8 +1077,8 @@ var BONNA_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "166",
-    "num": 166,
+    "id": "196",
+    "num": 196,
     "name": "Suco de Polpa Misto (2 sabores) 500ml",
     "category": "bebidas-cafes",
     "desc": "Combine 2 sabores de frutas.",
@@ -1059,8 +1086,8 @@ var BONNA_ITEMS = [
     "price": 11
   },
   {
-    "id": "167",
-    "num": 167,
+    "id": "197",
+    "num": 197,
     "name": "Suco de Polpa com Leite 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite.",
@@ -1068,8 +1095,8 @@ var BONNA_ITEMS = [
     "price": 9.5
   },
   {
-    "id": "168",
-    "num": 168,
+    "id": "198",
+    "num": 198,
     "name": "Vitamina Completa 500ml",
     "category": "bebidas-cafes",
     "desc": "Leite + aveia + 2 frutas (Banana, Maçã, Mamão ou Abacate).",
@@ -1077,8 +1104,8 @@ var BONNA_ITEMS = [
     "price": 12.5
   },
   {
-    "id": "169",
-    "num": 169,
+    "id": "199",
+    "num": 199,
     "name": "Polpa de Açaí com Água + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com banana.",
@@ -1086,8 +1113,8 @@ var BONNA_ITEMS = [
     "price": 11
   },
   {
-    "id": "170",
-    "num": 170,
+    "id": "200",
+    "num": 200,
     "name": "Polpa de Açaí com Leite + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite e banana.",
@@ -1095,8 +1122,8 @@ var BONNA_ITEMS = [
     "price": 13
   },
   {
-    "id": "171",
-    "num": 171,
+    "id": "201",
+    "num": 201,
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
@@ -1104,8 +1131,8 @@ var BONNA_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "172",
-    "num": 172,
+    "id": "202",
+    "num": 202,
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
@@ -1113,8 +1140,8 @@ var BONNA_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "173",
-    "num": 173,
+    "id": "203",
+    "num": 203,
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
@@ -1122,8 +1149,8 @@ var BONNA_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "174",
-    "num": 174,
+    "id": "204",
+    "num": 204,
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
@@ -1131,8 +1158,8 @@ var BONNA_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "175",
-    "num": 175,
+    "id": "205",
+    "num": 205,
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
@@ -1140,8 +1167,8 @@ var BONNA_ITEMS = [
     "price": 8.5
   },
   {
-    "id": "176",
-    "num": 176,
+    "id": "206",
+    "num": 206,
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
@@ -1149,14 +1176,14 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "177",
-    "num": 177,
+    "id": "207",
+    "num": 207,
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",
     "available": true,
     "price": 10,
-    "img": null,
+    "img": null
   }
 ];
 
@@ -1168,8 +1195,9 @@ window.BonnaMenu = {
     'pao-queijo': { min: 51, max: 80 },
     'sanduiches-tapiocas': { min: 81, max: 110 },
     'ovos': { min: 111, max: 140 },
-    'bebidas-cafes': { min: 141, max: 170 },
-    'sobremesas': { min: 171, max: 200 }
+    'massas': { min: 141, max: 170 },
+    'bebidas-cafes': { min: 171, max: 200 },
+    'sobremesas': { min: 201, max: 230 }
   },
 
   getNextAvailableId: function(category, items) {
@@ -1204,7 +1232,9 @@ window.BonnaMenu = {
     if (this.cache && Array.isArray(this.cache) && this.cache.length >= 100) {
       return this.cache;
     }
-    var storedCatalog = localStorage.getItem('bonna_full_catalog_v2');
+    localStorage.removeItem('bonna_full_catalog');
+    localStorage.removeItem('bonna_full_catalog_v2');
+    var storedCatalog = localStorage.getItem('bonna_full_catalog_v3');
     if (storedCatalog) {
       try {
         var parsed = JSON.parse(storedCatalog);
@@ -1225,7 +1255,7 @@ window.BonnaMenu = {
       if (item && item.available === undefined) item.available = true;
     });
     if (this.cache.length > 0) {
-      localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(this.cache));
+      localStorage.setItem('bonna_full_catalog_v3', JSON.stringify(this.cache));
     }
     return this.cache;
   },
@@ -1246,7 +1276,7 @@ window.BonnaMenu = {
         success: function(data) {
           if (Array.isArray(data) && data.length >= 100) {
             self.cache = data;
-            localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(data));
+            localStorage.setItem('bonna_full_catalog_v3', JSON.stringify(data));
             if (callback) callback(data);
             self.injectPricesCSS(data);
           } else if (localItems && localItems.length > 0) {
@@ -1267,7 +1297,7 @@ window.BonnaMenu = {
       items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
     }
     self.cache = items;
-    localStorage.setItem('bonna_full_catalog_v2', JSON.stringify(items));
+    localStorage.setItem('bonna_full_catalog_v3', JSON.stringify(items));
     self.injectPricesCSS(items);
 
     if (callback) callback(items);

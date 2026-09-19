@@ -823,6 +823,33 @@
   {
     "id": "141",
     "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "massas",
+    "desc": "Massa tradicional com molho caseiro à bolonhesa.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "massas",
+    "desc": "Lasanha de presunto, queijo muçarela e molho artesanal.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "massas",
+    "desc": "Lasanha cremosíssima de frango com catupiry.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "171",
+    "num": 171,
     "name": "Toddynho",
     "category": "bebidas-cafes",
     "desc": "Achocolatado de caixinha.",
@@ -830,8 +857,8 @@
     "available": true
   },
   {
-    "id": "142",
-    "num": 142,
+    "id": "172",
+    "num": 172,
     "name": "Suco de Caixinha",
     "category": "bebidas-cafes",
     "desc": "Sabores variados.",
@@ -839,8 +866,8 @@
     "available": true
   },
   {
-    "id": "143",
-    "num": 143,
+    "id": "173",
+    "num": 173,
     "name": "Refrigerante 310ml (Lata)",
     "category": "bebidas-cafes",
     "desc": "Coca-Cola, Guaraná, Fanta, etc.",
@@ -848,8 +875,8 @@
     "available": true
   },
   {
-    "id": "144",
-    "num": 144,
+    "id": "174",
+    "num": 174,
     "name": "Refrigerante 200/220ml",
     "category": "bebidas-cafes",
     "desc": "Garrafinha mini.",
@@ -857,8 +884,8 @@
     "available": true
   },
   {
-    "id": "145",
-    "num": 145,
+    "id": "175",
+    "num": 175,
     "name": "Refrigerante 600ml",
     "category": "bebidas-cafes",
     "desc": "Garrafa individual grande.",
@@ -866,8 +893,8 @@
     "available": true
   },
   {
-    "id": "146",
-    "num": 146,
+    "id": "176",
+    "num": 176,
     "name": "Chá Gelado",
     "category": "bebidas-cafes",
     "desc": "Pêssego, Pêssego Zero, Limão e Matte Leão.",
@@ -875,8 +902,8 @@
     "available": true
   },
   {
-    "id": "147",
-    "num": 147,
+    "id": "177",
+    "num": 177,
     "name": "Água com Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -884,8 +911,8 @@
     "available": true
   },
   {
-    "id": "148",
-    "num": 148,
+    "id": "178",
+    "num": 178,
     "name": "Água sem Gás",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -893,8 +920,8 @@
     "available": true
   },
   {
-    "id": "149",
-    "num": 149,
+    "id": "179",
+    "num": 179,
     "name": "H2OH! Limoneto",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -902,8 +929,8 @@
     "available": true
   },
   {
-    "id": "150",
-    "num": 150,
+    "id": "180",
+    "num": 180,
     "name": "Energético",
     "category": "bebidas-cafes",
     "desc": "Lata.",
@@ -911,8 +938,8 @@
     "available": true
   },
   {
-    "id": "151",
-    "num": 151,
+    "id": "181",
+    "num": 181,
     "name": "Guaraviton",
     "category": "bebidas-cafes",
     "desc": "Garrafa 500ml.",
@@ -920,8 +947,8 @@
     "available": true
   },
   {
-    "id": "152",
-    "num": 152,
+    "id": "182",
+    "num": 182,
     "name": "Cerveja Long Neck",
     "category": "bebidas-cafes",
     "desc": "Geladíssima.",
@@ -929,8 +956,8 @@
     "available": true
   },
   {
-    "id": "153",
-    "num": 153,
+    "id": "183",
+    "num": 183,
     "name": "Expresso Curto",
     "category": "bebidas-cafes",
     "desc": "Café puro e forte.",
@@ -938,8 +965,8 @@
     "available": true
   },
   {
-    "id": "154",
-    "num": 154,
+    "id": "184",
+    "num": 184,
     "name": "Expresso Longo",
     "category": "bebidas-cafes",
     "desc": "Café expresso mais suave.",
@@ -947,8 +974,8 @@
     "available": true
   },
   {
-    "id": "155",
-    "num": 155,
+    "id": "185",
+    "num": 185,
     "name": "Café Suave",
     "category": "bebidas-cafes",
     "desc": "Xícara leve.",
@@ -956,8 +983,8 @@
     "available": true
   },
   {
-    "id": "156",
-    "num": 156,
+    "id": "186",
+    "num": 186,
     "name": "Café com Leite",
     "category": "bebidas-cafes",
     "desc": "Pingado clássico.",
@@ -965,8 +992,8 @@
     "available": true
   },
   {
-    "id": "157",
-    "num": 157,
+    "id": "187",
+    "num": 187,
     "name": "Cappuccino",
     "category": "bebidas-cafes",
     "desc": "Com toque de canela e cacau.",
@@ -974,8 +1001,8 @@
     "available": true
   },
   {
-    "id": "158",
-    "num": 158,
+    "id": "188",
+    "num": 188,
     "name": "Chocolate Quente",
     "category": "bebidas-cafes",
     "desc": "Cremoso e quentinho.",
@@ -983,8 +1010,8 @@
     "available": true
   },
   {
-    "id": "159",
-    "num": 159,
+    "id": "189",
+    "num": 189,
     "name": "Leite Quente",
     "category": "bebidas-cafes",
     "desc": "Puro ou adoçado.",
@@ -992,8 +1019,8 @@
     "available": true
   },
   {
-    "id": "160",
-    "num": 160,
+    "id": "190",
+    "num": 190,
     "name": "Chá Quente de Limão",
     "category": "bebidas-cafes",
     "desc": "Confortável para o dia a dia.",
@@ -1001,8 +1028,8 @@
     "available": true
   },
   {
-    "id": "161",
-    "num": 161,
+    "id": "191",
+    "num": 191,
     "name": "Toddy Gelado 300ml",
     "category": "bebidas-cafes",
     "desc": "Cremoso e gelado.",
@@ -1010,8 +1037,8 @@
     "available": true
   },
   {
-    "id": "162",
-    "num": 162,
+    "id": "192",
+    "num": 192,
     "name": "Toddy Gelado 500ml",
     "category": "bebidas-cafes",
     "desc": "Copo grande de 500ml.",
@@ -1019,8 +1046,8 @@
     "available": true
   },
   {
-    "id": "163",
-    "num": 163,
+    "id": "193",
+    "num": 193,
     "name": "Suco Natural 300ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
@@ -1028,8 +1055,8 @@
     "available": true
   },
   {
-    "id": "164",
-    "num": 164,
+    "id": "194",
+    "num": 194,
     "name": "Suco Natural 500ml",
     "category": "bebidas-cafes",
     "desc": "Abacaxi, Laranja, Limão, Maçã ou Mamão.",
@@ -1037,8 +1064,8 @@
     "available": true
   },
   {
-    "id": "165",
-    "num": 165,
+    "id": "195",
+    "num": 195,
     "name": "Suco de Polpa com Água 500ml",
     "category": "bebidas-cafes",
     "desc": "Acerola, Açaí, Cajá, Caju, Cupuaçu, Goiaba, Graviola, Manga, Maracujá, Morango, Umbu ou Uva.",
@@ -1046,8 +1073,8 @@
     "available": true
   },
   {
-    "id": "166",
-    "num": 166,
+    "id": "196",
+    "num": 196,
     "name": "Suco de Polpa Misto (2 sabores) 500ml",
     "category": "bebidas-cafes",
     "desc": "Combine 2 sabores de frutas.",
@@ -1055,8 +1082,8 @@
     "available": true
   },
   {
-    "id": "167",
-    "num": 167,
+    "id": "197",
+    "num": 197,
     "name": "Suco de Polpa com Leite 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite.",
@@ -1064,8 +1091,8 @@
     "available": true
   },
   {
-    "id": "168",
-    "num": 168,
+    "id": "198",
+    "num": 198,
     "name": "Vitamina Completa 500ml",
     "category": "bebidas-cafes",
     "desc": "Leite + aveia + 2 frutas (Banana, Maçã, Mamão ou Abacate).",
@@ -1073,8 +1100,8 @@
     "available": true
   },
   {
-    "id": "169",
-    "num": 169,
+    "id": "199",
+    "num": 199,
     "name": "Polpa de Açaí com Água + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com banana.",
@@ -1082,8 +1109,8 @@
     "available": true
   },
   {
-    "id": "170",
-    "num": 170,
+    "id": "200",
+    "num": 200,
     "name": "Polpa de Açaí com Leite + 1 Banana 500ml",
     "category": "bebidas-cafes",
     "desc": "Batido com leite e banana.",
@@ -1091,8 +1118,8 @@
     "available": true
   },
   {
-    "id": "171",
-    "num": 171,
+    "id": "201",
+    "num": 201,
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
@@ -1100,8 +1127,8 @@
     "available": true
   },
   {
-    "id": "172",
-    "num": 172,
+    "id": "202",
+    "num": 202,
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
@@ -1109,8 +1136,8 @@
     "available": true
   },
   {
-    "id": "173",
-    "num": 173,
+    "id": "203",
+    "num": 203,
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
@@ -1118,8 +1145,8 @@
     "available": true
   },
   {
-    "id": "174",
-    "num": 174,
+    "id": "204",
+    "num": 204,
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
@@ -1127,8 +1154,8 @@
     "available": true
   },
   {
-    "id": "175",
-    "num": 175,
+    "id": "205",
+    "num": 205,
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
@@ -1136,8 +1163,8 @@
     "available": true
   },
   {
-    "id": "176",
-    "num": 176,
+    "id": "206",
+    "num": 206,
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
@@ -1145,8 +1172,8 @@
     "available": true
   },
   {
-    "id": "177",
-    "num": 177,
+    "id": "207",
+    "num": 207,
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",

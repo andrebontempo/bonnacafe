@@ -451,186 +451,201 @@
 
 /* Omelete (2 ovos) - Carne Seca com Queijo */
 #_141::after {
+    content: "R$ 24,50";
+}
+
+/* Spaghetti à Bolonhesa */
+#_142::after {
+    content: "R$ 26,00";
+}
+
+/* Lasanha de Presunto e Queijo */
+#_143::after {
+    content: "R$ 26,00";
+}
+
+/* Lasanha de Frango com Catupiry */
+#_171::after {
     content: "R$ 4,80";
 }
 
 /* Toddynho */
-#_142::after {
+#_172::after {
     content: "R$ 4,00";
 }
 
 /* Suco de Caixinha */
-#_143::after {
+#_173::after {
     content: "R$ 6,00";
 }
 
 /* Refrigerante 310ml (Lata) */
-#_144::after {
+#_174::after {
     content: "R$ 4,50";
 }
 
 /* Refrigerante 200/220ml */
-#_145::after {
+#_175::after {
     content: "R$ 7,00";
 }
 
 /* Refrigerante 600ml */
-#_146::after {
+#_176::after {
     content: "R$ 6,90";
 }
 
 /* Chá Gelado */
-#_147::after {
+#_177::after {
     content: "R$ 4,50";
 }
 
 /* Água com Gás */
-#_148::after {
+#_178::after {
     content: "R$ 4,00";
 }
 
 /* Água sem Gás */
-#_149::after {
+#_179::after {
     content: "R$ 7,00";
 }
 
 /* H2OH! Limoneto */
-#_150::after {
+#_180::after {
     content: "R$ 13,00";
 }
 
 /* Energético */
-#_151::after {
+#_181::after {
     content: "R$ 7,00";
 }
 
 /* Guaraviton */
-#_152::after {
+#_182::after {
     content: "R$ 10,00";
 }
 
 /* Cerveja Long Neck */
-#_153::after {
+#_183::after {
     content: "R$ 6,00";
 }
 
 /* Expresso Curto */
-#_154::after {
+#_184::after {
     content: "R$ 7,00";
 }
 
 /* Expresso Longo */
-#_155::after {
+#_185::after {
     content: "R$ 7,00";
 }
 
 /* Café Suave */
-#_156::after {
+#_186::after {
     content: "R$ 7,00";
 }
 
 /* Café com Leite */
-#_157::after {
+#_187::after {
     content: "R$ 7,00";
 }
 
 /* Cappuccino */
-#_158::after {
+#_188::after {
     content: "R$ 7,00";
 }
 
 /* Chocolate Quente */
-#_159::after {
+#_189::after {
     content: "R$ 6,00";
 }
 
 /* Leite Quente */
-#_160::after {
+#_190::after {
     content: "R$ 6,00";
 }
 
 /* Chá Quente de Limão */
-#_161::after {
+#_191::after {
     content: "R$ 8,00";
 }
 
 /* Toddy Gelado 300ml */
-#_162::after {
+#_192::after {
     content: "R$ 10,50";
 }
 
 /* Toddy Gelado 500ml */
-#_163::after {
+#_193::after {
     content: "R$ 7,00";
 }
 
 /* Suco Natural 300ml */
-#_164::after {
+#_194::after {
     content: "R$ 9,50";
 }
 
 /* Suco Natural 500ml */
-#_165::after {
+#_195::after {
     content: "R$ 7,50";
 }
 
 /* Suco de Polpa com Água 500ml */
-#_166::after {
+#_196::after {
     content: "R$ 11,00";
 }
 
 /* Suco de Polpa Misto (2 sabores) 500ml */
-#_167::after {
+#_197::after {
     content: "R$ 9,50";
 }
 
 /* Suco de Polpa com Leite 500ml */
-#_168::after {
+#_198::after {
     content: "R$ 12,50";
 }
 
 /* Vitamina Completa 500ml */
-#_169::after {
+#_199::after {
     content: "R$ 11,00";
 }
 
 /* Polpa de Açaí com Água + 1 Banana 500ml */
-#_170::after {
+#_200::after {
     content: "R$ 13,00";
 }
 
 /* Polpa de Açaí com Leite + 1 Banana 500ml */
-#_171::after {
+#_201::after {
     content: "R$ 7,50";
 }
 
 /* Gelatina Mosaico */
-#_172::after {
+#_202::after {
     content: "R$ 7,50";
 }
 
 /* Gelatina Cremosa */
-#_173::after {
+#_203::after {
     content: "R$ 6,50";
 }
 
 /* Pudim de Leite Condensado */
-#_174::after {
+#_204::after {
     content: "R$ 6,50";
 }
 
 /* Pudim de Chocolate */
-#_175::after {
+#_205::after {
     content: "R$ 8,50";
 }
 
 /* Salada de Frutas Fresca */
-#_176::after {
+#_206::after {
     content: "R$ 7,00";
 }
 
 /* Mousse de Maracujá */
-#_177::after {
+#_207::after {
     content: "R$ 10,00";
 }
 
