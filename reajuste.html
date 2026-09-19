@@ -630,13 +630,23 @@
       window.location.href = 'index.html';
     }
 
+    function sortCatalogItems(items) {
+      if (!items || !Array.isArray(items)) return items;
+      return items.sort(function(a, b) {
+        var numA = parseInt(a.id || a.num || 0, 10);
+        var numB = parseInt(b.id || b.num || 0, 10);
+        if (numA !== numB) return numA - numB;
+        return String(a.id || '').localeCompare(String(b.id || ''));
+      });
+    }
+
     function loadItems() {
       checkAuth();
       window.BonnaMenu.getItemsAsync(function(items) {
         if (!items || !Array.isArray(items) || items.length === 0) {
           items = window.BonnaMenu.getItems();
         }
-        currentWorkingItems = JSON.parse(JSON.stringify(items));
+        currentWorkingItems = sortCatalogItems(JSON.parse(JSON.stringify(items)));
         $('#nav-catalog-badge').text(currentWorkingItems.length);
         renderTable();
       });
@@ -652,6 +662,7 @@
         currentWorkingItems = JSON.parse(JSON.stringify(fallbackItems));
       }
 
+      currentWorkingItems = sortCatalogItems(currentWorkingItems);
       $('#nav-catalog-badge').text(currentWorkingItems.length);
 
       var filterQuery = $('#table-search').val() ? $('#table-search').val().toLowerCase().trim() : '';
@@ -864,14 +875,18 @@
 
       if (index === -1) {
         window.BonnaMenu.createItem(itemObj, function(updatedItems) {
-          currentWorkingItems = updatedItems;
+          currentWorkingItems = sortCatalogItems(updatedItems);
           $('#itemModal').modal('hide');
+          var itemIdx = currentWorkingItems.findIndex(function(it) { return String(it.id) === String(formattedId); });
+          if (itemIdx !== -1) {
+            catalogCurrentPage = Math.floor(itemIdx / catalogItemsPerPage) + 1;
+          }
           renderTable();
           alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso!');
         });
       } else {
         window.BonnaMenu.updateItem(formattedId, itemObj, function(updatedItems) {
-          currentWorkingItems = updatedItems;
+          currentWorkingItems = sortCatalogItems(updatedItems);
           $('#itemModal').modal('hide');
           renderTable();
           alert('Item "' + name + '" (ID: ' + formattedId + ') atualizado com sucesso!');

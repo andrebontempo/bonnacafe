@@ -1287,6 +1287,14 @@ function loadDB() {
 }
 
 function saveDB(items) {
+  if (Array.isArray(items)) {
+    items.sort((a, b) => {
+      const numA = parseInt(a.id || a.num || 0, 10);
+      const numB = parseInt(b.id || b.num || 0, 10);
+      if (numA !== numB) return numA - numB;
+      return String(a.id || '').localeCompare(String(b.id || ''));
+    });
+  }
   fs.writeFileSync(DB_FILE, JSON.stringify(items, null, 2), 'utf8');
 }
 

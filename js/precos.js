@@ -1296,6 +1296,14 @@ window.BonnaMenu = {
     if (!items || !Array.isArray(items) || items.length === 0) {
       items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
     }
+    // Ordena o catálogo numericamente por ID
+    items.sort(function(a, b) {
+      var numA = parseInt(a.id || a.num || 0, 10);
+      var numB = parseInt(b.id || b.num || 0, 10);
+      if (numA !== numB) return numA - numB;
+      return String(a.id || '').localeCompare(String(b.id || ''));
+    });
+
     self.cache = items;
     localStorage.setItem('bonna_full_catalog_v3', JSON.stringify(items));
     self.injectPricesCSS(items);
