@@ -1134,13 +1134,13 @@
           ctx.drawImage(img, 0, 0);
           callback(canvas.toDataURL('image/png'));
         } catch (e) {
-          callback('img/logo_bonna.png');
+          callback('img/logo_cardapio.png');
         }
       };
       img.onerror = function () {
-        callback('img/logo_bonna.png');
+        callback('img/logo_cardapio.png');
       };
-      img.src = 'img/logo_bonna.png';
+      img.src = 'img/logo_cardapio.png';
     }
 
     // Gerador Profissional do Cardápio em PDF para Impressão (Formato A4)
@@ -1174,7 +1174,7 @@
 
         // Header com Logo Oficial (Formato A4)
         html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 18px;">' +
-                  '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 65px; max-width: 220px; display: block; margin: 0 auto 8px auto;" />' +
+                  '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 70px; max-width: 250px; display: block; margin: 0 auto 8px auto;" />' +
                   '<h1 style="margin: 0; color: #3D2B1F; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;">Cardápio Oficial & Tabela de Preços</h1>' +
                   '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
                   '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
@@ -1237,7 +1237,7 @@
         // Método 1: Janela Nativa de Impressão / Salvar como PDF A4
         openPrintWindow(html);
 
-        // Método 2: Geração de download direto com retardo para renderização completa
+        // Método 2: Geração de download direto com numeração de páginas X/Y
         if (typeof html2pdf !== 'undefined') {
           var container = document.createElement('div');
           container.id = 'temp-pdf-container';
@@ -1252,7 +1252,7 @@
 
           setTimeout(function() {
             var opt = {
-              margin:       [8, 8, 10, 8],
+              margin:       [8, 8, 12, 8],
               filename:     'Cardapio_Bonna_Cafe.pdf',
               image:        { type: 'jpeg', quality: 0.98 },
               html2canvas:  { scale: 2, useCORS: true, allowTaint: true, logging: false, scrollY: 0, scrollX: 0 },
@@ -1260,7 +1260,16 @@
               pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
             };
 
-            html2pdf().set(opt).from(container).save().then(function() {
+            html2pdf().set(opt).from(container).toPdf().get('pdf').then(function(pdf) {
+              var totalPages = pdf.internal.getNumberOfPages();
+              for (var i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.setFontSize(9);
+                pdf.setFont('helvetica', 'normal');
+                pdf.setTextColor(61, 43, 31);
+                pdf.text(i + '/' + totalPages, 198, 287, { align: 'right' });
+              }
+            }).save().then(function() {
               if (document.getElementById('temp-pdf-container')) {
                 document.body.removeChild(container);
               }
@@ -1283,18 +1292,19 @@
       var printWin = window.open('', '_blank');
       if (!printWin) return;
 
-      printWin.document.write('<!DOCTYPE html><html><head><title>Cardápio Bonna Café - Formato A4</title>' +
+      printWin.document.write('<!DOCTYPE html><html><head><title></title>' +
         '<link rel="stylesheet" href="css/bootstrap.css">' +
         '<style>' +
-          '@page { size: A4 portrait; margin: 10mm; } ' +
+          '@page { size: A4 portrait; margin: 8mm 10mm 12mm 10mm; } ' +
           'body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; padding: 0; background: #FFF; color: #2B1E16; } ' +
           '.pdf-category-block { page-break-inside: avoid; } ' +
           '@media print { body { width: 100%; } .no-print { display: none !important; } }' +
         '</style>' +
         '</head><body>' +
         '<div class="no-print" style="background: #3D2B1F; color: #FFF; padding: 12px 20px; text-align: center; font-weight: 600; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">' +
-          '<i class="fa fa-print"></i> Visualização para Impressão / Salvar em PDF (Formato A4) ' +
+          '<i class="fa fa-print"></i> Visualização para Impressão A4 ' +
           '<button onclick="window.print()" style="margin-left: 15px; background: #C68B45; color: #FFF; border: none; padding: 6px 16px; font-weight: 700; border-radius: 4px; cursor: pointer;">Imprimir / Salvar como PDF</button>' +
+          '<div style="font-size: 11px; font-weight: normal; margin-top: 4px; color: #E0D5C7;">Dica: Na janela de impressão do navegador, desmarque "Cabeçalhos e rodapés" para remover a data, título e URL, mantendo o visual limpo.</div>' +
         '</div>' +
         htmlContent +
         '<script>setTimeout(function(){ window.print(); }, 700);<\/script>' +
