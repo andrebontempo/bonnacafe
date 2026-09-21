@@ -1301,7 +1301,9 @@
           alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso!');
         });
       } else {
-        window.BonnaMenu.updateItem(formattedId, itemObj, function(updatedItems) {
+        var originalItem = currentWorkingItems[index];
+        var targetId = originalItem ? originalItem.id : formattedId;
+        window.BonnaMenu.updateItem(targetId, itemObj, function(updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
           $('#itemModal').modal('hide');
           renderItemsTable();
@@ -1615,7 +1617,10 @@
       });
 
       $('#modal-item-category').on('change', function() {
-        if ($('#modal-item-index').val() === '-1') {
+        var currentId = $('#modal-item-id').val();
+        var detectedCat = detectCategoryFromId(currentId);
+        var selectedCat = $(this).val();
+        if (!detectedCat || detectedCat !== selectedCat) {
           updateModalSuggestedId();
         }
       });

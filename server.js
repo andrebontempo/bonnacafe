@@ -410,13 +410,13 @@ const INITIAL_ITEMS = [
     "price": 7
   },
   {
-    "id": "042",
-    "num": 42,
+    "id": "201",
+    "num": 201,
     "name": "Matte Leão Batido com Limão 500ml",
-    "category": "salgados",
+    "category": "bebidas-cafes",
     "desc": "Refrescante batido na hora.",
     "available": true,
-    "price": 7.5
+    "price": 8.5
   },
   {
     "id": "051",
@@ -1579,14 +1579,16 @@ const server = http.createServer((req, res) => {
       if (idx === -1) {
         return sendJSON(res, { error: 'Item não encontrado.' }, 404);
       }
+      const updatedId = body.id !== undefined ? String(body.id) : itemId;
+      const updatedNum = parseInt(updatedId, 10) || items[idx].num;
       items[idx] = {
-        id: itemId,
-        num: items[idx].num,
+        id: updatedId,
+        num: updatedNum,
         name: body.name !== undefined ? String(body.name) : items[idx].name,
         category: body.category !== undefined ? String(body.category) : items[idx].category,
         desc: body.desc !== undefined ? String(body.desc) : items[idx].desc,
-        available: true,
-    price: body.price !== undefined ? parseFloat(body.price) : items[idx].price,
+        available: body.available !== undefined ? (body.available === true || body.available === 'true') : (items[idx].available !== false),
+        price: body.price !== undefined ? parseFloat(body.price) : items[idx].price,
         img: body.img !== undefined ? (body.img ? String(body.img) : null) : items[idx].img
       };
       saveDB(items);

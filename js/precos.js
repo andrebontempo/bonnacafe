@@ -303,13 +303,13 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "042",
-    "num": 42,
+    "id": "201",
+    "num": 201,
     "name": "Matte Leão Batido com Limão 500ml",
-    "category": "salgados",
+    "category": "bebidas-cafes",
     "desc": "Refrescante batido na hora.",
     "available": true,
-    "price": 7.5
+    "price": 8.5
   },
   {
     "id": "051",
