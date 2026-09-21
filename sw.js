@@ -2,7 +2,7 @@
    Bonna Café - Progressive Web App (PWA) Service Worker
    ========================================================================== */
 
-const CACHE_NAME = 'bonnacafe-v9';
+const CACHE_NAME = 'bonnacafe-v10';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -10,7 +10,7 @@ const STATIC_ASSETS = [
   '/admin.html',
   '/reajuste.html',
   '/css/bootstrap.css',
-  '/css/style.css?v=8',
+  '/css/style.css?v=9',
   '/css/precos.css?v=5',
   '/fonts/font-awesome/css/font-awesome.css',
   '/js/jquery.1.11.1.js',

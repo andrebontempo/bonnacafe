@@ -596,6 +596,10 @@ hr {
   font-size: 1.1rem;
 }
 
+.mobile-scroll-hint {
+  display: none;
+}
+
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
@@ -1400,6 +1404,45 @@ hr {
 
   .switch-text {
     font-size: 0.85rem !important;
+  }
+
+  /* Indicador de Rolagem Horizontal Mobile com Animação */
+  .mobile-scroll-hint {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-top: 4px !important;
+    margin-bottom: 6px !important;
+    color: var(--primary) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    user-select: none !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  .mobile-scroll-hint .arrow-left {
+    animation: hintBounceLeft 1.2s infinite ease-in-out;
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    color: var(--primary) !important;
+  }
+
+  .mobile-scroll-hint .arrow-right {
+    animation: hintBounceRight 1.2s infinite ease-in-out;
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    color: var(--primary) !important;
+  }
+
+  @keyframes hintBounceLeft {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-4px); }
+  }
+
+  @keyframes hintBounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
   }
 
   /* Single-row Horizontal Scrollable Filter Pills */
