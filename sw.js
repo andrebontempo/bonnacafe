@@ -2,11 +2,12 @@
    Bonna Café - Progressive Web App (PWA) Service Worker
    ========================================================================== */
 
-const CACHE_NAME = 'bonnacafe-v8';
+const CACHE_NAME = 'bonnacafe-v9';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/cardapio.html',
+  '/admin.html',
   '/reajuste.html',
   '/css/bootstrap.css',
   '/css/style.css?v=8',

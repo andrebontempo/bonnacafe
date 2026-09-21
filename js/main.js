@@ -209,7 +209,7 @@ function openAdminModal(e) {
   if (e && e.preventDefault) e.preventDefault();
 
   if (sessionStorage.getItem('bonna_admin_auth') === 'true') {
-    window.location.href = 'reajuste.html';
+    window.location.href = 'admin.html';
     return;
   }
 
@@ -218,7 +218,7 @@ function openAdminModal(e) {
 
   if (pass === 'Bonna#27') {
     sessionStorage.setItem('bonna_admin_auth', 'true');
-    window.location.href = 'reajuste.html';
+    window.location.href = 'admin.html';
   } else {
     alert('❌ Senha incorreta! Acesso negado.');
   }

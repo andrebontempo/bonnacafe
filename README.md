@@ -40,7 +40,8 @@ bonnacafe/
 ├── cardapio.html               # Página do Cardápio Completo com Busca & Filtros
 ├── index.html                  # Landing Page principal
 ├── obrigado.html               # Página de agradecimento pós-contato
-├── reajuste.html               # Painel Admin (Gestão de Itens, Preços e Reajuste %)
+├── admin.html                  # Painel Admin (Gestão de Categorias, Itens, Preços e Mensagens)
+├── reajuste.html               # Redirecionamento legado para admin.html
 ├── server.js                   # Servidor Node.js nativo & REST API
 ├── Dockerfile                  # Containerização Node.js (Alpine Linux)
 ├── docker-compose.yml          # Orquestração do container na rede proxy
