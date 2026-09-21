@@ -1188,6 +1188,68 @@ var BONNA_ITEMS = [
 ];
 
 window.BonnaMenu = {
+  DEFAULT_CATEGORIES: [
+    { slug: 'combos', name: 'Combos Especiais', range: '001 - 010', order: 1, active: true },
+    { slug: 'bonnadodia', name: 'Bonna do Dia', range: '011 - 020', order: 2, active: true },
+    { slug: 'salgados', name: 'Salgados Tradicionais & Assados', range: '021 - 050', order: 3, active: true },
+    { slug: 'pao-queijo', name: 'Linha Pão de Queijo & Especialidades', range: '051 - 080', order: 4, active: true },
+    { slug: 'sanduiches-tapiocas', name: 'Sanduíches, Pão na Chapa & Tapiocas', range: '081 - 110', order: 5, active: true },
+    { slug: 'ovos', name: 'Cuscuz, Crepiocas & Ovos Especiais', range: '111 - 140', order: 6, active: true },
+    { slug: 'massas', name: 'Massas & Lasanhas', range: '141 - 170', order: 7, active: true },
+    { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 200', order: 8, active: true },
+    { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '201 - 230', order: 9, active: true }
+  ],
+
+  getCategoriesAsync: function(callback) {
+    var self = this;
+    var cached = localStorage.getItem('bonna_categories_v1');
+    var categories = self.DEFAULT_CATEGORIES;
+    if (cached) {
+      try {
+        var parsed = JSON.parse(cached);
+        if (Array.isArray(parsed) && parsed.length > 0) categories = parsed;
+      } catch (e) {}
+    }
+    if (callback) callback(categories);
+
+    if (window.location.protocol.indexOf('http') === 0 && typeof $ !== 'undefined' && $.ajax) {
+      $.ajax({
+        url: '/api/categories',
+        type: 'GET',
+        dataType: 'json',
+        timeout: 2500,
+        success: function(data) {
+          if (Array.isArray(data) && data.length > 0) {
+            localStorage.setItem('bonna_categories_v1', JSON.stringify(data));
+            if (callback) callback(data);
+          }
+        },
+        error: function() {}
+      });
+    }
+  },
+
+  saveCategoriesAsync: function(categories, callback) {
+    var self = this;
+    if (Array.isArray(categories)) {
+      categories.sort(function(a, b) { return (a.order || 0) - (b.order || 0); });
+    }
+    localStorage.setItem('bonna_categories_v1', JSON.stringify(categories));
+    if (callback) callback(categories);
+
+    if (window.location.protocol.indexOf('http') === 0 && typeof $ !== 'undefined' && $.ajax) {
+      $.ajax({
+        url: '/api/categories/bulk-save',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ categories: categories }),
+        timeout: 3000,
+        success: function() {},
+        error: function() {}
+      });
+    }
+  },
+
   CATEGORY_RANGES: {
     'combos': { min: 1, max: 10 },
     'bonnadodia': { min: 11, max: 20 },
@@ -1200,9 +1262,28 @@ window.BonnaMenu = {
     'sobremesas': { min: 201, max: 230 }
   },
 
+  getCategoryRange: function(categorySlug) {
+    var cachedCats = localStorage.getItem('bonna_categories_v1');
+    if (cachedCats) {
+      try {
+        var parsed = JSON.parse(cachedCats);
+        if (Array.isArray(parsed)) {
+          var target = parsed.find(function(c) { return c && c.slug === categorySlug; });
+          if (target && target.range) {
+            var parts = target.range.split('-').map(function(s) { return parseInt(s.trim(), 10); });
+            if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+              return { min: parts[0], max: parts[1] };
+            }
+          }
+        }
+      } catch(e) {}
+    }
+    return this.CATEGORY_RANGES[categorySlug] || { min: 1, max: 999 };
+  },
+
   getNextAvailableId: function(category, items) {
     items = items || this.getItems();
-    var range = this.CATEGORY_RANGES[category] || { min: 1, max: 999 };
+    var range = this.getCategoryRange(category);
     var usedIds = {};
     (items || []).forEach(function(it) {
       if (it && it.id) {

@@ -7,6 +7,45 @@ const PORT = process.env.PORT || 3000;
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'bonnacafe_db.json');
 const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
+const CATEGORIES_FILE = path.join(DATA_DIR, 'categories.json');
+
+const INITIAL_CATEGORIES = [
+  { slug: 'combos', name: 'Combos Especiais', range: '001 - 010', order: 1, active: true },
+  { slug: 'bonnadodia', name: 'Bonna do Dia', range: '011 - 020', order: 2, active: true },
+  { slug: 'salgados', name: 'Salgados Tradicionais & Assados', range: '021 - 050', order: 3, active: true },
+  { slug: 'pao-queijo', name: 'Linha Pão de Queijo & Especialidades', range: '051 - 080', order: 4, active: true },
+  { slug: 'sanduiches-tapiocas', name: 'Sanduíches, Pão na Chapa & Tapiocas', range: '081 - 110', order: 5, active: true },
+  { slug: 'ovos', name: 'Cuscuz, Crepiocas & Ovos Especiais', range: '111 - 140', order: 6, active: true },
+  { slug: 'massas', name: 'Massas & Lasanhas', range: '141 - 170', order: 7, active: true },
+  { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 200', order: 8, active: true },
+  { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '201 - 230', order: 9, active: true }
+];
+
+function loadCategories() {
+  if (!fs.existsSync(CATEGORIES_FILE)) {
+    saveCategories(INITIAL_CATEGORIES);
+    return INITIAL_CATEGORIES;
+  }
+  try {
+    const raw = fs.readFileSync(CATEGORIES_FILE, 'utf8');
+    const data = JSON.parse(raw);
+    if (Array.isArray(data) && data.length > 0) {
+      data.sort((a, b) => (a.order || 0) - (b.order || 0));
+      return data;
+    }
+  } catch (e) {
+    console.error('Erro ao ler categorias, restaurando padrão:', e);
+  }
+  saveCategories(INITIAL_CATEGORIES);
+  return INITIAL_CATEGORIES;
+}
+
+function saveCategories(cats) {
+  if (Array.isArray(cats)) {
+    cats.sort((a, b) => (a.order || 0) - (b.order || 0));
+  }
+  fs.writeFileSync(CATEGORIES_FILE, JSON.stringify(cats, null, 2), 'utf8');
+}
 
 function loadMessages() {
   if (!fs.existsSync(MESSAGES_FILE)) return [];
@@ -33,8 +72,20 @@ const CATEGORY_RANGES = {
   'sobremesas': { min: 201, max: 230 }
 };
 
+function getCategoryRange(categorySlug) {
+  const categories = loadCategories();
+  const catObj = categories.find(c => c && c.slug === categorySlug);
+  if (catObj && catObj.range) {
+    const parts = catObj.range.split('-').map(s => parseInt(s.trim(), 10));
+    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+      return { min: parts[0], max: parts[1] };
+    }
+  }
+  return CATEGORY_RANGES[categorySlug] || { min: 1, max: 999 };
+}
+
 function getNextAvailableId(category, items) {
-  const range = CATEGORY_RANGES[category] || { min: 1, max: 999 };
+  const range = getCategoryRange(category);
   const used = new Set(items.map(it => String(it.id).trim()));
   for (let i = range.min; i <= range.max; i++) {
     const candidate = String(i).padStart(3, '0');
@@ -1231,17 +1282,58 @@ function loadDB() {
     const raw = fs.readFileSync(DB_FILE, 'utf8');
     const data = JSON.parse(raw);
     if (Array.isArray(data) && data.length >= 100) {
-      const validCategories = new Set(Object.keys(CATEGORY_RANGES));
+      const loadedCats = loadCategories();
+      const validCategories = new Set(loadedCats.map(c => String(c.slug || '').toLowerCase().trim()));
+
+      // Mapeia faixas de código de todas as categorias cadastradas
+      const catRanges = loadedCats.map(c => {
+        if (c && c.range) {
+          const parts = String(c.range).split('-').map(s => parseInt(s.trim(), 10));
+          if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+            return { slug: c.slug, min: parts[0], max: parts[1] };
+          }
+        }
+        return null;
+      }).filter(Boolean);
+
       let needsSave = false;
       data.forEach(it => {
-        if (it && it.category) {
-          if (it.category === 'salgados-assados') { it.category = 'salgados'; needsSave = true; }
-          else if (it.category === 'tapiocas' || it.category === 'sanduiches') { it.category = 'sanduiches-tapiocas'; needsSave = true; }
-          else if (it.category === 'cuscuz') { it.category = 'ovos'; needsSave = true; }
-          else if (it.category === 'bebidas' || it.category === 'cafes') { it.category = 'bebidas-cafes'; needsSave = true; }
-          else if (it.category === 'doces') { it.category = 'sobremesas'; needsSave = true; }
-          else if (it.category === 'massa' || it.category === 'lasanha' || it.category === 'macarrao') { it.category = 'massas'; needsSave = true; }
-          else if (!validCategories.has(it.category)) { it.category = 'salgados'; needsSave = true; }
+        if (it) {
+          const numId = parseInt(it.id, 10);
+          let matchedRangeCat = null;
+          if (!isNaN(numId)) {
+            const rangeMatch = catRanges.find(r => numId >= r.min && numId <= r.max);
+            if (rangeMatch) matchedRangeCat = rangeMatch.slug;
+          }
+
+          if (it.category) {
+            const normCat = String(it.category).toLowerCase().trim();
+            if (matchedRangeCat && normCat !== matchedRangeCat) {
+              it.category = matchedRangeCat;
+              needsSave = true;
+            } else if (normCat === 'salgados-assados') { it.category = 'salgados'; needsSave = true; }
+            else if (normCat === 'tapiocas' || normCat === 'sanduiches') { it.category = 'sanduiches-tapiocas'; needsSave = true; }
+            else if (normCat === 'cuscuz') { it.category = 'ovos'; needsSave = true; }
+            else if (normCat === 'bebidas' || normCat === 'cafes') { it.category = 'bebidas-cafes'; needsSave = true; }
+            else if (normCat === 'doces') { it.category = 'sobremesas'; needsSave = true; }
+            else if (normCat === 'massa' || normCat === 'lasanha' || normCat === 'macarrao') { it.category = 'massas'; needsSave = true; }
+            else if (!validCategories.has(normCat)) {
+              const matchByName = loadedCats.find(c => String(c.name || '').toLowerCase().trim() === normCat);
+              if (matchByName) {
+                it.category = matchByName.slug;
+                needsSave = true;
+              } else {
+                it.category = matchedRangeCat || 'salgados';
+                needsSave = true;
+              }
+            } else if (it.category !== normCat) {
+              it.category = normCat;
+              needsSave = true;
+            }
+          } else if (matchedRangeCat) {
+            it.category = matchedRangeCat;
+            needsSave = true;
+          }
         }
 
         if (it && it.id) {
@@ -1367,6 +1459,82 @@ const server = http.createServer((req, res) => {
   if (pathname === '/api/menu' && method === 'GET') {
     const items = loadDB();
     return sendJSON(res, items);
+  }
+
+  // --- CATEGORIES ENDPOINTS ---
+
+  // GET /api/categories (Listar categorias)
+  if (pathname === '/api/categories' && method === 'GET') {
+    const categories = loadCategories();
+    return sendJSON(res, categories);
+  }
+
+  // POST /api/categories (Criar categoria)
+  if (pathname === '/api/categories' && method === 'POST') {
+    return parseRequestBody(req, (err, body) => {
+      if (err || !body.slug || !body.name) {
+        return sendJSON(res, { error: 'Slug e Nome são obrigatórios.' }, 400);
+      }
+      let cats = loadCategories();
+      const slug = String(body.slug).toLowerCase().trim().replace(/[^a-z0-9\-]/g, '-');
+      if (cats.some(c => c.slug === slug)) {
+        return sendJSON(res, { error: 'Já existe uma categoria com este Slug/ID.' }, 400);
+      }
+      const newCat = {
+        slug: slug,
+        name: String(body.name).trim(),
+        range: String(body.range || '').trim(),
+        order: parseInt(body.order, 10) || (cats.length + 1),
+        active: body.active !== false
+      };
+      cats.push(newCat);
+      saveCategories(cats);
+      return sendJSON(res, newCat, 201);
+    });
+  }
+
+  // POST /api/categories/bulk-save (Salvar lista completa de categorias)
+  if (pathname === '/api/categories/bulk-save' && method === 'POST') {
+    return parseRequestBody(req, (err, body) => {
+      if (err || !Array.isArray(body.categories)) {
+        return sendJSON(res, { error: 'Payload de categorias inválido' }, 400);
+      }
+      saveCategories(body.categories);
+      return sendJSON(res, { message: 'Categorias salvas com sucesso', count: body.categories.length });
+    });
+  }
+
+  // PUT /api/categories/:slug (Atualizar categoria)
+  if (pathname.startsWith('/api/categories/') && method === 'PUT') {
+    const catSlug = decodeURIComponent(pathname.replace('/api/categories/', ''));
+    return parseRequestBody(req, (err, body) => {
+      let cats = loadCategories();
+      const idx = cats.findIndex(c => c.slug === catSlug);
+      if (idx === -1) {
+        return sendJSON(res, { error: 'Categoria não encontrada.' }, 404);
+      }
+      cats[idx] = {
+        slug: catSlug,
+        name: body.name !== undefined ? String(body.name).trim() : cats[idx].name,
+        range: body.range !== undefined ? String(body.range).trim() : cats[idx].range,
+        order: body.order !== undefined ? parseInt(body.order, 10) : cats[idx].order,
+        active: body.active !== undefined ? Boolean(body.active) : cats[idx].active
+      };
+      saveCategories(cats);
+      return sendJSON(res, cats[idx]);
+    });
+  }
+
+  // DELETE /api/categories/:slug (Excluir categoria)
+  if (pathname.startsWith('/api/categories/') && method === 'DELETE') {
+    const catSlug = decodeURIComponent(pathname.replace('/api/categories/', ''));
+    let cats = loadCategories();
+    const filtered = cats.filter(c => c.slug !== catSlug);
+    if (filtered.length === cats.length) {
+      return sendJSON(res, { error: 'Categoria não encontrada.' }, 404);
+    }
+    saveCategories(filtered);
+    return sendJSON(res, { message: 'Categoria excluída com sucesso', slug: catSlug });
   }
 
   // POST /api/menu/bulk-save (Save entire catalog)

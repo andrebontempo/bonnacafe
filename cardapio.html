@@ -176,91 +176,131 @@
       'sobremesas': 'Sobremesas & Doces'
     };
 
+    function renderFilterPills(categories) {
+      if (!categories || !Array.isArray(categories)) return;
+      var container = $('.filter-pills');
+      var activeFilter = $('.filter-btn.active').attr('data-filter') || 'all';
+      container.html('<button class="filter-btn ' + (activeFilter === 'all' ? 'active' : '') + '" data-filter="all">Todas as Categorias</button>');
+      
+      categories.forEach(function(cat) {
+        if (cat.active !== false) {
+          var isActive = (activeFilter === cat.slug);
+          container.append('<button class="filter-btn ' + (isActive ? 'active' : '') + '" data-filter="' + cat.slug + '">' + (cat.name || cat.slug) + '</button>');
+        }
+      });
+
+      $('.filter-btn[data-filter]').click(function () {
+        $('.filter-btn[data-filter]').removeClass('active');
+        $(this).addClass('active');
+
+        $('#menu-search-input').val('');
+        applyFilters();
+      });
+    }
+
     function renderMenu() {
-      window.BonnaMenu.getItemsAsync(function (items) {
-        if (!items || !Array.isArray(items) || items.length === 0) {
-          items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
+      window.BonnaMenu.getCategoriesAsync(function(categories) {
+        if (categories && Array.isArray(categories) && categories.length > 0) {
+          categories.forEach(function(cat) {
+            if (cat.slug && cat.name) {
+              CATEGORY_NAMES[cat.slug] = cat.name;
+            }
+          });
+          renderFilterPills(categories);
         }
 
-        var container = $('#dynamic-menu-container');
-        container.empty();
-
-        var categoryMap = {
-          'salgados-assados': 'salgados',
-          'tapiocas': 'sanduiches-tapiocas',
-          'sanduiches': 'sanduiches-tapiocas',
-          'cuscuz': 'ovos',
-          'massa': 'massas',
-          'lasanha': 'massas',
-          'macarrao': 'massas',
-          'bebidas': 'bebidas-cafes',
-          'cafes': 'bebidas-cafes',
-          'doces': 'sobremesas'
-        };
-
-        // Group items by category
-        var grouped = {};
-        items.forEach(function (item) {
-          if (!item) return;
-          var cat = item.category || 'salgados';
-          if (categoryMap[cat]) {
-            cat = categoryMap[cat];
+        window.BonnaMenu.getItemsAsync(function (items) {
+          if (!items || !Array.isArray(items) || items.length === 0) {
+            items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
           }
-          if (!grouped[cat]) {
-            grouped[cat] = [];
-          }
-          grouped[cat].push(item);
-        });
 
-        var catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'massas', 'bebidas-cafes', 'sobremesas'];
+          var container = $('#dynamic-menu-container');
+          container.empty();
 
-        for (var c in grouped) {
-          if (grouped.hasOwnProperty(c) && catOrder.indexOf(c) === -1) {
-            catOrder.push(c);
-          }
-        }
+          var categoryMap = {
+            'salgados-assados': 'salgados',
+            'tapiocas': 'sanduiches-tapiocas',
+            'sanduiches': 'sanduiches-tapiocas',
+            'cuscuz': 'ovos',
+            'massa': 'massas',
+            'lasanha': 'massas',
+            'macarrao': 'massas',
+            'bebidas': 'bebidas-cafes',
+            'cafes': 'bebidas-cafes',
+            'doces': 'sobremesas'
+          };
 
-        catOrder.forEach(function (cat) {
-          var catItems = grouped[cat];
-          if (!catItems || catItems.length === 0) return;
-
-          var block = $('<div class="menu-category-block" data-category="' + cat + '"></div>');
-          var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
-          var row = $('<div class="row"></div>');
-
-          catItems.forEach(function (item) {
-            var col = $('<div class="col-xs-12"></div>');
-            var isAvailable = (item.available !== false);
-            var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
-
-            var details = $('<div class="menu-item-details">' +
-              '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
-              '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
-              '</div>');
-
-            var availabilityBadge = isAvailable
-              ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
-              : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
-
-            var rightSide = $('<div class="menu-item-right">' +
-              availabilityBadge +
-              '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
-              '</div>');
-
-            card.append(details).append(rightSide);
-            col.append(card);
-            row.append(col);
+          // Group items by category
+          var grouped = {};
+          items.forEach(function (item) {
+            if (!item) return;
+            var cat = String(item.category || 'salgados').toLowerCase().trim();
+            if (categoryMap[cat]) {
+              cat = categoryMap[cat];
+            }
+            if (!grouped[cat]) {
+              grouped[cat] = [];
+            }
+            grouped[cat].push(item);
           });
 
-          block.append(catTitle).append(row);
-          container.append(block);
+          var catOrder = [];
+          if (categories && Array.isArray(categories) && categories.length > 0) {
+            categories.forEach(function(c) {
+              if (c.active !== false) catOrder.push(c.slug);
+            });
+          } else {
+            catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'massas', 'bebidas-cafes', 'sobremesas'];
+          }
+
+          for (var c in grouped) {
+            if (grouped.hasOwnProperty(c) && catOrder.indexOf(c) === -1) {
+              catOrder.push(c);
+            }
+          }
+
+          catOrder.forEach(function (cat) {
+            var catItems = grouped[cat];
+            if (!catItems || catItems.length === 0) return;
+
+            var block = $('<div class="menu-category-block" data-category="' + cat + '"></div>');
+            var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
+            var row = $('<div class="row"></div>');
+
+            catItems.forEach(function (item) {
+              var col = $('<div class="col-xs-12"></div>');
+              var isAvailable = (item.available !== false);
+              var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
+
+              var details = $('<div class="menu-item-details">' +
+                '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
+                '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
+                '</div>');
+
+              var availabilityBadge = isAvailable
+                ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
+                : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
+
+              var rightSide = $('<div class="menu-item-right">' +
+                availabilityBadge +
+                '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
+                '</div>');
+
+              card.append(details).append(rightSide);
+              col.append(card);
+              row.append(col);
+            });
+
+            block.append(catTitle).append(row);
+            container.append(block);
+          });
+
+          // Inject prices CSS
+          window.BonnaMenu.injectPricesCSS(items);
+
+          // Apply filters once items are rendered
+          applyFilters();
         });
-
-        // Inject prices CSS
-        window.BonnaMenu.injectPricesCSS(items);
-
-        // Apply filters once items are rendered
-        applyFilters();
       });
     }
 

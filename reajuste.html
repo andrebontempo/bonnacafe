@@ -314,6 +314,12 @@
         </a>
       </li>
       <li role="presentation">
+        <a href="#tab-categorias" aria-controls="tab-categorias" role="tab" data-toggle="tab">
+          <i class="fa fa-tags"></i> Gestão de Categorias
+          <span id="nav-categories-badge" class="badge">0</span>
+        </a>
+      </li>
+      <li role="presentation">
         <a href="#tab-mensagens" aria-controls="tab-mensagens" role="tab" data-toggle="tab">
           <i class="fa fa-envelope"></i> Mensagens do Site
           <span id="nav-messages-badge" class="badge">0</span>
@@ -497,6 +503,50 @@
         </div>
       </div>
 
+      <!-- ABA: GESTÃO DE CATEGORIAS -->
+      <div role="tabpanel" class="tab-pane fade" id="tab-categorias">
+        <div class="panel-card">
+          <h3 style="margin-top: 0;">
+            <span><i class="fa fa-tags" style="color: var(--primary);"></i> Gestão de Categorias do Cardápio</span>
+            <span id="categories-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 categorias</span>
+          </h3>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+            <div class="input-group" style="width: 280px;">
+              <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+              <input type="text" id="categories-search" class="form-control" placeholder="Buscar categoria..." style="height: 38px;" />
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <button id="btn-open-category-modal" class="btn btn-success btn-action-lg">
+                <i class="fa fa-plus-circle"></i> Nova Categoria
+              </button>
+              <button id="btn-refresh-categories" class="btn btn-default btn-action-lg">
+                <i class="fa fa-refresh"></i> Atualizar
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="price-input-table">
+              <thead>
+                <tr>
+                  <th style="width: 140px;">Slug / ID</th>
+                  <th>Nome da Categoria</th>
+                  <th style="width: 140px;" class="text-center">Faixa de Códigos</th>
+                  <th style="width: 90px;" class="text-center">Ordem</th>
+                  <th style="width: 110px;" class="text-center">Status</th>
+                  <th style="width: 110px;" class="text-center">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="categories-table-body">
+                <!-- Linhas populadas dinamicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -599,6 +649,66 @@
     </div>
   </div>
 
+  <!-- Modal de Adicionar / Editar Categoria -->
+  <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel">
+    <div class="modal-dialog" role="document" style="max-width: 550px;">
+      <div class="modal-content" style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+        <div class="modal-header" style="background: var(--dark-base) !important; padding: 18px 24px;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #FFF !important; opacity: 0.9;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="categoryModalLabel" style="color: #FFF !important; font-weight: 700;">
+            <i class="fa fa-tags" style="color: var(--primary);"></i> Cadastrar Nova Categoria
+          </h4>
+        </div>
+        <div class="modal-body" style="padding: 24px; background: #FFF;">
+          <form id="categoryForm">
+            <input type="hidden" id="modal-category-original-slug" value="" />
+            
+            <div class="form-group">
+              <label for="modal-category-slug">Slug / Identificador (ex: combos, sobremesas)</label>
+              <input type="text" id="modal-category-slug" class="form-control" placeholder="ex: combos" required style="font-weight: 700;" />
+            </div>
+
+            <div class="form-group">
+              <label for="modal-category-name">Nome da Categoria</label>
+              <input type="text" id="modal-category-name" class="form-control" placeholder="ex: Combos Especiais" required />
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label for="modal-category-range">Faixa de Códigos</label>
+                  <input type="text" id="modal-category-range" class="form-control" placeholder="ex: 001 - 010" />
+                </div>
+              </div>
+              <div class="col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label for="modal-category-order">Ordem de Exibição</label>
+                  <input type="number" id="modal-category-order" class="form-control" placeholder="1" min="1" required style="font-weight: 700; text-align: center;" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="modal-category-active">Status</label>
+              <select id="modal-category-active" class="form-control">
+                <option value="true">🟢 Ativa</option>
+                <option value="false">🔴 Inativa</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
+          <button type="button" id="btn-save-modal-category" class="btn btn-custom" style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
+            <i class="fa fa-check"></i> Salvar Categoria
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -611,10 +721,183 @@
     var catalogCurrentPage = 1;
     var catalogItemsPerPage = 10;
 
+    // Estados das Categorias
+    var currentCategories = [];
+
     // Estados das Mensagens e Paginação
     var currentMessages = [];
     var messagesCurrentPage = 1;
     var messagesPerPage = 10;
+
+    function loadCategoriesData() {
+      window.BonnaMenu.getCategoriesAsync(function(categories) {
+        currentCategories = categories || window.BonnaMenu.DEFAULT_CATEGORIES;
+        $('#nav-categories-badge').text(currentCategories.length);
+        $('#categories-count-badge').text(currentCategories.length + ' categorias');
+        renderCategoriesTable();
+        updateCategoryDropdowns();
+      });
+    }
+
+    function renderCategoriesTable() {
+      var tbody = $('#categories-table-body');
+      tbody.empty();
+
+      var searchQuery = $('#categories-search').val() ? $('#categories-search').val().toLowerCase().trim() : '';
+
+      var filtered = currentCategories.filter(function(cat) {
+        if (!cat) return false;
+        if (searchQuery) {
+          var textMatch = ((cat.slug || '') + ' ' + (cat.name || '') + ' ' + (cat.range || '')).toLowerCase();
+          if (textMatch.indexOf(searchQuery) === -1) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        tbody.append('<tr><td colspan="6" class="text-center text-muted" style="padding: 24px;">Nenhuma categoria encontrada.</td></tr>');
+        return;
+      }
+
+      filtered.forEach(function(cat, index) {
+        var tr = $('<tr></tr>');
+        tr.append('<td><span class="badge-cat" style="background: #EFE8DE; color: #5D4037; font-family: monospace;">' + (cat.slug || '') + '</span></td>');
+        tr.append('<td><strong>' + (cat.name || '') + '</strong></td>');
+        tr.append('<td class="text-center"><small class="text-muted">' + (cat.range || 'N/A') + '</small></td>');
+        tr.append('<td class="text-center"><strong>' + (cat.order || (index + 1)) + '</strong></td>');
+
+        // Status (Ativa / Inativa)
+        var isActive = (cat.active !== false);
+        var statusTd = $('<td class="text-center"></td>');
+        var toggleBtn = $('<button class="btn btn-xs ' + (isActive ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 12px;" title="Alternar status da categoria">' +
+          (isActive ? '🟢 Ativa' : '🔴 Inativa') +
+        '</button>');
+        toggleBtn.click(function() {
+          cat.active = !isActive;
+          window.BonnaMenu.saveCategoriesAsync(currentCategories, function() {
+            renderCategoriesTable();
+          });
+        });
+        statusTd.append(toggleBtn);
+        tr.append(statusTd);
+
+        // Ações (Editar, Excluir)
+        var actionTd = $('<td class="text-center"></td>');
+        var btnGroup = $('<div class="action-btn-group"></div>');
+
+        var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar"><i class="fa fa-pencil"></i></button>');
+        editBtn.click(function() {
+          openEditCategoryModal(cat);
+        });
+
+        var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir"><i class="fa fa-trash"></i></button>');
+        delBtn.click(function() {
+          deleteCategoryItem(cat.slug);
+        });
+
+        btnGroup.append(editBtn).append(delBtn);
+        actionTd.append(btnGroup);
+        tr.append(actionTd);
+
+        tbody.append(tr);
+      });
+    }
+
+    function updateCategoryDropdowns() {
+      var selectOptions = '';
+      currentCategories.forEach(function(cat) {
+        if (cat.active !== false) {
+          var rangeText = cat.range ? ' (' + cat.range + ')' : '';
+          selectOptions += '<option value="' + cat.slug + '">' + cat.name + rangeText + '</option>';
+        }
+      });
+
+      var bulkVal = $('#bulk-category').val();
+      var filterVal = $('#table-category-filter').val();
+      var modalVal = $('#modal-item-category').val();
+
+      $('#bulk-category').html('<option value="all">-- Todas as Categorias --</option>' + selectOptions);
+      $('#table-category-filter').html('<option value="all">Todas as Categorias</option>' + selectOptions);
+      $('#modal-item-category').html(selectOptions);
+
+      if (bulkVal) $('#bulk-category').val(bulkVal);
+      if (filterVal) $('#table-category-filter').val(filterVal);
+      if (modalVal) $('#modal-item-category').val(modalVal);
+    }
+
+    function openAddCategoryModal() {
+      $('#modal-category-original-slug').val('');
+      $('#modal-category-slug').prop('disabled', false).val('');
+      $('#modal-category-name').val('');
+      $('#modal-category-range').val('');
+      $('#modal-category-order').val(currentCategories.length + 1);
+      $('#modal-category-active').val('true');
+      $('#categoryModalLabel').html('<i class="fa fa-plus-circle" style="color: var(--primary);"></i> Cadastrar Nova Categoria');
+      $('#categoryModal').modal('show');
+    }
+
+    function openEditCategoryModal(cat) {
+      $('#modal-category-original-slug').val(cat.slug);
+      $('#modal-category-slug').prop('disabled', true).val(cat.slug);
+      $('#modal-category-name').val(cat.name || '');
+      $('#modal-category-range').val(cat.range || '');
+      $('#modal-category-order').val(cat.order || 1);
+      $('#modal-category-active').val(cat.active !== false ? 'true' : 'false');
+      $('#categoryModalLabel').html('<i class="fa fa-pencil" style="color: var(--primary);"></i> Editar Categoria');
+      $('#categoryModal').modal('show');
+    }
+
+    function saveModalCategory() {
+      var origSlug = $('#modal-category-original-slug').val();
+      var rawSlug = $('#modal-category-slug').val().trim();
+      var name = $('#modal-category-name').val().trim();
+
+      if (!name) {
+        alert('Por favor, preencha o Nome da categoria.');
+        return;
+      }
+
+      var slug = rawSlug ? rawSlug.toLowerCase().replace(/[^a-z0-9\-]/g, '-').replace(/-+/g, '-') : name.toLowerCase().replace(/[^a-z0-9\-]/g, '-').replace(/-+/g, '-');
+      var range = $('#modal-category-range').val().trim();
+      var order = parseInt($('#modal-category-order').val(), 10) || 1;
+      var active = $('#modal-category-active').val() === 'true';
+
+      if (!origSlug) {
+        if (currentCategories.some(function(c) { return c.slug === slug; })) {
+          alert('Já existe uma categoria com o identificador/slug "' + slug + '". Escolha um nome diferente.');
+          return;
+        }
+        currentCategories.push({ slug: slug, name: name, range: range, order: order, active: active });
+      } else {
+        var catObj = currentCategories.find(function(c) { return c.slug === origSlug; });
+        if (catObj) {
+          catObj.name = name;
+          catObj.range = range;
+          catObj.order = order;
+          catObj.active = active;
+        }
+      }
+
+      window.BonnaMenu.saveCategoriesAsync(currentCategories, function(updated) {
+        currentCategories = updated;
+        renderCategoriesTable();
+        updateCategoryDropdowns();
+        $('#categoryModal').modal('hide');
+        alert('Categoria "' + name + '" salva com sucesso!');
+      });
+    }
+
+    function deleteCategoryItem(slug) {
+      if (confirm('Tem certeza que deseja excluir a categoria "' + slug + '"?')) {
+        currentCategories = currentCategories.filter(function(c) { return c.slug !== slug; });
+        window.BonnaMenu.saveCategoriesAsync(currentCategories, function(updated) {
+          currentCategories = updated;
+          renderCategoriesTable();
+          updateCategoryDropdowns();
+          alert('Categoria removida com sucesso!');
+        });
+      }
+    }
 
     function checkAuth() {
       if (sessionStorage.getItem('bonna_admin_auth') !== 'true') {
@@ -809,6 +1092,24 @@
       ul.append(nextLi);
     }
 
+    function detectCategoryFromId(idStr) {
+      var num = parseInt(idStr, 10);
+      if (isNaN(num)) return null;
+      
+      for (var i = 0; i < currentCategories.length; i++) {
+        var cat = currentCategories[i];
+        if (cat && cat.range) {
+          var parts = String(cat.range).split('-').map(function(s) { return parseInt(s.trim(), 10); });
+          if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+            if (num >= parts[0] && num <= parts[1]) {
+              return cat.slug;
+            }
+          }
+        }
+      }
+      return null;
+    }
+
     function updateModalSuggestedId() {
       var category = $('#modal-item-category').val();
       var suggestedId = window.BonnaMenu.getNextAvailableId(category, currentWorkingItems);
@@ -819,7 +1120,15 @@
     function openAddModal() {
       $('#itemModalLabel').html('<i class="fa fa-plus-circle" style="color: var(--primary);"></i> Adicionar Novo Item ao Catálogo');
       $('#modal-item-index').val('-1');
-      $('#modal-item-category').val('salgados');
+
+      var activeFilter = $('#table-category-filter').val();
+      if (activeFilter && activeFilter !== 'all') {
+        $('#modal-item-category').val(activeFilter);
+      } else {
+        var firstCat = $('#modal-item-category option:first').val() || 'salgados';
+        $('#modal-item-category').val(firstCat);
+      }
+
       updateModalSuggestedId();
 
       $('#modal-item-name').val('');
@@ -1044,6 +1353,27 @@
 
     $(document).ready(function() {
       loadItems();
+      loadCategoriesData();
+
+      // Busca na tabela de categorias
+      $('#categories-search').on('keyup input', function() {
+        renderCategoriesTable();
+      });
+
+      // Abrir modal de nova categoria
+      $('#btn-open-category-modal').click(function() {
+        openAddCategoryModal();
+      });
+
+      // Atualizar lista de categorias
+      $('#btn-refresh-categories').click(function() {
+        loadCategoriesData();
+      });
+
+      // Salvar categoria no modal
+      $('#btn-save-modal-category').click(function() {
+        saveModalCategory();
+      });
 
       // Filtro de busca na tabela do catálogo
       $('#table-search').on('keyup input', function() {
@@ -1066,6 +1396,16 @@
       // Abrir modal de novo item
       $('#btn-open-add-modal').click(function() {
         openAddModal();
+      });
+
+      // Auto-detectar categoria ao alterar o Código ID no modal
+      $('#modal-item-id').on('keyup input change', function() {
+        if ($('#modal-item-index').val() === '-1') {
+          var detectedCat = detectCategoryFromId($(this).val());
+          if (detectedCat) {
+            $('#modal-item-category').val(detectedCat);
+          }
+        }
       });
 
       // Atualizar ID sugerido ao mudar categoria no modal
