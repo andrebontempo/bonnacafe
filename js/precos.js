@@ -1122,8 +1122,8 @@ var BONNA_ITEMS = [
     "price": 13
   },
   {
-    "id": "201",
-    "num": 201,
+    "id": "231",
+    "num": 231,
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
@@ -1131,8 +1131,8 @@ var BONNA_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "202",
-    "num": 202,
+    "id": "232",
+    "num": 232,
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
@@ -1140,8 +1140,8 @@ var BONNA_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "203",
-    "num": 203,
+    "id": "233",
+    "num": 233,
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
@@ -1149,8 +1149,8 @@ var BONNA_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "204",
-    "num": 204,
+    "id": "234",
+    "num": 234,
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
@@ -1158,8 +1158,8 @@ var BONNA_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "205",
-    "num": 205,
+    "id": "235",
+    "num": 235,
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
@@ -1167,8 +1167,8 @@ var BONNA_ITEMS = [
     "price": 8.5
   },
   {
-    "id": "206",
-    "num": 206,
+    "id": "236",
+    "num": 236,
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
@@ -1176,8 +1176,8 @@ var BONNA_ITEMS = [
     "price": 7
   },
   {
-    "id": "207",
-    "num": 207,
+    "id": "237",
+    "num": 237,
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",
@@ -1196,8 +1196,8 @@ window.BonnaMenu = {
     { slug: 'sanduiches-tapiocas', name: 'Sanduíches, Pão na Chapa & Tapiocas', range: '081 - 110', order: 5, active: true },
     { slug: 'ovos', name: 'Cuscuz, Crepiocas & Ovos Especiais', range: '111 - 140', order: 6, active: true },
     { slug: 'massas', name: 'Massas & Lasanhas', range: '141 - 170', order: 7, active: true },
-    { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 200', order: 8, active: true },
-    { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '201 - 230', order: 9, active: true }
+    { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 230', order: 8, active: true },
+    { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '231 - 260', order: 9, active: true }
   ],
 
   getCategoriesAsync: function(callback) {
@@ -1258,8 +1258,8 @@ window.BonnaMenu = {
     'sanduiches-tapiocas': { min: 81, max: 110 },
     'ovos': { min: 111, max: 140 },
     'massas': { min: 141, max: 170 },
-    'bebidas-cafes': { min: 171, max: 200 },
-    'sobremesas': { min: 201, max: 230 }
+    'bebidas-cafes': { min: 171, max: 230 },
+    'sobremesas': { min: 231, max: 260 }
   },
 
   getCategoryRange: function(categorySlug) {

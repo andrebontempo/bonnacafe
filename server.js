@@ -17,8 +17,8 @@ const INITIAL_CATEGORIES = [
   { slug: 'sanduiches-tapiocas', name: 'Sanduíches, Pão na Chapa & Tapiocas', range: '081 - 110', order: 5, active: true },
   { slug: 'ovos', name: 'Cuscuz, Crepiocas & Ovos Especiais', range: '111 - 140', order: 6, active: true },
   { slug: 'massas', name: 'Massas & Lasanhas', range: '141 - 170', order: 7, active: true },
-  { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 200', order: 8, active: true },
-  { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '201 - 230', order: 9, active: true }
+  { slug: 'bebidas-cafes', name: 'Cafés, Sucos & Bebidas', range: '171 - 230', order: 8, active: true },
+  { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '231 - 260', order: 9, active: true }
 ];
 
 function loadCategories() {
@@ -68,8 +68,8 @@ const CATEGORY_RANGES = {
   'sanduiches-tapiocas': { min: 81, max: 110 },
   'ovos': { min: 111, max: 140 },
   'massas': { min: 141, max: 170 },
-  'bebidas-cafes': { min: 171, max: 200 },
-  'sobremesas': { min: 201, max: 230 }
+  'bebidas-cafes': { min: 171, max: 230 },
+  'sobremesas': { min: 231, max: 260 }
 };
 
 function getCategoryRange(categorySlug) {
@@ -1202,8 +1202,8 @@ const INITIAL_ITEMS = [
     "price": 13
   },
   {
-    "id": "171",
-    "num": 171,
+    "id": "231",
+    "num": 231,
     "name": "Gelatina Mosaico",
     "category": "sobremesas",
     "desc": "Colorida e cremosa.",
@@ -1211,8 +1211,8 @@ const INITIAL_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "172",
-    "num": 172,
+    "id": "232",
+    "num": 232,
     "name": "Gelatina Cremosa",
     "category": "sobremesas",
     "desc": "Doce leve e geladinho.",
@@ -1220,8 +1220,8 @@ const INITIAL_ITEMS = [
     "price": 7.5
   },
   {
-    "id": "173",
-    "num": 173,
+    "id": "233",
+    "num": 233,
     "name": "Pudim de Leite Condensado",
     "category": "sobremesas",
     "desc": "Com calda de caramelo caseira.",
@@ -1229,8 +1229,8 @@ const INITIAL_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "174",
-    "num": 174,
+    "id": "234",
+    "num": 234,
     "name": "Pudim de Chocolate",
     "category": "sobremesas",
     "desc": "Cremoso e saboroso.",
@@ -1238,8 +1238,8 @@ const INITIAL_ITEMS = [
     "price": 6.5
   },
   {
-    "id": "175",
-    "num": 175,
+    "id": "235",
+    "num": 235,
     "name": "Salada de Frutas Fresca",
     "category": "sobremesas",
     "desc": "Frutas selecionadas do dia.",
@@ -1247,8 +1247,8 @@ const INITIAL_ITEMS = [
     "price": 8.5
   },
   {
-    "id": "176",
-    "num": 176,
+    "id": "236",
+    "num": 236,
     "name": "Mousse de Maracujá",
     "category": "sobremesas",
     "desc": "Cremosa com sementes de maracujá.",
@@ -1256,15 +1256,14 @@ const INITIAL_ITEMS = [
     "price": 7
   },
   {
-    "id": "177",
-    "num": 177,
+    "id": "237",
+    "num": 237,
     "name": "Teste de Sobremesa",
     "category": "sobremesas",
     "desc": "asdfadfasdf",
     "available": true,
     "price": 10,
-    "img": null,
-    "available": true
+    "img": null
   }
 ];
 
@@ -1343,8 +1342,8 @@ function loadDB() {
             it.num = newNum;
             it.id = String(newNum).padStart(3, '0');
             needsSave = true;
-          } else if (it.category === 'sobremesas' && numId >= 171 && numId <= 200) {
-            const newNum = numId + 30;
+          } else if (it.category === 'sobremesas' && numId >= 171 && numId <= 230) {
+            const newNum = numId > 200 ? numId + 30 : numId + 60;
             it.num = newNum;
             it.id = String(newNum).padStart(3, '0');
             needsSave = true;

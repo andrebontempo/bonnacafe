@@ -63,8 +63,8 @@ Os itens do cardápio possuem códigos padronizados organizados por categoria. O
 | **Sanduíches Naturais, Pão na Chapa & Tapiocas** | `081` a `110` | Sanduíches naturais, mistos e tapiocas tradicionais |
 | **Cuscuz, Crepiocas & Ovos Especiais** | `111` a `140` | Cuscuz nordestinos, crepiocas e omeletes caprichadas |
 | **Massas** | `141` a `170` | Macarrão, Lazanha |
-| **Cafés, Sucos & Bebidas** | `171` a `200` | Expresso, cappuccino, sucos de frutas, chás, águas e refrigerantes |
-| **Sobremesas & Doces** | `201` a `230` | Pudins, gelatinas, mousses e salada de frutas |
+| **Cafés, Sucos & Bebidas** | `171` a `230` | Expresso, cappuccino, sucos de frutas, chás, águas e refrigerantes |
+| **Sobremesas & Doces** | `231` a `260` | Pudins, gelatinas, mousses e salada de frutas |
 
 ---
 
