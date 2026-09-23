@@ -256,10 +256,10 @@ Esta proposta atualizada reorganiza a estrutura do cardápio do **Bonna Café**,
 #### 🍝 Massas Artesanais (Almoço)
 | Código | Item | Descrição | Preço (R$) |
 | :---: | :--- | :--- | :---: |
-| **425** | Spaghetti à Bolonhesa | Massa tradicional com molho caseiro à bolonhesa. | 24,50 |
-| **426** | Lasanha de Presunto e Queijo | Lasanha de presunto, queijo muçarela e molho artesanal. | 26,00 |
-| **427** | Lasanha de Frango com Catupiry | Lasanha cremosíssima de frango com catupiry. | 26,00 |
-| *428 - 449* | *(Espaço reservado para 22 novas refeições/pratos)* | — | — |
+| **416** | Macarrão | Escolha sua massa, talharim, penne, espaguete. Escolha 4 ingredientes, frango, carne, milho, azeitona, muçarela, ovos cozidos, tomate, bacon, alho granulado. Escolha os temperos orégano, manjericão, pimenta calabresa, pimenta do reino. Escolha até 2 molhos, molho bolonhesa, molho branco, molho ao sugu. | 24,50 |
+| **417** | Lasanha de Presunto e Queijo | Camadas de massa fresca, presunto, muçarela e molho bolonhesa. | 26,00 |
+| **418** | Lasanha de Frango | Frango desfiado cremoso, molho branco e cobertura de queijo gratinado. | 26,00 |
+| *419 - 449* | *(Espaço reservado para 31 novas refeições/pratos)* | — | — |
 
 ---
 

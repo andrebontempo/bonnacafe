@@ -1091,31 +1091,31 @@
     "price": 20
   },
   {
-    "id": "425",
-    "num": 425,
-    "name": "Spaghetti à Bolonhesa",
+    "id": "416",
+    "num": 416,
+    "name": "Macarrão",
     "category": "refeicoes-omeletes",
-    "desc": "Massa tradicional com molho caseiro à bolonhesa.",
-    "available": true,
-    "price": 24.5
+    "desc": "Escolha sua massa, talharim, penne, espaguete. Escolha 4 ingredientes, frango, carne, milho, azeitona, muçarela, ovos cozidos, tomate, bacon, alho granulado. Escolha os temperos orégano, manjericão, pimenta calabresa, pimenta do reino. Escolha até 2 molhos, molho bolonhesa, molho branco, molho ao sugu.",
+    "price": 24.5,
+    "available": true
   },
   {
-    "id": "426",
-    "num": 426,
+    "id": "417",
+    "num": 417,
     "name": "Lasanha de Presunto e Queijo",
     "category": "refeicoes-omeletes",
-    "desc": "Lasanha de presunto, queijo muçarela e molho artesanal.",
-    "available": true,
-    "price": 26
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
   },
   {
-    "id": "427",
-    "num": 427,
-    "name": "Lasanha de Frango com Catupiry",
+    "id": "418",
+    "num": 418,
+    "name": "Lasanha de Frango",
     "category": "refeicoes-omeletes",
-    "desc": "Lasanha cremosíssima de frango com catupiry.",
-    "available": true,
-    "price": 26
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
   },
   {
     "id": "450",
