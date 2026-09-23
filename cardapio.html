@@ -134,7 +134,13 @@
       </div>
 
       <!-- Container where items will be dynamically rendered -->
-      <div id="dynamic-menu-container"></div>
+      <div id="dynamic-menu-container">
+        <!-- Estado de carregamento inicial -->
+        <div id="menu-loading-state" class="text-center" style="padding: 80px 20px; color: var(--text-light-muted);">
+          <i class="fa fa-spinner fa-spin fa-3x" style="color: var(--primary); margin-bottom: 20px;"></i>
+          <p style="font-size: 1.1rem; margin-top: 15px;">Carregando cardápio...</p>
+        </div>
+      </div>
 
     </div>
   </main>
@@ -216,6 +222,7 @@
 
       var container = $('#dynamic-menu-container');
       container.empty();
+      // Oculta o indicador de carregamento
 
       var categoryMap = {
         'salgados-assados': 'salgados',
@@ -305,22 +312,33 @@
     }
 
     function renderMenu() {
-      // 1. Initial Instant Render with Local/Cached Data
+      // Tenta renderável imediato com dados em cache local
       var localCategories = (window.BonnaMenu && window.BonnaMenu.DEFAULT_CATEGORIES) ? window.BonnaMenu.DEFAULT_CATEGORIES : [];
       var cachedCats = localStorage.getItem('bonna_categories_v1');
       if (cachedCats) {
         try { localCategories = JSON.parse(cachedCats); } catch(e){}
       }
-      var localItems = (window.BonnaMenu && window.BonnaMenu.getItems) ? window.BonnaMenu.getItems() : ((typeof BONNA_ITEMS !== 'undefined') ? BONNA_ITEMS : []);
+      var localItems = (window.BonnaMenu && window.BonnaMenu.getItems) ? window.BonnaMenu.getItems() : [];
 
-      buildAndRenderMenu(localCategories, localItems);
+      // Se já temos itens em cache, renderiza imediatamente
+      if (localItems && localItems.length > 0) {
+        buildAndRenderMenu(localCategories, localItems);
+      }
 
-      // 2. Async Sync with Server
+      // Sempre busca dados atualizados do servidor
       if (window.BonnaMenu && window.BonnaMenu.getCategoriesAsync) {
         window.BonnaMenu.getCategoriesAsync(function(categories) {
           if (window.BonnaMenu && window.BonnaMenu.getItemsAsync) {
             window.BonnaMenu.getItemsAsync(function(items) {
-              buildAndRenderMenu(categories, items);
+              if (items && items.length > 0) {
+                buildAndRenderMenu(categories, items);
+              } else {
+                // Sem itens da API e sem cache: mostra mensagem de erro
+                $('#menu-loading-state').html(
+                  '<i class="fa fa-exclamation-triangle fa-3x" style="color: #C68B45; margin-bottom: 20px;"></i>' +
+                  '<p style="font-size: 1.1rem; margin-top: 15px;">Não foi possível carregar o cardápio.<br><small>Verifique sua conexão e recarregue a página.</small></p>'
+                ).show();
+              }
             });
           }
         });
