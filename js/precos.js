@@ -1390,7 +1390,7 @@ if (typeof window !== 'undefined') {
 
     if (window.location.protocol.indexOf('http') === 0 && typeof $ !== 'undefined' && $.ajax) {
       $.ajax({
-        url: '/api/items',
+        url: '/api/menu',
         type: 'GET',
         dataType: 'json',
         cache: false,

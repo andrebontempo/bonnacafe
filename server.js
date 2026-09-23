@@ -1432,8 +1432,8 @@ const server = http.createServer((req, res) => {
 
   // --- API ENDPOINTS ---
 
-  // GET /api/menu
-  if (pathname === '/api/menu' && method === 'GET') {
+  // GET /api/menu ou /api/items
+  if ((pathname === '/api/menu' || pathname === '/api/items') && method === 'GET') {
     const items = loadDB();
     return sendJSON(res, items);
   }

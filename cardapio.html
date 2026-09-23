@@ -197,120 +197,134 @@
           container.append('<button class="filter-btn ' + (isActive ? 'active' : '') + '" data-filter="' + cat.slug + '">' + (cat.name || cat.slug) + '</button>');
         }
       });
+    }
 
-      $('.filter-btn[data-filter]').click(function () {
-        $('.filter-btn[data-filter]').removeClass('active');
-        $(this).addClass('active');
+    function buildAndRenderMenu(categories, items) {
+      if (!items || !Array.isArray(items) || items.length === 0) {
+        items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
+      }
+      if (!categories || !Array.isArray(categories) || categories.length === 0) {
+        categories = (window.BonnaMenu && window.BonnaMenu.DEFAULT_CATEGORIES) ? window.BonnaMenu.DEFAULT_CATEGORIES : [];
+      }
 
-        $('#menu-search-input').val('');
-        applyFilters();
+      categories.forEach(function(cat) {
+        if (cat && cat.slug && cat.name) {
+          CATEGORY_NAMES[cat.slug] = cat.name;
+        }
       });
+      renderFilterPills(categories);
+
+      var container = $('#dynamic-menu-container');
+      container.empty();
+
+      var categoryMap = {
+        'salgados-assados': 'salgados',
+        'tapiocas': 'tapiocas-cuscuz',
+        'cuscuz': 'tapiocas-cuscuz',
+        'sanduiches-tapiocas': 'sanduiches',
+        'ovos': 'refeicoes-omeletes',
+        'crepiocas': 'refeicoes-omeletes',
+        'massas': 'refeicoes-omeletes',
+        'bebidas-cafes': 'bebidas-geladas',
+        'cafes': 'cafes-quentes',
+        'doces': 'sobremesas'
+      };
+
+      // Group items by category
+      var grouped = {};
+      items.forEach(function (item) {
+        if (!item) return;
+        var cat = String(item.category || 'salgados').toLowerCase().trim();
+        if (categoryMap[cat]) {
+          cat = categoryMap[cat];
+        }
+        if (!grouped[cat]) {
+          grouped[cat] = [];
+        }
+        grouped[cat].push(item);
+      });
+
+      var catOrder = [];
+      if (categories && Array.isArray(categories) && categories.length > 0) {
+        categories.forEach(function(c) {
+          if (c && c.active !== false) catOrder.push(c.slug);
+        });
+      } else {
+        catOrder = ['combos', 'bonnadodia', 'cafes-quentes', 'bebidas-geladas', 'pao-queijo', 'salgados', 'sanduiches', 'tapiocas-cuscuz', 'refeicoes-omeletes', 'sobremesas'];
+      }
+
+      for (var c in grouped) {
+        if (grouped.hasOwnProperty(c) && catOrder.indexOf(c) === -1) {
+          catOrder.push(c);
+        }
+      }
+
+      catOrder.forEach(function (cat) {
+        var catItems = grouped[cat];
+        if (!catItems || catItems.length === 0) return;
+
+        var block = $('<div class="menu-category-block" data-category="' + cat + '"></div>');
+        var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
+        var row = $('<div class="row"></div>');
+
+        catItems.forEach(function (item) {
+          var col = $('<div class="col-12"></div>');
+          var isAvailable = (item.available !== false);
+          var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
+
+          var details = $('<div class="menu-item-details">' +
+            '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
+            '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
+            '</div>');
+
+          var availabilityBadge = isAvailable
+            ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
+            : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
+
+          var rightSide = $('<div class="menu-item-right">' +
+            availabilityBadge +
+            '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
+            '</div>');
+
+          card.append(details).append(rightSide);
+          col.append(card);
+          row.append(col);
+        });
+
+        block.append(catTitle).append(row);
+        container.append(block);
+      });
+
+      // Inject prices CSS
+      if (window.BonnaMenu && window.BonnaMenu.injectPricesCSS) {
+        window.BonnaMenu.injectPricesCSS(items);
+      }
+
+      // Apply filters once items are rendered
+      applyFilters();
     }
 
     function renderMenu() {
-      window.BonnaMenu.getCategoriesAsync(function(categories) {
-        if (categories && Array.isArray(categories) && categories.length > 0) {
-          categories.forEach(function(cat) {
-            if (cat.slug && cat.name) {
-              CATEGORY_NAMES[cat.slug] = cat.name;
-            }
-          });
-          renderFilterPills(categories);
-        }
+      // 1. Initial Instant Render with Local/Cached Data
+      var localCategories = (window.BonnaMenu && window.BonnaMenu.DEFAULT_CATEGORIES) ? window.BonnaMenu.DEFAULT_CATEGORIES : [];
+      var cachedCats = localStorage.getItem('bonna_categories_v1');
+      if (cachedCats) {
+        try { localCategories = JSON.parse(cachedCats); } catch(e){}
+      }
+      var localItems = (window.BonnaMenu && window.BonnaMenu.getItems) ? window.BonnaMenu.getItems() : ((typeof BONNA_ITEMS !== 'undefined') ? BONNA_ITEMS : []);
 
-        window.BonnaMenu.getItemsAsync(function (items) {
-          if (!items || !Array.isArray(items) || items.length === 0) {
-            items = (typeof BONNA_ITEMS !== 'undefined' && Array.isArray(BONNA_ITEMS)) ? BONNA_ITEMS : [];
-          }
+      buildAndRenderMenu(localCategories, localItems);
 
-          var container = $('#dynamic-menu-container');
-          container.empty();
-
-          var categoryMap = {
-            'salgados-assados': 'salgados',
-            'tapiocas': 'tapiocas-cuscuz',
-            'cuscuz': 'tapiocas-cuscuz',
-            'sanduiches-tapiocas': 'sanduiches',
-            'ovos': 'refeicoes-omeletes',
-            'crepiocas': 'refeicoes-omeletes',
-            'massas': 'refeicoes-omeletes',
-            'bebidas-cafes': 'bebidas-geladas',
-            'cafes': 'cafes-quentes',
-            'doces': 'sobremesas'
-          };
-
-          // Group items by category
-          var grouped = {};
-          items.forEach(function (item) {
-            if (!item) return;
-            var cat = String(item.category || 'salgados').toLowerCase().trim();
-            if (categoryMap[cat]) {
-              cat = categoryMap[cat];
-            }
-            if (!grouped[cat]) {
-              grouped[cat] = [];
-            }
-            grouped[cat].push(item);
-          });
-
-          var catOrder = [];
-          if (categories && Array.isArray(categories) && categories.length > 0) {
-            categories.forEach(function(c) {
-              if (c.active !== false) catOrder.push(c.slug);
+      // 2. Async Sync with Server
+      if (window.BonnaMenu && window.BonnaMenu.getCategoriesAsync) {
+        window.BonnaMenu.getCategoriesAsync(function(categories) {
+          if (window.BonnaMenu && window.BonnaMenu.getItemsAsync) {
+            window.BonnaMenu.getItemsAsync(function(items) {
+              buildAndRenderMenu(categories, items);
             });
-          } else {
-            catOrder = ['combos', 'bonnadodia', 'cafes-quentes', 'bebidas-geladas', 'pao-queijo', 'salgados', 'sanduiches', 'tapiocas-cuscuz', 'refeicoes-omeletes', 'sobremesas'];
           }
-
-          for (var c in grouped) {
-            if (grouped.hasOwnProperty(c) && catOrder.indexOf(c) === -1) {
-              catOrder.push(c);
-            }
-          }
-
-          catOrder.forEach(function (cat) {
-            var catItems = grouped[cat];
-            if (!catItems || catItems.length === 0) return;
-
-            var block = $('<div class="menu-category-block" data-category="' + cat + '"></div>');
-            var catTitle = $('<h3 class="menu-category-title">' + (CATEGORY_NAMES[cat] || cat) + '</h3>');
-            var row = $('<div class="row"></div>');
-
-            catItems.forEach(function (item) {
-              var col = $('<div class="col-12"></div>');
-              var isAvailable = (item.available !== false);
-              var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
-
-              var details = $('<div class="menu-item-details">' +
-                '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
-                '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
-                '</div>');
-
-              var availabilityBadge = isAvailable
-                ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
-                : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
-
-              var rightSide = $('<div class="menu-item-right">' +
-                availabilityBadge +
-                '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
-                '</div>');
-
-              card.append(details).append(rightSide);
-              col.append(card);
-              row.append(col);
-            });
-
-            block.append(catTitle).append(row);
-            container.append(block);
-          });
-
-          // Inject prices CSS
-          window.BonnaMenu.injectPricesCSS(items);
-
-          // Apply filters once items are rendered
-          applyFilters();
         });
-      });
+      }
     }
 
     function applyFilters() {
@@ -332,7 +346,7 @@
         var visibleCount = 0;
         block.find('.menu-item-card').each(function () {
           var card = $(this);
-          var isItemAvailable = card.attr('data-available') === 'true';
+          var isItemAvailable = String(card.attr('data-available')) === 'true';
           var name = card.attr('data-name') || '';
           var desc = card.attr('data-desc') || '';
           var fullText = card.text().toLowerCase();
@@ -364,8 +378,8 @@
         applyFilters();
       });
 
-      // Category Filter Pills
-      $('.filter-btn[data-filter]').click(function () {
+      // Category Filter Pills (Delegated for dynamic elements)
+      $(document).on('click', '.filter-btn[data-filter]', function () {
         $('.filter-btn[data-filter]').removeClass('active');
         $(this).addClass('active');
 
