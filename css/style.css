@@ -212,7 +212,8 @@ hr {
   font-size: 1.1rem;
 }
 
-#menu.navbar-default .navbar-nav > li > a {
+#menu.navbar-default .navbar-nav > li > a,
+#menu.navbar-default .navbar-nav .nav-link {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 600;
   font-size: 0.92rem;
@@ -231,7 +232,8 @@ hr {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  #menu.navbar-default .navbar-nav > li > a {
+  #menu.navbar-default .navbar-nav > li > a,
+  #menu.navbar-default .navbar-nav .nav-link {
     font-size: 0.8rem;
     padding: 6px 8px;
     letter-spacing: 0px;
@@ -245,18 +247,23 @@ hr {
 }
 
 
-#menu.navbar-default .navbar-nav > li > a.nav-highlight {
+#menu.navbar-default .navbar-nav > li > a.nav-highlight,
+#menu.navbar-default .navbar-nav .nav-link.nav-highlight {
   color: var(--primary);
   border: 1px solid rgba(198, 139, 69, 0.4);
 }
 
 #menu.navbar-default .navbar-nav > li > a:hover,
 #menu.navbar-default .navbar-nav > li > a:focus,
+#menu.navbar-default .navbar-nav .nav-link:hover,
+#menu.navbar-default .navbar-nav .nav-link:focus,
 #menu.navbar-default .navbar-nav > li > a.nav-highlight:hover,
 #menu.navbar-default .navbar-nav > li > a.nav-highlight:focus,
+#menu.navbar-default .navbar-nav .nav-link.nav-highlight:hover,
+#menu.navbar-default .navbar-nav .nav-link.nav-highlight:focus,
 #menu.navbar-default .navbar-nav > .active > a,
-#menu.navbar-default .navbar-nav > .active > a:hover,
-#menu.navbar-default .navbar-nav > .active > a:focus {
+#menu.navbar-default .navbar-nav .active > .nav-link,
+#menu.navbar-default .navbar-nav .nav-link.active {
   color: #FFFFFF !important;
   background-color: var(--primary) !important;
   border-color: var(--primary) !important;
@@ -1166,6 +1173,13 @@ hr {
   /* Header & Navigation Mobile */
   #menu.navbar-default {
     padding: 6px 0 !important;
+  }
+
+  #menu .navbar-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
   }
 
   #menu a.navbar-brand {
