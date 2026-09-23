@@ -285,13 +285,13 @@
   <header class="admin-header">
     <div class="container">
       <div class="row" style="display: flex; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div class="col-md-8 col-xs-12">
+        <div class="col-md-8 col-12">
           <h1><i class="fa fa-sliders"></i> Painel de Gestão Bonna Café</h1>
           <p style="color: var(--text-light-muted); margin: 0; font-size: 1.05rem;">
             Gerencie categorias, produtos, reajustes de preços e leia as mensagens enviadas pelo site.
           </p>
         </div>
-        <div class="col-md-4 col-xs-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end;">
+        <div class="col-md-4 col-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end;">
           <a href="cardapio.html" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-cutlery"></i> Ir ao Cardápio
           </a>
@@ -307,28 +307,28 @@
 
     <!-- Navegação por Abas (4 Abas Reorganizadas) -->
     <ul class="nav nav-tabs admin-nav-tabs" role="tablist">
-      <li role="presentation" class="active">
-        <a href="#tab-categorias" aria-controls="tab-categorias" role="tab" data-toggle="tab">
+      <li role="presentation" class="nav-item">
+        <a href="#tab-categorias" class="nav-link active" id="tab-categorias-link" aria-controls="tab-categorias" role="tab" data-bs-toggle="tab" data-bs-target="#tab-categorias">
           <i class="fa fa-tags"></i> Gestão de Categorias
-          <span id="nav-categories-badge" class="badge">0</span>
+          <span id="nav-categories-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
-      <li role="presentation">
-        <a href="#tab-itens" aria-controls="tab-itens" role="tab" data-toggle="tab">
+      <li role="presentation" class="nav-item">
+        <a href="#tab-itens" class="nav-link" id="tab-itens-link" aria-controls="tab-itens" role="tab" data-bs-toggle="tab" data-bs-target="#tab-itens">
           <i class="fa fa-cutlery"></i> Gestão de Itens
-          <span id="nav-items-badge" class="badge">0</span>
+          <span id="nav-items-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
-      <li role="presentation">
-        <a href="#tab-precos" aria-controls="tab-precos" role="tab" data-toggle="tab">
+      <li role="presentation" class="nav-item">
+        <a href="#tab-precos" class="nav-link" id="tab-precos-link" aria-controls="tab-precos" role="tab" data-bs-toggle="tab" data-bs-target="#tab-precos">
           <i class="fa fa-money"></i> Gestão de Preços
-          <span id="nav-prices-badge" class="badge">0</span>
+          <span id="nav-prices-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
-      <li role="presentation">
-        <a href="#tab-mensagens" aria-controls="tab-mensagens" role="tab" data-toggle="tab">
+      <li role="presentation" class="nav-item">
+        <a href="#tab-mensagens" class="nav-link" id="tab-mensagens-link" aria-controls="tab-mensagens" role="tab" data-bs-toggle="tab" data-bs-target="#tab-mensagens">
           <i class="fa fa-envelope"></i> Mensagens do Site
-          <span id="nav-messages-badge" class="badge">0</span>
+          <span id="nav-messages-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
     </ul>
@@ -337,7 +337,7 @@
     <div class="tab-content">
 
       <!-- ABA 1: GESTÃO DE CATEGORIAS -->
-      <div role="tabpanel" class="tab-pane fade in active" id="tab-categorias">
+      <div role="tabpanel" class="tab-pane fade show active" id="tab-categorias">
         <div class="panel-card">
           <h3 style="margin-top: 0;">
             <span><i class="fa fa-tags" style="color: var(--primary);"></i> Gestão de Categorias do Cardápio</span>
@@ -346,7 +346,7 @@
 
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
-              <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+              <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
               <input type="text" id="categories-search" class="form-control" placeholder="Buscar categoria..." style="height: 38px;" />
             </div>
 
@@ -354,7 +354,7 @@
               <button id="btn-open-category-modal" class="btn btn-success btn-action-lg">
                 <i class="fa fa-plus-circle"></i> Nova Categoria
               </button>
-              <button id="btn-refresh-categories" class="btn btn-default btn-action-lg">
+              <button id="btn-refresh-categories" class="btn btn-secondary btn-action-lg">
                 <i class="fa fa-refresh"></i> Atualizar
               </button>
             </div>
@@ -395,7 +395,7 @@
               </select>
 
               <div class="input-group" style="width: 240px;">
-                <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+                <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
                 <input type="text" id="items-search" class="form-control" placeholder="Buscar nome ou ID..." style="height: 38px;" />
               </div>
             </div>
@@ -450,17 +450,17 @@
             <small class="text-muted" style="font-size: 0.85rem; font-weight: normal;">Aplicação instantânea por categoria</small>
           </h3>
           <div class="row admin-bulk-row">
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
                 <label><strong>Percentual (%)</strong></label>
                 <div class="input-group">
                   <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
-                  <span class="input-group-addon">%</span>
+                  <span class="input-group-text">%</span>
                 </div>
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4">
               <div class="form-group">
                 <label><strong>Aplicar na Categoria</strong></label>
                 <select id="bulk-category" class="form-control">
@@ -469,7 +469,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
                 <label><strong>Regra de Arredondamento</strong></label>
                 <select id="bulk-rounding" class="form-control">
@@ -480,7 +480,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-2">
+            <div class="col-12 col-sm-6 col-md-2">
               <label style="display: block;">&nbsp;</label>
               <button id="btn-apply-bulk" class="btn btn-custom btn-block btn-action-lg" style="background: var(--primary); justify-content: center;">
                 <i class="fa fa-calculator"></i> Aplicar %
@@ -503,7 +503,7 @@
               </select>
 
               <div class="input-group" style="width: 240px;">
-                <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+                <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
                 <input type="text" id="prices-search" class="form-control" placeholder="Buscar nome ou ID..." style="height: 38px;" />
               </div>
             </div>
@@ -560,12 +560,12 @@
 
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
-              <span class="input-group-addon" style="height: 38px;"><i class="fa fa-search"></i></span>
+              <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
               <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..." style="height: 38px;" />
             </div>
 
             <div>
-              <button id="btn-refresh-messages" class="btn btn-default btn-action-lg">
+              <button id="btn-refresh-messages" class="btn btn-secondary btn-action-lg">
                 <i class="fa fa-refresh"></i> Atualizar Mensagens
               </button>
             </div>
@@ -598,35 +598,33 @@
   <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel">
     <div class="modal-dialog modal-lg" role="document" style="max-width: 720px;">
       <div class="modal-content" style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="itemModalLabel">
+        <div class="modal-header d-flex justify-content-between align-items-center">
+          <h4 class="modal-title" id="itemModalLabel" style="margin: 0;">
             <i class="fa fa-plus-circle" style="color: var(--primary);"></i> Adicionar Novo Item ao Catálogo
           </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="padding: 24px; background: #FFF;">
           <form id="itemForm">
             <input type="hidden" id="modal-item-index" value="-1" />
             
             <div class="row">
-              <div class="col-sm-3 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-3 col-12">
+                <div class="mb-3">
                   <label for="modal-item-id">Código / ID</label>
                   <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 141" required style="font-weight: 700; text-align: center;" />
                 </div>
               </div>
-              <div class="col-sm-5 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-5 col-12">
+                <div class="mb-3">
                   <label for="modal-item-category">Categoria</label>
                   <select id="modal-item-category" class="form-control" required>
                     <!-- Populado dinamicamente -->
                   </select>
                 </div>
               </div>
-              <div class="col-sm-4 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-4 col-12">
+                <div class="mb-3">
                   <label for="modal-item-available">Disponibilidade</label>
                   <select id="modal-item-available" class="form-control">
                     <option value="true">🟢 Hoje temos...</option>
@@ -637,32 +635,32 @@
             </div>
 
             <div class="row">
-              <div class="col-sm-8 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-8 col-12">
+                <div class="mb-3">
                   <label for="modal-item-name">Nome do Produto</label>
                   <input type="text" id="modal-item-name" class="form-control" placeholder="ex: Lasanha de Frango com Catupiry" required />
                 </div>
               </div>
-              <div class="col-sm-4 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-4 col-12">
+                <div class="mb-3">
                   <label for="modal-item-price">Preço (R$)</label>
                   <div class="input-group">
-                    <span class="input-group-addon" style="font-weight: 700;">R$</span>
+                    <span class="input-group-text" style="font-weight: 700;">R$</span>
                     <input type="number" step="0.10" min="0" id="modal-item-price" class="form-control" placeholder="0.00" required style="font-weight: 700; text-align: right;" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
               <label for="modal-item-desc">Descrição do Produto</label>
               <textarea id="modal-item-desc" class="form-control" rows="2" placeholder="ex: Frango desfiado cremoso, molho branco e cobertura de queijo gratinado."></textarea>
             </div>
 
-            <div class="form-group" style="margin-bottom: 0;">
+            <div class="mb-3">
               <label for="modal-item-img">Caminho da Imagem (Opcional)</label>
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+                <span class="input-group-text"><i class="fa fa-picture-o"></i></span>
                 <input type="text" id="modal-item-img" class="form-control" placeholder="ex: img/specials/1.jpg" />
               </div>
             </div>
@@ -670,7 +668,7 @@
           </form>
         </div>
         <div class="modal-footer" style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
           <button type="button" id="btn-save-modal-item" class="btn btn-custom" style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
             <i class="fa fa-check"></i> Salvar Item
           </button>
@@ -683,44 +681,42 @@
   <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel">
     <div class="modal-dialog" role="document" style="max-width: 550px;">
       <div class="modal-content" style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
-        <div class="modal-header" style="background: var(--dark-base) !important; padding: 18px 24px;">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #FFF !important; opacity: 0.9;">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title" id="categoryModalLabel" style="color: #FFF !important; font-weight: 700;">
+        <div class="modal-header d-flex justify-content-between align-items-center" style="background: var(--dark-base) !important; padding: 18px 24px;">
+          <h4 class="modal-title" id="categoryModalLabel" style="color: #FFF !important; font-weight: 700; margin: 0;">
             <i class="fa fa-tags" style="color: var(--primary);"></i> Cadastrar Nova Categoria
           </h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="padding: 24px; background: #FFF;">
           <form id="categoryForm">
             <input type="hidden" id="modal-category-original-slug" value="" />
 
-            <div class="form-group">
+            <div class="mb-3">
               <label for="modal-category-name">Nome da Categoria</label>
               <input type="text" id="modal-category-name" class="form-control" placeholder="ex: Combos Especiais" required />
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
               <label for="modal-category-slug">Slug / Identificador (auto-gerado)</label>
               <input type="text" id="modal-category-slug" class="form-control" placeholder="ex: combos" style="font-weight: 700;" />
             </div>
 
             <div class="row">
-              <div class="col-sm-6 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-6 col-12">
+                <div class="mb-3">
                   <label for="modal-category-range">Faixa de Códigos (ex: 231 - 250)</label>
                   <input type="text" id="modal-category-range" class="form-control" placeholder="ex: 001 - 010" />
                 </div>
               </div>
-              <div class="col-sm-6 col-xs-12">
-                <div class="form-group">
+              <div class="col-sm-6 col-12">
+                <div class="mb-3">
                   <label for="modal-category-order">Ordem de Exibição</label>
                   <input type="number" id="modal-category-order" class="form-control" placeholder="1" min="1" required style="font-weight: 700; text-align: center;" />
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
               <label for="modal-category-active">Status</label>
               <select id="modal-category-active" class="form-control">
                 <option value="true">🟢 Ativa</option>
@@ -730,7 +726,7 @@
           </form>
         </div>
         <div class="modal-footer" style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn btn-default" data-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
           <button type="button" id="btn-save-modal-category" class="btn btn-custom" style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
             <i class="fa fa-check"></i> Salvar Categoria
           </button>
@@ -894,6 +890,26 @@
       if (modalVal) $('#modal-item-category').val(modalVal);
     }
 
+    function showModal(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (window.bootstrap && window.bootstrap.Modal) {
+        bootstrap.Modal.getOrCreateInstance(el).show();
+      } else if ($(el).modal) {
+        $(el).modal('show');
+      }
+    }
+
+    function hideModal(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (window.bootstrap && window.bootstrap.Modal) {
+        bootstrap.Modal.getOrCreateInstance(el).hide();
+      } else if ($(el).modal) {
+        $(el).modal('hide');
+      }
+    }
+
     function openAddCategoryModal() {
       $('#modal-category-original-slug').val('');
       $('#modal-category-name').val('');
@@ -902,7 +918,7 @@
       $('#modal-category-order').val(currentCategories.length + 1);
       $('#modal-category-active').val('true');
       $('#categoryModalLabel').html('<i class="fa fa-plus-circle" style="color: var(--primary);"></i> Cadastrar Nova Categoria');
-      $('#categoryModal').modal('show');
+      showModal('categoryModal');
     }
 
     function openEditCategoryModal(cat) {
@@ -913,7 +929,7 @@
       $('#modal-category-order').val(cat.order || 1);
       $('#modal-category-active').val(cat.active !== false ? 'true' : 'false');
       $('#categoryModalLabel').html('<i class="fa fa-pencil" style="color: var(--primary);"></i> Editar Categoria');
-      $('#categoryModal').modal('show');
+      showModal('categoryModal');
     }
 
     function saveModalCategory() {
@@ -951,7 +967,7 @@
         currentCategories = updated;
         renderCategoriesTable();
         updateCategoryDropdowns();
-        $('#categoryModal').modal('hide');
+        hideModal('categoryModal');
         alert('Categoria "' + name + '" salva com sucesso!');
       });
     }
@@ -1243,7 +1259,7 @@
       $('#modal-item-available').val('true');
       $('#modal-item-img').val('');
 
-      $('#itemModal').modal('show');
+      showModal('itemModal');
     }
 
     function openEditModal(index) {
@@ -1260,7 +1276,7 @@
       $('#modal-item-available').val((item.available !== false) ? 'true' : 'false');
       $('#modal-item-img').val(item.img || '');
 
-      $('#itemModal').modal('show');
+      showModal('itemModal');
     }
 
     function saveModalItem() {
@@ -1295,7 +1311,7 @@
       if (index === -1) {
         window.BonnaMenu.createItem(itemObj, function(updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
-          $('#itemModal').modal('hide');
+          hideModal('itemModal');
           renderItemsTable();
           renderPricesTable();
           alert('Item "' + name + '" (ID: ' + formattedId + ') criado com sucesso!');
@@ -1305,7 +1321,7 @@
         var targetId = originalItem ? originalItem.id : formattedId;
         window.BonnaMenu.updateItem(targetId, itemObj, function(updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
-          $('#itemModal').modal('hide');
+          hideModal('itemModal');
           renderItemsTable();
           renderPricesTable();
           alert('Item "' + name + '" (ID: ' + formattedId + ') atualizado com sucesso!');

@@ -264,13 +264,16 @@ hr {
 }
 
 
-.navbar-toggle {
+.navbar-toggle,
+.navbar-toggler {
   border: 1px solid rgba(198, 139, 69, 0.4);
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-default .navbar-toggle .icon-bar,
+.navbar-default .navbar-toggler .icon-bar {
   background-color: var(--primary);
 }
 

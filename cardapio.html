@@ -47,24 +47,24 @@
 <body>
 
   <!-- Navigation Header -->
-  <nav id="menu" class="navbar navbar-default navbar-fixed-top on">
+  <nav id="menu" class="navbar navbar-expand-lg fixed-top navbar-default on">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse">
-          <span class="sr-only">Alternar Navegação</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+      <div class="navbar-header d-flex align-items-center justify-content-between w-100-mobile">
         <a class="navbar-brand" href="index.html">
           <img src="img/logo_bonna.png" alt="Bonna Café" height="46"
             style="vertical-align: middle; margin-right: 6px;" />
           Bonna Café
         </a>
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#bs-navbar-collapse" aria-controls="bs-navbar-collapse" aria-expanded="false" aria-label="Alternar Navegação">
+          <span class="sr-only">Alternar Navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="navbar-nav ms-auto">
           <li><a href="index.html#features">Combos</a></li>
           <li><a href="index.html#bonnadodia">Bonna do Dia</a></li>
           <li><a href="index.html#about">Sobre Nós</a></li>
@@ -277,7 +277,7 @@
             var row = $('<div class="row"></div>');
 
             catItems.forEach(function (item) {
-              var col = $('<div class="col-xs-12"></div>');
+              var col = $('<div class="col-12"></div>');
               var isAvailable = (item.available !== false);
               var card = $('<div class="menu-item-card" data-available="' + isAvailable + '" data-name="' + (item.name || '').toLowerCase() + '" data-desc="' + (item.desc || '').toLowerCase() + '"></div>');
 
