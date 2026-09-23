@@ -1,652 +1,647 @@
-/* Preços do Cardápio Bonna Café */
-
-#_001::after {
-    content: "R$ 10,50";
-}
+/* Preços do Cardápio Bonna Café - Atualizado */
 
 /* Combo 1 */
-#_002::after {
-    content: "R$ 13,50";
+#_001::before, #_001::after {
+    content: "R$ 10,50";
 }
 
 /* Combo 2 */
-#_003::after {
-    content: "R$ 10,30";
+#_002::before, #_002::after {
+    content: "R$ 13,50";
 }
 
 /* Combo 3 */
-#_004::after {
-    content: "R$ 10,00";
+#_003::before, #_003::after {
+    content: "R$ 10,30";
 }
 
 /* Combo 4 */
-#_005::after {
-    content: "R$ 11,30";
+#_004::before, #_004::after {
+    content: "R$ 10,00";
 }
 
 /* Combo 5 */
-#_006::after {
-    content: "R$ 11,00";
+#_005::before, #_005::after {
+    content: "R$ 11,30";
 }
 
 /* Combo 6 */
-#_011::after {
-    content: "R$ 15,50";
+#_006::before, #_006::after {
+    content: "R$ 11,00";
 }
 
 /* Segunda-feira */
-#_012::after {
-    content: "R$ 11,00";
+#_050::before, #_050::after {
+    content: "R$ 15,50";
 }
 
 /* Terça-feira */
-#_013::after {
-    content: "R$ 14,50";
+#_051::before, #_051::after {
+    content: "R$ 11,00";
 }
 
 /* Quarta-feira */
-#_014::after {
-    content: "R$ 14,00";
-}
-
-/* Quinta-feira */
-#_015::after {
-    content: "R$ 10,50";
-}
-
-/* Sexta-feira */
-#_021::after {
-    content: "R$ 6,50";
-}
-
-/* Enroladinho de Presunto e Queijo */
-#_022::after {
-    content: "R$ 6,50";
-}
-
-/* Enroladinho de Queijo */
-#_023::after {
-    content: "R$ 6,50";
-}
-
-/* Enroladinho de Salsicha */
-#_024::after {
-    content: "R$ 6,50";
-}
-
-/* Pastel de Carne com Bacon */
-#_025::after {
-    content: "R$ 6,50";
-}
-
-/* Esfirra de Carne */
-#_026::after {
-    content: "R$ 6,50";
-}
-
-/* Pão Hambúrguer */
-#_027::after {
-    content: "R$ 6,50";
-}
-
-/* Pão Napolitano */
-#_028::after {
-    content: "R$ 6,50";
-}
-
-/* Pão Pizza */
-#_029::after {
-    content: "R$ 6,50";
-}
-
-/* Pão da Vovó */
-#_030::after {
-    content: "R$ 6,50";
-}
-
-/* Pão Hambúrguer Integral */
-#_031::after {
-    content: "R$ 6,50";
-}
-
-/* Pão da Vovó Integral */
-#_032::after {
-    content: "R$ 6,50";
-}
-
-/* Pão Pizza Integral */
-#_033::after {
-    content: "R$ 6,50";
-}
-
-/* Religiosa */
-#_034::after {
-    content: "R$ 6,50";
-}
-
-/* Costela de Adão */
-#_035::after {
-    content: "R$ 6,50";
-}
-
-/* Croissant de Frango */
-#_036::after {
-    content: "R$ 6,50";
-}
-
-/* Croissant de Chocolate */
-#_037::after {
-    content: "R$ 11,00";
-}
-
-/* Empadão Goiano */
-#_038::after {
-    content: "R$ 7,50";
-}
-
-/* Mini Pizza (Calabresa / Portuguesa) */
-#_039::after {
-    content: "R$ 8,00";
-}
-
-/* Folheado Bureak de Frango */
-#_040::after {
-    content: "R$ 8,50";
-}
-
-/* Folheado Queijo Minas com Peito de Peru */
-#_041::after {
-    content: "R$ 7,00";
-}
-
-/* Coxinha Assada Especial */
-#_042::after {
-    content: "R$ 7,50";
-}
-
-/* Matte Leão Batido com Limão 500ml */
-#_051::after {
-    content: "R$ 12,00";
-}
-
-/* Torta de Frango com Requeijão (Super Lanche) */
-#_052::after {
-    content: "R$ 4,50";
-}
-
-/* Pão de Queijo Tradicional */
-#_053::after {
-    content: "R$ 4,80";
-}
-
-/* Biscoito de Queijo Ferradura */
-#_054::after {
-    content: "R$ 5,50";
-}
-
-/* Chipa de Queijo (Porção 4 un.) */
-#_055::after {
-    content: "R$ 7,50";
-}
-
-/* Pão de Queijo Recheado Peru e Requeijão */
-#_056::after {
-    content: "R$ 8,50";
-}
-
-/* Pão de Queijo Recheado com Nutella */
-#_081::after {
-    content: "R$ 10,00";
-}
-
-/* Sanduíche Natural de Ovo */
-#_082::after {
-    content: "R$ 10,00";
-}
-
-/* Sanduíche Natural Peito de Peru */
-#_083::after {
-    content: "R$ 11,50";
-}
-
-/* Sanduíche Natural Frango */
-#_084::after {
-    content: "R$ 8,00";
-}
-
-/* Pão com Ovo */
-#_085::after {
-    content: "R$ 8,00";
-}
-
-/* Pão com Queijo Muçarela */
-#_086::after {
-    content: "R$ 8,00";
-}
-
-/* Pão com Queijo e Presunto (Misto) */
-#_087::after {
-    content: "R$ 9,00";
-}
-
-/* Pão com Ovo e Queijo Muçarela */
-#_088::after {
-    content: "R$ 9,00";
-}
-
-/* Pão com Ovo, Queijo e Presunto */
-#_089::after {
-    content: "R$ 9,00";
-}
-
-/* Pão com Ovo e Peito de Peru */
-#_090::after {
-    content: "R$ 9,50";
-}
-
-/* Pão com Queijo e Peito de Peru */
-#_091::after {
-    content: "R$ 10,00";
-}
-
-/* Pão com Ovo, Queijo e Peito de Peru */
-#_092::after {
-    content: "R$ 11,00";
-}
-
-/* Pão Completo (Ovo, Queijo, Presunto e Peru) */
-#_093::after {
-    content: "R$ 7,50";
-}
-
-/* Tapioca com Manteiga */
-#_094::after {
-    content: "R$ 9,00";
-}
-
-/* Tapioca com Ovo */
-#_095::after {
-    content: "R$ 11,50";
-}
-
-/* Tapioca com Ovo e Queijo Muçarela */
-#_096::after {
-    content: "R$ 10,00";
-}
-
-/* Tapioca com Queijo Muçarela */
-#_097::after {
-    content: "R$ 10,50";
-}
-
-/* Tapioca com Queijo e Presunto */
-#_098::after {
-    content: "R$ 10,50";
-}
-
-/* Tapioca Peito de Peru, Tomate e O régano */
-#_099::after {
-    content: "R$ 11,00";
-}
-
-/* Tapioca com Frango */
-#_100::after {
-    content: "R$ 13,50";
-}
-
-/* Tapioca com Frango e Queijo */
-#_101::after {
-    content: "R$ 14,00";
-}
-
-/* Tapioca com Carne Seca */
-#_102::after {
-    content: "R$ 17,00";
-}
-
-/* Tapioca com Carne Seca e Queijo */
-#_103::after {
-    content: "R$ 11,00";
-}
-
-/* Tapioca com Nutella */
-#_104::after {
-    content: "R$ 10,00";
-}
-
-/* Tapioca com Leite Condensado */
-#_111::after {
-    content: "R$ 8,50";
-}
-
-/* Cuscuz com Manteiga */
-#_112::after {
-    content: "R$ 10,00";
-}
-
-/* Cuscuz com Ovo */
-#_113::after {
-    content: "R$ 11,00";
-}
-
-/* Cuscuz com Ovo e Queijo */
-#_114::after {
-    content: "R$ 10,00";
-}
-
-/* Cuscuz com Queijo Muçarela */
-#_115::after {
-    content: "R$ 10,50";
-}
-
-/* Cuscuz com Queijo e Presunto */
-#_116::after {
-    content: "R$ 12,00";
-}
-
-/* Cuscuz com Frango */
-#_117::after {
-    content: "R$ 13,50";
-}
-
-/* Cuscuz com Frango e Queijo */
-#_118::after {
-    content: "R$ 13,50";
-}
-
-/* Cuscuz com Frango e Ovo */
-#_119::after {
-    content: "R$ 14,00";
-}
-
-/* Cuscuz com Carne Seca */
-#_120::after {
-    content: "R$ 17,00";
-}
-
-/* Cuscuz com Carne Seca e Queijo */
-#_121::after {
-    content: "R$ 18,00";
-}
-
-/* Cuscuz Completo (Carne Seca, Ovo e Queijo) */
-#_122::after {
-    content: "R$ 10,50";
-}
-
-/* Crepioca de Queijo Muçarela */
-#_123::after {
-    content: "R$ 11,00";
-}
-
-/* Crepioca Queijo e Presunto */
-#_124::after {
-    content: "R$ 11,00";
-}
-
-/* Crepioca Peru, Tomate e Orégano */
-#_125::after {
-    content: "R$ 12,50";
-}
-
-/* Crepioca de Frango */
-#_126::after {
-    content: "R$ 13,50";
-}
-
-/* Crepioca Frango com Muçarela */
-#_127::after {
-    content: "R$ 14,00";
-}
-
-/* Crepioca de Carne Seca */
-#_128::after {
-    content: "R$ 17,50";
-}
-
-/* Crepioca Carne Seca com Muçarela */
-#_129::after {
-    content: "R$ 20,00";
-}
-
-/* Omelete 3 Ovos para Almoço */
-#_130::after {
-    content: "R$ 2,50";
-}
-
-/* Ovos Mexidos com Orégano */
-#_131::after {
-    content: "R$ 11,50";
-}
-
-/* Omelete (2 ovos) - Queijo Muçarela */
-#_132::after {
-    content: "R$ 12,00";
-}
-
-/* Omelete (2 ovos) - Queijo e Presunto */
-#_133::after {
-    content: "R$ 12,50";
-}
-
-/* Omelete (2 ovos) - Peru, Tomate e Orégano */
-#_134::after {
-    content: "R$ 13,00";
-}
-
-/* Omelete (2 ovos) - Frango */
-#_135::after {
+#_052::before, #_052::after {
     content: "R$ 14,50";
 }
 
-/* Omelete (2 ovos) - Frango com Queijo */
-#_136::after {
+/* Quinta-feira */
+#_053::before, #_053::after {
     content: "R$ 14,00";
 }
 
-/* Omelete (2 ovos) - Carne Seca */
-#_137::after {
-    content: "R$ 17,50";
-}
-
-/* Omelete (2 ovos) - Carne Seca com Queijo */
-#_141::after {
-    content: "R$ 24,50";
-}
-
-/* Spaghetti à Bolonhesa */
-#_142::after {
-    content: "R$ 26,00";
-}
-
-/* Lasanha de Presunto e Queijo */
-#_143::after {
-    content: "R$ 26,00";
-}
-
-/* Lasanha de Frango com Catupiry */
-#_171::after {
-    content: "R$ 4,80";
-}
-
-/* Toddynho */
-#_172::after {
-    content: "R$ 4,00";
-}
-
-/* Suco de Caixinha */
-#_173::after {
-    content: "R$ 6,00";
-}
-
-/* Refrigerante 310ml (Lata) */
-#_174::after {
-    content: "R$ 4,50";
-}
-
-/* Refrigerante 200/220ml */
-#_175::after {
-    content: "R$ 7,00";
-}
-
-/* Refrigerante 600ml */
-#_176::after {
-    content: "R$ 6,90";
-}
-
-/* Chá Gelado */
-#_177::after {
-    content: "R$ 4,50";
-}
-
-/* Água com Gás */
-#_178::after {
-    content: "R$ 4,00";
-}
-
-/* Água sem Gás */
-#_179::after {
-    content: "R$ 7,00";
-}
-
-/* H2OH! Limoneto */
-#_180::after {
-    content: "R$ 13,00";
-}
-
-/* Energético */
-#_181::after {
-    content: "R$ 7,00";
-}
-
-/* Guaraviton */
-#_182::after {
-    content: "R$ 10,00";
-}
-
-/* Cerveja Long Neck */
-#_183::after {
-    content: "R$ 6,00";
+/* Sexta-feira */
+#_054::before, #_054::after {
+    content: "R$ 10,50";
 }
 
 /* Expresso Curto */
-#_184::after {
-    content: "R$ 7,00";
+#_100::before, #_100::after {
+    content: "R$ 6,00";
 }
 
 /* Expresso Longo */
-#_185::after {
+#_101::before, #_101::after {
     content: "R$ 7,00";
 }
 
 /* Café Suave */
-#_186::after {
+#_102::before, #_102::after {
     content: "R$ 7,00";
 }
 
 /* Café com Leite */
-#_187::after {
+#_103::before, #_103::after {
     content: "R$ 7,00";
 }
 
 /* Cappuccino */
-#_188::after {
+#_104::before, #_104::after {
     content: "R$ 7,00";
 }
 
 /* Chocolate Quente */
-#_189::after {
-    content: "R$ 6,00";
+#_105::before, #_105::after {
+    content: "R$ 7,00";
 }
 
 /* Leite Quente */
-#_190::after {
+#_106::before, #_106::after {
     content: "R$ 6,00";
 }
 
 /* Chá Quente de Limão */
-#_191::after {
-    content: "R$ 8,00";
-}
-
-/* Toddy Gelado 300ml */
-#_192::after {
-    content: "R$ 10,50";
-}
-
-/* Toddy Gelado 500ml */
-#_193::after {
-    content: "R$ 7,00";
+#_107::before, #_107::after {
+    content: "R$ 6,00";
 }
 
 /* Suco Natural 300ml */
-#_194::after {
-    content: "R$ 9,50";
+#_150::before, #_150::after {
+    content: "R$ 7,00";
 }
 
 /* Suco Natural 500ml */
-#_195::after {
-    content: "R$ 7,50";
-}
-
-/* Suco de Polpa com Água 500ml */
-#_196::after {
-    content: "R$ 11,00";
-}
-
-/* Suco de Polpa Misto (2 sabores) 500ml */
-#_197::after {
+#_151::before, #_151::after {
     content: "R$ 9,50";
 }
 
-/* Suco de Polpa com Leite 500ml */
-#_198::after {
-    content: "R$ 12,50";
+/* Suco de Polpa com Água 500ml */
+#_152::before, #_152::after {
+    content: "R$ 7,50";
 }
 
-/* Vitamina Completa 500ml */
-#_199::after {
+/* Suco de Polpa Misto (2 sabores) 500ml */
+#_153::before, #_153::after {
     content: "R$ 11,00";
 }
 
+/* Suco de Polpa com Leite 500ml */
+#_154::before, #_154::after {
+    content: "R$ 9,50";
+}
+
+/* Vitamina Completa 500ml */
+#_155::before, #_155::after {
+    content: "R$ 12,50";
+}
+
 /* Polpa de Açaí com Água + 1 Banana 500ml */
-#_200::after {
-    content: "R$ 13,00";
+#_156::before, #_156::after {
+    content: "R$ 11,00";
 }
 
 /* Polpa de Açaí com Leite + 1 Banana 500ml */
-#_201::after {
+#_157::before, #_157::after {
+    content: "R$ 13,00";
+}
+
+/* Matte Leão Batido com Limão 500ml */
+#_158::before, #_158::after {
+    content: "R$ 8,50";
+}
+
+/* Toddy Gelado 300ml */
+#_159::before, #_159::after {
+    content: "R$ 8,00";
+}
+
+/* Toddy Gelado 500ml */
+#_160::before, #_160::after {
+    content: "R$ 10,50";
+}
+
+/* Água sem Gás */
+#_170::before, #_170::after {
+    content: "R$ 4,00";
+}
+
+/* Água com Gás */
+#_171::before, #_171::after {
+    content: "R$ 4,50";
+}
+
+/* H2OH! Limoneto */
+#_172::before, #_172::after {
+    content: "R$ 7,00";
+}
+
+/* Refrigerante 200/220ml */
+#_173::before, #_173::after {
+    content: "R$ 4,50";
+}
+
+/* Refrigerante 310ml (Lata) */
+#_174::before, #_174::after {
+    content: "R$ 6,00";
+}
+
+/* Refrigerante 600ml */
+#_175::before, #_175::after {
+    content: "R$ 7,00";
+}
+
+/* Chá Gelado */
+#_176::before, #_176::after {
+    content: "R$ 6,90";
+}
+
+/* Suco de Caixinha */
+#_177::before, #_177::after {
+    content: "R$ 4,00";
+}
+
+/* Toddynho */
+#_178::before, #_178::after {
+    content: "R$ 4,80";
+}
+
+/* Guaraviton */
+#_179::before, #_179::after {
+    content: "R$ 7,00";
+}
+
+/* Energético */
+#_180::before, #_180::after {
+    content: "R$ 13,00";
+}
+
+/* Cerveja Long Neck */
+#_181::before, #_181::after {
+    content: "R$ 10,00";
+}
+
+/* Pão de Queijo Tradicional */
+#_200::before, #_200::after {
+    content: "R$ 4,50";
+}
+
+/* Biscoito de Queijo Ferradura */
+#_201::before, #_201::after {
+    content: "R$ 4,80";
+}
+
+/* Chipa de Queijo (Porção 4 un.) */
+#_202::before, #_202::after {
+    content: "R$ 5,50";
+}
+
+/* Pão de Queijo Recheado Peru e Requeijão */
+#_203::before, #_203::after {
     content: "R$ 7,50";
 }
 
-/* Gelatina Mosaico */
-#_202::after {
-    content: "R$ 7,50";
+/* Pão de Queijo Recheado com Nutella */
+#_204::before, #_204::after {
+    content: "R$ 8,50";
 }
 
-/* Gelatina Cremosa */
-#_203::after {
+/* Torta de Frango com Requeijão (Super Lanche) */
+#_205::before, #_205::after {
+    content: "R$ 12,00";
+}
+
+/* Enroladinho de Presunto e Queijo */
+#_250::before, #_250::after {
     content: "R$ 6,50";
 }
 
+/* Enroladinho de Queijo */
+#_251::before, #_251::after {
+    content: "R$ 6,50";
+}
+
+/* Enroladinho de Salsicha */
+#_252::before, #_252::after {
+    content: "R$ 6,50";
+}
+
+/* Pastel de Carne com Bacon */
+#_253::before, #_253::after {
+    content: "R$ 6,50";
+}
+
+/* Esfirra de Carne */
+#_254::before, #_254::after {
+    content: "R$ 6,50";
+}
+
+/* Pão Hambúrguer */
+#_255::before, #_255::after {
+    content: "R$ 6,50";
+}
+
+/* Pão Hambúrguer Integral */
+#_256::before, #_256::after {
+    content: "R$ 6,50";
+}
+
+/* Pão Napolitano */
+#_257::before, #_257::after {
+    content: "R$ 6,50";
+}
+
+/* Pão Pizza */
+#_258::before, #_258::after {
+    content: "R$ 6,50";
+}
+
+/* Pão Pizza Integral */
+#_259::before, #_259::after {
+    content: "R$ 6,50";
+}
+
+/* Pão da Vovó */
+#_260::before, #_260::after {
+    content: "R$ 6,50";
+}
+
+/* Pão da Vovó Integral */
+#_261::before, #_261::after {
+    content: "R$ 6,50";
+}
+
+/* Religiosa */
+#_262::before, #_262::after {
+    content: "R$ 6,50";
+}
+
+/* Costela de Adão */
+#_263::before, #_263::after {
+    content: "R$ 6,50";
+}
+
+/* Croissant de Frango */
+#_264::before, #_264::after {
+    content: "R$ 6,50";
+}
+
+/* Croissant de Chocolate */
+#_265::before, #_265::after {
+    content: "R$ 6,50";
+}
+
+/* Coxinha Assada Especial */
+#_266::before, #_266::after {
+    content: "R$ 7,00";
+}
+
+/* Mini Pizza (Calabresa / Portuguesa) */
+#_267::before, #_267::after {
+    content: "R$ 7,50";
+}
+
+/* Folheado Bureak de Frango */
+#_268::before, #_268::after {
+    content: "R$ 8,00";
+}
+
+/* Folheado Queijo Minas com Peito de Peru */
+#_269::before, #_269::after {
+    content: "R$ 8,50";
+}
+
+/* Empadão Goiano */
+#_270::before, #_270::after {
+    content: "R$ 11,00";
+}
+
+/* Sanduíche Natural de Ovo */
+#_300::before, #_300::after {
+    content: "R$ 10,00";
+}
+
+/* Sanduíche Natural Peito de Peru */
+#_301::before, #_301::after {
+    content: "R$ 10,00";
+}
+
+/* Sanduíche Natural Frango */
+#_302::before, #_302::after {
+    content: "R$ 11,50";
+}
+
+/* Pão com Ovo */
+#_303::before, #_303::after {
+    content: "R$ 8,00";
+}
+
+/* Pão com Queijo Muçarela */
+#_304::before, #_304::after {
+    content: "R$ 8,00";
+}
+
+/* Pão com Queijo e Presunto (Misto) */
+#_305::before, #_305::after {
+    content: "R$ 8,00";
+}
+
+/* Pão com Ovo e Queijo Muçarela */
+#_306::before, #_306::after {
+    content: "R$ 9,00";
+}
+
+/* Pão com Ovo, Queijo e Presunto */
+#_307::before, #_307::after {
+    content: "R$ 9,00";
+}
+
+/* Pão com Ovo e Peito de Peru */
+#_308::before, #_308::after {
+    content: "R$ 9,00";
+}
+
+/* Pão com Queijo e Peito de Peru */
+#_309::before, #_309::after {
+    content: "R$ 9,50";
+}
+
+/* Pão com Ovo, Queijo e Peito de Peru */
+#_310::before, #_310::after {
+    content: "R$ 10,00";
+}
+
+/* Pão Completo (Ovo, Queijo, Presunto e Peru) */
+#_311::before, #_311::after {
+    content: "R$ 11,00";
+}
+
+/* Tapioca com Manteiga */
+#_350::before, #_350::after {
+    content: "R$ 7,50";
+}
+
+/* Tapioca com Ovo */
+#_351::before, #_351::after {
+    content: "R$ 9,00";
+}
+
+/* Tapioca com Queijo Muçarela */
+#_352::before, #_352::after {
+    content: "R$ 10,00";
+}
+
+/* Tapioca com Queijo e Presunto */
+#_353::before, #_353::after {
+    content: "R$ 10,50";
+}
+
+/* Tapioca Peito de Peru, Tomate e Orégano */
+#_354::before, #_354::after {
+    content: "R$ 10,50";
+}
+
+/* Tapioca com Ovo e Queijo Muçarela */
+#_355::before, #_355::after {
+    content: "R$ 11,50";
+}
+
+/* Tapioca com Frango */
+#_356::before, #_356::after {
+    content: "R$ 11,00";
+}
+
+/* Tapioca com Frango e Queijo */
+#_357::before, #_357::after {
+    content: "R$ 13,50";
+}
+
+/* Tapioca com Carne Seca */
+#_358::before, #_358::after {
+    content: "R$ 14,00";
+}
+
+/* Tapioca com Carne Seca e Queijo */
+#_359::before, #_359::after {
+    content: "R$ 17,00";
+}
+
+/* Tapioca com Leite Condensado */
+#_360::before, #_360::after {
+    content: "R$ 10,00";
+}
+
+/* Tapioca com Nutella */
+#_361::before, #_361::after {
+    content: "R$ 11,00";
+}
+
+/* Cuscuz com Manteiga */
+#_370::before, #_370::after {
+    content: "R$ 8,50";
+}
+
+/* Cuscuz com Ovo */
+#_371::before, #_371::after {
+    content: "R$ 10,00";
+}
+
+/* Cuscuz com Queijo Muçarela */
+#_372::before, #_372::after {
+    content: "R$ 10,00";
+}
+
+/* Cuscuz com Queijo e Presunto */
+#_373::before, #_373::after {
+    content: "R$ 10,50";
+}
+
+/* Cuscuz com Ovo e Queijo */
+#_374::before, #_374::after {
+    content: "R$ 11,00";
+}
+
+/* Cuscuz com Frango */
+#_375::before, #_375::after {
+    content: "R$ 12,00";
+}
+
+/* Cuscuz com Frango e Queijo */
+#_376::before, #_376::after {
+    content: "R$ 13,50";
+}
+
+/* Cuscuz com Frango e Ovo */
+#_377::before, #_377::after {
+    content: "R$ 13,50";
+}
+
+/* Cuscuz com Carne Seca */
+#_378::before, #_378::after {
+    content: "R$ 14,00";
+}
+
+/* Cuscuz com Carne Seca e Queijo */
+#_379::before, #_379::after {
+    content: "R$ 17,00";
+}
+
+/* Cuscuz Completo (Carne Seca, Ovo e Queijo) */
+#_380::before, #_380::after {
+    content: "R$ 18,00";
+}
+
+/* Ovos Mexidos com Orégano */
+#_400::before, #_400::after {
+    content: "R$ 2,50";
+}
+
+/* Crepioca de Queijo Muçarela */
+#_401::before, #_401::after {
+    content: "R$ 10,50";
+}
+
+/* Crepioca Queijo e Presunto */
+#_402::before, #_402::after {
+    content: "R$ 11,00";
+}
+
+/* Crepioca Peru, Tomate e Orégano */
+#_403::before, #_403::after {
+    content: "R$ 11,00";
+}
+
+/* Crepioca de Frango */
+#_404::before, #_404::after {
+    content: "R$ 12,50";
+}
+
+/* Crepioca Frango com Muçarela */
+#_405::before, #_405::after {
+    content: "R$ 13,50";
+}
+
+/* Crepioca de Carne Seca */
+#_406::before, #_406::after {
+    content: "R$ 14,00";
+}
+
+/* Crepioca Carne Seca com Muçarela */
+#_407::before, #_407::after {
+    content: "R$ 17,50";
+}
+
+/* Omelete (2 ovos) - Queijo Muçarela */
+#_408::before, #_408::after {
+    content: "R$ 11,50";
+}
+
+/* Omelete (2 ovos) - Queijo e Presunto */
+#_409::before, #_409::after {
+    content: "R$ 12,00";
+}
+
+/* Omelete (2 ovos) - Peru, Tomate e Orégano */
+#_410::before, #_410::after {
+    content: "R$ 12,50";
+}
+
+/* Omelete (2 ovos) - Frango */
+#_411::before, #_411::after {
+    content: "R$ 13,00";
+}
+
+/* Omelete (2 ovos) - Frango com Queijo */
+#_412::before, #_412::after {
+    content: "R$ 14,50";
+}
+
+/* Omelete (2 ovos) - Carne Seca */
+#_413::before, #_413::after {
+    content: "R$ 14,00";
+}
+
+/* Omelete (2 ovos) - Carne Seca com Queijo */
+#_414::before, #_414::after {
+    content: "R$ 17,50";
+}
+
+/* Omelete 3 Ovos para Almoço */
+#_415::before, #_415::after {
+    content: "R$ 20,00";
+}
+
+/* Spaghetti à Bolonhesa */
+#_425::before, #_425::after {
+    content: "R$ 24,50";
+}
+
+/* Lasanha de Presunto e Queijo */
+#_426::before, #_426::after {
+    content: "R$ 26,00";
+}
+
+/* Lasanha de Frango com Catupiry */
+#_427::before, #_427::after {
+    content: "R$ 26,00";
+}
+
 /* Pudim de Leite Condensado */
-#_204::after {
+#_450::before, #_450::after {
     content: "R$ 6,50";
 }
 
 /* Pudim de Chocolate */
-#_205::after {
-    content: "R$ 8,50";
-}
-
-/* Salada de Frutas Fresca */
-#_206::after {
-    content: "R$ 7,00";
+#_451::before, #_451::after {
+    content: "R$ 6,50";
 }
 
 /* Mousse de Maracujá */
-#_207::after {
-    content: "R$ 10,00";
+#_452::before, #_452::after {
+    content: "R$ 7,00";
 }
 
-/* Teste de Sobremesa */
+/* Gelatina Mosaico */
+#_453::before, #_453::after {
+    content: "R$ 7,50";
+}
+
+/* Gelatina Cremosa */
+#_454::before, #_454::after {
+    content: "R$ 7,50";
+}
+
+/* Salada de Frutas Fresca */
+#_455::before, #_455::after {
+    content: "R$ 8,50";
+}
+

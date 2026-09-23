@@ -122,12 +122,13 @@
           <button class="filter-btn active" data-filter="all">Todas as Categorias</button>
           <button class="filter-btn" data-filter="combos">Combos</button>
           <button class="filter-btn" data-filter="bonnadodia">Bonna do Dia</button>
-          <button class="filter-btn" data-filter="salgados">Salgados & Assados</button>
+          <button class="filter-btn" data-filter="cafes-quentes">Cafés Quentes</button>
+          <button class="filter-btn" data-filter="bebidas-geladas">Bebidas Geladas</button>
           <button class="filter-btn" data-filter="pao-queijo">Pão de Queijo</button>
-          <button class="filter-btn" data-filter="sanduiches-tapiocas">Sanduíches & Tapiocas</button>
-          <button class="filter-btn" data-filter="ovos">Cuscuz, Crepiocas & Ovos</button>
-          <button class="filter-btn" data-filter="massas">Massas</button>
-          <button class="filter-btn" data-filter="bebidas-cafes">Cafés & Bebidas</button>
+          <button class="filter-btn" data-filter="salgados">Salgados Assados</button>
+          <button class="filter-btn" data-filter="sanduiches">Sanduíches & Chapa</button>
+          <button class="filter-btn" data-filter="tapiocas-cuscuz">Tapiocas & Cuscuz</button>
+          <button class="filter-btn" data-filter="refeicoes-omeletes">Omeletes & Refeições</button>
           <button class="filter-btn" data-filter="sobremesas">Sobremesas</button>
         </div>
       </div>
@@ -174,12 +175,13 @@
     var CATEGORY_NAMES = {
       'combos': 'Combos Especiais',
       'bonnadodia': 'Bonna do Dia',
-      'salgados': 'Salgados Tradicionais & Assados',
-      'pao-queijo': 'Linha Pão de Queijo & Especialidades',
-      'sanduiches-tapiocas': 'Sanduíches Naturais, Pão na Chapa & Tapiocas',
-      'ovos': 'Cuscuz, Crepiocas & Ovos Especiais',
-      'massas': 'Massas & Lasanhas',
-      'bebidas-cafes': 'Cafés, Sucos & Bebidas',
+      'cafes-quentes': 'Cafés & Bebidas Quentes',
+      'bebidas-geladas': 'Sucos, Shakes & Bebidas Geladas',
+      'pao-queijo': 'Tradição Mineira & Pão de Queijo',
+      'salgados': 'Salgados Assados & Folheados',
+      'sanduiches': 'Sanduíches & Pão na Chapa',
+      'tapiocas-cuscuz': 'Tapiocas Artesanais & Cuscuz',
+      'refeicoes-omeletes': 'Omeletes, Crepiocas & Refeições',
       'sobremesas': 'Sobremesas & Doces'
     };
 
@@ -226,14 +228,14 @@
 
           var categoryMap = {
             'salgados-assados': 'salgados',
-            'tapiocas': 'sanduiches-tapiocas',
-            'sanduiches': 'sanduiches-tapiocas',
-            'cuscuz': 'ovos',
-            'massa': 'massas',
-            'lasanha': 'massas',
-            'macarrao': 'massas',
-            'bebidas': 'bebidas-cafes',
-            'cafes': 'bebidas-cafes',
+            'tapiocas': 'tapiocas-cuscuz',
+            'cuscuz': 'tapiocas-cuscuz',
+            'sanduiches-tapiocas': 'sanduiches',
+            'ovos': 'refeicoes-omeletes',
+            'crepiocas': 'refeicoes-omeletes',
+            'massas': 'refeicoes-omeletes',
+            'bebidas-cafes': 'bebidas-geladas',
+            'cafes': 'cafes-quentes',
             'doces': 'sobremesas'
           };
 
@@ -257,7 +259,7 @@
               if (c.active !== false) catOrder.push(c.slug);
             });
           } else {
-            catOrder = ['combos', 'bonnadodia', 'salgados', 'pao-queijo', 'sanduiches-tapiocas', 'ovos', 'massas', 'bebidas-cafes', 'sobremesas'];
+            catOrder = ['combos', 'bonnadodia', 'cafes-quentes', 'bebidas-geladas', 'pao-queijo', 'salgados', 'sanduiches', 'tapiocas-cuscuz', 'refeicoes-omeletes', 'sobremesas'];
           }
 
           for (var c in grouped) {
