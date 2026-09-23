@@ -312,36 +312,40 @@
     }
 
     function renderMenu() {
-      // Tenta renderável imediato com dados em cache local
-      var localCategories = (window.BonnaMenu && window.BonnaMenu.DEFAULT_CATEGORIES) ? window.BonnaMenu.DEFAULT_CATEGORIES : [];
-      var cachedCats = localStorage.getItem('bonna_categories_v1');
-      if (cachedCats) {
-        try { localCategories = JSON.parse(cachedCats); } catch(e){}
-      }
-      var localItems = (window.BonnaMenu && window.BonnaMenu.getItems) ? window.BonnaMenu.getItems() : [];
+      var resolvedCategories = null;
+      var resolvedItems = null;
 
-      // Se já temos itens em cache, renderiza imediatamente
-      if (localItems && localItems.length > 0) {
-        buildAndRenderMenu(localCategories, localItems);
+      function tryRender() {
+        if (resolvedCategories === null || resolvedItems === null) return;
+        if (resolvedItems.length > 0) {
+          buildAndRenderMenu(resolvedCategories, resolvedItems);
+        } else {
+          $('#menu-loading-state').html(
+            '<i class="fa fa-exclamation-triangle fa-3x" style="color: #C68B45; margin-bottom: 20px;"></i>' +
+            '<p style="font-size: 1.1rem; margin-top: 15px;">Não foi possível carregar o cardápio.<br>' +
+            '<small>Verifique sua conexão e recarregue a página.</small></p>'
+          ).show();
+        }
       }
 
-      // Sempre busca dados atualizados do servidor
       if (window.BonnaMenu && window.BonnaMenu.getCategoriesAsync) {
         window.BonnaMenu.getCategoriesAsync(function(categories) {
-          if (window.BonnaMenu && window.BonnaMenu.getItemsAsync) {
-            window.BonnaMenu.getItemsAsync(function(items) {
-              if (items && items.length > 0) {
-                buildAndRenderMenu(categories, items);
-              } else {
-                // Sem itens da API e sem cache: mostra mensagem de erro
-                $('#menu-loading-state').html(
-                  '<i class="fa fa-exclamation-triangle fa-3x" style="color: #C68B45; margin-bottom: 20px;"></i>' +
-                  '<p style="font-size: 1.1rem; margin-top: 15px;">Não foi possível carregar o cardápio.<br><small>Verifique sua conexão e recarregue a página.</small></p>'
-                ).show();
-              }
-            });
-          }
+          resolvedCategories = (categories && categories.length > 0) ? categories : [];
+          tryRender();
         });
+      } else {
+        resolvedCategories = [];
+        tryRender();
+      }
+
+      if (window.BonnaMenu && window.BonnaMenu.getItemsAsync) {
+        window.BonnaMenu.getItemsAsync(function(items) {
+          resolvedItems = (items && Array.isArray(items)) ? items : [];
+          tryRender();
+        });
+      } else {
+        resolvedItems = [];
+        tryRender();
       }
     }
 

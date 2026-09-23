@@ -9,23 +9,39 @@ const DB_FILE = path.join(DATA_DIR, 'bonnacafe_db.json');
 const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
 const CATEGORIES_FILE = path.join(DATA_DIR, 'categories.json');
 
-const INITIAL_CATEGORIES = [
-  { slug: 'combos', name: 'Combos Especiais', range: '001 - 049', order: 1, active: true },
-  { slug: 'bonnadodia', name: 'Bonna do Dia', range: '050 - 099', order: 2, active: true },
-  { slug: 'cafes-quentes', name: 'Cafés & Bebidas Quentes', range: '100 - 149', order: 3, active: true },
-  { slug: 'bebidas-geladas', name: 'Sucos, Shakes & Bebidas Geladas', range: '150 - 199', order: 4, active: true },
-  { slug: 'pao-queijo', name: 'Tradição Mineira & Pão de Queijo', range: '200 - 249', order: 5, active: true },
-  { slug: 'salgados', name: 'Salgados Assados & Folheados', range: '250 - 299', order: 6, active: true },
-  { slug: 'sanduiches', name: 'Sanduíches & Pão na Chapa', range: '300 - 349', order: 7, active: true },
-  { slug: 'tapiocas-cuscuz', name: 'Tapiocas Artesanais & Cuscuz', range: '350 - 399', order: 8, active: true },
-  { slug: 'refeicoes-omeletes', name: 'Omeletes, Crepiocas & Refeições', range: '400 - 449', order: 9, active: true },
-  { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '450 - 499', order: 10, active: true }
-];
+// Categorias iniciais carregadas do seed_categories.json (primeira inicialização apenas)
+const SEED_CATEGORIES_FILE = path.join(DATA_DIR, 'seed_categories.json');
+
+function loadSeedCategories() {
+  if (fs.existsSync(SEED_CATEGORIES_FILE)) {
+    try {
+      const raw = fs.readFileSync(SEED_CATEGORIES_FILE, 'utf8');
+      const cats = JSON.parse(raw);
+      if (Array.isArray(cats) && cats.length > 0) return cats;
+    } catch (e) {
+      console.error('Erro ao ler seed_categories.json:', e);
+    }
+  }
+  // Fallback mínimo inline — não adicione mais categorias aqui!
+  return [
+    { slug: 'combos', name: 'Combos Especiais', range: '001 - 049', order: 1, active: true },
+    { slug: 'bonnadodia', name: 'Bonna do Dia', range: '050 - 099', order: 2, active: true },
+    { slug: 'cafes-quentes', name: 'Cafés & Bebidas Quentes', range: '100 - 149', order: 3, active: true },
+    { slug: 'bebidas-geladas', name: 'Sucos, Shakes & Bebidas Geladas', range: '150 - 199', order: 4, active: true },
+    { slug: 'pao-queijo', name: 'Tradição Mineira & Pão de Queijo', range: '200 - 249', order: 5, active: true },
+    { slug: 'salgados', name: 'Salgados Assados & Folheados', range: '250 - 299', order: 6, active: true },
+    { slug: 'sanduiches', name: 'Sanduíches & Pão na Chapa', range: '300 - 349', order: 7, active: true },
+    { slug: 'tapiocas-cuscuz', name: 'Tapiocas Artesanais & Cuscuz', range: '350 - 399', order: 8, active: true },
+    { slug: 'refeicoes-omeletes', name: 'Omeletes, Crepiocas & Refeições', range: '400 - 449', order: 9, active: true },
+    { slug: 'sobremesas', name: 'Sobremesas & Doces', range: '450 - 499', order: 10, active: true }
+  ];
+}
 
 function loadCategories() {
   if (!fs.existsSync(CATEGORIES_FILE)) {
-    saveCategories(INITIAL_CATEGORIES);
-    return INITIAL_CATEGORIES;
+    const seed = loadSeedCategories();
+    saveCategories(seed);
+    return seed;
   }
   try {
     const raw = fs.readFileSync(CATEGORIES_FILE, 'utf8');
@@ -35,10 +51,11 @@ function loadCategories() {
       return data;
     }
   } catch (e) {
-    console.error('Erro ao ler categorias, restaurando padrão:', e);
+    console.error('Erro ao ler categorias, restaurando seed:', e);
   }
-  saveCategories(INITIAL_CATEGORIES);
-  return INITIAL_CATEGORIES;
+  const seed = loadSeedCategories();
+  saveCategories(seed);
+  return seed;
 }
 
 function saveCategories(cats) {
@@ -61,6 +78,8 @@ function saveMessages(msgs) {
   fs.writeFileSync(MESSAGES_FILE, JSON.stringify(msgs, null, 2), 'utf8');
 }
 
+// CATEGORY_RANGES estático — usado como fallback quando a categoria não tem range definido no BD.
+// Não é a fonte primária! Use o Gestão de Categorias no Admin para configurar as faixas.
 const CATEGORY_RANGES = {
   'combos': { min: 1, max: 49 },
   'bonnadodia': { min: 50, max: 99 },

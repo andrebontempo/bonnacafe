@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "combos",
+    "name": "Combos Especiais",
+    "range": "001 - 049",
+    "order": 1,
+    "active": true
+  },
+  {
+    "slug": "bonnadodia",
+    "name": "Bonna do Dia",
+    "range": "050 - 099",
+    "order": 2,
+    "active": true
+  },
+  {
+    "slug": "cafes-quentes",
+    "name": "Cafés & Bebidas Quentes",
+    "range": "100 - 149",
+    "order": 3,
+    "active": true
+  },
+  {
+    "slug": "bebidas-geladas",
+    "name": "Sucos, Shakes & Bebidas Geladas",
+    "range": "150 - 199",
+    "order": 4,
+    "active": true
+  },
+  {
+    "slug": "pao-queijo",
+    "name": "Tradição Mineira & Pão de Queijo",
+    "range": "200 - 249",
+    "order": 5,
+    "active": true
+  },
+  {
+    "slug": "salgados",
+    "name": "Salgados Assados & Folheados",
+    "range": "250 - 299",
+    "order": 6,
+    "active": true
+  },
+  {
+    "slug": "sanduiches",
+    "name": "Sanduíches & Pão na Chapa",
+    "range": "300 - 349",
+    "order": 7,
+    "active": true
+  },
+  {
+    "slug": "tapiocas-cuscuz",
+    "name": "Tapiocas Artesanais & Cuscuz",
+    "range": "350 - 399",
+    "order": 8,
+    "active": true
+  },
+  {
+    "slug": "refeicoes-omeletes",
+    "name": "Omeletes, Crepiocas & Refeições",
+    "range": "400 - 449",
+    "order": 9,
+    "active": true
+  },
+  {
+    "slug": "sobremesas",
+    "name": "Sobremesas & Doces",
+    "range": "450 - 499",
+    "order": 10,
+    "active": true
+  }
+]

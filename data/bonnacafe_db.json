@@ -263,12 +263,57 @@
     "available": true
   },
   {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
     "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "cafes-quentes",
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "cafes-quentes",
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "cafes-quentes",
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "cafes-quentes",
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
+    "available": true
+  },
+  {
+    "id": "141",
+    "num": 141,
+    "name": "Spaghetti à Bolonhesa",
+    "category": "massas",
+    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
+    "price": 24.5,
     "available": true
   },
   {
@@ -339,6 +384,69 @@
     "num": 142,
     "name": "Lasanha de Presunto e Queijo",
     "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "cafes-quentes",
+    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "142",
+    "num": 142,
+    "name": "Lasanha de Presunto e Queijo",
+    "category": "massas",
     "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
     "price": 26,
     "available": true
@@ -420,6 +528,60 @@
     "num": 143,
     "name": "Lasanha de Frango com Catupiry",
     "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "cafes-quentes",
+    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
+    "price": 26,
+    "available": true
+  },
+  {
+    "id": "143",
+    "num": 143,
+    "name": "Lasanha de Frango com Catupiry",
+    "category": "massas",
     "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
     "price": 26,
     "available": true
