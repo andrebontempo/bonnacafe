@@ -10,15 +10,10 @@
   },
   "keywords": [
     "cafeteria",
-    "express",
-    "sqlite",
+    "node",
     "docker"
   ],
   "author": "Bonna Café",
   "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "sqlite3": "^5.1.7"
-  }
+  "dependencies": {}
 }
