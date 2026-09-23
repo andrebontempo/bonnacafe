@@ -191,69 +191,6 @@
     "available": true
   },
   {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "cafes-quentes",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
-    "id": "141",
-    "num": 141,
-    "name": "Spaghetti à Bolonhesa",
-    "category": "massas",
-    "desc": "Massa al dente com molho de carne moída artesanal e parmesão.",
-    "price": 24.5,
-    "available": true
-  },
-  {
     "id": "142",
     "num": 142,
     "name": "Lasanha de Presunto e Queijo",
@@ -263,136 +200,10 @@
     "available": true
   },
   {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "cafes-quentes",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "142",
-    "num": 142,
-    "name": "Lasanha de Presunto e Queijo",
-    "category": "massas",
-    "desc": "Camadas de massa fresca, presunto, muçarela e molho bolonhesa.",
-    "price": 26,
-    "available": true
-  },
-  {
     "id": "143",
     "num": 143,
     "name": "Lasanha de Frango com Catupiry",
     "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "cafes-quentes",
-    "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
-    "price": 26,
-    "available": true
-  },
-  {
-    "id": "143",
-    "num": 143,
-    "name": "Lasanha de Frango com Catupiry",
-    "category": "massas",
     "desc": "Frango desfiado cremoso, molho branco e cobertura de queijo gratinado.",
     "price": 26,
     "available": true
@@ -851,7 +662,7 @@
     "id": "300",
     "num": 300,
     "name": "Sanduíche Natural de Ovo",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "available": true,
     "price": 10
@@ -860,7 +671,7 @@
     "id": "301",
     "num": 301,
     "name": "Sanduíche Natural Peito de Peru",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "available": true,
     "price": 10
@@ -869,7 +680,7 @@
     "id": "302",
     "num": 302,
     "name": "Sanduíche Natural Frango",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Pão integral, alface, tomate, muçarela, maionese light e requeijão.",
     "available": true,
     "price": 11.5
@@ -878,7 +689,7 @@
     "id": "303",
     "num": 303,
     "name": "Pão com Ovo",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Servido quentinho na chapa.",
     "available": true,
     "price": 8
@@ -887,7 +698,7 @@
     "id": "304",
     "num": 304,
     "name": "Pão com Queijo Muçarela",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Queijo derretido no pão francês ou de forma.",
     "available": true,
     "price": 8
@@ -896,7 +707,7 @@
     "id": "305",
     "num": 305,
     "name": "Pão com Queijo e Presunto (Misto)",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Clássico misto quente.",
     "available": true,
     "price": 8
@@ -905,7 +716,7 @@
     "id": "306",
     "num": 306,
     "name": "Pão com Ovo e Queijo Muçarela",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Reforçado na chapa.",
     "available": true,
     "price": 9
@@ -914,7 +725,7 @@
     "id": "307",
     "num": 307,
     "name": "Pão com Ovo, Queijo e Presunto",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Super reforçado.",
     "available": true,
     "price": 9
@@ -923,7 +734,7 @@
     "id": "308",
     "num": 308,
     "name": "Pão com Ovo e Peito de Peru",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Proteico e saboroso.",
     "available": true,
     "price": 9
@@ -932,7 +743,7 @@
     "id": "309",
     "num": 309,
     "name": "Pão com Queijo e Peito de Peru",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Muçarela derretida com peru.",
     "available": true,
     "price": 9.5
@@ -941,7 +752,7 @@
     "id": "310",
     "num": 310,
     "name": "Pão com Ovo, Queijo e Peito de Peru",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Combinação leve e nutritiva.",
     "available": true,
     "price": 10
@@ -950,7 +761,7 @@
     "id": "311",
     "num": 311,
     "name": "Pão Completo (Ovo, Queijo, Presunto e Peru)",
-    "category": "sanduiches-tapiocas",
+    "category": "sanduiches",
     "desc": "Tudo o que você tem direito!",
     "available": true,
     "price": 11
