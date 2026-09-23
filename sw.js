@@ -1,27 +1,24 @@
 /* ==========================================================================
    Bonna Café - Progressive Web App (PWA) Service Worker
+   v13 — Cache busting nas versões dos assets estáticos
    ========================================================================== */
 
-const CACHE_NAME = 'bonnacafe-v10';
+const CACHE_NAME = 'bonnacafe-v13';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/cardapio.html',
   '/admin.html',
-  '/reajuste.html',
   '/css/bootstrap.css',
-  '/css/style.css?v=9',
-  '/css/precos.css?v=5',
+  '/css/style.css',
+  '/css/precos.css',
   '/fonts/font-awesome/css/font-awesome.css',
   '/js/jquery.1.11.1.js',
   '/js/bootstrap.js',
-  '/js/precos.js?v=5',
-  '/js/main.js?v=8',
+  '/js/main.js',
   '/img/logo_bonna.png',
-  '/img/favicon.ico?v=2',
+  '/img/favicon.ico',
   '/img/apple-touch-icon.png',
-  '/img/icon-192.png',
-  '/img/icon-512.png',
   '/manifest.json'
 ];
 
@@ -53,35 +50,35 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch Event: Stale-While-Revalidate for static assets, Network-First for API calls
+// Fetch Event
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // Skip non-GET requests or chrome-extension requests
+  // Skip non-GET requests
   if (request.method !== 'GET' || !url.protocol.startsWith('http')) {
     return;
   }
 
-  // Network-First strategy for API routes (e.g., /api/items)
+  // NUNCA cachear rotas de API — sempre busca da rede
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response && response.status === 200) {
-            const responseClone = response.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, responseClone));
-          }
-          return response;
-        })
-        .catch(() => {
-          return caches.match(request);
-        })
+      fetch(request).catch(() => {
+        return new Response(JSON.stringify([]), {
+          headers: { 'Content-Type': 'application/json' }
+        });
+      })
     );
     return;
   }
 
-  // Stale-While-Revalidate strategy for static resources
+  // NUNCA cachear precos.js (dados dinâmicos)
+  if (url.pathname.includes('precos.js')) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  // Stale-While-Revalidate para assets estáticos
   event.respondWith(
     caches.match(request).then((cachedResponse) => {
       const fetchPromise = fetch(request)
@@ -92,10 +89,7 @@ self.addEventListener('fetch', (event) => {
           }
           return networkResponse;
         })
-        .catch(() => {
-          // If network fails and no cached response, fallback to offline index or cached match
-          return cachedResponse;
-        });
+        .catch(() => cachedResponse);
 
       return cachedResponse || fetchPromise;
     })
