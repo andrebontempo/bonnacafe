@@ -54,18 +54,18 @@
       gap: 10px;
     }
 
-    .admin-nav-tabs > li {
+    .admin-nav-tabs>li {
       margin-bottom: 0;
     }
 
-    .admin-nav-tabs > li > a {
+    .admin-nav-tabs>li>a {
       font-size: 1.02rem;
       font-weight: 700;
       color: var(--text-dark);
       background: #EFE8DE;
       border-radius: var(--radius-md) var(--radius-md) 0 0;
       padding: 12px 20px;
-      border: 1px solid rgba(0,0,0,0.08);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-bottom: none;
       transition: all 0.25s ease;
       display: flex;
@@ -73,9 +73,9 @@
       gap: 8px;
     }
 
-    .admin-nav-tabs > li.active > a,
-    .admin-nav-tabs > li.active > a:focus,
-    .admin-nav-tabs > li.active > a:hover {
+    .admin-nav-tabs>li.active>a,
+    .admin-nav-tabs>li.active>a:focus,
+    .admin-nav-tabs>li.active>a:hover {
       background: var(--primary) !important;
       color: #FFF !important;
       border-color: var(--primary) !important;
@@ -83,13 +83,13 @@
     }
 
     .admin-nav-tabs .badge {
-      background: rgba(0,0,0,0.15);
+      background: rgba(0, 0, 0, 0.15);
       font-size: 0.82rem;
       padding: 4px 8px;
       border-radius: var(--radius-full);
     }
 
-    .admin-nav-tabs > li.active .badge {
+    .admin-nav-tabs>li.active .badge {
       background: #FFF;
       color: var(--primary);
     }
@@ -99,7 +99,7 @@
       border-radius: var(--radius-md);
       padding: 24px;
       box-shadow: var(--shadow-sm);
-      border: 1px solid rgba(0,0,0,0.06);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       margin-bottom: 30px;
     }
 
@@ -194,29 +194,29 @@
       margin: 0;
     }
 
-    .pagination-controls .pagination > li > a,
-    .pagination-controls .pagination > li > span {
+    .pagination-controls .pagination>li>a,
+    .pagination-controls .pagination>li>span {
       color: var(--primary-hover);
       border-color: #DDD;
       font-weight: 600;
       padding: 6px 12px;
     }
 
-    .pagination-controls .pagination > li > a:hover {
+    .pagination-controls .pagination>li>a:hover {
       background-color: var(--primary-light);
       color: var(--primary-hover);
     }
 
-    .pagination-controls .pagination > .active > a,
-    .pagination-controls .pagination > .active > a:hover,
-    .pagination-controls .pagination > .active > span {
+    .pagination-controls .pagination>.active>a,
+    .pagination-controls .pagination>.active>a:hover,
+    .pagination-controls .pagination>.active>span {
       background-color: var(--primary);
       border-color: var(--primary);
       color: #FFF;
     }
 
-    .pagination-controls .pagination > .disabled > a,
-    .pagination-controls .pagination > .disabled > span {
+    .pagination-controls .pagination>.disabled>a,
+    .pagination-controls .pagination>.disabled>span {
       color: #AAA;
       border-color: #EEE;
     }
@@ -308,25 +308,29 @@
     <!-- Navegação por Abas (4 Abas Reorganizadas) -->
     <ul class="nav nav-tabs admin-nav-tabs" role="tablist">
       <li role="presentation" class="nav-item">
-        <a href="#tab-categorias" class="nav-link active" id="tab-categorias-link" aria-controls="tab-categorias" role="tab" data-bs-toggle="tab" data-bs-target="#tab-categorias">
+        <a href="#tab-categorias" class="nav-link active" id="tab-categorias-link" aria-controls="tab-categorias"
+          role="tab" data-bs-toggle="tab" data-bs-target="#tab-categorias">
           <i class="fa fa-tags"></i> Gestão de Categorias
           <span id="nav-categories-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
       <li role="presentation" class="nav-item">
-        <a href="#tab-itens" class="nav-link" id="tab-itens-link" aria-controls="tab-itens" role="tab" data-bs-toggle="tab" data-bs-target="#tab-itens">
+        <a href="#tab-itens" class="nav-link" id="tab-itens-link" aria-controls="tab-itens" role="tab"
+          data-bs-toggle="tab" data-bs-target="#tab-itens">
           <i class="fa fa-cutlery"></i> Gestão de Itens
           <span id="nav-items-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
       <li role="presentation" class="nav-item">
-        <a href="#tab-precos" class="nav-link" id="tab-precos-link" aria-controls="tab-precos" role="tab" data-bs-toggle="tab" data-bs-target="#tab-precos">
+        <a href="#tab-precos" class="nav-link" id="tab-precos-link" aria-controls="tab-precos" role="tab"
+          data-bs-toggle="tab" data-bs-target="#tab-precos">
           <i class="fa fa-money"></i> Gestão de Preços
           <span id="nav-prices-badge" class="badge bg-secondary">0</span>
         </a>
       </li>
       <li role="presentation" class="nav-item">
-        <a href="#tab-mensagens" class="nav-link" id="tab-mensagens-link" aria-controls="tab-mensagens" role="tab" data-bs-toggle="tab" data-bs-target="#tab-mensagens">
+        <a href="#tab-mensagens" class="nav-link" id="tab-mensagens-link" aria-controls="tab-mensagens" role="tab"
+          data-bs-toggle="tab" data-bs-target="#tab-mensagens">
           <i class="fa fa-envelope"></i> Mensagens do Site
           <span id="nav-messages-badge" class="badge bg-secondary">0</span>
         </a>
@@ -341,18 +345,22 @@
         <div class="panel-card">
           <h3 style="margin-top: 0;">
             <span><i class="fa fa-tags" style="color: var(--primary);"></i> Gestão de Categorias do Cardápio</span>
-            <span id="categories-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 categorias</span>
+            <span id="categories-count-badge" class="badge"
+              style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 categorias</span>
           </h3>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
               <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
-              <input type="text" id="categories-search" class="form-control" placeholder="Buscar categoria..." style="height: 38px;" />
+              <input type="text" id="categories-search" class="form-control" placeholder="Buscar categoria..."
+                style="height: 38px;" />
             </div>
 
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-              <button id="btn-export-pdf" class="btn btn-action-lg" style="background: #2E7D32; color: #FFF; font-weight: 700;">
-                <i class="fa fa-file-pdf-o"></i> Imprimir em PDF
+              <button id="btn-export-pdf" class="btn btn-action-lg"
+                style="background: #2E7D32; color: #FFF; font-weight: 700;">
+                <i class="fa fa-file-pdf-o"></i> Imprimir Cardápio em PDF
               </button>
               <button id="btn-open-category-modal" class="btn btn-success btn-action-lg">
                 <i class="fa fa-plus-circle"></i> Nova Categoria
@@ -384,11 +392,14 @@
       <div role="tabpanel" class="tab-pane fade" id="tab-itens">
         <div class="panel-card">
           <h3 style="margin-top: 0;">
-            <span><i class="fa fa-cutlery" style="color: var(--primary);"></i> Cadastros e Disponibilidade de Itens</span>
-            <span id="items-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+            <span><i class="fa fa-cutlery" style="color: var(--primary);"></i> Cadastros e Disponibilidade de
+              Itens</span>
+            <span id="items-count-badge" class="badge"
+              style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
           </h3>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
               <select id="items-category-filter" class="form-control" style="width: 220px; height: 38px;">
                 <!-- Populado dinamicamente -->
@@ -396,7 +407,8 @@
 
               <div class="input-group" style="width: 240px;">
                 <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
-                <input type="text" id="items-search" class="form-control" placeholder="Buscar nome ou ID..." style="height: 38px;" />
+                <input type="text" id="items-search" class="form-control" placeholder="Buscar nome ou ID..."
+                  style="height: 38px;" />
               </div>
             </div>
 
@@ -442,19 +454,22 @@
 
       <!-- ABA 3: GESTÃO DE PREÇOS -->
       <div role="tabpanel" class="tab-pane fade" id="tab-precos">
-        
+
         <!-- 1. Reajuste Percentual em Massa -->
         <div class="panel-card">
           <h3 style="margin-top: 0;">
-            <span><i class="fa fa-calculator" style="color: var(--primary); font-size: 1.1rem; margin-right: 6px;"></i> 1. Reajuste Percentual em Massa</span>
-            <small class="text-muted" style="font-size: 0.85rem; font-weight: normal;">Aplicação instantânea por categoria</small>
+            <span><i class="fa fa-calculator" style="color: var(--primary); font-size: 1.1rem; margin-right: 6px;"></i>
+              1. Reajuste Percentual em Massa</span>
+            <small class="text-muted" style="font-size: 0.85rem; font-weight: normal;">Aplicação instantânea por
+              categoria</small>
           </h3>
           <div class="row admin-bulk-row">
             <div class="col-12 col-sm-6 col-md-3">
               <div class="form-group">
                 <label><strong>Percentual (%)</strong></label>
                 <div class="input-group">
-                  <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5" value="10" />
+                  <input type="number" id="bulk-percent" class="form-control" placeholder="ex: 10 para +10%" step="0.5"
+                    value="10" />
                   <span class="input-group-text">%</span>
                 </div>
               </div>
@@ -482,7 +497,8 @@
 
             <div class="col-12 col-sm-6 col-md-2">
               <label style="display: block;">&nbsp;</label>
-              <button id="btn-apply-bulk" class="btn btn-success btn-action-lg" style="justify-content: center; width: 100%;">
+              <button id="btn-apply-bulk" class="btn btn-success btn-action-lg"
+                style="justify-content: center; width: 100%;">
                 <i class="fa fa-calculator"></i> Aplicar %
               </button>
             </div>
@@ -492,11 +508,14 @@
         <!-- 2. Edição Direta de Preços & PDF -->
         <div class="panel-card">
           <h3 style="margin-top: 0;">
-            <span><i class="fa fa-money" style="color: var(--primary); font-size: 1.1rem; margin-right: 6px;"></i> 2. Edição Direta de Preços por Item</span>
-            <span id="prices-count-badge" class="badge" style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
+            <span><i class="fa fa-money" style="color: var(--primary); font-size: 1.1rem; margin-right: 6px;"></i> 2.
+              Edição Direta de Preços por Item</span>
+            <span id="prices-count-badge" class="badge"
+              style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
           </h3>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
               <select id="prices-category-filter" class="form-control" style="width: 220px; height: 38px;">
                 <!-- Populado dinamicamente -->
@@ -504,7 +523,8 @@
 
               <div class="input-group" style="width: 240px;">
                 <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
-                <input type="text" id="prices-search" class="form-control" placeholder="Buscar nome ou ID..." style="height: 38px;" />
+                <input type="text" id="prices-search" class="form-control" placeholder="Buscar nome ou ID..."
+                  style="height: 38px;" />
               </div>
             </div>
 
@@ -547,13 +567,16 @@
         <div class="panel-card">
           <h3 style="margin-top: 0;">
             <span><i class="fa fa-envelope" style="color: #2E7D32;"></i> Mensagens Enviadas pelo Contato</span>
-            <span id="messages-count-badge" class="badge" style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
+            <span id="messages-count-badge" class="badge"
+              style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
           </h3>
 
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
               <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
-              <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..." style="height: 38px;" />
+              <input type="text" id="messages-search" class="form-control" placeholder="Buscar nas mensagens..."
+                style="height: 38px;" />
             </div>
 
             <div>
@@ -589,7 +612,8 @@
   <!-- Modal de Adicionar / Editar Item -->
   <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="itemModalLabel">
     <div class="modal-dialog modal-lg" role="document" style="max-width: 720px;">
-      <div class="modal-content" style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+      <div class="modal-content"
+        style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
         <div class="modal-header d-flex justify-content-between align-items-center">
           <h4 class="modal-title" id="itemModalLabel" style="margin: 0;">
             <i class="fa fa-plus-circle" style="color: var(--primary);"></i> Adicionar Novo Item ao Catálogo
@@ -599,12 +623,13 @@
         <div class="modal-body" style="padding: 24px; background: #FFF;">
           <form id="itemForm">
             <input type="hidden" id="modal-item-index" value="-1" />
-            
+
             <div class="row">
               <div class="col-sm-3 col-12">
                 <div class="mb-3">
                   <label for="modal-item-id">Código / ID</label>
-                  <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 141" required style="font-weight: 700; text-align: center;" />
+                  <input type="text" id="modal-item-id" class="form-control" placeholder="ex: 141" required
+                    style="font-weight: 700; text-align: center;" />
                 </div>
               </div>
               <div class="col-sm-5 col-12">
@@ -630,7 +655,8 @@
               <div class="col-sm-8 col-12">
                 <div class="mb-3">
                   <label for="modal-item-name">Nome do Produto</label>
-                  <input type="text" id="modal-item-name" class="form-control" placeholder="ex: Lasanha de Frango com Catupiry" required />
+                  <input type="text" id="modal-item-name" class="form-control"
+                    placeholder="ex: Lasanha de Frango com Catupiry" required />
                 </div>
               </div>
               <div class="col-sm-4 col-12">
@@ -638,7 +664,8 @@
                   <label for="modal-item-price">Preço (R$)</label>
                   <div class="input-group">
                     <span class="input-group-text" style="font-weight: 700;">R$</span>
-                    <input type="text" inputmode="decimal" id="modal-item-price" class="form-control" placeholder="0,00" required style="font-weight: 700; text-align: right;" />
+                    <input type="text" inputmode="decimal" id="modal-item-price" class="form-control" placeholder="0,00"
+                      required style="font-weight: 700; text-align: right;" />
                   </div>
                 </div>
               </div>
@@ -646,7 +673,8 @@
 
             <div class="mb-3">
               <label for="modal-item-desc">Descrição do Produto</label>
-              <textarea id="modal-item-desc" class="form-control" rows="2" placeholder="ex: Frango desfiado cremoso, molho branco e cobertura de queijo gratinado."></textarea>
+              <textarea id="modal-item-desc" class="form-control" rows="2"
+                placeholder="ex: Frango desfiado cremoso, molho branco e cobertura de queijo gratinado."></textarea>
             </div>
 
             <div class="mb-3">
@@ -659,9 +687,12 @@
 
           </form>
         </div>
-        <div class="modal-footer" style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
-          <button type="button" id="btn-save-modal-item" class="btn btn-custom" style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
+        <div class="modal-footer"
+          style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
+          <button type="button" id="btn-save-modal-item" class="btn btn-custom"
+            style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
             <i class="fa fa-check"></i> Salvar Item
           </button>
         </div>
@@ -672,8 +703,10 @@
   <!-- Modal de Adicionar / Editar Categoria -->
   <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel">
     <div class="modal-dialog" role="document" style="max-width: 550px;">
-      <div class="modal-content" style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
-        <div class="modal-header d-flex justify-content-between align-items-center" style="background: var(--dark-base) !important; padding: 18px 24px;">
+      <div class="modal-content"
+        style="border-radius: var(--radius-md); overflow: hidden; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
+        <div class="modal-header d-flex justify-content-between align-items-center"
+          style="background: var(--dark-base) !important; padding: 18px 24px;">
           <h4 class="modal-title" id="categoryModalLabel" style="color: #FFF !important; font-weight: 700; margin: 0;">
             <i class="fa fa-tags" style="color: var(--primary);"></i> Cadastrar Nova Categoria
           </h4>
@@ -685,12 +718,14 @@
 
             <div class="mb-3">
               <label for="modal-category-name">Nome da Categoria</label>
-              <input type="text" id="modal-category-name" class="form-control" placeholder="ex: Combos Especiais" required />
+              <input type="text" id="modal-category-name" class="form-control" placeholder="ex: Combos Especiais"
+                required />
             </div>
 
             <div class="mb-3">
               <label for="modal-category-slug">Slug / Identificador (auto-gerado)</label>
-              <input type="text" id="modal-category-slug" class="form-control" placeholder="ex: combos" style="font-weight: 700;" />
+              <input type="text" id="modal-category-slug" class="form-control" placeholder="ex: combos"
+                style="font-weight: 700;" />
             </div>
 
             <div class="row">
@@ -703,7 +738,8 @@
               <div class="col-sm-6 col-12">
                 <div class="mb-3">
                   <label for="modal-category-order">Ordem de Exibição</label>
-                  <input type="number" id="modal-category-order" class="form-control" placeholder="1" min="1" required style="font-weight: 700; text-align: center;" />
+                  <input type="number" id="modal-category-order" class="form-control" placeholder="1" min="1" required
+                    style="font-weight: 700; text-align: center;" />
                 </div>
               </div>
             </div>
@@ -717,9 +753,12 @@
             </div>
           </form>
         </div>
-        <div class="modal-footer" style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
-          <button type="button" id="btn-save-modal-category" class="btn btn-custom" style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
+        <div class="modal-footer"
+          style="background: #F8F5F0; border-top: 1px solid #EFE8DE; padding: 16px 24px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            style="font-weight: 600; padding: 8px 18px;">Cancelar</button>
+          <button type="button" id="btn-save-modal-category" class="btn btn-custom"
+            style="background: var(--primary); font-weight: 700; padding: 8px 22px;">
             <i class="fa fa-check"></i> Salvar Categoria
           </button>
         </div>
@@ -731,7 +770,8 @@
   <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <script type="text/javascript" src="js/precos.js?v=12"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <script type="text/javascript">
     // Estados Globais
@@ -771,7 +811,7 @@
 
     function sortCatalogItems(items) {
       if (!items || !Array.isArray(items)) return items;
-      return items.sort(function(a, b) {
+      return items.sort(function (a, b) {
         var numA = parseInt(a.id || a.num || 0, 10);
         var numB = parseInt(b.id || b.num || 0, 10);
         if (numA !== numB) return numA - numB;
@@ -788,7 +828,7 @@
 
     // --- ABA 1: GESTÃO DE CATEGORIAS ---
     function loadCategoriesData() {
-      window.BonnaMenu.getCategoriesAsync(function(categories) {
+      window.BonnaMenu.getCategoriesAsync(function (categories) {
         currentCategories = categories || window.BonnaMenu.DEFAULT_CATEGORIES;
         $('#nav-categories-badge').text(currentCategories.length);
         $('#categories-count-badge').text(currentCategories.length + ' categorias');
@@ -803,7 +843,7 @@
 
       var searchQuery = $('#categories-search').val() ? $('#categories-search').val().toLowerCase().trim() : '';
 
-      var filtered = currentCategories.filter(function(cat) {
+      var filtered = currentCategories.filter(function (cat) {
         if (!cat) return false;
         if (searchQuery) {
           var textMatch = ((cat.slug || '') + ' ' + (cat.name || '') + ' ' + (cat.range || '')).toLowerCase();
@@ -817,7 +857,7 @@
         return;
       }
 
-      filtered.forEach(function(cat, index) {
+      filtered.forEach(function (cat, index) {
         var tr = $('<tr></tr>');
         tr.append('<td><span class="badge-cat" style="background: #EFE8DE; color: #5D4037; font-family: monospace;">' + (cat.slug || '') + '</span></td>');
         tr.append('<td><strong>' + (cat.name || '') + '</strong></td>');
@@ -829,10 +869,10 @@
         var statusTd = $('<td class="text-center"></td>');
         var toggleBtn = $('<button class="btn btn-xs ' + (isActive ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 12px;">' +
           (isActive ? '🟢 Ativa' : '🔴 Inativa') +
-        '</button>');
-        toggleBtn.click(function() {
+          '</button>');
+        toggleBtn.click(function () {
           cat.active = !isActive;
-          window.BonnaMenu.saveCategoriesAsync(currentCategories, function() {
+          window.BonnaMenu.saveCategoriesAsync(currentCategories, function () {
             renderCategoriesTable();
           });
         });
@@ -844,10 +884,10 @@
         var btnGroup = $('<div class="action-btn-group"></div>');
 
         var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar Categoria"><i class="fa fa-pencil"></i></button>');
-        editBtn.click(function() { openEditCategoryModal(cat); });
+        editBtn.click(function () { openEditCategoryModal(cat); });
 
         var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir Categoria"><i class="fa fa-trash"></i></button>');
-        delBtn.click(function() { deleteCategoryItem(cat.slug); });
+        delBtn.click(function () { deleteCategoryItem(cat.slug); });
 
         btnGroup.append(editBtn).append(delBtn);
         actionTd.append(btnGroup);
@@ -859,7 +899,7 @@
 
     function updateCategoryDropdowns() {
       var selectOptions = '';
-      currentCategories.forEach(function(cat) {
+      currentCategories.forEach(function (cat) {
         if (cat.active !== false) {
           var rangeText = cat.range ? ' (' + cat.range + ')' : '';
           selectOptions += '<option value="' + cat.slug + '">' + cat.name + rangeText + '</option>';
@@ -940,13 +980,13 @@
       var active = $('#modal-category-active').val() === 'true';
 
       if (!origSlug) {
-        if (currentCategories.some(function(c) { return c.slug === slug; })) {
+        if (currentCategories.some(function (c) { return c.slug === slug; })) {
           alert('Já existe uma categoria com o identificador/slug "' + slug + '". Escolha um nome diferente.');
           return;
         }
         currentCategories.push({ slug: slug, name: name, range: range, order: order, active: active });
       } else {
-        var catObj = currentCategories.find(function(c) { return c.slug === origSlug; });
+        var catObj = currentCategories.find(function (c) { return c.slug === origSlug; });
         if (catObj) {
           catObj.name = name;
           catObj.range = range;
@@ -955,7 +995,7 @@
         }
       }
 
-      window.BonnaMenu.saveCategoriesAsync(currentCategories, function(updated) {
+      window.BonnaMenu.saveCategoriesAsync(currentCategories, function (updated) {
         currentCategories = updated;
         renderCategoriesTable();
         updateCategoryDropdowns();
@@ -966,8 +1006,8 @@
 
     function deleteCategoryItem(slug) {
       if (confirm('Tem certeza que deseja excluir a categoria "' + slug + '"?')) {
-        currentCategories = currentCategories.filter(function(c) { return c.slug !== slug; });
-        window.BonnaMenu.saveCategoriesAsync(currentCategories, function(updated) {
+        currentCategories = currentCategories.filter(function (c) { return c.slug !== slug; });
+        window.BonnaMenu.saveCategoriesAsync(currentCategories, function (updated) {
           currentCategories = updated;
           renderCategoriesTable();
           updateCategoryDropdowns();
@@ -979,7 +1019,7 @@
 
     // --- ABA 2 & 3: GESTÃO DE ITENS & GESTÃO DE PREÇOS ---
     function loadItemsData() {
-      window.BonnaMenu.getItemsAsync(function(items) {
+      window.BonnaMenu.getItemsAsync(function (items) {
         if (!items || !Array.isArray(items) || items.length === 0) {
           items = window.BonnaMenu.getItems();
         }
@@ -1001,7 +1041,7 @@
       var searchQuery = $('#items-search').val() ? $('#items-search').val().toLowerCase().trim() : '';
       var catFilter = $('#items-category-filter').val() || 'all';
 
-      var filtered = currentWorkingItems.filter(function(item) {
+      var filtered = currentWorkingItems.filter(function (item) {
         if (!item) return false;
         if (catFilter !== 'all' && item.category !== catFilter) return false;
         if (searchQuery) {
@@ -1024,7 +1064,7 @@
       if (pageItems.length === 0) {
         tbody.append('<tr><td colspan="6" class="text-center text-muted" style="padding: 24px;">Nenhum item encontrado.</td></tr>');
       } else {
-        pageItems.forEach(function(item) {
+        pageItems.forEach(function (item) {
           var originalIndex = currentWorkingItems.indexOf(item);
           var tr = $('<tr></tr>');
           tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
@@ -1037,15 +1077,15 @@
           var toggleBtn = $('<button class="btn btn-xs ' + (isAvail ? 'btn-success' : 'btn-danger') + '" style="font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 12px;">' +
             '<i class="fa ' + (isAvail ? 'fa-check-circle' : 'fa-times-circle') + '"></i> ' +
             (isAvail ? 'Hoje temos' : 'Em falta') +
-          '</button>');
-          toggleBtn.click(function() {
+            '</button>');
+          toggleBtn.click(function () {
             var newStatus = !(item.available !== false);
             item.available = newStatus;
             renderItemsTable();
             if (typeof renderPricesTable === 'function') renderPricesTable();
 
             // Persiste a alteração imediatamente no servidor (banco de dados)
-            window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+            window.BonnaMenu.saveCatalog(currentWorkingItems, function (updatedItems) {
               if (Array.isArray(updatedItems)) {
                 currentWorkingItems = sortCatalogItems(updatedItems);
               }
@@ -1062,10 +1102,10 @@
           var btnGroup = $('<div class="action-btn-group"></div>');
 
           var editBtn = $('<button class="btn btn-xs btn-primary" title="Editar Item"><i class="fa fa-pencil"></i></button>');
-          editBtn.click(function() { openEditModal(originalIndex); });
+          editBtn.click(function () { openEditModal(originalIndex); });
 
           var delBtn = $('<button class="btn btn-xs btn-danger" title="Excluir Item"><i class="fa fa-trash"></i></button>');
-          delBtn.click(function() { deleteItem(originalIndex); });
+          delBtn.click(function () { deleteItem(originalIndex); });
 
           btnGroup.append(editBtn).append(delBtn);
           actionTd.append(btnGroup);
@@ -1090,7 +1130,7 @@
 
       var prevLi = $('<li class="' + (itemsCurrentPage === 1 ? 'disabled' : '') + '"><a href="#">&laquo; Anterior</a></li>');
       if (itemsCurrentPage > 1) {
-        prevLi.find('a').click(function(e) { e.preventDefault(); itemsCurrentPage--; renderItemsTable(); });
+        prevLi.find('a').click(function (e) { e.preventDefault(); itemsCurrentPage--; renderItemsTable(); });
       }
       ul.append(prevLi);
 
@@ -1102,16 +1142,16 @@
       }
 
       for (var p = startPage; p <= endPage; p++) {
-        (function(page) {
+        (function (page) {
           var pageLi = $('<li class="' + (page === itemsCurrentPage ? 'active' : '') + '"><a href="#">' + page + '</a></li>');
-          pageLi.find('a').click(function(e) { e.preventDefault(); itemsCurrentPage = page; renderItemsTable(); });
+          pageLi.find('a').click(function (e) { e.preventDefault(); itemsCurrentPage = page; renderItemsTable(); });
           ul.append(pageLi);
         })(p);
       }
 
       var nextLi = $('<li class="' + (itemsCurrentPage === totalPages ? 'disabled' : '') + '"><a href="#">Próximo &raquo;</a></li>');
       if (itemsCurrentPage < totalPages) {
-        nextLi.find('a').click(function(e) { e.preventDefault(); itemsCurrentPage++; renderItemsTable(); });
+        nextLi.find('a').click(function (e) { e.preventDefault(); itemsCurrentPage++; renderItemsTable(); });
       }
       ul.append(nextLi);
     }
@@ -1125,7 +1165,7 @@
       var searchQuery = $('#prices-search').val() ? $('#prices-search').val().toLowerCase().trim() : '';
       var catFilter = $('#prices-category-filter').val() || 'all';
 
-      var filtered = currentWorkingItems.filter(function(item) {
+      var filtered = currentWorkingItems.filter(function (item) {
         if (!item) return false;
         if (catFilter !== 'all' && item.category !== catFilter) return false;
         if (searchQuery) {
@@ -1148,7 +1188,7 @@
       if (pageItems.length === 0) {
         tbody.append('<tr><td colspan="4" class="text-center text-muted" style="padding: 24px;">Nenhum item encontrado.</td></tr>');
       } else {
-        pageItems.forEach(function(item) {
+        pageItems.forEach(function (item) {
           var tr = $('<tr></tr>');
           tr.append('<td><strong>' + (item.id || '') + '</strong></td>');
           tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
@@ -1167,7 +1207,7 @@
               // Formata visualmente o valor no próprio campo com 2 casas decimais usando vírgula (ex: 15 -> 15,00)
               inputEl.val(newVal.toFixed(2).replace('.', ','));
 
-              var target = currentWorkingItems.find(function(it) { return it && String(it.id) === itemId; });
+              var target = currentWorkingItems.find(function (it) { return it && String(it.id) === itemId; });
               if (target) {
                 var priceChanged = (target.price !== newVal);
                 target.price = newVal;
@@ -1180,7 +1220,7 @@
                     'box-shadow': '0 0 8px rgba(46, 125, 50, 0.4)',
                     'transition': 'all 0.3s'
                   });
-                  setTimeout(function() {
+                  setTimeout(function () {
                     inputEl.css({
                       'border-color': '',
                       'background-color': '',
@@ -1189,7 +1229,7 @@
                   }, 1200);
 
                   // Salva instantaneamente no servidor (banco de dados) e atualiza o cardápio
-                  window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+                  window.BonnaMenu.saveCatalog(currentWorkingItems, function (updatedItems) {
                     if (Array.isArray(updatedItems)) {
                       currentWorkingItems = sortCatalogItems(updatedItems);
                     }
@@ -1200,11 +1240,11 @@
             }
           }
 
-          input.on('change blur', function() {
+          input.on('change blur', function () {
             savePriceField($(this));
           });
 
-          input.on('keydown', function(e) {
+          input.on('keydown', function (e) {
             if (e.which === 13 || e.keyCode === 13) {
               e.preventDefault();
               savePriceField($(this));
@@ -1233,7 +1273,7 @@
 
       var prevLi = $('<li class="' + (pricesCurrentPage === 1 ? 'disabled' : '') + '"><a href="#">&laquo; Anterior</a></li>');
       if (pricesCurrentPage > 1) {
-        prevLi.find('a').click(function(e) { e.preventDefault(); pricesCurrentPage--; renderPricesTable(); });
+        prevLi.find('a').click(function (e) { e.preventDefault(); pricesCurrentPage--; renderPricesTable(); });
       }
       ul.append(prevLi);
 
@@ -1245,16 +1285,16 @@
       }
 
       for (var p = startPage; p <= endPage; p++) {
-        (function(page) {
+        (function (page) {
           var pageLi = $('<li class="' + (page === pricesCurrentPage ? 'active' : '') + '"><a href="#">' + page + '</a></li>');
-          pageLi.find('a').click(function(e) { e.preventDefault(); pricesCurrentPage = page; renderPricesTable(); });
+          pageLi.find('a').click(function (e) { e.preventDefault(); pricesCurrentPage = page; renderPricesTable(); });
           ul.append(pageLi);
         })(p);
       }
 
       var nextLi = $('<li class="' + (pricesCurrentPage === totalPages ? 'disabled' : '') + '"><a href="#">Próximo &raquo;</a></li>');
       if (pricesCurrentPage < totalPages) {
-        nextLi.find('a').click(function(e) { e.preventDefault(); pricesCurrentPage++; renderPricesTable(); });
+        nextLi.find('a').click(function (e) { e.preventDefault(); pricesCurrentPage++; renderPricesTable(); });
       }
       ul.append(nextLi);
     }
@@ -1268,7 +1308,7 @@
       for (var i = 0; i < currentCategories.length; i++) {
         var cat = currentCategories[i];
         if (cat && cat.range) {
-          var parts = String(cat.range).split('-').map(function(s) { return parseInt(s.trim(), 10); });
+          var parts = String(cat.range).split('-').map(function (s) { return parseInt(s.trim(), 10); });
           if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
             if (num >= parts[0] && num <= parts[1]) {
               return cat.slug;
@@ -1326,7 +1366,7 @@
     }
 
     // Auto-formatação com vírgula e 2 casas decimais ao sair do campo de preço da modal
-    $(document).off('blur', '#modal-item-price').on('blur', '#modal-item-price', function() {
+    $(document).off('blur', '#modal-item-price').on('blur', '#modal-item-price', function () {
       var rawVal = $(this).val().replace(',', '.').trim();
       var num = parseFloat(rawVal);
       if (!isNaN(num) && num >= 0) {
@@ -1365,7 +1405,7 @@
       };
 
       if (index === -1) {
-        window.BonnaMenu.createItem(itemObj, function(updatedItems) {
+        window.BonnaMenu.createItem(itemObj, function (updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
           hideModal('itemModal');
           renderItemsTable();
@@ -1375,7 +1415,7 @@
       } else {
         var originalItem = currentWorkingItems[index];
         var targetId = originalItem ? originalItem.id : formattedId;
-        window.BonnaMenu.updateItem(targetId, itemObj, function(updatedItems) {
+        window.BonnaMenu.updateItem(targetId, itemObj, function (updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
           hideModal('itemModal');
           renderItemsTable();
@@ -1390,7 +1430,7 @@
       if (!item) return;
 
       if (confirm('Tem certeza que deseja excluir o produto "' + item.name + '" (ID: ' + item.id + ')?')) {
-        window.BonnaMenu.deleteItem(item.id, function(updatedItems) {
+        window.BonnaMenu.deleteItem(item.id, function (updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
           renderItemsTable();
           renderPricesTable();
@@ -1408,7 +1448,7 @@
           type: 'GET',
           dataType: 'json',
           timeout: 2500,
-          success: function(data) {
+          success: function (data) {
             if (Array.isArray(data)) {
               currentMessages = data;
               $('#nav-messages-badge').text(currentMessages.length);
@@ -1425,7 +1465,7 @@
 
       var searchQuery = $('#messages-search').val() ? $('#messages-search').val().toLowerCase().trim() : '';
 
-      var filtered = currentMessages.filter(function(m) {
+      var filtered = currentMessages.filter(function (m) {
         if (!m) return false;
         if (searchQuery) {
           var textMatch = ((m.name || '') + ' ' + (m.email || '') + ' ' + (m.message || '') + ' ' + (m.date || '')).toLowerCase();
@@ -1449,7 +1489,7 @@
       if (pageMsgs.length === 0) {
         container.html('<p class="text-muted text-center" style="padding: 40px 0; font-style: italic;">Nenhuma mensagem encontrada.</p>');
       } else {
-        pageMsgs.forEach(function(m) {
+        pageMsgs.forEach(function (m) {
           var contactStr = String(m.phone || m.email || '').trim();
           if (contactStr === 'undefined' || contactStr === 'null') contactStr = '';
           var contactInfo = '';
@@ -1458,22 +1498,22 @@
           }
           var card = $('<div style="background: #FAF6F0; border-left: 4px solid var(--primary); padding: 14px 18px; border-radius: 8px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);">' +
             '<div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">' +
-              '<strong style="font-size: 1.05rem; color: var(--text-dark);"><i class="fa fa-user" style="color: var(--primary);"></i> ' + (m.name || 'Anônimo') + contactInfo + '</strong>' +
-              '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
+            '<strong style="font-size: 1.05rem; color: var(--text-dark);"><i class="fa fa-user" style="color: var(--primary);"></i> ' + (m.name || 'Anônimo') + contactInfo + '</strong>' +
+            '<small class="text-muted"><i class="fa fa-clock-o"></i> ' + (m.date || '') + '</small>' +
             '</div>' +
             '<p style="margin: 0; color: var(--text-dark); font-size: 0.95rem; white-space: pre-wrap; line-height: 1.5;">' + (m.message || '') + '</p>' +
             '<div style="text-align: right; margin-top: 8px;">' +
-              '<button class="btn btn-xs btn-danger btn-del-msg" data-id="' + m.id + '"><i class="fa fa-trash"></i> Excluir Mensagem</button>' +
+            '<button class="btn btn-xs btn-danger btn-del-msg" data-id="' + m.id + '"><i class="fa fa-trash"></i> Excluir Mensagem</button>' +
             '</div>' +
-          '</div>');
+            '</div>');
 
-          card.find('.btn-del-msg').click(function() {
+          card.find('.btn-del-msg').click(function () {
             var id = $(this).attr('data-id');
             if (confirm('Excluir esta mensagem permanentemente?')) {
               $.ajax({
                 url: '/api/messages/' + id,
                 type: 'DELETE',
-                success: function() { loadSiteMessages(); }
+                success: function () { loadSiteMessages(); }
               });
             }
           });
@@ -1496,7 +1536,7 @@
 
       var prevLi = $('<li class="' + (messagesCurrentPage === 1 ? 'disabled' : '') + '"><a href="#">&laquo; Anterior</a></li>');
       if (messagesCurrentPage > 1) {
-        prevLi.find('a').click(function(e) { e.preventDefault(); messagesCurrentPage--; renderMessages(); });
+        prevLi.find('a').click(function (e) { e.preventDefault(); messagesCurrentPage--; renderMessages(); });
       }
       ul.append(prevLi);
 
@@ -1508,16 +1548,16 @@
       }
 
       for (var p = startPage; p <= endPage; p++) {
-        (function(page) {
+        (function (page) {
           var pageLi = $('<li class="' + (page === messagesCurrentPage ? 'active' : '') + '"><a href="#">' + page + '</a></li>');
-          pageLi.find('a').click(function(e) { e.preventDefault(); messagesCurrentPage = page; renderMessages(); });
+          pageLi.find('a').click(function (e) { e.preventDefault(); messagesCurrentPage = page; renderMessages(); });
           ul.append(pageLi);
         })(p);
       }
 
       var nextLi = $('<li class="' + (messagesCurrentPage === totalPages ? 'disabled' : '') + '"><a href="#">Próximo &raquo;</a></li>');
       if (messagesCurrentPage < totalPages) {
-        nextLi.find('a').click(function(e) { e.preventDefault(); messagesCurrentPage++; renderMessages(); });
+        nextLi.find('a').click(function (e) { e.preventDefault(); messagesCurrentPage++; renderMessages(); });
       }
       ul.append(nextLi);
     }
@@ -1561,10 +1601,10 @@
 
       items = sortCatalogItems(JSON.parse(JSON.stringify(items)));
 
-      getLogoBase64(function(logoSrc) {
+      getLogoBase64(function (logoSrc) {
         var categoryTitles = {};
         var categoryOrder = [];
-        (categories || []).forEach(function(c) {
+        (categories || []).forEach(function (c) {
           if (c && c.active !== false) {
             categoryTitles[c.slug] = { name: c.name, range: c.range || '' };
             categoryOrder.push(c.slug);
@@ -1574,14 +1614,14 @@
         var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: \'Segoe UI\', Arial, sans-serif; padding: 20px 20px; box-sizing: border-box; width: 700px; margin: 0 auto;">';
 
         html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px;">' +
-                  '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 130px; max-width: 440px; display: block; margin: 0 auto 10px auto;" />' +
-                  '<h1 style="margin: 0; color: #3D2B1F; font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial & Tabela de Preços</h1>' +
-                  '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
-                  '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
-                '</div>';
+          '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 130px; max-width: 440px; display: block; margin: 0 auto 10px auto;" />' +
+          '<h1 style="margin: 0; color: #3D2B1F; font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial & Tabela de Preços</h1>' +
+          '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
+          '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
+          '</div>';
 
-        categoryOrder.forEach(function(catKey) {
-          var catItems = items.filter(function(it) { return it && it.category === catKey; });
+        categoryOrder.forEach(function (catKey) {
+          var catItems = items.filter(function (it) { return it && it.category === catKey; });
           if (catItems.length === 0) return;
 
           var catMeta = categoryTitles[catKey] || { name: catKey.toUpperCase(), range: '' };
@@ -1591,22 +1631,22 @@
 
           function renderColumn(colItems) {
             var colHtml = '';
-            colItems.forEach(function(it) {
+            colItems.forEach(function (it) {
               var formattedPrice = window.BonnaMenu.formatPrice(it.price);
               colHtml += '<div style="margin-bottom: 7px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid;">' +
-                           '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
-                             '<tr>' +
-                               '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
-                                 '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + (it.id || '') + '</span>' +
-                                 '<strong style="color: #2B1E16 !important; font-size: 11px;">' + (it.name || '') + '</strong>' +
-                               '</td>' +
-                               '<td style="text-align: right; vertical-align: bottom; width: 75px; white-space: nowrap;">' +
-                                 '<strong style="color: #2E7D32 !important; font-size: 11px; white-space: nowrap;">' + formattedPrice + '</strong>' +
-                               '</td>' +
-                             '</tr>' +
-                           '</table>' +
-                           (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 9px; color: #666; line-height: 1.2;">' + it.desc + '</p>' : '') +
-                         '</div>';
+                '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
+                '<tr>' +
+                '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
+                '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + (it.id || '') + '</span>' +
+                '<strong style="color: #2B1E16 !important; font-size: 11px;">' + (it.name || '') + '</strong>' +
+                '</td>' +
+                '<td style="text-align: right; vertical-align: bottom; width: 75px; white-space: nowrap;">' +
+                '<strong style="color: #2E7D32 !important; font-size: 11px; white-space: nowrap;">' + formattedPrice + '</strong>' +
+                '</td>' +
+                '</tr>' +
+                '</table>' +
+                (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 9px; color: #666; line-height: 1.2;">' + it.desc + '</p>' : '') +
+                '</div>';
             });
             return colHtml;
           }
@@ -1614,27 +1654,27 @@
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
           html += '<div style="margin-bottom: 20px; page-break-inside: avoid;">' +
-                    '<div style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px;">' +
-                      '<table style="width: 100%; border-collapse: collapse;">' +
-                        '<tr>' +
-                          '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
-                          headerRangeHtml +
-                        '</tr>' +
-                      '</table>' +
-                    '</div>' +
-                    '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
-                      '<tr>' +
-                        '<td style="width: 48.5%; vertical-align: top;">' + renderColumn(col1) + '</td>' +
-                        '<td style="width: 3%;"></td>' +
-                        '<td style="width: 48.5%; vertical-align: top;">' + renderColumn(col2) + '</td>' +
-                      '</tr>' +
-                    '</table>' +
-                  '</div>';
+            '<div style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px;">' +
+            '<table style="width: 100%; border-collapse: collapse;">' +
+            '<tr>' +
+            '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
+            headerRangeHtml +
+            '</tr>' +
+            '</table>' +
+            '</div>' +
+            '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
+            '<tr>' +
+            '<td style="width: 48.5%; vertical-align: top;">' + renderColumn(col1) + '</td>' +
+            '<td style="width: 3%;"></td>' +
+            '<td style="width: 48.5%; vertical-align: top;">' + renderColumn(col2) + '</td>' +
+            '</tr>' +
+            '</table>' +
+            '</div>';
         });
 
         html += '<div style="margin-top: 25px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 9.5px; color: #777;">' +
-                  'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
-                '</div>';
+          'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
+          '</div>';
         html += '</div>';
 
         var tempDiv = document.createElement('div');
@@ -1670,11 +1710,11 @@
     }
 
     // --- INICIALIZAÇÃO ---
-    $(document).ready(function() {
+    $(document).ready(function () {
       loadAllData();
 
       // Auto-geração do slug ao digitar o nome da categoria
-      $('#modal-category-name').on('keyup input', function() {
+      $('#modal-category-name').on('keyup input', function () {
         if (!$('#modal-category-original-slug').val()) {
           var val = $(this).val().toLowerCase().trim().replace(/[^a-z0-9\-]/g, '-').replace(/-+/g, '-');
           $('#modal-category-slug').val(val);
@@ -1682,20 +1722,20 @@
       });
 
       // Busca na Tabela de Categorias
-      $('#categories-search').on('keyup input', function() {
+      $('#categories-search').on('keyup input', function () {
         renderCategoriesTable();
       });
 
-      $('#btn-open-category-modal').click(function() { openAddCategoryModal(); });
-      $('#btn-save-modal-category').click(function() { saveModalCategory(); });
+      $('#btn-open-category-modal').click(function () { openAddCategoryModal(); });
+      $('#btn-save-modal-category').click(function () { saveModalCategory(); });
 
       // Busca e Filtros na Aba 2 (Itens)
-      $('#items-search').on('keyup input', function() { itemsCurrentPage = 1; renderItemsTable(); });
-      $('#items-category-filter').on('change', function() { itemsCurrentPage = 1; renderItemsTable(); });
-      $('#btn-open-add-modal').click(function() { openAddModal(); });
+      $('#items-search').on('keyup input', function () { itemsCurrentPage = 1; renderItemsTable(); });
+      $('#items-category-filter').on('change', function () { itemsCurrentPage = 1; renderItemsTable(); });
+      $('#btn-open-add-modal').click(function () { openAddModal(); });
 
       // Auto-detectar categoria ao alterar ID no modal de itens
-      $('#modal-item-id').on('keyup input change', function() {
+      $('#modal-item-id').on('keyup input change', function () {
         if ($('#modal-item-index').val() === '-1') {
           var detectedCat = detectCategoryFromId($(this).val());
           if (detectedCat) {
@@ -1704,7 +1744,7 @@
         }
       });
 
-      $('#modal-item-category').on('change', function() {
+      $('#modal-item-category').on('change', function () {
         var currentId = $('#modal-item-id').val();
         var detectedCat = detectCategoryFromId(currentId);
         var selectedCat = $(this).val();
@@ -1713,13 +1753,13 @@
         }
       });
 
-      $('#btn-save-modal-item').click(function() { saveModalItem(); });
+      $('#btn-save-modal-item').click(function () { saveModalItem(); });
 
       // Busca e Filtros na Aba 3 (Preços)
-      $('#prices-search').on('keyup input', function() { pricesCurrentPage = 1; renderPricesTable(); });
-      $('#prices-category-filter').on('change', function() { pricesCurrentPage = 1; renderPricesTable(); });
+      $('#prices-search').on('keyup input', function () { pricesCurrentPage = 1; renderPricesTable(); });
+      $('#prices-category-filter').on('change', function () { pricesCurrentPage = 1; renderPricesTable(); });
 
-      $('#btn-apply-bulk').click(function() {
+      $('#btn-apply-bulk').click(function () {
         var percent = parseFloat($('#bulk-percent').val());
         if (isNaN(percent)) {
           alert('Por favor insira um percentual válido (ex: 10 para +10%).');
@@ -1728,7 +1768,7 @@
         var selectedCat = $('#bulk-category').val();
         var roundingType = $('#bulk-rounding').val();
 
-        window.BonnaMenu.bulkAdjust({ percent: percent, category: selectedCat, rounding: roundingType }, function(updatedItems) {
+        window.BonnaMenu.bulkAdjust({ percent: percent, category: selectedCat, rounding: roundingType }, function (updatedItems) {
           currentWorkingItems = sortCatalogItems(updatedItems);
           renderItemsTable();
           renderPricesTable();
@@ -1736,11 +1776,11 @@
         });
       });
 
-      $('#btn-export-pdf').click(function() { exportCatalogPDF(); });
+      $('#btn-export-pdf').click(function () { exportCatalogPDF(); });
 
       // Busca e Atualização da Aba 4 (Mensagens)
-      $('#messages-search').on('keyup input', function() { messagesCurrentPage = 1; renderMessages(); });
-      $('#btn-refresh-messages').click(function() { loadSiteMessages(); });
+      $('#messages-search').on('keyup input', function () { messagesCurrentPage = 1; renderMessages(); });
+      $('#btn-refresh-messages').click(function () { loadSiteMessages(); });
 
     });
   </script>
