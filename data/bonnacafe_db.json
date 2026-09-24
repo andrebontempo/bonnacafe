@@ -15,7 +15,7 @@
     "name": "Combo 2",
     "category": "combos",
     "desc": "Café Longo + Pão de Queijo Recheado",
-    "available": true,
+    "available": false,
     "price": 13.5,
     "img": "img/specials/2.jpg"
   },
