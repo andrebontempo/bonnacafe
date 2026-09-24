@@ -1563,25 +1563,44 @@
     }
 
     // --- GERADOR DE PDF ---
-    function getLogoBase64(callback) {
-      var img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.onload = function () {
-        try {
-          var canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0);
-          callback(canvas.toDataURL('image/png'));
-        } catch (e) {
-          callback('img/logo_cardapio.png');
-        }
-      };
-      img.onerror = function () {
-        callback('img/logo_cardapio.png');
-      };
-      img.src = 'img/logo_cardapio.png';
+    function getHeaderImagesBase64(callback) {
+      var logoUrl = 'img/logo_cardapio.png';
+      var qrUrl = 'img/qrcode_cardapio_online.png';
+      var images = { logo: logoUrl, qrcode: qrUrl };
+      var loaded = 0;
+
+      function toBase64(url, done) {
+        var img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.onload = function () {
+          try {
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            done(canvas.toDataURL('image/png'));
+          } catch (e) {
+            done(url);
+          }
+        };
+        img.onerror = function () {
+          done(url);
+        };
+        img.src = url;
+      }
+
+      toBase64(logoUrl, function (logoB64) {
+        images.logo = logoB64;
+        loaded++;
+        if (loaded === 2) callback(images);
+      });
+
+      toBase64(qrUrl, function (qrB64) {
+        images.qrcode = qrB64;
+        loaded++;
+        if (loaded === 2) callback(images);
+      });
     }
 
     function exportCatalogPDF() {
@@ -1601,7 +1620,7 @@
 
       items = sortCatalogItems(JSON.parse(JSON.stringify(items)));
 
-      getLogoBase64(function (logoSrc) {
+      getHeaderImagesBase64(function (headerImages) {
         var categoryTitles = {};
         var categoryOrder = [];
         (categories || []).forEach(function (c) {
@@ -1614,7 +1633,20 @@
         var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: \'Segoe UI\', Arial, sans-serif; padding: 20px 20px; box-sizing: border-box; width: 700px; margin: 0 auto;">';
 
         html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px;">' +
-          '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 130px; max-width: 440px; display: block; margin: 0 auto 10px auto;" />' +
+          '<table style="width: 100%; border-collapse: collapse; margin-bottom: 8px; table-layout: fixed;">' +
+          '<tr>' +
+          '<td style="width: 110px; vertical-align: middle;"></td>' +
+          '<td style="text-align: center; vertical-align: middle;">' +
+          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 120px; max-width: 380px; display: block; margin: 0 auto;" />' +
+          '</td>' +
+          '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
+          '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 8px; padding: 5px 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">' +
+          '<img src="' + headerImages.qrcode + '" alt="QR Code Cardápio Digital" style="width: 80px; height: 80px; display: block; margin: 0 auto;" />' +
+          '<span style="display: block; font-size: 7.5px; font-weight: 800; color: #3D2B1F; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">Cardápio Digital</span>' +
+          '</div>' +
+          '</td>' +
+          '</tr>' +
+          '</table>' +
           '<h1 style="margin: 0; color: #3D2B1F; font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial & Tabela de Preços</h1>' +
           '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
           '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
