@@ -249,100 +249,113 @@
 
     /* ----- RENDERIZA O MENU ----- */
     function buildAndRenderMenu(categories, items) {
-      if (!items || !items.length) return;
-
-      // Atualiza nomes de categoria
-      (categories || []).forEach(function(cat) {
-        if (cat && cat.slug && cat.name) CATEGORY_NAMES[cat.slug] = cat.name;
-      });
-
-      renderFilterPills(categories);
-
-      // Injeta preços via CSS
-      if (window.BonnaMenu && window.BonnaMenu.injectPricesCSS) {
-        window.BonnaMenu.injectPricesCSS(items);
-      } else {
-        // Fallback direto se BonnaMenu não disponível
-        var styleEl = document.getElementById('dynamic-bonna-prices') || document.createElement('style');
-        styleEl.id = 'dynamic-bonna-prices';
-        styleEl.innerHTML = items.map(function(item) {
-          var p = 'R$ ' + parseFloat(item.price || 0).toFixed(2).replace('.', ',');
-          return '#_' + item.id + '::after { content: "' + p + '"; }';
-        }).join('\n');
-        document.head.appendChild(styleEl);
-      }
-
-      // Agrupa itens por categoria
-      var grouped = {};
-      items.forEach(function(item) {
-        if (!item) return;
-        var cat = String(item.category || 'salgados').toLowerCase().trim();
-        if (CATEGORY_MAP[cat]) cat = CATEGORY_MAP[cat];
-        if (!grouped[cat]) grouped[cat] = [];
-        grouped[cat].push(item);
-      });
-
-      // Ordem das categorias
-      var catOrder = [];
-      if (categories && categories.length) {
-        categories.forEach(function(c) { if (c && c.active !== false) catOrder.push(c.slug); });
-      }
-      Object.keys(grouped).forEach(function(c) { if (catOrder.indexOf(c) === -1) catOrder.push(c); });
-
-      // Monta HTML
       var container = document.getElementById('dynamic-menu-container');
-      container.innerHTML = ''; // Remove loading state
+      if (!items || !items.length) {
+        if (container) showError('Nenhum item encontrado no cardápio.');
+        return;
+      }
 
-      catOrder.forEach(function(cat) {
-        var catItems = grouped[cat];
-        if (!catItems || !catItems.length) return;
-
-        var block = document.createElement('div');
-        block.className = 'menu-category-block';
-        block.setAttribute('data-category', cat);
-
-        var title = document.createElement('h3');
-        title.className = 'menu-category-title';
-        title.textContent = CATEGORY_NAMES[cat] || cat;
-        block.appendChild(title);
-
-        var row = document.createElement('div');
-        row.className = 'row';
-
-        catItems.forEach(function(item) {
-          var isAvailable = (item.available !== false);
-          var col = document.createElement('div');
-          col.className = 'col-12';
-
-          var card = document.createElement('div');
-          card.className = 'menu-item-card';
-          card.setAttribute('data-available', isAvailable);
-          card.setAttribute('data-name', (item.name || '').toLowerCase());
-          card.setAttribute('data-desc', (item.desc || '').toLowerCase());
-
-          var badge = isAvailable
-            ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
-            : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
-
-          card.innerHTML =
-            '<div class="menu-item-details">' +
-              '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
-              '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
-            '</div>' +
-            '<div class="menu-item-right">' +
-              badge +
-              '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
-            '</div>';
-
-          col.appendChild(card);
-          row.appendChild(col);
+      try {
+        // Atualiza nomes de categoria
+        (categories || []).forEach(function(cat) {
+          if (cat && cat.slug && cat.name) CATEGORY_NAMES[cat.slug] = cat.name;
         });
 
-        block.appendChild(row);
-        container.appendChild(block);
-      });
+        renderFilterPills(categories);
 
-      applyFilters();
+        // Injeta preços via CSS
+        try {
+          if (window.BonnaMenu && window.BonnaMenu.injectPricesCSS) {
+            window.BonnaMenu.injectPricesCSS(items);
+          } else {
+            var styleEl = document.getElementById('dynamic-bonna-prices') || document.createElement('style');
+            styleEl.id = 'dynamic-bonna-prices';
+            styleEl.innerHTML = items.map(function(item) {
+              if (!item || !item.id) return '';
+              var p = 'R$ ' + parseFloat(item.price || 0).toFixed(2).replace('.', ',');
+              return '#_' + String(item.id).trim() + '::after { content: "' + p + '"; }';
+            }).join('\n');
+            document.head.appendChild(styleEl);
+          }
+        } catch (ePrices) {
+          console.warn('Erro ao injetar estilos de preços:', ePrices);
+        }
+
+        // Agrupa itens por categoria
+        var grouped = {};
+        items.forEach(function(item) {
+          if (!item) return;
+          var cat = String(item.category || 'salgados').toLowerCase().trim();
+          if (CATEGORY_MAP[cat]) cat = CATEGORY_MAP[cat];
+          if (!grouped[cat]) grouped[cat] = [];
+          grouped[cat].push(item);
+        });
+
+        // Ordem das categorias
+        var catOrder = [];
+        if (categories && categories.length) {
+          categories.forEach(function(c) { if (c && c.active !== false) catOrder.push(c.slug); });
+        }
+        Object.keys(grouped).forEach(function(c) { if (catOrder.indexOf(c) === -1) catOrder.push(c); });
+
+        // Limpa o estado de carregamento (spinner)
+        if (container) container.innerHTML = '';
+
+        catOrder.forEach(function(cat) {
+          var catItems = grouped[cat];
+          if (!catItems || !catItems.length) return;
+
+          var block = document.createElement('div');
+          block.className = 'menu-category-block';
+          block.setAttribute('data-category', cat);
+
+          var title = document.createElement('h3');
+          title.className = 'menu-category-title';
+          title.textContent = CATEGORY_NAMES[cat] || cat;
+          block.appendChild(title);
+
+          var row = document.createElement('div');
+          row.className = 'row';
+
+          catItems.forEach(function(item) {
+            var isAvailable = (item.available !== false);
+            var col = document.createElement('div');
+            col.className = 'col-12';
+
+            var card = document.createElement('div');
+            card.className = 'menu-item-card';
+            card.setAttribute('data-available', isAvailable);
+            card.setAttribute('data-name', (item.name || '').toLowerCase());
+            card.setAttribute('data-desc', (item.desc || '').toLowerCase());
+
+            var badge = isAvailable
+              ? '<span class="availability-badge available"><i class="fa fa-check-circle"></i> Hoje temos...</span>'
+              : '<span class="availability-badge unavailable"><i class="fa fa-times-circle"></i> Estamos em falta...</span>';
+
+            card.innerHTML =
+              '<div class="menu-item-details">' +
+                '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
+                '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
+              '</div>' +
+              '<div class="menu-item-right">' +
+                badge +
+                '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
+              '</div>';
+
+            col.appendChild(card);
+            row.appendChild(col);
+          });
+
+          block.appendChild(row);
+          container.appendChild(block);
+        });
+
+        applyFilters();
+
+      } catch (err) {
+        console.error('Erro ao construir o cardápio:', err);
+        showError('Erro ao exibir os itens do cardápio: ' + err.message);
+      }
     }
 
     /* ----- CARREGA DA API (fetch nativo, sem jQuery) ----- */

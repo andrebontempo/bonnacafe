@@ -144,8 +144,26 @@ function loadDB() {
   }
   try {
     const raw = fs.readFileSync(DB_FILE, 'utf8');
-    const data = JSON.parse(raw);
-    if (Array.isArray(data) && data.length > 0) {
+    const dataRaw = JSON.parse(raw);
+    if (Array.isArray(dataRaw) && dataRaw.length > 0) {
+      // 1. Deduplica por ID (mantém a primeira ocorrência do ID)
+      const seenIds = new Set();
+      let data = [];
+      dataRaw.forEach(it => {
+        if (it && it.id !== undefined && it.id !== null) {
+          const cleanId = String(it.id).trim();
+          if (!seenIds.has(cleanId)) {
+            seenIds.add(cleanId);
+            data.push(it);
+          }
+        }
+      });
+
+      let needsSave = (data.length !== dataRaw.length);
+      if (needsSave) {
+        console.warn(`[BD Cleanup] Deduplicando entradas no banco: ${dataRaw.length} -> ${data.length} itens.`);
+      }
+
       const loadedCats = loadCategories();
       const validCategories = new Set(loadedCats.map(c => String(c.slug || '').toLowerCase().trim()));
 
@@ -160,7 +178,6 @@ function loadDB() {
         return null;
       }).filter(Boolean);
 
-      let needsSave = false;
       data.forEach(it => {
         if (it) {
           const numId = parseInt(it.id, 10);
