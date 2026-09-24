@@ -350,12 +350,12 @@
               <input type="text" id="categories-search" class="form-control" placeholder="Buscar categoria..." style="height: 38px;" />
             </div>
 
-            <div style="display: flex; gap: 10px; align-items: center;">
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+              <button id="btn-export-pdf" class="btn btn-action-lg" style="background: #2E7D32; color: #FFF; font-weight: 700;">
+                <i class="fa fa-file-pdf-o"></i> Imprimir em PDF
+              </button>
               <button id="btn-open-category-modal" class="btn btn-success btn-action-lg">
                 <i class="fa fa-plus-circle"></i> Nova Categoria
-              </button>
-              <button id="btn-refresh-categories" class="btn btn-secondary btn-action-lg">
-                <i class="fa fa-refresh"></i> Atualizar
               </button>
             </div>
           </div>
@@ -508,11 +508,6 @@
               </div>
             </div>
 
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-              <button id="btn-export-pdf" class="btn btn-action-lg" style="background: #2E7D32; color: #FFF; font-weight: 700;">
-                <i class="fa fa-file-pdf-o"></i> Salvar em PDF
-              </button>
-            </div>
           </div>
 
           <!-- Tabela de Preços -->
@@ -1669,7 +1664,6 @@
       });
 
       $('#btn-open-category-modal').click(function() { openAddCategoryModal(); });
-      $('#btn-refresh-categories').click(function() { loadCategoriesData(); });
       $('#btn-save-modal-category').click(function() { saveModalCategory(); });
 
       // Busca e Filtros na Aba 2 (Itens)
