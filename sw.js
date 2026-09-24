@@ -1,9 +1,9 @@
 /* ==========================================================================
    Bonna Café - Progressive Web App (PWA) Service Worker
-   v13 — Cache busting nas versões dos assets estáticos
+   v14 — Atualização de estilos da visualização de poesias (Nivo Lightbox)
    ========================================================================== */
 
-const CACHE_NAME = 'bonnacafe-v13';
+const CACHE_NAME = 'bonnacafe-v14';
 const STATIC_ASSETS = [
   '/',
   '/index.html',

@@ -898,21 +898,24 @@ hr {
   transform: scale(1.04);
 }
 
-/* Custom Nivo Lightbox Modal & Botão X de Fechar */
+/* Custom Nivo Lightbox Modal, Setas de Navegação e Botão de Fechar */
 .nivo-lightbox-overlay {
   z-index: 999990 !important;
+  background: rgba(10, 8, 6, 0.92) !important;
+  backdrop-filter: blur(8px) !important;
 }
 
+/* Botão Fechar (X) */
 .nivo-lightbox-theme-default .nivo-lightbox-close,
 .nivo-lightbox-close {
   position: fixed !important;
-  top: 20px !important;
-  right: 20px !important;
+  top: 24px !important;
+  right: 24px !important;
   z-index: 9999999 !important;
-  width: 48px !important;
-  height: 48px !important;
-  background: rgba(18, 13, 10, 0.95) !important;
-  border: 2px solid var(--primary) !important;
+  width: 52px !important;
+  height: 52px !important;
+  background: rgba(25, 20, 15, 0.9) !important;
+  border: 2px solid var(--primary, #C68B45) !important;
   border-radius: 50% !important;
   color: #FFFFFF !important;
   font-size: 0 !important;
@@ -924,14 +927,14 @@ hr {
   justify-content: center !important;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8) !important;
   cursor: pointer !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.25s ease !important;
 }
 
 .nivo-lightbox-theme-default .nivo-lightbox-close::before,
 .nivo-lightbox-close::before {
   content: "✕" !important;
   font-family: Arial, sans-serif !important;
-  font-size: 24px !important;
+  font-size: 26px !important;
   font-weight: bold !important;
   color: #FFFFFF !important;
   line-height: 1 !important;
@@ -940,11 +943,106 @@ hr {
 
 .nivo-lightbox-theme-default .nivo-lightbox-close:hover,
 .nivo-lightbox-close:hover {
-  background: var(--primary) !important;
+  background: var(--primary, #C68B45) !important;
+  border-color: #ffffff !important;
   color: #FFFFFF !important;
-  transform: scale(1.1) !important;
-  box-shadow: 0 6px 24px rgba(198, 139, 69, 0.5) !important;
+  transform: scale(1.12) !important;
+  box-shadow: 0 6px 24px rgba(198, 139, 69, 0.6) !important;
 }
+
+/* Setas de Navegação (Anterior / Próximo) */
+.nivo-lightbox-theme-default .nivo-lightbox-nav,
+.nivo-lightbox-nav {
+  position: fixed !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 9999999 !important;
+  width: 56px !important;
+  height: 56px !important;
+  background: rgba(25, 20, 15, 0.9) !important;
+  border: 2px solid var(--primary, #C68B45) !important;
+  border-radius: 50% !important;
+  color: #FFFFFF !important;
+  font-size: 0 !important;
+  text-indent: 0 !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.8) !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-nav:hover,
+.nivo-lightbox-nav:hover {
+  background: var(--primary, #C68B45) !important;
+  border-color: #ffffff !important;
+  color: #FFFFFF !important;
+  transform: translateY(-50%) scale(1.12) !important;
+  box-shadow: 0 6px 24px rgba(198, 139, 69, 0.6) !important;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-prev,
+.nivo-lightbox-prev {
+  left: 24px !important;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-next,
+.nivo-lightbox-next {
+  right: 24px !important;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-prev::before,
+.nivo-lightbox-prev::before {
+  content: "❮" !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 26px !important;
+  font-weight: bold !important;
+  color: #FFFFFF !important;
+  line-height: 1 !important;
+  display: block !important;
+  margin-right: 2px !important;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-next::before,
+.nivo-lightbox-next::before {
+  content: "❯" !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 26px !important;
+  font-weight: bold !important;
+  color: #FFFFFF !important;
+  line-height: 1 !important;
+  display: block !important;
+  margin-left: 2px !important;
+}
+
+/* Responsividade Mobile para as setas e fechar */
+@media (max-width: 768px) {
+  .nivo-lightbox-theme-default .nivo-lightbox-close,
+  .nivo-lightbox-close {
+    top: 16px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .nivo-lightbox-theme-default .nivo-lightbox-prev,
+  .nivo-lightbox-prev {
+    left: 12px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .nivo-lightbox-theme-default .nivo-lightbox-next,
+  .nivo-lightbox-next {
+    right: 12px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
 
 /* Team Section */
 #team {
