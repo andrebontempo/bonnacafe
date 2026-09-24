@@ -1563,43 +1563,7 @@
     }
 
     // --- GERADOR DE PDF ---
-    var QR_CODE_DATA_URL = 'data:image/png;base64,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' +
-      '';
+    var QR_CODE_DATA_URL = 'data:image/png;base64,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';
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
@@ -1734,10 +1698,12 @@
         html += '</div>';
 
         var tempDiv = document.createElement('div');
-        tempDiv.style.position = 'absolute';
+        tempDiv.style.position = 'fixed';
         tempDiv.style.top = '0';
-        tempDiv.style.left = '-9999px';
+        tempDiv.style.left = '0';
         tempDiv.style.width = '700px';
+        tempDiv.style.zIndex = '-99999';
+        tempDiv.style.opacity = '0.999';
         tempDiv.style.background = '#FFFFFF';
         tempDiv.innerHTML = html;
         document.body.appendChild(tempDiv);
@@ -1750,15 +1716,17 @@
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
-        html2pdf().set(opt).from(tempDiv.querySelector('#pdf-export-root')).save().then(function () {
-          document.body.removeChild(tempDiv);
-          $btn.prop('disabled', false).html(originalText);
-        }).catch(function (err) {
-          console.error('Erro ao gerar PDF:', err);
-          if (tempDiv && tempDiv.parentNode) tempDiv.parentNode.removeChild(tempDiv);
-          alert('Ocorreu um erro ao gerar o arquivo PDF.');
-          $btn.prop('disabled', false).html(originalText);
-        });
+        setTimeout(function () {
+          html2pdf().set(opt).from(tempDiv.querySelector('#pdf-export-root')).save().then(function () {
+            if (tempDiv && tempDiv.parentNode) tempDiv.parentNode.removeChild(tempDiv);
+            $btn.prop('disabled', false).html(originalText);
+          }).catch(function (err) {
+            console.error('Erro ao gerar PDF:', err);
+            if (tempDiv && tempDiv.parentNode) tempDiv.parentNode.removeChild(tempDiv);
+            alert('Ocorreu um erro ao gerar o arquivo PDF.');
+            $btn.prop('disabled', false).html(originalText);
+          });
+        }, 250);
       });
     }
 
