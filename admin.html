@@ -1559,11 +1559,11 @@
           }
         });
 
-        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: \'Segoe UI\', Arial, sans-serif; padding: 25px 30px; box-sizing: border-box; width: 790px; margin: 0 auto;">';
+        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: \'Segoe UI\', Arial, sans-serif; padding: 20px 20px; box-sizing: border-box; width: 700px; margin: 0 auto;">';
 
-        html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 14px; margin-bottom: 18px;">' +
-                  '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 140px; max-width: 480px; display: block; margin: 0 auto 10px auto;" />' +
-                  '<h1 style="margin: 0; color: #3D2B1F; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px;">Cardápio Oficial & Tabela de Preços</h1>' +
+        html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px;">' +
+                  '<img src="' + logoSrc + '" alt="Bonna Café" style="height: 130px; max-width: 440px; display: block; margin: 0 auto 10px auto;" />' +
+                  '<h1 style="margin: 0; color: #3D2B1F; font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial & Tabela de Preços</h1>' +
                   '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
                   '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
                 '</div>';
@@ -1581,30 +1581,36 @@
             var colHtml = '';
             colItems.forEach(function(it) {
               var formattedPrice = window.BonnaMenu.formatPrice(it.price);
-              colHtml += '<div style="margin-bottom: 8px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid;">' +
-                           '<table style="width: 100%; border-collapse: collapse;">' +
+              colHtml += '<div style="margin-bottom: 7px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid;">' +
+                           '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                              '<tr>' +
-                               '<td style="vertical-align: bottom;">' +
-                                 '<span style="font-weight: 700; color: #C68B45 !important; font-size: 11px; margin-right: 5px;">' + it.id + '</span>' +
-                                 '<strong style="color: #2B1E16 !important; font-size: 11.5px;">' + it.name + '</strong>' +
+                               '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
+                                 '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + it.id + '</span>' +
+                                 '<strong style="color: #2B1E16 !important; font-size: 11px;">' + it.name + '</strong>' +
                                '</td>' +
-                               '<td style="text-align: right; vertical-align: bottom; width: 75px;">' +
-                                 '<strong style="color: #2E7D32 !important; font-size: 11.5px; white-space: nowrap;">' + formattedPrice + '</strong>' +
+                               '<td style="text-align: right; vertical-align: bottom; width: 75px; white-space: nowrap;">' +
+                                 '<strong style="color: #2E7D32 !important; font-size: 11px; white-space: nowrap;">' + formattedPrice + '</strong>' +
                                '</td>' +
                              '</tr>' +
                            '</table>' +
-                           (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 9.5px; color: #666; line-height: 1.2;">' + it.desc + '</p>' : '') +
+                           (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 9px; color: #666; line-height: 1.2;">' + it.desc + '</p>' : '') +
                          '</div>';
             });
             return colHtml;
           }
 
-          html += '<div style="margin-bottom: 22px; page-break-inside: avoid;">' +
-                    '<div style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.8px; border-radius: 4px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">' +
-                      '<span>' + catMeta.name + '</span>' +
-                      (catMeta.range ? '<span style="font-size: 10.5px; font-weight: 400; opacity: 0.85;">Códigos: ' + catMeta.range + '</span>' : '') +
+          var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
+
+          html += '<div style="margin-bottom: 20px; page-break-inside: avoid;">' +
+                    '<div style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px;">' +
+                      '<table style="width: 100%; border-collapse: collapse;">' +
+                        '<tr>' +
+                          '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
+                          headerRangeHtml +
+                        '</tr>' +
+                      '</table>' +
                     '</div>' +
-                    '<table style="width: 100%; border-collapse: collapse;">' +
+                    '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                       '<tr>' +
                         '<td style="width: 48.5%; vertical-align: top;">' + renderColumn(col1) + '</td>' +
                         '<td style="width: 3%;"></td>' +
@@ -1614,7 +1620,7 @@
                   '</div>';
         });
 
-        html += '<div style="margin-top: 30px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 10px; color: #777;">' +
+        html += '<div style="margin-top: 25px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 9.5px; color: #777;">' +
                   'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
                 '</div>';
         html += '</div>';
@@ -1626,10 +1632,10 @@
         document.body.appendChild(tempDiv);
 
         var opt = {
-          margin: [10, 10, 10, 10],
+          margin: [8, 8, 8, 8],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, logging: false },
+          html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: 800 },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
