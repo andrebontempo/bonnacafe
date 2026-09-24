@@ -18,6 +18,7 @@ jobs:
           port: ${{ secrets.SSH_PORT || 22 }}
           script: |
             cd /opt/docker/bonnacafe
+            git reset --hard HEAD
             git pull origin main
             docker compose up -d --build
             echo "🚀 Deploy concluído com sucesso!"
