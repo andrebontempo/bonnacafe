@@ -512,9 +512,6 @@
               <button id="btn-export-pdf" class="btn btn-action-lg" style="background: #2E7D32; color: #FFF; font-weight: 700;">
                 <i class="fa fa-file-pdf-o"></i> Salvar em PDF
               </button>
-              <button id="btn-save-prices" class="btn btn-custom btn-action-lg" style="background: var(--primary);">
-                <i class="fa fa-save"></i> Salvar Alterações
-              </button>
             </div>
           </div>
 
@@ -1162,16 +1159,53 @@
           tr.append('<td><span class="badge-cat">' + (item.category || '') + '</span></td>');
           tr.append('<td><strong>' + (item.name || '') + '</strong></td>');
 
-          // Campo de Edição Direta de Preço
+          // Campo de Edição Direta de Preço com Auto-Save ao digitar Enter ou mudar
           var inputTd = $('<td class="text-right"></td>');
-          var input = $('<input type="number" step="0.10" class="price-field" data-id="' + item.id + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" />');
+          var input = $('<input type="number" step="0.10" class="price-field" data-id="' + item.id + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" placeholder="0.00" title="Digite o preço e pressione Enter para salvar instantaneamente" />');
 
-          input.on('change input', function() {
-            var itemId = $(this).attr('data-id');
-            var newVal = parseFloat($(this).val());
+          function savePriceField(inputEl) {
+            var itemId = String(inputEl.attr('data-id'));
+            var newVal = parseFloat(inputEl.val());
             if (!isNaN(newVal) && newVal >= 0) {
-              var target = currentWorkingItems.find(function(it) { return it && it.id === itemId; });
-              if (target) target.price = newVal;
+              var target = currentWorkingItems.find(function(it) { return it && String(it.id) === itemId; });
+              if (target && target.price !== newVal) {
+                target.price = newVal;
+
+                // Feedback visual de salvamento imediato no próprio input (destaque verde suave)
+                inputEl.css({
+                  'border-color': '#2E7D32',
+                  'background-color': '#E8F5E9',
+                  'box-shadow': '0 0 8px rgba(46, 125, 50, 0.4)',
+                  'transition': 'all 0.3s'
+                });
+                setTimeout(function() {
+                  inputEl.css({
+                    'border-color': '',
+                    'background-color': '',
+                    'box-shadow': ''
+                  });
+                }, 1200);
+
+                // Salva instantaneamente no servidor (banco de dados) e atualiza o cardápio
+                window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+                  if (Array.isArray(updatedItems)) {
+                    currentWorkingItems = sortCatalogItems(updatedItems);
+                  }
+                  if (typeof renderItemsTable === 'function') renderItemsTable();
+                });
+              }
+            }
+          }
+
+          input.on('change', function() {
+            savePriceField($(this));
+          });
+
+          input.on('keydown', function(e) {
+            if (e.which === 13 || e.keyCode === 13) {
+              e.preventDefault();
+              savePriceField($(this));
+              $(this).blur();
             }
           });
 
@@ -1669,16 +1703,7 @@
           currentWorkingItems = sortCatalogItems(updatedItems);
           renderItemsTable();
           renderPricesTable();
-          alert('Reajuste de ' + percent + '% aplicado com sucesso!');
-        });
-      });
-
-      $('#btn-save-prices').click(function() {
-        window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
-          currentWorkingItems = sortCatalogItems(updatedItems);
-          renderItemsTable();
-          renderPricesTable();
-          alert('Alterações de preços salvas com sucesso no banco de dados e no site!');
+          alert('Reajuste de ' + percent + '% aplicado e salvo instantaneamente no banco de dados e no cardápio!');
         });
       });
 
