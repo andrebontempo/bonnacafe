@@ -164,12 +164,7 @@ function loadDB() {
         console.warn(`[BD Cleanup] Deduplicando entradas no banco: ${dataRaw.length} -> ${data.length} itens.`);
       }
 
-      // Se houver mais de 135 itens (banco inflado da VPS), restaura a base limpa de 132 itens
-      if (data.length > 135 && INITIAL_ITEMS.length > 0) {
-        console.warn(`[BD Cleanup] Detectadas ${data.length} entradas obsoletas. Restaurando os 132 itens legítimos...`);
-        data = JSON.parse(JSON.stringify(INITIAL_ITEMS));
-        needsSave = true;
-      }
+
 
       const loadedCats = loadCategories();
       const validCategories = new Set(loadedCats.map(c => String(c.slug || '').toLowerCase().trim()));
