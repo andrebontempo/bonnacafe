@@ -1047,8 +1047,17 @@
             (isAvail ? 'Hoje temos' : 'Em falta') +
           '</button>');
           toggleBtn.click(function() {
-            item.available = !(item.available !== false);
+            var newStatus = !(item.available !== false);
+            item.available = newStatus;
             renderItemsTable();
+            if (typeof renderPricesTable === 'function') renderPricesTable();
+
+            // Persiste a alteração imediatamente no servidor (banco de dados)
+            window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+              if (Array.isArray(updatedItems)) {
+                currentWorkingItems = sortCatalogItems(updatedItems);
+              }
+            });
           });
           availTd.append(toggleBtn);
           tr.append(availTd);
