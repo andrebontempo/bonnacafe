@@ -1563,44 +1563,68 @@
     }
 
     // --- GERADOR DE PDF ---
+    var QR_CODE_DATA_URL = 'data:image/png;base64,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' +
+      '';
+
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
-      var qrUrl = 'img/qrcode_cardapio_online.png';
-      var images = { logo: logoUrl, qrcode: qrUrl };
-      var loaded = 0;
+      var images = { logo: logoUrl, qrcode: QR_CODE_DATA_URL };
 
-      function toBase64(url, done) {
-        var img = new Image();
-        img.crossOrigin = 'Anonymous';
-        img.onload = function () {
-          try {
-            var canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            var ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0);
-            done(canvas.toDataURL('image/png'));
-          } catch (e) {
-            done(url);
-          }
-        };
-        img.onerror = function () {
-          done(url);
-        };
-        img.src = url;
-      }
-
-      toBase64(logoUrl, function (logoB64) {
-        images.logo = logoB64;
-        loaded++;
-        if (loaded === 2) callback(images);
-      });
-
-      toBase64(qrUrl, function (qrB64) {
-        images.qrcode = qrB64;
-        loaded++;
-        if (loaded === 2) callback(images);
-      });
+      var img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.onload = function () {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          images.logo = canvas.toDataURL('image/png');
+        } catch (e) {
+          images.logo = logoUrl;
+        }
+        callback(images);
+      };
+      img.onerror = function () {
+        images.logo = logoUrl;
+        callback(images);
+      };
+      img.src = logoUrl;
     }
 
     function exportCatalogPDF() {
@@ -1710,13 +1734,10 @@
         html += '</div>';
 
         var tempDiv = document.createElement('div');
-        tempDiv.style.position = 'fixed';
+        tempDiv.style.position = 'absolute';
         tempDiv.style.top = '0';
-        tempDiv.style.left = '0';
+        tempDiv.style.left = '-9999px';
         tempDiv.style.width = '700px';
-        tempDiv.style.zIndex = '-99999';
-        tempDiv.style.opacity = '0.01';
-        tempDiv.style.pointerEvents = 'none';
         tempDiv.style.background = '#FFFFFF';
         tempDiv.innerHTML = html;
         document.body.appendChild(tempDiv);
@@ -1725,7 +1746,7 @@
           margin: [8, 8, 8, 8],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, logging: false, scrollX: 0, scrollY: 0 },
+          html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false, scrollX: 0, scrollY: 0 },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
