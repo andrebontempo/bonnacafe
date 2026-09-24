@@ -638,7 +638,7 @@
                   <label for="modal-item-price">Preço (R$)</label>
                   <div class="input-group">
                     <span class="input-group-text" style="font-weight: 700;">R$</span>
-                    <input type="number" step="0.10" min="0" id="modal-item-price" class="form-control" placeholder="0.00" required style="font-weight: 700; text-align: right;" />
+                    <input type="text" inputmode="decimal" id="modal-item-price" class="form-control" placeholder="0,00" required style="font-weight: 700; text-align: right;" />
                   </div>
                 </div>
               </div>
@@ -1156,14 +1156,16 @@
 
           // Campo de Edição Direta de Preço com Auto-Save ao digitar Enter ou mudar
           var inputTd = $('<td class="text-right"></td>');
-          var input = $('<input type="number" step="0.10" class="price-field" data-id="' + item.id + '" value="' + parseFloat(item.price || 0).toFixed(2) + '" placeholder="0.00" title="Digite o preço e pressione Enter para salvar instantaneamente" />');
+          var formattedPrice = parseFloat(item.price || 0).toFixed(2).replace('.', ',');
+          var input = $('<input type="text" inputmode="decimal" class="price-field" data-id="' + item.id + '" value="' + formattedPrice + '" placeholder="0,00" title="Digite o preço e pressione Enter para salvar instantaneamente" />');
 
           function savePriceField(inputEl) {
             var itemId = String(inputEl.attr('data-id'));
-            var newVal = parseFloat(inputEl.val());
+            var rawVal = inputEl.val().replace(',', '.').trim();
+            var newVal = parseFloat(rawVal);
             if (!isNaN(newVal) && newVal >= 0) {
-              // Formata visualmente o valor no próprio campo com 2 casas decimais (ex: 15 -> 15.00)
-              inputEl.val(newVal.toFixed(2));
+              // Formata visualmente o valor no próprio campo com 2 casas decimais usando vírgula (ex: 15 -> 15,00)
+              inputEl.val(newVal.toFixed(2).replace('.', ','));
 
               var target = currentWorkingItems.find(function(it) { return it && String(it.id) === itemId; });
               if (target) {
@@ -1299,7 +1301,7 @@
 
       $('#modal-item-name').val('');
       $('#modal-item-desc').val('');
-      $('#modal-item-price').val('');
+      $('#modal-item-price').val('0,00');
       $('#modal-item-available').val('true');
       $('#modal-item-img').val('');
 
@@ -1316,12 +1318,21 @@
       $('#modal-item-category').val(item.category || 'salgados');
       $('#modal-item-name').val(item.name || '');
       $('#modal-item-desc').val(item.desc || '');
-      $('#modal-item-price').val(parseFloat(item.price || 0).toFixed(2));
+      $('#modal-item-price').val(parseFloat(item.price || 0).toFixed(2).replace('.', ','));
       $('#modal-item-available').val((item.available !== false) ? 'true' : 'false');
       $('#modal-item-img').val(item.img || '');
 
       showModal('itemModal');
     }
+
+    // Auto-formatação com vírgula e 2 casas decimais ao sair do campo de preço da modal
+    $(document).off('blur', '#modal-item-price').on('blur', '#modal-item-price', function() {
+      var rawVal = $(this).val().replace(',', '.').trim();
+      var num = parseFloat(rawVal);
+      if (!isNaN(num) && num >= 0) {
+        $(this).val(num.toFixed(2).replace('.', ','));
+      }
+    });
 
     function saveModalItem() {
       var index = parseInt($('#modal-item-index').val(), 10);
@@ -1329,7 +1340,8 @@
       var category = $('#modal-item-category').val();
       var name = $('#modal-item-name').val().trim();
       var desc = $('#modal-item-desc').val().trim();
-      var price = parseFloat($('#modal-item-price').val());
+      var rawPriceStr = $('#modal-item-price').val().replace(',', '.').trim();
+      var price = parseFloat(rawPriceStr);
       var isAvailable = $('#modal-item-available').val() === 'true';
       var img = $('#modal-item-img').val().trim();
 
