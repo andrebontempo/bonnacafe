@@ -1167,37 +1167,43 @@
             var itemId = String(inputEl.attr('data-id'));
             var newVal = parseFloat(inputEl.val());
             if (!isNaN(newVal) && newVal >= 0) {
+              // Formata visualmente o valor no próprio campo com 2 casas decimais (ex: 15 -> 15.00)
+              inputEl.val(newVal.toFixed(2));
+
               var target = currentWorkingItems.find(function(it) { return it && String(it.id) === itemId; });
-              if (target && target.price !== newVal) {
+              if (target) {
+                var priceChanged = (target.price !== newVal);
                 target.price = newVal;
 
-                // Feedback visual de salvamento imediato no próprio input (destaque verde suave)
-                inputEl.css({
-                  'border-color': '#2E7D32',
-                  'background-color': '#E8F5E9',
-                  'box-shadow': '0 0 8px rgba(46, 125, 50, 0.4)',
-                  'transition': 'all 0.3s'
-                });
-                setTimeout(function() {
+                if (priceChanged) {
+                  // Feedback visual de salvamento imediato no próprio input (destaque verde suave)
                   inputEl.css({
-                    'border-color': '',
-                    'background-color': '',
-                    'box-shadow': ''
+                    'border-color': '#2E7D32',
+                    'background-color': '#E8F5E9',
+                    'box-shadow': '0 0 8px rgba(46, 125, 50, 0.4)',
+                    'transition': 'all 0.3s'
                   });
-                }, 1200);
+                  setTimeout(function() {
+                    inputEl.css({
+                      'border-color': '',
+                      'background-color': '',
+                      'box-shadow': ''
+                    });
+                  }, 1200);
 
-                // Salva instantaneamente no servidor (banco de dados) e atualiza o cardápio
-                window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
-                  if (Array.isArray(updatedItems)) {
-                    currentWorkingItems = sortCatalogItems(updatedItems);
-                  }
-                  if (typeof renderItemsTable === 'function') renderItemsTable();
-                });
+                  // Salva instantaneamente no servidor (banco de dados) e atualiza o cardápio
+                  window.BonnaMenu.saveCatalog(currentWorkingItems, function(updatedItems) {
+                    if (Array.isArray(updatedItems)) {
+                      currentWorkingItems = sortCatalogItems(updatedItems);
+                    }
+                    if (typeof renderItemsTable === 'function') renderItemsTable();
+                  });
+                }
               }
             }
           }
 
-          input.on('change', function() {
+          input.on('change blur', function() {
             savePriceField($(this));
           });
 
