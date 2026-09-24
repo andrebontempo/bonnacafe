@@ -45,13 +45,7 @@ function main() {
       }
     });
 
-    // 3. Scrollspy & Auto-close Mobile Menu
-    $('body').scrollspy({
-      target: '.navbar-default',
-      offset: 90
-    });
-
-    // 3.5. Nivo Lightbox Initialization for Poesia com Café
+    // 3. Nivo Lightbox Initialization for Poesia com Café
     if ($.fn.nivoLightbox) {
       $('a[data-lightbox-gallery]').nivoLightbox({
         effect: 'fadeScale',
@@ -66,10 +60,26 @@ function main() {
       });
     }
 
+    // 3.1. Scrollspy Guard (Bootstrap 5 compat)
+    if ($.fn.scrollspy) {
+      $('body').scrollspy({
+        target: '.navbar-default',
+        offset: 90
+      });
+    }
+
+    // 3.2. Auto-close Mobile Menu
     $(".navbar-nav li a").click(function () {
-      var toggle = $(".navbar-toggle").is(":visible");
-      if (toggle) {
-        $(".navbar-collapse").collapse('hide');
+      var navbarCollapse = document.getElementById('bs-navbar-collapse');
+      if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+        if (window.bootstrap && window.bootstrap.Collapse) {
+          var bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        } else if ($.fn.collapse) {
+          $(".navbar-collapse").collapse('hide');
+        } else {
+          $(navbarCollapse).removeClass('show');
+        }
       }
     });
 

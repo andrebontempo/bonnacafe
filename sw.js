@@ -1,9 +1,9 @@
 /* ==========================================================================
    Bonna Café - Progressive Web App (PWA) Service Worker
-   v14 — Atualização de estilos da visualização de poesias (Nivo Lightbox)
+   v15 — Correção do carregamento do Nivo Lightbox no main.js
    ========================================================================== */
 
-const CACHE_NAME = 'bonnacafe-v14';
+const CACHE_NAME = 'bonnacafe-v15';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
