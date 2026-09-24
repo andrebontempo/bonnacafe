@@ -1542,13 +1542,18 @@
         items = window.BonnaMenu.getItems();
       }
 
+      var categories = currentCategories;
+      if (!categories || !Array.isArray(categories) || categories.length === 0) {
+        categories = (window.BonnaMenu._categoriesCache && window.BonnaMenu._categoriesCache.length) ? window.BonnaMenu._categoriesCache : (window.BonnaMenu.DEFAULT_CATEGORIES || []);
+      }
+
       items = sortCatalogItems(JSON.parse(JSON.stringify(items)));
 
       getLogoBase64(function(logoSrc) {
         var categoryTitles = {};
         var categoryOrder = [];
-        currentCategories.forEach(function(c) {
-          if (c.active !== false) {
+        (categories || []).forEach(function(c) {
+          if (c && c.active !== false) {
             categoryTitles[c.slug] = { name: c.name, range: c.range || '' };
             categoryOrder.push(c.slug);
           }
@@ -1564,7 +1569,7 @@
                 '</div>';
 
         categoryOrder.forEach(function(catKey) {
-          var catItems = items.filter(function(it) { return it.category === catKey; });
+          var catItems = items.filter(function(it) { return it && it.category === catKey; });
           if (catItems.length === 0) return;
 
           var catMeta = categoryTitles[catKey] || { name: catKey.toUpperCase(), range: '' };
@@ -1580,8 +1585,8 @@
                            '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                              '<tr>' +
                                '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
-                                 '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + it.id + '</span>' +
-                                 '<strong style="color: #2B1E16 !important; font-size: 11px;">' + it.name + '</strong>' +
+                                 '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + (it.id || '') + '</span>' +
+                                 '<strong style="color: #2B1E16 !important; font-size: 11px;">' + (it.name || '') + '</strong>' +
                                '</td>' +
                                '<td style="text-align: right; vertical-align: bottom; width: 75px; white-space: nowrap;">' +
                                  '<strong style="color: #2E7D32 !important; font-size: 11px; white-space: nowrap;">' + formattedPrice + '</strong>' +
@@ -1621,8 +1626,14 @@
         html += '</div>';
 
         var tempDiv = document.createElement('div');
-        tempDiv.style.position = 'absolute';
-        tempDiv.style.left = '-9999px';
+        tempDiv.style.position = 'fixed';
+        tempDiv.style.top = '0';
+        tempDiv.style.left = '0';
+        tempDiv.style.width = '700px';
+        tempDiv.style.zIndex = '-99999';
+        tempDiv.style.opacity = '0.01';
+        tempDiv.style.pointerEvents = 'none';
+        tempDiv.style.background = '#FFFFFF';
         tempDiv.innerHTML = html;
         document.body.appendChild(tempDiv);
 
@@ -1630,7 +1641,7 @@
           margin: [8, 8, 8, 8],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, logging: false, windowWidth: 800 },
+          html2canvas: { scale: 2, useCORS: true, logging: false, scrollX: 0, scrollY: 0 },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
 
@@ -1639,7 +1650,7 @@
           $btn.prop('disabled', false).html(originalText);
         }).catch(function (err) {
           console.error('Erro ao gerar PDF:', err);
-          document.body.removeChild(tempDiv);
+          if (tempDiv && tempDiv.parentNode) tempDiv.parentNode.removeChild(tempDiv);
           alert('Ocorreu um erro ao gerar o arquivo PDF.');
           $btn.prop('disabled', false).html(originalText);
         });
