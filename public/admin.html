@@ -1561,32 +1561,52 @@
     }
 
     // --- GERADOR DE PDF ---
-    var QR_CODE_DATA_URL = 'data:image/png;base64,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';
+    var QR_CODE_DATA_URL = 'data:image/png;base64,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';
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
+      var qrUrl = 'qrcode_cardapio.png';
       var images = { logo: logoUrl, qrcode: QR_CODE_DATA_URL };
+      var count = 0;
 
-      var img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.onload = function () {
+      function checkDone() {
+        count++;
+        if (count >= 2) {
+          callback(images);
+        }
+      }
+
+      var logoImg = new Image();
+      logoImg.crossOrigin = 'Anonymous';
+      logoImg.onload = function () {
         try {
           var canvas = document.createElement('canvas');
-          canvas.width = img.width;
-          canvas.height = img.height;
+          canvas.width = logoImg.width;
+          canvas.height = logoImg.height;
           var ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0);
+          ctx.drawImage(logoImg, 0, 0);
           images.logo = canvas.toDataURL('image/png');
-        } catch (e) {
-          images.logo = logoUrl;
-        }
-        callback(images);
+        } catch (e) {}
+        checkDone();
       };
-      img.onerror = function () {
-        images.logo = logoUrl;
-        callback(images);
+      logoImg.onerror = function () { checkDone(); };
+      logoImg.src = logoUrl;
+
+      var qrImg = new Image();
+      qrImg.crossOrigin = 'Anonymous';
+      qrImg.onload = function () {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = qrImg.width;
+          canvas.height = qrImg.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(qrImg, 0, 0);
+          images.qrcode = canvas.toDataURL('image/png');
+        } catch (e) {}
+        checkDone();
       };
-      img.src = logoUrl;
+      qrImg.onerror = function () { checkDone(); };
+      qrImg.src = qrUrl;
     }
 
     function exportCatalogPDF() {
@@ -1698,10 +1718,11 @@
         var tempDiv = document.createElement('div');
         tempDiv.style.position = 'fixed';
         tempDiv.style.top = '0';
-        tempDiv.style.left = '0';
+        tempDiv.style.left = '-9999px';
         tempDiv.style.width = '700px';
         tempDiv.style.zIndex = '-99999';
-        tempDiv.style.opacity = '0.999';
+        tempDiv.style.opacity = '0.01';
+        tempDiv.style.pointerEvents = 'none';
         tempDiv.style.background = '#FFFFFF';
         tempDiv.innerHTML = html;
         document.body.appendChild(tempDiv);
