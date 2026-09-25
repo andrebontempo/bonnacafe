@@ -285,19 +285,22 @@
   <header class="admin-header">
     <div class="container">
       <div class="row" style="display: flex; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div class="col-md-7 col-12">
+        <div class="col-md-5 col-12">
           <h1><i class="fa fa-sliders"></i> Painel de Gestão Bonna Café</h1>
           <p style="color: var(--text-light-muted); margin: 0; font-size: 1.05rem;">
             Gerencie categorias, produtos, reajustes de preços e leia as mensagens enviadas pelo site.
           </p>
         </div>
-        <div class="col-md-5 col-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+        <div class="col-md-7 col-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end; align-items: center; flex-wrap: wrap;">
           <a href="index.html" onclick="logoutAdmin('index.html'); return false;" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-home"></i> Início
           </a>
           <a href="cardapio.html" onclick="logoutAdmin('cardapio.html'); return false;" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-cutlery"></i> Ir ao Cardápio
           </a>
+          <button id="btn-export-pdf" class="btn btn-action-lg" style="background: #2E7D32; color: #FFF; font-weight: 700;">
+            <i class="fa fa-file-pdf-o"></i> Imprimir Cardápio em PDF
+          </button>
         </div>
       </div>
     </div>
@@ -358,10 +361,6 @@
             </div>
 
             <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-              <button id="btn-export-pdf" class="btn btn-action-lg"
-                style="background: #2E7D32; color: #FFF; font-weight: 700;">
-                <i class="fa fa-file-pdf-o"></i> Imprimir Cardápio em PDF
-              </button>
               <button id="btn-open-category-modal" class="btn btn-success btn-action-lg">
                 <i class="fa fa-plus-circle"></i> Nova Categoria
               </button>
