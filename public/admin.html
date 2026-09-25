@@ -1676,8 +1676,10 @@
 
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFF; font-size: 9px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          // Bloco da categoria: header + itens juntos
-          html += '<div style="margin-bottom: 12px;">' +
+          // Bloco da categoria: header + itens juntos como bloco indivisível
+          // page-break-inside: avoid garante que a categoria não seja fatiada ao meio
+          // se não couber no final da página, ela inteira vai para o topo da próxima página
+          html += '<div style="margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid;">' +
             '<div style="background: #3D2B1F; color: #FFF; padding: 5px 10px; border-radius: 3px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
@@ -1706,7 +1708,7 @@
         window.scrollTo(0, 0);
 
         var opt = {
-          margin: [8, 6, 8, 6],
+          margin: [8, 0, 8, 0],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: {
