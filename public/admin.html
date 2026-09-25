@@ -292,15 +292,12 @@
           </p>
         </div>
         <div class="col-md-5 col-12 text-right" style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
-          <a href="index.html" class="btn btn-custom btn-outline-custom btn-action-lg">
+          <a href="index.html" onclick="logoutAdmin('index.html'); return false;" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-home"></i> Início
           </a>
-          <a href="cardapio.html" class="btn btn-custom btn-outline-custom btn-action-lg">
+          <a href="cardapio.html" onclick="logoutAdmin('cardapio.html'); return false;" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-cutlery"></i> Ir ao Cardápio
           </a>
-          <button onclick="logoutAdmin()" class="btn btn-danger btn-action-lg">
-            <i class="fa fa-sign-out"></i> Sair
-          </button>
         </div>
       </div>
     </div>
@@ -806,10 +803,9 @@
       }
     }
 
-    function logoutAdmin() {
+    function logoutAdmin(targetUrl) {
       sessionStorage.removeItem('bonna_admin_auth');
-      alert('Sessão encerrada com sucesso.');
-      window.location.href = 'index.html';
+      window.location.href = targetUrl || 'index.html';
     }
 
     function sortCatalogItems(items) {
