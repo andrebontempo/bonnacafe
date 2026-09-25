@@ -1616,11 +1616,11 @@
           }
         });
 
-        // Modal de carregamento (backdrop)
-        var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); z-index: 999999; display: flex; align-items: center; justify-content: center;"><div style="background: rgba(61,43,31,0.95); color: #FFF; font-size: 16px; font-weight: 700; padding: 22px 38px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); text-align: center;"><i class="fa fa-spinner fa-spin fa-2x" style="margin-bottom: 10px; display: block; color: #C68B45;"></i> Gerando Cardápio PDF... Aguarde.</div></div>');
-        $('body').append($overlay);
+        // Toast flutuante de carregamento no canto inferior direito
+        var $toast = $('<div id="pdf-toast" style="position: fixed; bottom: 24px; right: 24px; z-index: 999999; background: #3D2B1F; color: #FFF; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.4); border: 2px solid #C68B45;"><i class="fa fa-spinner fa-spin" style="margin-right: 10px; color: #C68B45;"></i> Gerando Cardápio PDF...</div>');
+        $('body').append($toast);
 
-        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 25px 30px; box-sizing: border-box; width: 794px; position: absolute; top: 0; left: 0; z-index: 999990;">';
+        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 10mm 12mm; box-sizing: border-box; width: 794px; margin: 0 auto; position: relative; z-index: 99999;">';
 
         // Cabeçalho Principal (Logo + QR Code + Títulos)
         html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 10px; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid;">' +
@@ -1702,7 +1702,7 @@
         html += '</div>';
 
         var $exportContainer = $(html);
-        $('body').append($exportContainer);
+        $('body').prepend($exportContainer);
         window.scrollTo(0, 0);
 
         var opt = {
@@ -1715,7 +1715,8 @@
             allowTaint: true,
             logging: false,
             scrollX: 0,
-            scrollY: 0
+            scrollY: 0,
+            ignoreElements: function (el) { return el.id === 'pdf-toast'; }
           },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
           pagebreak: { mode: ['css', 'legacy'] }
@@ -1724,17 +1725,17 @@
         setTimeout(function () {
           var targetElem = document.getElementById('pdf-export-root');
           html2pdf().set(opt).from(targetElem).save().then(function () {
-            $overlay.remove();
+            $toast.remove();
             $('#pdf-export-root').remove();
             $btn.prop('disabled', false).html(originalText);
           }).catch(function (err) {
             console.error('Erro ao gerar PDF:', err);
-            $overlay.remove();
+            $toast.remove();
             $('#pdf-export-root').remove();
             alert('Ocorreu um erro ao gerar o arquivo PDF.');
             $btn.prop('disabled', false).html(originalText);
           });
-        }, 600);
+        }, 500);
       });
     }
 
