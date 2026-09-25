@@ -1565,7 +1565,16 @@
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
+      var qrcodeUrl = 'qrcode_cardapio.png';
       var images = { logo: logoUrl, qrcode: QR_CODE_DATA_URL };
+      var loadedCount = 0;
+
+      function checkDone() {
+        loadedCount++;
+        if (loadedCount >= 2) {
+          callback(images);
+        }
+      }
 
       var logoImg = new Image();
       logoImg.crossOrigin = 'Anonymous';
@@ -1580,13 +1589,32 @@
         } catch (e) {
           console.warn('Erro ao converter logo para Base64:', e);
         }
-        callback(images);
+        checkDone();
       };
       logoImg.onerror = function () {
-        console.warn('Logo não carregou, usando URL direta.');
-        callback(images);
+        checkDone();
       };
       logoImg.src = logoUrl;
+
+      var qrImg = new Image();
+      qrImg.crossOrigin = 'Anonymous';
+      qrImg.onload = function () {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = qrImg.width;
+          canvas.height = qrImg.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(qrImg, 0, 0);
+          images.qrcode = canvas.toDataURL('image/png');
+        } catch (e) {
+          console.warn('Erro ao converter QR Code para Base64:', e);
+        }
+        checkDone();
+      };
+      qrImg.onerror = function () {
+        checkDone();
+      };
+      qrImg.src = qrcodeUrl;
     }
 
     function exportCatalogPDF() {
@@ -1632,7 +1660,7 @@
           '</td>' +
           '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
           '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 6px; padding: 5px 6px;">' +
-          '<img src="' + QR_CODE_DATA_URL + '" alt="QR Code" style="width: 65px; height: 65px; display: block; margin: 0 auto; image-rendering: pixelated;" />' +
+          '<img src="' + headerImages.qrcode + '" alt="QR Code" style="width: 65px; height: 65px; display: block; margin: 0 auto;" />' +
           '<span style="display: block; font-size: 7px; font-weight: 800; color: #3D2B1F; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.4px;">Cardápio Digital</span>' +
           '</div>' +
           '</td>' +
