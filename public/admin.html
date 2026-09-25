@@ -1561,7 +1561,7 @@
     }
 
     // --- GERADOR DE PDF ---
-    var QR_CODE_DATA_URL = 'data:image/png;base64,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';
+    var QR_CODE_DATA_URL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACn0lEQVR4nO2aQW7bMBBF35QEvJQAH8BH7wL1Cr3/p/QLGFAk1661TSI2A/0hI0uiT4/DY0e04k5+f4Z3/H3xL+P313/f6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv/5b1W/9Z/R3+/vWfN67mX/+tXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGq/1N1Tj9u+1Fz91z9uO1Hzd1z9eO2HzV3z9WP237U3D1XP277UXP3XP247UfN3XP147YfNXfP1Y/bftTcPVc/bvtRc/dc/bjtR83dc/Xjth81d8/Vj9t+1Nz9v+n3vF50P3/264Wp7vn73e3+fvvFzWd2t3247UfNvdf9+Nnt3sP9/K734bYfNfde960n73ffurudm+2e+9vt2+2e99tt3273vN9u+3a75/1227fbPe+3277d7nm/3fbtds/77bZvt3veb7d9u93zfrvt2+2e99tt3273vN9u+3a75/1227fbPe+3277d7nm/3fbfp/P279l+1Nz7q/3x91N9+N1/n+yq3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q/1vN7z//93v1i1f1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1/w1t/s961Y3X/1/6uO9n1Y/bftTcPVc/bvtRc/dc/bjtR83dc/Xjth81d8/Vj9t+1Nz92x4/+/l8X694Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94/Tv9Acgq73+J4qY0AAAAAElFTkSuQmCC';
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
@@ -1601,7 +1601,10 @@
           canvas.height = qrImg.height;
           var ctx = canvas.getContext('2d');
           ctx.drawImage(qrImg, 0, 0);
-          images.qrcode = canvas.toDataURL('image/png');
+          var res = canvas.toDataURL('image/png');
+          if (res && res.length > 100) {
+            images.qrcode = res;
+          }
         } catch (e) {}
         checkDone();
       };
@@ -1636,14 +1639,14 @@
           }
         });
 
-        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: \'Segoe UI\', Arial, sans-serif; padding: 20px 20px; box-sizing: border-box; width: 700px; margin: 0 auto;">';
+        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: 'Segoe UI', Arial, sans-serif; padding: 10px 15px; box-sizing: border-box; width: 700px; margin: 0 auto;">';
 
-        html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px;">' +
+        html += '<div class="html2pdf__page-break" style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px; page-break-inside: avoid !important; break-inside: avoid !important;">' +
           '<table style="width: 100%; border-collapse: collapse; margin-bottom: 8px; table-layout: fixed;">' +
           '<tr>' +
           '<td style="width: 110px; vertical-align: middle;"></td>' +
           '<td style="text-align: center; vertical-align: middle;">' +
-          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 120px; max-width: 380px; display: block; margin: 0 auto;" />' +
+          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 110px; max-width: 350px; display: block; margin: 0 auto;" />' +
           '</td>' +
           '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
           '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 8px; padding: 5px 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">' +
@@ -1671,7 +1674,7 @@
             var colHtml = '';
             colItems.forEach(function (it) {
               var formattedPrice = window.BonnaMenu.formatPrice(it.price);
-              colHtml += '<div style="margin-bottom: 7px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid;">' +
+              colHtml += '<div class="html2pdf__page-break" style="margin-bottom: 7px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid !important; break-inside: avoid !important;">' +
                 '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                 '<tr>' +
                 '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
@@ -1691,8 +1694,8 @@
 
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          html += '<div style="margin-bottom: 20px; page-break-inside: avoid;">' +
-            '<div style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px;">' +
+          html += '<div style="margin-bottom: 18px;">' +
+            '<div class="html2pdf__page-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid !important; break-inside: avoid !important;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
             '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
@@ -1710,7 +1713,7 @@
             '</div>';
         });
 
-        html += '<div style="margin-top: 25px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 9.5px; color: #777;">' +
+        html += '<div class="html2pdf__page-break" style="margin-top: 20px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 9.5px; color: #777; page-break-inside: avoid !important; break-inside: avoid !important;">' +
           'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
           '</div>';
         html += '</div>';
@@ -1728,11 +1731,12 @@
         document.body.appendChild(tempDiv);
 
         var opt = {
-          margin: [8, 8, 8, 8],
+          margin: [12, 10, 12, 10],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false, scrollX: 0, scrollY: 0 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
         };
 
         setTimeout(function () {
