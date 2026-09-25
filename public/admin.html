@@ -1561,7 +1561,7 @@
     }
 
     // --- GERADOR DE PDF ---
-    var QR_CODE_DATA_URL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAACn0lEQVR4nO2aQW7bMBBF35QEvJQAH8BH7wL1Cr3/p/QLGFAk1661TSI2A/0hI0uiT4/DY0e04k5+f4Z3/H3xL+P313/f6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv6hWv/5b1W/9Z/R3+/vWfN67mX/+tXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGqXvGq/1N1Tj9u+1Fz91z9uO1Hzd1z9eO2HzV3z9WP237U3D1XP277UXP3XP247UfN3XP147YfNXfP1Y/bftTcPVc/bvtRc/dc/bjtR83dc/Xjth81d8/Vj9t+1Nz9v+n3vF50P3/264Wp7vn73e3+fvvFzWd2t3247UfNvdf9+Nnt3sP9/K734bYfNfde960n73ffurudm+2e+9vt2+2e99tt3273vN9u+3a75/1227fbPe+3277d7nm/3fbtds/77bZvt3veb7d9u93zfrvt2+2e99tt3273vN9u+3a75/1227fbPe+3277d7nm/3fbfp/P279l+1Nz7q/3x91N9+N1/n+yq3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q3znNn6u3+r2q3+6q/1vN7z//93v1i1f1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1ilf1/w1t/s961Y3X/1/6uO9n1Y/bftTcPVc/bvtRc/dc/bjtR83dc/Xjth81d8/Vj9t+1Nz92x4/+/l8X694Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94Va94/Tv9Acgq73+J4qY0AAAAAElFTkSuQmCC';
+    var QR_CODE_DATA_URL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACU0lEQVR4nO2bQWrkMBBFX0WCLNUwB8hR3DeYI4U50tygfZQcIGAvG2z+LEqynU3oWSQWpLQwMv0WH4qSvn7LJh4c49OjJAQaaKBPMFsd19nMrqwGc8bMMu2n3InWQEmSJPnsjz0LyoI0AYMkn/WhNVCo3VPuxqC72XUHvN++WkCg/4/OuU5GM2N8Wb5bQKCfj3x8KcKGvxd/McgfynW61kAdldQKM16AYQLdAChSnXWi9aejq/s+XwmHKbnfsNcJXxPNLt1o/dlohrIdkOfV6qzcTbBwPDufrjVQpCm5Za++XYsvgu7qB39N0u10rYHWovj25I921KojSZqiWl2grVo+ktxg1LaSdCO1Wp6uNVCvjC99h8oUed2I3uoJrRuVN9MEULbdqkhu7b3LTtcaaLMVXpm6g7nf8AbbAsSoVh9oEsNbxuyymjStVl3GnDmkUX1oDRRPMKS3DJBk17kG8YwvC7qVpSOtPxjdPGGSxxjDthxu8VO19qfrDTQDa9b4+900vtxNoyWPDMWcFijv2ShdaA20ZRnUR8t308EYhifsBT0GTF6ossCgLYhqq2NUqwN0CwZrjNHOxB9nUa0+0JplqF2/8ARX0/4A4rzVCXpMcHdPuEeEbgzDE/aBZqCaQIPVxHwB5l+bMaStiadrDfToCYc9E2RvunAZnaLzs/y6E1DzjRur6TbH7c8O0dX2zcteW6ph128TEOinwzPb+ndkWbJgwSgTvnkN05rlNwtP1xroE8c7T8/y+03DhK+EZpekA/o1AgJ9cFh8ERRooF+C/gN7icW6VKEshAAAAABJRU5ErkJggg==';
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
@@ -1569,15 +1569,6 @@
 
       var logoImg = new Image();
       logoImg.crossOrigin = 'Anonymous';
-
-      var count = 0;
-      function checkDone() {
-        count++;
-        if (count >= 2) {
-          callback(images);
-        }
-      }
-
       logoImg.onload = function () {
         try {
           var canvas = document.createElement('canvas');
@@ -1586,31 +1577,16 @@
           var ctx = canvas.getContext('2d');
           ctx.drawImage(logoImg, 0, 0);
           images.logo = canvas.toDataURL('image/png');
-        } catch (e) {}
-        checkDone();
+        } catch (e) {
+          console.warn('Erro ao converter logo para Base64:', e);
+        }
+        callback(images);
       };
-      logoImg.onerror = function () { checkDone(); };
+      logoImg.onerror = function () {
+        console.warn('Logo não carregou, usando URL direta.');
+        callback(images);
+      };
       logoImg.src = logoUrl;
-
-      var qrImg = new Image();
-      qrImg.onload = function () {
-        checkDone();
-      };
-      qrImg.onerror = function () { checkDone(); };
-      qrImg.src = QR_CODE_DATA_URL;
-
-      if (qrImg.complete) checkDone();
-      if (logoImg.complete && logoImg.width > 0) {
-        try {
-          var canvas = document.createElement('canvas');
-          canvas.width = logoImg.width;
-          canvas.height = logoImg.height;
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(logoImg, 0, 0);
-          images.logo = canvas.toDataURL('image/png');
-        } catch (e) {}
-        checkDone();
-      }
     }
 
     function exportCatalogPDF() {
@@ -1640,11 +1616,8 @@
           }
         });
 
-        // Overlay modal para exibir a área de impressão de forma 100% visível na tela
-        var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 999999; overflow-y: auto; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; padding: 30px 10px;"></div>');
-        
-        var $statusMsg = $('<div style="color: #FFF; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-align: center;"><i class="fa fa-spinner fa-spin"></i> Gerando Cardápio Oficial PDF... Por favor, aguarde um instante.</div>');
-        $overlay.append($statusMsg);
+        // Container oculto para renderizar o HTML do PDF (não exibido na tela)
+        var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: -9999px; left: -9999px; width: 800px; opacity: 0; z-index: -1; pointer-events: none;"></div>');
 
         var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 15px 25px; box-sizing: border-box; width: 750px; margin: 0 auto; border-radius: 6px;">';
 
@@ -1669,8 +1642,8 @@
           '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
           '</div>';
 
-        // Categorias que forçam início de nova página limpa no topo
-        var forcePageBreakSlugs = { 'pao-queijo': true, 'tapiocas-cuscuz': true };
+        // Todas as categorias (exceto a primeira) começam em nova página
+        var catRenderIndex = 0;
 
         categoryOrder.forEach(function (catKey) {
           var catItems = items.filter(function (it) { return it && it.category === catKey; });
@@ -1705,11 +1678,14 @@
 
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          var isBreak = forcePageBreakSlugs[catKey];
-          var breakClass = isBreak ? 'pdf-force-page-break' : '';
-          var breakStyle = isBreak ? 'page-break-before: always; break-before: page; margin-top: 15px; padding-top: 5px;' : 'margin-bottom: 18px;';
+          // Primeira categoria renderizada não quebra página; as demais sim
+          var breakStyle = '';
+          if (catRenderIndex > 0) {
+            breakStyle = 'page-break-before: always; break-before: page; padding-top: 5px;';
+          }
+          catRenderIndex++;
 
-          html += '<div class="' + breakClass + '" style="' + breakStyle + ' margin-bottom: 18px;">' +
+          html += '<div style="' + breakStyle + ' margin-bottom: 18px;">' +
             '<div class="pdf-avoid-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
@@ -1742,7 +1718,7 @@
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css', 'legacy'], before: '.pdf-force-page-break', avoid: '.pdf-avoid-break' }
+          pagebreak: { mode: ['css'], avoid: '.pdf-avoid-break' }
         };
 
         setTimeout(function () {
