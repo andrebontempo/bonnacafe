@@ -55,7 +55,9 @@
             style="vertical-align: middle; margin-right: 6px;" />
           Bonna Café
         </a>
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#bs-navbar-collapse" aria-controls="bs-navbar-collapse" aria-expanded="false" aria-label="Alternar Navegação">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse"
+          data-bs-target="#bs-navbar-collapse" aria-controls="bs-navbar-collapse" aria-expanded="false"
+          aria-label="Alternar Navegação">
           <span class="sr-only">Alternar Navegação</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -83,7 +85,7 @@
       <h1>Cardápio Completo</h1>
       <hr style="margin-left: auto; margin-right: auto;" />
       <p style="color: var(--text-light-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto;">
-        Pesquise seus lanches favoritos por nome ou categoria. Atendimento exclusivo no Hangar 5 e Gilberto Salomão.
+        Pesquise seus lanches favoritos por nome ou categoria.
       </p>
     </div>
   </header>
@@ -198,13 +200,13 @@
       var onlyAvail = document.getElementById('available-toggle-switch');
       var onlyAvailable = onlyAvail ? onlyAvail.checked : false;
 
-      document.querySelectorAll('.menu-category-block').forEach(function(block) {
+      document.querySelectorAll('.menu-category-block').forEach(function (block) {
         var blockCat = block.getAttribute('data-category');
         var catMatch = (activeCat === 'all' || activeCat === blockCat || query.length > 0);
         if (!catMatch) { block.style.display = 'none'; return; }
 
         var visibleCount = 0;
-        block.querySelectorAll('.menu-item-card').forEach(function(card) {
+        block.querySelectorAll('.menu-item-card').forEach(function (card) {
           var isAvail = card.getAttribute('data-available') === 'true';
           var name = card.getAttribute('data-name') || '';
           var desc = card.getAttribute('data-desc') || '';
@@ -224,11 +226,11 @@
       var container = document.getElementById('filter-pills-container');
       if (!container || !categories || !categories.length) return;
 
-      var activeCat = (document.querySelector('.filter-btn.active[data-filter]') || {}).getAttribute ? 
-                      document.querySelector('.filter-btn.active[data-filter]').getAttribute('data-filter') : 'all';
+      var activeCat = (document.querySelector('.filter-btn.active[data-filter]') || {}).getAttribute ?
+        document.querySelector('.filter-btn.active[data-filter]').getAttribute('data-filter') : 'all';
 
       var html = '<button class="filter-btn ' + (activeCat === 'all' ? 'active' : '') + '" data-filter="all">Todas as Categorias</button>';
-      categories.forEach(function(cat) {
+      categories.forEach(function (cat) {
         if (cat.active !== false) {
           html += '<button class="filter-btn ' + (activeCat === cat.slug ? 'active' : '') + '" data-filter="' + cat.slug + '">' + (cat.name || cat.slug) + '</button>';
         }
@@ -236,9 +238,9 @@
       container.innerHTML = html;
 
       // Re-bind eventos nos novos botões
-      container.querySelectorAll('.filter-btn[data-filter]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          container.querySelectorAll('.filter-btn[data-filter]').forEach(function(b) { b.classList.remove('active'); });
+      container.querySelectorAll('.filter-btn[data-filter]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          container.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
           var searchInput = document.getElementById('menu-search-input');
           if (searchInput) searchInput.value = '';
@@ -257,7 +259,7 @@
 
       try {
         // Atualiza nomes de categoria
-        (categories || []).forEach(function(cat) {
+        (categories || []).forEach(function (cat) {
           if (cat && cat.slug && cat.name) CATEGORY_NAMES[cat.slug] = cat.name;
         });
 
@@ -270,7 +272,7 @@
           } else {
             var styleEl = document.getElementById('dynamic-bonna-prices') || document.createElement('style');
             styleEl.id = 'dynamic-bonna-prices';
-            styleEl.innerHTML = items.map(function(item) {
+            styleEl.innerHTML = items.map(function (item) {
               if (!item || !item.id) return '';
               var p = 'R$ ' + parseFloat(item.price || 0).toFixed(2).replace('.', ',');
               return '#_' + String(item.id).trim() + '::after { content: "' + p + '"; }';
@@ -283,7 +285,7 @@
 
         // Agrupa itens por categoria
         var grouped = {};
-        items.forEach(function(item) {
+        items.forEach(function (item) {
           if (!item) return;
           var cat = String(item.category || 'salgados').toLowerCase().trim();
           if (CATEGORY_MAP[cat]) cat = CATEGORY_MAP[cat];
@@ -294,14 +296,14 @@
         // Ordem das categorias
         var catOrder = [];
         if (categories && categories.length) {
-          categories.forEach(function(c) { if (c && c.active !== false) catOrder.push(c.slug); });
+          categories.forEach(function (c) { if (c && c.active !== false) catOrder.push(c.slug); });
         }
-        Object.keys(grouped).forEach(function(c) { if (catOrder.indexOf(c) === -1) catOrder.push(c); });
+        Object.keys(grouped).forEach(function (c) { if (catOrder.indexOf(c) === -1) catOrder.push(c); });
 
         // Limpa o estado de carregamento (spinner)
         if (container) container.innerHTML = '';
 
-        catOrder.forEach(function(cat) {
+        catOrder.forEach(function (cat) {
           var catItems = grouped[cat];
           if (!catItems || !catItems.length) return;
 
@@ -317,7 +319,7 @@
           var row = document.createElement('div');
           row.className = 'row';
 
-          catItems.forEach(function(item) {
+          catItems.forEach(function (item) {
             var isAvailable = (item.available !== false);
             var col = document.createElement('div');
             col.className = 'col-12';
@@ -334,12 +336,12 @@
 
             card.innerHTML =
               '<div class="menu-item-details">' +
-                '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
-                '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
+              '<div class="menu-item-name"><span class="item-code-badge">(' + (item.id || '') + ')</span> ' + (item.name || '') + '</div>' +
+              '<div class="menu-item-description">' + (item.desc || '') + '</div>' +
               '</div>' +
               '<div class="menu-item-right">' +
-                badge +
-                '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
+              badge +
+              '<div class="menu-item-price"><span id="_' + (item.id || '') + '"></span></div>' +
               '</div>';
 
             col.appendChild(card);
@@ -363,7 +365,7 @@
       return fetch(url + '?_=' + Date.now(), {
         method: 'GET',
         headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-      }).then(function(r) {
+      }).then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       });
@@ -374,7 +376,7 @@
       Promise.all([
         loadFromAPI('/api/categories'),
         loadFromAPI('/api/menu')
-      ]).then(function(results) {
+      ]).then(function (results) {
         var categories = results[0];
         var items = results[1];
 
@@ -389,20 +391,20 @@
             window.BonnaMenu._categoriesCache = categories;
             window.BonnaMenu.cache = items;
           }
-        } catch(e) {}
+        } catch (e) { }
 
         if (items.length > 0) {
           buildAndRenderMenu(categories, items);
         } else {
           showError('Cardápio vazio. Verifique o painel Admin.');
         }
-      }).catch(function(err) {
+      }).catch(function (err) {
         console.warn('Erro na API, tentando cache local:', err);
 
         // Fallback para localStorage
         var cats = [], itens = [];
-        try { cats = JSON.parse(localStorage.getItem('bonna_categories_v1') || '[]'); } catch(e) {}
-        try { itens = JSON.parse(localStorage.getItem('bonna_full_catalog_v4') || '[]'); } catch(e) {}
+        try { cats = JSON.parse(localStorage.getItem('bonna_categories_v1') || '[]'); } catch (e) { }
+        try { itens = JSON.parse(localStorage.getItem('bonna_full_catalog_v4') || '[]'); } catch (e) { }
 
         if (itens.length > 0) {
           buildAndRenderMenu(cats, itens);
@@ -423,7 +425,7 @@
     }
 
     /* ----- INIT ----- */
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       renderMenu();
 
       // Toggle switch
@@ -433,9 +435,9 @@
       // Live search
       var searchInput = document.getElementById('menu-search-input');
       if (searchInput) {
-        searchInput.addEventListener('input', function() {
+        searchInput.addEventListener('input', function () {
           if (this.value.length > 0) {
-            document.querySelectorAll('.filter-btn[data-filter]').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(function (b) { b.classList.remove('active'); });
             var all = document.querySelector('.filter-btn[data-filter="all"]');
             if (all) all.classList.add('active');
           }
