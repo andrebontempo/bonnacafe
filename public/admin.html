@@ -1616,34 +1616,34 @@
           }
         });
 
-        // Container oculto para renderizar o HTML do PDF (não exibido na tela)
-        var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: -9999px; left: -9999px; width: 800px; opacity: 0; z-index: -1; pointer-events: none;"></div>');
+        // Container visível mas discreto (necessário para html2canvas capturar tudo)
+        var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255,255,255,0.98); z-index: 999999; overflow-y: auto; display: flex; align-items: flex-start; justify-content: center; padding: 20px 0;"></div>');
+        
+        var $statusMsg = $('<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(61,43,31,0.95); color: #FFF; font-size: 16px; font-weight: 700; padding: 20px 35px; border-radius: 12px; z-index: 1000000; box-shadow: 0 8px 32px rgba(0,0,0,0.3);"><i class="fa fa-spinner fa-spin"></i> Gerando Cardápio PDF... Aguarde.</div>');
+        $overlay.append($statusMsg);
 
-        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 15px 25px; box-sizing: border-box; width: 750px; margin: 0 auto; border-radius: 6px;">';
+        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 10mm 12mm; box-sizing: border-box; width: 210mm; margin: 0 auto;">';
 
         // Cabeçalho Principal (Logo + QR Code + Títulos)
-        html += '<div class="pdf-avoid-break" style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid;">' +
-          '<table style="width: 100%; border-collapse: collapse; margin-bottom: 8px; table-layout: fixed;">' +
+        html += '<div style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 10px; margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid;">' +
+          '<table style="width: 100%; border-collapse: collapse; margin-bottom: 6px; table-layout: fixed;">' +
           '<tr>' +
-          '<td style="width: 110px; vertical-align: middle;"></td>' +
+          '<td style="width: 100px; vertical-align: middle;"></td>' +
           '<td style="text-align: center; vertical-align: middle;">' +
-          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 105px; max-width: 340px; display: block; margin: 0 auto;" />' +
+          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 90px; max-width: 300px; display: block; margin: 0 auto;" />' +
           '</td>' +
-          '<td style="width: 120px; text-align: right; vertical-align: middle;">' +
-          '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 8px; padding: 6px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">' +
-          '<img src="' + headerImages.qrcode + '" alt="QR Code Cardápio Digital" style="width: 75px; height: 75px; display: block; margin: 0 auto;" />' +
-          '<span style="display: block; font-size: 7.5px; font-weight: 800; color: #3D2B1F; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">Cardápio Digital</span>' +
+          '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
+          '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 6px; padding: 5px 6px;">' +
+          '<img src="' + QR_CODE_DATA_URL + '" alt="QR Code" style="width: 65px; height: 65px; display: block; margin: 0 auto; image-rendering: pixelated;" />' +
+          '<span style="display: block; font-size: 7px; font-weight: 800; color: #3D2B1F; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.4px;">Cardápio Digital</span>' +
           '</div>' +
           '</td>' +
           '</tr>' +
           '</table>' +
-          '<h1 style="margin: 0; color: #3D2B1F; font-size: 19px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial & Tabela de Preços</h1>' +
-          '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
-          '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
+          '<h1 style="margin: 0; color: #3D2B1F; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Cardápio Oficial &amp; Tabela de Preços</h1>' +
+          '<p style="margin: 3px 0 0 0; color: #6D4C41; font-size: 10px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
+          '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 9px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
           '</div>';
-
-        // Todas as categorias (exceto a primeira) começam em nova página
-        var catRenderIndex = 0;
 
         categoryOrder.forEach(function (catKey) {
           var catItems = items.filter(function (it) { return it && it.category === catKey; });
@@ -1658,38 +1658,34 @@
             var colHtml = '';
             colItems.forEach(function (it) {
               var formattedPrice = window.BonnaMenu.formatPrice(it.price);
-              colHtml += '<div class="pdf-avoid-break" style="margin-bottom: 7px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3px; page-break-inside: avoid; break-inside: avoid;">' +
+              colHtml += '<div style="margin-bottom: 5px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 2px; page-break-inside: avoid; break-inside: avoid;">' +
                 '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                 '<tr>' +
                 '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
-                '<span style="font-weight: 700; color: #C68B45 !important; font-size: 10.5px; margin-right: 4px;">' + (it.id || '') + '</span>' +
-                '<strong style="color: #2B1E16 !important; font-size: 11px;">' + (it.name || '') + '</strong>' +
+                '<span style="font-weight: 700; color: #C68B45; font-size: 9.5px; margin-right: 3px;">' + (it.id || '') + '</span>' +
+                '<strong style="color: #2B1E16; font-size: 10px;">' + (it.name || '') + '</strong>' +
                 '</td>' +
-                '<td style="text-align: right; vertical-align: bottom; width: 75px; white-space: nowrap;">' +
-                '<strong style="color: #2E7D32 !important; font-size: 11px; white-space: nowrap;">' + formattedPrice + '</strong>' +
+                '<td style="text-align: right; vertical-align: bottom; width: 70px; white-space: nowrap;">' +
+                '<strong style="color: #2E7D32; font-size: 10px; white-space: nowrap;">' + formattedPrice + '</strong>' +
                 '</td>' +
                 '</tr>' +
                 '</table>' +
-                (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 9px; color: #666; line-height: 1.2;">' + it.desc + '</p>' : '') +
+                (it.desc ? '<p style="margin: 1px 0 0 0; font-size: 8px; color: #777; line-height: 1.2;">' + it.desc + '</p>' : '') +
                 '</div>';
             });
             return colHtml;
           }
 
-          var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
+          var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFF; font-size: 9px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          // Primeira categoria renderizada não quebra página; as demais sim
-          var breakStyle = '';
-          if (catRenderIndex > 0) {
-            breakStyle = 'page-break-before: always; break-before: page; padding-top: 5px;';
-          }
-          catRenderIndex++;
-
-          html += '<div style="' + breakStyle + ' margin-bottom: 18px;">' +
-            '<div class="pdf-avoid-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
+          // Bloco da categoria: header + itens juntos
+          // page-break-inside NÃO é avoid no container (permite quebra dentro da categoria)
+          // page-break-inside: avoid no HEADER + break-after: avoid garante header não fica sozinho
+          html += '<div style="margin-bottom: 12px;">' +
+            '<div style="background: #3D2B1F; color: #FFF; padding: 5px 10px; border-radius: 3px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
-            '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
+            '<td style="text-align: left; vertical-align: middle; color: #FFF; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px;">' + catMeta.name + '</td>' +
             headerRangeHtml +
             '</tr>' +
             '</table>' +
@@ -1704,7 +1700,7 @@
             '</div>';
         });
 
-        html += '<div class="pdf-avoid-break" style="margin-top: 20px; border-top: 2px solid #C68B45; padding-top: 10px; text-align: center; font-size: 9.5px; color: #777; page-break-inside: avoid; break-inside: avoid;">' +
+        html += '<div style="margin-top: 14px; border-top: 2px solid #C68B45; padding-top: 8px; text-align: center; font-size: 8.5px; color: #888; page-break-inside: avoid; break-inside: avoid;">' +
           'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
           '</div>';
         html += '</div>';
@@ -1713,12 +1709,12 @@
         $('body').append($overlay);
 
         var opt = {
-          margin: [10, 8, 10, 8],
+          margin: [8, 6, 8, 6],
           filename: 'Cardapio_Oficial_Bonna_Cafe.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false },
+          html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false, scrollY: 0, windowWidth: document.getElementById('pdf-export-root').scrollWidth },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css'], avoid: '.pdf-avoid-break' }
+          pagebreak: { mode: ['css'], avoid: ['div[style*="page-break-inside: avoid"]'] }
         };
 
         setTimeout(function () {
@@ -1732,11 +1728,11 @@
             alert('Ocorreu um erro ao gerar o arquivo PDF.');
             $btn.prop('disabled', false).html(originalText);
           });
-        }, 500);
+        }, 800);
       });
     }
 
-    // --- INICIALIZAÇÃO ---
+        // --- INICIALIZAÇÃO ---
     $(document).ready(function () {
       loadAllData();
 
