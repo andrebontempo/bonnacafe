@@ -1646,7 +1646,7 @@
         var $statusMsg = $('<div style="color: #FFF; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-align: center;"><i class="fa fa-spinner fa-spin"></i> Gerando Cardápio Oficial PDF... Por favor, aguarde um instante.</div>');
         $overlay.append($statusMsg);
 
-        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 20px 25px; box-sizing: border-box; width: 750px; margin: 0 auto; border-radius: 6px;">';
+        var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 15px 25px; box-sizing: border-box; width: 750px; margin: 0 auto; border-radius: 6px;">';
 
         // Cabeçalho Principal (Logo + QR Code + Títulos)
         html += '<div class="pdf-avoid-break" style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid;">' +
@@ -1669,7 +1669,7 @@
           '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
           '</div>';
 
-        // Definir quais categorias iniciam no topo de uma nova página para manter o layout limpo
+        // Categorias que forçam início de nova página limpa no topo
         var forcePageBreakSlugs = { 'pao-queijo': true, 'tapiocas-cuscuz': true };
 
         categoryOrder.forEach(function (catKey) {
@@ -1705,9 +1705,11 @@
 
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          var pageBreakStyle = forcePageBreakSlugs[catKey] ? 'page-break-before: always; break-before: page;' : '';
+          var isBreak = forcePageBreakSlugs[catKey];
+          var breakClass = isBreak ? 'pdf-force-page-break' : '';
+          var breakStyle = isBreak ? 'page-break-before: always; break-before: page; margin-top: 15px; padding-top: 5px;' : 'margin-bottom: 18px;';
 
-          html += '<div style="margin-bottom: 18px; ' + pageBreakStyle + '">' +
+          html += '<div class="' + breakClass + '" style="' + breakStyle + ' margin-bottom: 18px;">' +
             '<div class="pdf-avoid-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
@@ -1740,10 +1742,9 @@
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true, allowTaint: true, logging: false },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak: { mode: ['css', 'legacy'], avoid: '.pdf-avoid-break' }
+          pagebreak: { mode: ['css', 'legacy'], before: '.pdf-force-page-break', avoid: '.pdf-avoid-break' }
         };
 
-        // Aguarda 500ms para garantir decodificação completa das imagens Base64 no DOM
         setTimeout(function () {
           var targetElem = document.getElementById('pdf-export-root');
           html2pdf().set(opt).from(targetElem).save().then(function () {
