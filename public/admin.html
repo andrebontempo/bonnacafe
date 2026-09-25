@@ -1565,10 +1565,12 @@
 
     function getHeaderImagesBase64(callback) {
       var logoUrl = 'img/logo_cardapio.png';
-      var qrUrl = 'qrcode_cardapio.png';
       var images = { logo: logoUrl, qrcode: QR_CODE_DATA_URL };
-      var count = 0;
 
+      var logoImg = new Image();
+      logoImg.crossOrigin = 'Anonymous';
+
+      var count = 0;
       function checkDone() {
         count++;
         if (count >= 2) {
@@ -1576,8 +1578,6 @@
         }
       }
 
-      var logoImg = new Image();
-      logoImg.crossOrigin = 'Anonymous';
       logoImg.onload = function () {
         try {
           var canvas = document.createElement('canvas');
@@ -1593,23 +1593,24 @@
       logoImg.src = logoUrl;
 
       var qrImg = new Image();
-      qrImg.crossOrigin = 'Anonymous';
       qrImg.onload = function () {
-        try {
-          var canvas = document.createElement('canvas');
-          canvas.width = qrImg.width;
-          canvas.height = qrImg.height;
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(qrImg, 0, 0);
-          var res = canvas.toDataURL('image/png');
-          if (res && res.length > 100) {
-            images.qrcode = res;
-          }
-        } catch (e) {}
         checkDone();
       };
       qrImg.onerror = function () { checkDone(); };
-      qrImg.src = qrUrl;
+      qrImg.src = QR_CODE_DATA_URL;
+
+      if (qrImg.complete) checkDone();
+      if (logoImg.complete && logoImg.width > 0) {
+        try {
+          var canvas = document.createElement('canvas');
+          canvas.width = logoImg.width;
+          canvas.height = logoImg.height;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(logoImg, 0, 0);
+          images.logo = canvas.toDataURL('image/png');
+        } catch (e) {}
+        checkDone();
+      }
     }
 
     function exportCatalogPDF() {
@@ -1639,24 +1640,25 @@
           }
         });
 
-        // Overlay modal para exibir temporariamente a área de impressão de forma 100% visível na tela
+        // Overlay modal para exibir a área de impressão de forma 100% visível na tela
         var $overlay = $('<div id="pdf-modal-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); z-index: 999999; overflow-y: auto; display: flex; align-items: center; justify-content: flex-start; flex-direction: column; padding: 30px 10px;"></div>');
         
-        var $statusMsg = $('<div style="color: #FFF; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-align: center;"><i class="fa fa-spinner fa-spin"></i> Gerando Cardápio Oficial PDF... Por favor, aguarde.</div>');
+        var $statusMsg = $('<div style="color: #FFF; font-size: 16px; font-weight: 700; margin-bottom: 15px; text-align: center;"><i class="fa fa-spinner fa-spin"></i> Gerando Cardápio Oficial PDF... Por favor, aguarde um instante.</div>');
         $overlay.append($statusMsg);
 
         var html = '<div id="pdf-export-root" style="background: #FFFFFF; color: #2B1E16; font-family: Segoe UI, Arial, sans-serif; padding: 20px 25px; box-sizing: border-box; width: 750px; margin: 0 auto; border-radius: 6px;">';
 
+        // Cabeçalho Principal (Logo + QR Code + Títulos)
         html += '<div class="pdf-avoid-break" style="text-align: center; border-bottom: 3px double #C68B45; padding-bottom: 12px; margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid;">' +
           '<table style="width: 100%; border-collapse: collapse; margin-bottom: 8px; table-layout: fixed;">' +
           '<tr>' +
           '<td style="width: 110px; vertical-align: middle;"></td>' +
           '<td style="text-align: center; vertical-align: middle;">' +
-          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 110px; max-width: 350px; display: block; margin: 0 auto;" />' +
+          '<img src="' + headerImages.logo + '" alt="Bonna Café" style="height: 105px; max-width: 340px; display: block; margin: 0 auto;" />' +
           '</td>' +
-          '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
-          '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 8px; padding: 5px 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">' +
-          '<img src="' + headerImages.qrcode + '" alt="QR Code Cardápio Digital" style="width: 80px; height: 80px; display: block; margin: 0 auto;" />' +
+          '<td style="width: 120px; text-align: right; vertical-align: middle;">' +
+          '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 8px; padding: 6px 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">' +
+          '<img src="' + headerImages.qrcode + '" alt="QR Code Cardápio Digital" style="width: 75px; height: 75px; display: block; margin: 0 auto;" />' +
           '<span style="display: block; font-size: 7.5px; font-weight: 800; color: #3D2B1F; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">Cardápio Digital</span>' +
           '</div>' +
           '</td>' +
@@ -1666,6 +1668,9 @@
           '<p style="margin: 4px 0 0 0; color: #6D4C41; font-size: 11px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
           '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
           '</div>';
+
+        // Definir quais categorias iniciam no topo de uma nova página para manter o layout limpo
+        var forcePageBreakSlugs = { 'pao-queijo': true, 'tapiocas-cuscuz': true };
 
         categoryOrder.forEach(function (catKey) {
           var catItems = items.filter(function (it) { return it && it.category === catKey; });
@@ -1700,8 +1705,10 @@
 
           var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFFFFF !important; font-size: 10px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
-          html += '<div style="margin-bottom: 18px;">' +
-            '<div class="pdf-avoid-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid;">' +
+          var pageBreakStyle = forcePageBreakSlugs[catKey] ? 'page-break-before: always; break-before: page;' : '';
+
+          html += '<div style="margin-bottom: 18px; ' + pageBreakStyle + '">' +
+            '<div class="pdf-avoid-break" style="background: #3D2B1F !important; color: #FFFFFF !important; padding: 6px 12px; border-radius: 4px; margin-bottom: 10px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
             '<td style="text-align: left; vertical-align: middle; color: #FFFFFF !important; font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
@@ -1736,6 +1743,7 @@
           pagebreak: { mode: ['css', 'legacy'], avoid: '.pdf-avoid-break' }
         };
 
+        // Aguarda 500ms para garantir decodificação completa das imagens Base64 no DOM
         setTimeout(function () {
           var targetElem = document.getElementById('pdf-export-root');
           html2pdf().set(opt).from(targetElem).save().then(function () {
@@ -1747,7 +1755,7 @@
             alert('Ocorreu um erro ao gerar o arquivo PDF.');
             $btn.prop('disabled', false).html(originalText);
           });
-        }, 300);
+        }, 500);
       });
     }
 
