@@ -235,8 +235,80 @@ function openAdminModal(e) {
 }
 window.openAdminModal = openAdminModal;
 
+// Renderização Dinâmica de Destaques da Landing Page (Combos & Bonna do Dia)
+function renderLandingHighlights(items) {
+  if (!items || !Array.isArray(items) || items.length === 0) return;
+
+  // 1. Combos Especiais (Categoria: 'combos')
+  var combos = items.filter(function (it) { return it && (it.category === 'combos'); });
+  combos.sort(function (a, b) {
+    var numA = parseInt(a.id || a.num || 0, 10);
+    var numB = parseInt(b.id || b.num || 0, 10);
+    if (numA !== numB) return numA - numB;
+    return String(a.id || '').localeCompare(String(b.id || ''));
+  });
+
+  var $combosContainer = $('#combos-container');
+  if ($combosContainer.length > 0 && combos.length > 0) {
+    $combosContainer.empty();
+    combos.forEach(function (item, idx) {
+      var priceFormatted = window.BonnaMenu ? window.BonnaMenu.formatPrice(item.price) : ('R$ ' + parseFloat(item.price || 0).toFixed(2).replace('.', ','));
+      var defaultImg = 'img/specials/' + ((idx % 6) + 1) + '.jpg';
+      var imgPath = item.img ? item.img : defaultImg;
+      var isAvail = (item.available !== false);
+
+      var cardHtml = '<div class="col-12 col-sm-6 col-md-4">' +
+        '<div class="card-item' + (!isAvail ? ' opacity-75' : '') + '">' +
+          '<img src="' + imgPath + '" alt="' + (item.name || 'Combo') + '" />' +
+          '<h3>' + (item.name || '') + ' <span class="price-tag">' + priceFormatted + '</span></h3>' +
+          '<p>' + (item.desc || '') + (!isAvail ? ' <br/><small class="text-danger" style="font-weight:700;">(Em falta hoje)</small>' : '') + '</p>' +
+        '</div>' +
+      '</div>';
+      $combosContainer.append(cardHtml);
+    });
+  }
+
+  // 2. Bonna do Dia (Categoria: 'bonnadodia')
+  var bonnadodia = items.filter(function (it) { return it && (it.category === 'bonnadodia'); });
+  bonnadodia.sort(function (a, b) {
+    var numA = parseInt(a.id || a.num || 0, 10);
+    var numB = parseInt(b.id || b.num || 0, 10);
+    if (numA !== numB) return numA - numB;
+    return String(a.id || '').localeCompare(String(b.id || ''));
+  });
+
+  var $bonnaContainer = $('#bonnadodia-container');
+  if ($bonnaContainer.length > 0 && bonnadodia.length > 0) {
+    $bonnaContainer.empty();
+    bonnadodia.forEach(function (item, idx) {
+      var priceFormatted = window.BonnaMenu ? window.BonnaMenu.formatPrice(item.price) : ('R$ ' + parseFloat(item.price || 0).toFixed(2).replace('.', ','));
+      var defaultImg = 'img/bonnadodia/' + ((idx % 5) + 1) + '.jpg';
+      var imgPath = item.img ? item.img : defaultImg;
+      var isAvail = (item.available !== false);
+
+      var currentColClass = (bonnadodia.length === 5)
+        ? ((idx < 2) ? 'col-12 col-sm-6 col-md-6' : 'col-12 col-sm-4 col-md-4')
+        : 'col-12 col-sm-6 col-md-4';
+
+      var cardHtml = '<div class="' + currentColClass + '">' +
+        '<div class="card-item' + (!isAvail ? ' opacity-75' : '') + '">' +
+          '<img src="' + imgPath + '" alt="' + (item.name || 'Bonna do Dia') + '" />' +
+          '<h3>' + (item.name || '') + ' <span class="price-tag">' + priceFormatted + '</span></h3>' +
+          '<p>' + (item.desc || '') + (!isAvail ? ' <br/><small class="text-danger" style="font-weight:700;">(Em falta hoje)</small>' : '') + '</p>' +
+        '</div>' +
+      '</div>';
+      $bonnaContainer.append(cardHtml);
+    });
+  }
+}
+
 $(document).ready(function () {
   main();
+  if (window.BonnaMenu && window.BonnaMenu.getItemsAsync) {
+    window.BonnaMenu.getItemsAsync(function (items) {
+      renderLandingHighlights(items);
+    });
+  }
 });
 
 // 7. PWA Service Worker Registration
