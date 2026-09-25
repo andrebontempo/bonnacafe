@@ -5,6 +5,7 @@ const url = require('url');
 
 const PORT = process.env.PORT || 3000;
 const DATA_DIR = path.join(__dirname, 'data');
+const PUBLIC_DIR = path.join(__dirname, 'public');
 const DB_FILE = path.join(DATA_DIR, 'bonnacafe_db.json');
 const MESSAGES_FILE = path.join(DATA_DIR, 'messages.json');
 const CATEGORIES_FILE = path.join(DATA_DIR, 'categories.json');
@@ -593,7 +594,12 @@ const server = http.createServer((req, res) => {
   // --- STATIC FILE SERVER ---
   let reqPath = pathname === '/' ? '/index.html' : pathname;
   let safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
-  let filePath = path.join(__dirname, safePath);
+  let filePath = path.join(PUBLIC_DIR, safePath);
+
+  if (!filePath.startsWith(PUBLIC_DIR)) {
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    return res.end('403 Forbidden');
+  }
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {

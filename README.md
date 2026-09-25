@@ -20,28 +20,20 @@ bonnacafe/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # Fluxo de CI/CD automático para deploy na VPS
-├── css/
-│   ├── bootstrap.css           # Framework Bootstrap
-│   ├── nivo-lightbox/          # Plugin de galeria lightbox para poesias
-│   ├── precos.css              # Estilos da tabela de preços
-│   └── style.css               # Design System principal & variáveis HSL/CSS
 ├── data/
 │   └── bonnacafe_db.json       # Banco de dados do catálogo e preços
-├── fonts/                      # Fontes locais e ícones (FontAwesome, Glyphicons)
-├── img/
-│   ├── bonnadodia/             # Imagens dos pratos Bonna do Dia (Seg-Sexta)
-│   ├── portfolio/              # Imagens das Poesias com Café
-│   ├── specials/               # Imagens dos Combos Especiais
-│   └── team/                   # Imagens da Equipe Bonna Café
-├── js/
-│   ├── main.js                 # Scripts de navegação e interações
-│   ├── precos.js               # Central de dados & cliente API BonnaMenu
-│   └── ...                     # Bibliotecas JS (jQuery, Bootstrap, Isotope)
-├── cardapio.html               # Página do Cardápio Completo com Busca & Filtros
-├── index.html                  # Landing Page principal
-├── obrigado.html               # Página de agradecimento pós-contato
-├── admin.html                  # Painel Admin (Gestão de Categorias, Itens, Preços e Mensagens)
-├── reajuste.html               # Redirecionamento legado para admin.html
+├── public/                     # Pasta pública servida pelo web server
+│   ├── css/                    # Estilos CSS (Bootstrap, Preços, Design System)
+│   ├── fonts/                  # Fontes locais e ícones (FontAwesome, Glyphicons)
+│   ├── img/                    # Imagens do site, pratos, poesias e logos
+│   ├── js/                     # Scripts frontend (jQuery, Bootstrap, precos.js, main.js)
+│   ├── admin.html              # Painel Admin (Gestão de Categorias, Itens, Preços e Mensagens)
+│   ├── cardapio.html           # Página do Cardápio Completo com Busca & Filtros
+│   ├── index.html              # Landing Page principal
+│   ├── obrigado.html           # Página de agradecimento pós-contato
+│   ├── reajuste.html           # Redirecionamento legado para admin.html
+│   ├── manifest.json           # Manifesto PWA
+│   └── sw.js                   # Service Worker PWA
 ├── server.js                   # Servidor Node.js nativo & REST API
 ├── Dockerfile                  # Containerização Node.js (Alpine Linux)
 ├── docker-compose.yml          # Orquestração do container na rede proxy
