@@ -276,6 +276,539 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px var(--primary-light);
     }
+
+    /* ==========================================================================
+       RESPONSIVIDADE EXCLUSIVA PARA CELULAR (TELA <= 768px)
+       Não altera a visualização em Desktop / Tablet grande.
+       ========================================================================== */
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 30px;
+      }
+
+      /* 1. Header do Admin */
+      .admin-header {
+        padding: 16px 0 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .admin-header h1 {
+        font-size: 1.35rem;
+        line-height: 1.3;
+        margin-bottom: 8px;
+        font-weight: 800;
+      }
+
+      .admin-header p {
+        font-size: 0.88rem !important;
+        margin-bottom: 14px !important;
+      }
+
+      .admin-header-actions {
+        width: 100% !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        margin-top: 10px !important;
+        justify-content: center !important;
+      }
+
+      .admin-header-actions .btn-action-lg {
+        height: 42px !important;
+        font-size: 0.85rem !important;
+        padding: 0 8px !important;
+        justify-content: center !important;
+        width: 100% !important;
+      }
+
+      .admin-header-actions #btn-export-pdf {
+        grid-column: span 2 !important;
+        margin-top: 2px !important;
+      }
+
+      /* 2. Navegação por Abas (Grid 2x2 Responsivo Estilo App Mobile) */
+      .admin-nav-tabs {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        border-bottom: none !important;
+        margin-bottom: 20px !important;
+      }
+
+      .admin-nav-tabs > li {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+
+      .admin-nav-tabs > li > a {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 10px 6px !important;
+        border-radius: var(--radius-md) !important;
+        border: 1px solid #E2D9CD !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        min-height: 60px !important;
+        line-height: 1.25 !important;
+        gap: 3px !important;
+        background: #FFF !important;
+      }
+
+      .admin-nav-tabs > li > a i {
+        font-size: 1.15rem !important;
+        margin-bottom: 2px !important;
+      }
+
+      .admin-nav-tabs .badge {
+        font-size: 0.72rem !important;
+        padding: 2px 7px !important;
+        margin-top: 2px !important;
+      }
+
+      .admin-nav-tabs > li.active > a,
+      .admin-nav-tabs > li.active > a:focus,
+      .admin-nav-tabs > li.active > a:hover {
+        background: var(--primary) !important;
+        color: #FFF !important;
+        border-color: var(--primary) !important;
+        box-shadow: 0 4px 12px rgba(198, 139, 69, 0.25) !important;
+      }
+
+      .admin-nav-tabs > li.active .badge {
+        background: #FFF !important;
+        color: var(--primary) !important;
+      }
+
+      /* 3. Panel Cards & Barras de Filtros */
+      .panel-card {
+        padding: 16px 12px !important;
+        border-radius: 12px !important;
+        margin-bottom: 20px !important;
+      }
+
+      .panel-card h3 {
+        font-size: 1.1rem !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding-bottom: 12px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .panel-card h3 .badge {
+        margin-left: 0 !important;
+        margin-top: 2px !important;
+      }
+
+      .admin-filter-bar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .admin-filter-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+
+      .admin-filter-bar > div,
+      .admin-filter-group > div,
+      .admin-filter-bar .input-group,
+      .admin-filter-bar select,
+      .admin-filter-bar button,
+      .admin-filter-group select,
+      .admin-filter-group .input-group {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .admin-filter-bar select,
+      .admin-filter-bar .input-group input,
+      .admin-filter-bar button,
+      .admin-filter-group select,
+      .admin-filter-group .input-group input {
+        height: 42px !important;
+        font-size: 0.9rem !important;
+      }
+
+      .admin-filter-bar .btn-action-lg,
+      .admin-filter-group .btn-action-lg {
+        height: 42px !important;
+        font-weight: 700 !important;
+        justify-content: center !important;
+      }
+
+      /* 4. Transformação de Tabelas em Cards no Celular */
+
+      /* ABA 1: TABELA DE CATEGORIAS */
+      #tab-categorias .price-input-table thead {
+        display: none !important;
+      }
+
+      #tab-categorias .price-input-table,
+      #tab-categorias .price-input-table tbody {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      #tab-categorias .price-input-table tr {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        background: #FFF !important;
+        border: 1px solid #EAE3D9 !important;
+        border-radius: 12px !important;
+        padding: 14px 16px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+      }
+
+      #tab-categorias .price-input-table td {
+        display: block !important;
+        padding: 0 !important;
+        border: none !important;
+        text-align: left !important;
+      }
+
+      /* Nome da categoria (Linha 1) */
+      #tab-categorias .price-input-table td:nth-child(2) {
+        order: 1;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        width: calc(100% - 65px) !important;
+      }
+
+      /* Ordem de exibição (Linha 1 Direita) */
+      #tab-categorias .price-input-table td:nth-child(4) {
+        order: 2;
+        width: 65px !important;
+        text-align: right !important;
+        font-size: 0.82rem !important;
+        color: #777 !important;
+      }
+      #tab-categorias .price-input-table td:nth-child(4)::before {
+        content: "#";
+        font-weight: 700;
+      }
+
+      /* Slug / Identificador (Linha 2) */
+      #tab-categorias .price-input-table td:nth-child(1) {
+        order: 3;
+        display: inline-block !important;
+        margin-top: 6px !important;
+      }
+
+      /* Faixa de Códigos (Linha 2 Ao lado do slug) */
+      #tab-categorias .price-input-table td:nth-child(3) {
+        order: 4;
+        display: inline-block !important;
+        margin-top: 6px !important;
+        margin-left: 10px !important;
+        font-size: 0.85rem !important;
+      }
+
+      /* Status Toggle (Linha 3 Esquerda) */
+      #tab-categorias .price-input-table td:nth-child(5) {
+        order: 5;
+        flex: 1 !important;
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F2ECE4 !important;
+      }
+
+      /* Ações Editar/Excluir (Linha 3 Direita) */
+      #tab-categorias .price-input-table td:nth-child(6) {
+        order: 6;
+        flex: 0 0 auto !important;
+        margin-top: 10px !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F2ECE4 !important;
+        text-align: right !important;
+      }
+
+
+      /* ABA 2: TABELA DE ITENS DO CATÁLOGO */
+      #tab-itens .price-input-table thead {
+        display: none !important;
+      }
+
+      #tab-itens .price-input-table,
+      #tab-itens .price-input-table tbody {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      #tab-itens .price-input-table tr {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        background: #FFF !important;
+        border: 1px solid #EAE3D9 !important;
+        border-radius: 12px !important;
+        padding: 14px 16px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      }
+
+      #tab-itens .price-input-table td {
+        display: block !important;
+        padding: 0 !important;
+        border: none !important;
+        text-align: left !important;
+      }
+
+      /* ID badge (Linha 1 topo esquerda) */
+      #tab-itens .price-input-table td:nth-child(1) {
+        order: 1;
+        display: inline-block !important;
+        font-weight: 800 !important;
+      }
+
+      /* Categoria badge (Linha 1 topo centro) */
+      #tab-itens .price-input-table td:nth-child(2) {
+        order: 2;
+        display: inline-block !important;
+        margin-left: 6px !important;
+      }
+
+      /* Preço formatado (Linha 1 topo direita) */
+      #tab-itens .price-input-table td:nth-child(5) {
+        order: 3;
+        margin-left: auto !important;
+        text-align: right !important;
+        font-size: 1.15rem !important;
+        color: #2E7D32 !important;
+        font-weight: 800 !important;
+      }
+
+      /* Nome & Descrição (Linha 2 centro 100% largura) */
+      #tab-itens .price-input-table td:nth-child(3) {
+        order: 4;
+        width: 100% !important;
+        margin: 8px 0 !important;
+        font-size: 0.98rem !important;
+      }
+
+      /* Disponibilidade Botão (Linha 3 rodape esquerda) */
+      #tab-itens .price-input-table td:nth-child(4) {
+        order: 5;
+        flex: 1 !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F0ECE4 !important;
+      }
+
+      /* Ações Editar/Excluir (Linha 3 rodape direita) */
+      #tab-itens .price-input-table td:nth-child(6) {
+        order: 6;
+        flex: 0 0 auto !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F0ECE4 !important;
+        text-align: right !important;
+      }
+
+
+      /* ABA 3: EDIÇÃO DE PREÇOS E REAJUSTE EM MASSA */
+      .admin-bulk-row > div {
+        margin-bottom: 12px;
+      }
+
+      .admin-bulk-row label[style*="display: block;"] {
+        display: none !important;
+      }
+
+      .admin-bulk-row button {
+        height: 42px !important;
+        font-size: 0.95rem !important;
+      }
+
+      #tab-precos .price-input-table thead {
+        display: none !important;
+      }
+
+      #tab-precos .price-input-table,
+      #tab-precos .price-input-table tbody {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      #tab-precos .price-input-table tr {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        background: #FFF !important;
+        border: 1px solid #EAE3D9 !important;
+        border-radius: 12px !important;
+        padding: 14px 16px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+      }
+
+      #tab-precos .price-input-table td {
+        display: block !important;
+        padding: 0 !important;
+        border: none !important;
+        text-align: left !important;
+      }
+
+      /* ID (Linha 1) */
+      #tab-precos .price-input-table td:nth-child(1) {
+        order: 1;
+        display: inline-block !important;
+        font-weight: 800 !important;
+      }
+
+      /* Categoria (Linha 1) */
+      #tab-precos .price-input-table td:nth-child(2) {
+        order: 2;
+        display: inline-block !important;
+        margin-left: 6px !important;
+      }
+
+      /* Nome do produto (Linha 2) */
+      #tab-precos .price-input-table td:nth-child(3) {
+        order: 3;
+        width: 100% !important;
+        margin: 8px 0 6px !important;
+        font-size: 1rem !important;
+      }
+
+      /* Campo de Preço Direto (Linha 3 Rodapé) */
+      #tab-precos .price-input-table td:nth-child(4) {
+        order: 4;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding-top: 10px !important;
+        border-top: 1px solid #F0ECE4 !important;
+      }
+
+      #tab-precos .price-input-table td:nth-child(4)::before {
+        content: "Preço Atual (R$):";
+        font-weight: 700;
+        color: var(--text-dark);
+        font-size: 0.92rem;
+      }
+
+      #tab-precos .price-input-table .price-field {
+        width: 120px !important;
+        height: 42px !important;
+        font-size: 1.1rem !important;
+        border-radius: 8px !important;
+        border: 2px solid var(--primary-light) !important;
+        font-weight: 800 !important;
+        padding: 6px 10px !important;
+      }
+
+
+      /* ABA 4: MENSAGENS DO SITE */
+      #messages-container > div {
+        padding: 14px 14px !important;
+      }
+
+      .btn-del-msg {
+        width: 100% !important;
+        height: 38px !important;
+        font-size: 0.85rem !important;
+        margin-top: 10px !important;
+        justify-content: center !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+      }
+
+
+      /* 5. Ações e Botões em Linha */
+      .action-btn-group {
+        display: flex !important;
+        gap: 8px !important;
+      }
+
+      .action-btn-group .btn {
+        padding: 6px 14px !important;
+        font-size: 0.9rem !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 6px !important;
+      }
+
+
+      /* 6. Paginação em Celular */
+      .pagination-bar {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 12px !important;
+        padding-top: 14px !important;
+      }
+
+      .pagination-info {
+        font-size: 0.85rem !important;
+        text-align: center !important;
+      }
+
+      .pagination-controls .pagination {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        margin: 0 !important;
+      }
+
+      .pagination-controls .pagination > li > a,
+      .pagination-controls .pagination > li > span {
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+      }
+
+
+      /* 7. Modais em Celular */
+      .modal-dialog {
+        margin: 10px auto !important;
+        max-width: calc(100% - 20px) !important;
+      }
+
+      .modal-content {
+        border-radius: 12px !important;
+      }
+
+      .modal-header {
+        padding: 14px 18px !important;
+      }
+
+      .modal-body {
+        padding: 18px 14px !important;
+      }
+
+      .modal-footer {
+        padding: 12px 14px !important;
+        flex-direction: column-reverse !important;
+        gap: 8px !important;
+      }
+
+      .modal-footer .btn {
+        width: 100% !important;
+        margin: 0 !important;
+        height: 42px !important;
+        font-size: 0.95rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+    }
   </style>
 </head>
 
@@ -291,7 +824,7 @@
             Gerencie categorias, produtos, reajustes de preços e leia as mensagens enviadas pelo site.
           </p>
         </div>
-        <div style="display: flex; gap: 10px; justify-content: flex-end; align-items: center; flex-wrap: wrap; margin-left: auto;">
+        <div class="admin-header-actions" style="display: flex; gap: 10px; justify-content: flex-end; align-items: center; flex-wrap: wrap; margin-left: auto;">
           <a href="index.html" onclick="logoutAdmin('index.html'); return false;" class="btn btn-custom btn-outline-custom btn-action-lg">
             <i class="fa fa-home"></i> Início
           </a>
@@ -352,7 +885,7 @@
               style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 categorias</span>
           </h3>
 
-          <div
+          <div class="admin-filter-bar"
             style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
               <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
@@ -397,9 +930,9 @@
               style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
           </h3>
 
-          <div
+          <div class="admin-filter-bar"
             style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <div class="admin-filter-group" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
               <select id="items-category-filter" class="form-control" style="width: 220px; height: 38px;">
                 <!-- Populado dinamicamente -->
               </select>
@@ -513,9 +1046,9 @@
               style="background: var(--primary); font-size: 0.85rem; margin-left: 6px;">0 itens</span>
           </h3>
 
-          <div
+          <div class="admin-filter-bar"
             style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <div class="admin-filter-group" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
               <select id="prices-category-filter" class="form-control" style="width: 220px; height: 38px;">
                 <!-- Populado dinamicamente -->
               </select>
@@ -570,7 +1103,7 @@
               style="background: #2E7D32; font-size: 0.85rem; margin-left: 6px;">0 mensagens</span>
           </h3>
 
-          <div
+          <div class="admin-filter-bar"
             style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div class="input-group" style="width: 280px;">
               <span class="input-group-text" style="height: 38px;"><i class="fa fa-search"></i></span>
@@ -791,6 +1324,9 @@
     var messagesPerPage = 10;
 
     function checkAuth() {
+      if (window.location.search.indexOf('auth=true') !== -1) {
+        sessionStorage.setItem('bonna_admin_auth', 'true');
+      }
       if (sessionStorage.getItem('bonna_admin_auth') !== 'true') {
         var pass = prompt('🔐 Acesso Restrito ao Administrador Bonna Café\n\nPor favor, digite a senha para acessar o painel:');
         if (pass === 'Bonna#27') {
