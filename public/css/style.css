@@ -294,9 +294,23 @@ hr {
   outline: none !important;
   box-shadow: none !important;
   cursor: pointer;
-  display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+/* Exibir hamburguer no celular/tablet (<= 991px) e ocultar no Desktop (>= 992px) */
+@media (max-width: 991px) {
+  .navbar-toggle,
+  .navbar-toggler {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-toggle,
+  .navbar-toggler {
+    display: none !important;
+  }
 }
 
 .navbar-toggle:focus,
