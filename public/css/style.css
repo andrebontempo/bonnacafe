@@ -271,17 +271,51 @@ hr {
 }
 
 
+/* Accessibility Helper: Esconde visualmente textos apenas para leitores de tela */
+.sr-only,
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .navbar-toggle,
 .navbar-toggler {
-  border: 1px solid rgba(198, 139, 69, 0.4);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 10px;
+  border: 1.5px solid var(--primary) !important;
+  border-radius: var(--radius-sm) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 6px 12px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.navbar-toggle:focus,
+.navbar-toggler:focus,
+.navbar-toggle:hover,
+.navbar-toggler:hover {
+  background: rgba(198, 139, 69, 0.2) !important;
+  border-color: var(--primary) !important;
 }
 
 .navbar-default .navbar-toggle .icon-bar,
-.navbar-default .navbar-toggler .icon-bar {
-  background-color: var(--primary);
+.navbar-default .navbar-toggler .icon-bar,
+.icon-bar {
+  display: block !important;
+  width: 22px !important;
+  height: 2px !important;
+  background-color: var(--primary) !important;
+  border-radius: 1px !important;
+  margin: 4px 0 !important;
 }
 
 /* Hero Header Section */
