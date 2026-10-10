@@ -2121,7 +2121,10 @@
           canvas.height = logoImg.height;
           var ctx = canvas.getContext('2d');
           ctx.drawImage(logoImg, 0, 0);
-          images.logo = canvas.toDataURL('image/png');
+          var logoData = canvas.toDataURL('image/png');
+          if (logoData && logoData.length > 100) {
+            images.logo = logoData;
+          }
         } catch (e) {
           console.warn('Erro ao converter logo para Base64:', e);
         }
@@ -2141,7 +2144,10 @@
           canvas.height = qrImg.height;
           var ctx = canvas.getContext('2d');
           ctx.drawImage(qrImg, 0, 0);
-          images.qrcode = canvas.toDataURL('image/png');
+          var qrData = canvas.toDataURL('image/png');
+          if (qrData && qrData.length > 100) {
+            images.qrcode = qrData;
+          }
         } catch (e) {
           console.warn('Erro ao converter QR Code para Base64:', e);
         }
@@ -2197,14 +2203,14 @@
           '<td style="width: 110px; text-align: right; vertical-align: middle;">' +
           '<div style="display: inline-block; text-align: center; background: #FAF6F0; border: 1.5px solid #C68B45; border-radius: 6px; padding: 5px 6px;">' +
           '<img src="' + headerImages.qrcode + '" alt="QR Code" style="width: 65px; height: 65px; display: block; margin: 0 auto;" />' +
-          '<span style="display: block; font-size: 7px; font-weight: 800; color: #3D2B1F; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.4px;">Cardápio Digital</span>' +
+          '<span style="display: block; font-size: 8.5px; font-weight: 800; color: #3D2B1F; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.4px;">Cardápio Digital</span>' +
           '</div>' +
           '</td>' +
           '</tr>' +
           '</table>' +
-          '<h1 style="margin: 0; color: #3D2B1F; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Cardápio Oficial &amp; Tabela de Preços</h1>' +
-          '<p style="margin: 3px 0 0 0; color: #6D4C41; font-size: 10px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
-          '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 9px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
+          '<h1 style="margin: 0; color: #3D2B1F; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px;">Cardápio Oficial &amp; Tabela de Preços</h1>' +
+          '<p style="margin: 3px 0 0 0; color: #6D4C41; font-size: 11.5px; font-weight: 600;">Ed. Hangar 5 - Lago Sul (ao lado do Gilberto Salomão) - Brasília/DF</p>' +
+          '<p style="margin: 2px 0 0 0; color: #8D6E63; font-size: 10.5px;">Atendimento: Segunda a Sexta-feira, das 07:30h às 18:00h</p>' +
           '</div>';
 
         categoryOrder.forEach(function (catKey) {
@@ -2220,34 +2226,34 @@
             var colHtml = '';
             colItems.forEach(function (it) {
               var formattedPrice = window.BonnaMenu.formatPrice(it.price);
-              colHtml += '<div style="margin-bottom: 5px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 2px; page-break-inside: avoid; break-inside: avoid;">' +
+              colHtml += '<div style="margin-bottom: 6px; border-bottom: 1px dotted #E0D5C7; padding-bottom: 3.5px; page-break-inside: avoid; break-inside: avoid;">' +
                 '<table style="width: 100%; border-collapse: collapse; table-layout: fixed;">' +
                 '<tr>' +
                 '<td style="vertical-align: bottom; overflow: hidden; text-overflow: ellipsis;">' +
-                '<span style="font-weight: 700; color: #C68B45; font-size: 9.5px; margin-right: 3px;">' + (it.id || '') + '</span>' +
-                '<strong style="color: #2B1E16; font-size: 10px;">' + (it.name || '') + '</strong>' +
+                '<span style="font-weight: 800; color: #C68B45; font-size: 12px; margin-right: 4px;">' + (it.id || '') + '</span>' +
+                '<strong style="color: #2B1E16; font-size: 12.5px; line-height: 1.25;">' + (it.name || '') + '</strong>' +
                 '</td>' +
-                '<td style="text-align: right; vertical-align: bottom; width: 70px; white-space: nowrap;">' +
-                '<strong style="color: #2E7D32; font-size: 10px; white-space: nowrap;">' + formattedPrice + '</strong>' +
+                '<td style="text-align: right; vertical-align: bottom; width: 82px; white-space: nowrap;">' +
+                '<strong style="color: #2E7D32; font-size: 12.5px; font-weight: 800; white-space: nowrap;">' + formattedPrice + '</strong>' +
                 '</td>' +
                 '</tr>' +
                 '</table>' +
-                (it.desc ? '<p style="margin: 1px 0 0 0; font-size: 8px; color: #777; line-height: 1.2;">' + it.desc + '</p>' : '') +
+                (it.desc ? '<p style="margin: 2px 0 0 0; font-size: 10px; color: #555; line-height: 1.3;">' + it.desc + '</p>' : '') +
                 '</div>';
             });
             return colHtml;
           }
 
-          var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFF; font-size: 9px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
+          var headerRangeHtml = catMeta.range ? '<td style="text-align: right; vertical-align: middle; color: #FFF; font-size: 11px; font-weight: 600; opacity: 0.9; white-space: nowrap;">Códigos: ' + catMeta.range + '</td>' : '';
 
           // Bloco da categoria: header + itens juntos como bloco indivisível
           // page-break-inside: avoid garante que a categoria não seja fatiada ao meio
           // se não couber no final da página, ela inteira vai para o topo da próxima página
           html += '<div style="margin-bottom: 14px; page-break-inside: avoid; break-inside: avoid;">' +
-            '<div style="background: #3D2B1F; color: #FFF; padding: 5px 10px; border-radius: 3px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
+            '<div style="background: #3D2B1F; color: #FFF; padding: 6px 12px; border-radius: 3px; margin-bottom: 6px; page-break-inside: avoid; break-inside: avoid; page-break-after: avoid; break-after: avoid;">' +
             '<table style="width: 100%; border-collapse: collapse;">' +
             '<tr>' +
-            '<td style="text-align: left; vertical-align: middle; color: #FFF; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px;">' + catMeta.name + '</td>' +
+            '<td style="text-align: left; vertical-align: middle; color: #FFF; font-weight: 700; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.8px;">' + catMeta.name + '</td>' +
             headerRangeHtml +
             '</tr>' +
             '</table>' +
@@ -2262,7 +2268,7 @@
             '</div>';
         });
 
-        html += '<div style="margin-top: 14px; border-top: 2px solid #C68B45; padding-top: 8px; text-align: center; font-size: 8.5px; color: #888; page-break-inside: avoid; break-inside: avoid;">' +
+        html += '<div style="margin-top: 14px; border-top: 2px solid #C68B45; padding-top: 8px; text-align: center; font-size: 10px; color: #777; page-break-inside: avoid; break-inside: avoid;">' +
           'Bonna Café &bull; Cardápio Oficial Gerado em ' + new Date().toLocaleDateString('pt-BR') + ' &bull; Valores sujeitos a alteração sem aviso prévio.' +
           '</div>';
         html += '</div>';
